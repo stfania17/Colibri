@@ -35,7 +35,7 @@ public class Dbproveedores extends proveedores{
                 prd.setNombre(rs.getString("nombre"));
                 prd.setTelefono(rs.getString("telefono"));
                 prd.setDireccion(rs.getString("direccion"));
-                prd.setFechanacimiento(rs.getDate("fechana"));
+                prd.setFechanacimiento(rs.getDate("fecha"));
                 lista.add(prd);
                 ////////////////////////////////////////
             }
@@ -58,8 +58,13 @@ public class Dbproveedores extends proveedores{
                 ////////////////////////////////////////
                 proveedores prd = new proveedores();
                 prd.setCodigo(rs.getString("codigo"));
-                prd.setNumero_cuenta(rs.getString("contraseña"));
+                prd.setNumero_cuenta(rs.getString("numero_cuenta"));
                 prd.setCedula(rs.getString("cedula"));
+                prd.setApellido(rs.getString("apellido"));
+                prd.setNombre(rs.getString("nombre"));
+                prd.setTelefono(rs.getString("telefono"));
+                prd.setDireccion(rs.getString("direccion"));
+                prd.setFechanacimiento(rs.getDate("fecha"));
                 lista.add(prd);
                 ////////////////////////////////////////
             }
@@ -84,13 +89,12 @@ public class Dbproveedores extends proveedores{
     }
     ////////////////////////////////////////////////////////////////////////////
     public boolean modificar(String identificador){
-        String nsql = "UPDATE proveedores set \"Numero_cuenta\"='"+getNumero_cuenta()+"',\"cedula\"='"+getCedula()+"'"
+        String nsql = "UPDATE proveedores set \"numero_cuenta\"='"+getNumero_cuenta()+"',\"cedula\"='"+getCedula()+"',\"apellido\"='"+getApellido()+"',\"nombre\"='"+getNombre()+"'"
+        +",\"telefono\"='"+getTelefono()+"',\"direccion\"='"+getDireccion()+"',\"fecha\"='"+getFechanacimiento()+"'"
          + "WHERE \"codigo\"='"+identificador+"'";
         if(connecta.noQuery(nsql)==null){
             return true;
-        }
-        else
-        {
+        } else {
             System.out.println("Error al editar");
             return false;
         }  

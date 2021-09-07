@@ -12,7 +12,7 @@ public class ControlFactura {
         fac.setTitle("PROVEEDORES");
         fac.setVisible(true);
     }
-    
+  
     public void iniciaControl() { 
         fac.getBut_consultar().addActionListener(l -> cargarDialogo(1));
         fac.getBut_modificar().addActionListener(l -> cargarDialogo(2));

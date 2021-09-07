@@ -68,7 +68,7 @@ public class Dbclientes extends clientes{
                 prd.setNombre(rs.getString("nombre"));
                 prd.setTelefono(rs.getString("telefono"));
                 prd.setDireccion(rs.getString("direccion"));
-                prd.setFechanacimiento(rs.getDate("fechana"));
+                prd.setFechanacimiento(rs.getDate("fecha"));
                 lista.add(prd);
                 ////////////////////////////////////////
             }
