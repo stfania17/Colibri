@@ -170,21 +170,27 @@ public class MenuCliente extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_productos.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lb_productos.setForeground(new java.awt.Color(51, 102, 0));
         lb_productos.setText("PRODUCTOS");
+        getContentPane().add(lb_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 81, -1, -1));
 
         but_carrito.setText("Carrito");
+        getContentPane().add(but_carrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 82, -1, -1));
 
         but_verduras.setText("verduras");
         but_verduras.setMaximumSize(new java.awt.Dimension(3149, 2009));
         but_verduras.setMinimumSize(new java.awt.Dimension(3149, 2009));
+        getContentPane().add(but_verduras, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 151, -1, -1));
 
         but_frutas.setText("frutas");
+        getContentPane().add(but_frutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 151, -1, -1));
 
         lb_titulo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_titulo.setText("PROYECTO COLIBRÍ");
+        getContentPane().add(lb_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 22, -1, -1));
 
         but_lacteos.setText("lacteos");
         but_lacteos.addActionListener(new java.awt.event.ActionListener() {
@@ -192,68 +198,16 @@ public class MenuCliente extends javax.swing.JFrame {
                 but_lacteosActionPerformed(evt);
             }
         });
+        getContentPane().add(but_lacteos, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 151, -1, -1));
 
         but_granos.setText("granos");
+        getContentPane().add(but_granos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 258, -1, -1));
 
         but_hierbas.setText("hierbas");
+        getContentPane().add(but_hierbas, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 258, -1, -1));
 
         but_otros.setText("otros");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(but_granos)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(but_verduras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lb_productos))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(but_carrito)
-                                .addGap(53, 53, 53))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(but_frutas)
-                                    .addComponent(but_hierbas))
-                                .addGap(109, 109, 109)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(but_otros)
-                                    .addComponent(but_lacteos))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lb_titulo)
-                .addGap(194, 194, 194))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lb_titulo)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(but_carrito)
-                    .addComponent(lb_productos))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(but_verduras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(but_frutas)
-                    .addComponent(but_lacteos))
-                .addGap(84, 84, 84)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(but_granos)
-                    .addComponent(but_hierbas)
-                    .addComponent(but_otros))
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
+        getContentPane().add(but_otros, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 258, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -234,14 +234,20 @@ public class Factura extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 63, 163, -1));
 
         but_eliminar.setText("Eliminar");
+        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 62, -1, -1));
 
         but_modificar.setText("Modificar");
+        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 62, -1, -1));
 
         but_consultar.setText("Consultar:");
+        getContentPane().add(but_consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 62, -1, -1));
 
         but_limpiar.setText("Limpiar");
+        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 103, -1, -1));
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -256,59 +262,14 @@ public class Factura extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_rep_proveedor);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 587, 230));
+
         but_atras.setText("Atras");
+        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 402, -1, -1));
 
         lb_tit_factura.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tit_factura.setText("FACTURA");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(but_consultar)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(but_limpiar)
-                                    .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(60, 60, 60)
-                                .addComponent(but_eliminar)
-                                .addGap(18, 18, 18)
-                                .addComponent(but_modificar))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(255, 255, 255)
-                        .addComponent(lb_tit_factura)))
-                .addContainerGap(56, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(but_atras)
-                .addGap(294, 294, 294))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lb_tit_factura)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(but_eliminar)
-                    .addComponent(but_modificar)
-                    .addComponent(but_consultar))
-                .addGap(18, 18, 18)
-                .addComponent(but_limpiar)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(but_atras)
-                .addGap(31, 31, 31))
-        );
+        getContentPane().add(lb_tit_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 21, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

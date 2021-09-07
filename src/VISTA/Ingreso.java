@@ -26,13 +26,16 @@ public class Ingreso extends javax.swing.JFrame {
         but_Salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_admin.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_admin.setText("ADMINISTRADOR");
+        getContentPane().add(lb_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 35, -1, -1));
 
         lb_reporte.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lb_reporte.setForeground(new java.awt.Color(0, 0, 204));
         lb_reporte.setText("REPORTES");
+        getContentPane().add(lb_reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 101, -1, -1));
 
         but_Rep_Proveedor.setText("REPORTES DE PROVEEDORES");
         but_Rep_Proveedor.addActionListener(new java.awt.event.ActionListener() {
@@ -40,6 +43,7 @@ public class Ingreso extends javax.swing.JFrame {
                 but_Rep_ProveedorActionPerformed(evt);
             }
         });
+        getContentPane().add(but_Rep_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 136, -1, -1));
 
         but_Rep_Producto.setText("REPORTES DE PRODUCTOS");
         but_Rep_Producto.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +51,7 @@ public class Ingreso extends javax.swing.JFrame {
                 but_Rep_ProductoActionPerformed(evt);
             }
         });
+        getContentPane().add(but_Rep_Producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 177, -1, -1));
 
         but_Rep_Factura.setText("REPORTES DE FACTURAS");
         but_Rep_Factura.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +59,7 @@ public class Ingreso extends javax.swing.JFrame {
                 but_Rep_FacturaActionPerformed(evt);
             }
         });
+        getContentPane().add(but_Rep_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 218, -1, -1));
 
         but_Rep_Cliente.setText("REPORTES DE CLIENTES");
         but_Rep_Cliente.addActionListener(new java.awt.event.ActionListener() {
@@ -61,50 +67,10 @@ public class Ingreso extends javax.swing.JFrame {
                 but_Rep_ClienteActionPerformed(evt);
             }
         });
+        getContentPane().add(but_Rep_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 259, -1, -1));
 
         but_Salir.setText("Salir");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(but_Salir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(lb_reporte))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(but_Rep_Producto)
-                            .addComponent(but_Rep_Proveedor)
-                            .addComponent(but_Rep_Factura)
-                            .addComponent(but_Rep_Cliente)
-                            .addComponent(lb_admin))))
-                .addContainerGap(172, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(lb_admin)
-                .addGap(43, 43, 43)
-                .addComponent(lb_reporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(but_Rep_Proveedor)
-                .addGap(18, 18, 18)
-                .addComponent(but_Rep_Producto)
-                .addGap(18, 18, 18)
-                .addComponent(but_Rep_Factura)
-                .addGap(18, 18, 18)
-                .addComponent(but_Rep_Cliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(but_Salir)
-                .addGap(30, 30, 30))
-        );
+        getContentPane().add(but_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 338, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
