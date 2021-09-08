@@ -1,6 +1,9 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 public class Ingreso extends javax.swing.JFrame {
 
  
@@ -26,6 +29,8 @@ public class Ingreso extends javax.swing.JFrame {
         but_Salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 385));
+        setPreferredSize(new java.awt.Dimension(500, 385));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_admin.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -51,7 +56,7 @@ public class Ingreso extends javax.swing.JFrame {
                 but_Rep_ProductoActionPerformed(evt);
             }
         });
-        getContentPane().add(but_Rep_Producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 177, -1, -1));
+        getContentPane().add(but_Rep_Producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 177, 180, -1));
 
         but_Rep_Factura.setText("REPORTES DE FACTURAS");
         but_Rep_Factura.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +64,7 @@ public class Ingreso extends javax.swing.JFrame {
                 but_Rep_FacturaActionPerformed(evt);
             }
         });
-        getContentPane().add(but_Rep_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 218, -1, -1));
+        getContentPane().add(but_Rep_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 218, 180, -1));
 
         but_Rep_Cliente.setText("REPORTES DE CLIENTES");
         but_Rep_Cliente.addActionListener(new java.awt.event.ActionListener() {
@@ -67,10 +72,10 @@ public class Ingreso extends javax.swing.JFrame {
                 but_Rep_ClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(but_Rep_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 259, -1, -1));
+        getContentPane().add(but_Rep_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 259, 180, -1));
 
         but_Salir.setText("Salir");
-        getContentPane().add(but_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 338, -1, -1));
+        getContentPane().add(but_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,9 +104,71 @@ public class Ingreso extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_but_Rep_ClienteActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public JButton getBut_Rep_Cliente() {
+        return but_Rep_Cliente;
+    }
+
+    public void setBut_Rep_Cliente(JButton but_Rep_Cliente) {
+        this.but_Rep_Cliente = but_Rep_Cliente;
+    }
+
+    public JButton getBut_Rep_Factura() {
+        return but_Rep_Factura;
+    }
+
+    public void setBut_Rep_Factura(JButton but_Rep_Factura) {
+        this.but_Rep_Factura = but_Rep_Factura;
+    }
+
+    public JButton getBut_Rep_Producto() {
+        return but_Rep_Producto;
+    }
+
+    public void setBut_Rep_Producto(JButton but_Rep_Producto) {
+        this.but_Rep_Producto = but_Rep_Producto;
+    }
+
+    public JButton getBut_Rep_Proveedor() {
+        return but_Rep_Proveedor;
+    }
+
+    public void setBut_Rep_Proveedor(JButton but_Rep_Proveedor) {
+        this.but_Rep_Proveedor = but_Rep_Proveedor;
+    }
+
+    public JButton getBut_Salir() {
+        return but_Salir;
+    }
+
+    public void setBut_Salir(JButton but_Salir) {
+        this.but_Salir = but_Salir;
+    }
+
+    public JLabel getLb_admin() {
+        return lb_admin;
+    }
+
+    public void setLb_admin(JLabel lb_admin) {
+        this.lb_admin = lb_admin;
+    }
+
+    public JLabel getLb_reporte() {
+        return lb_reporte;
+    }
+
+    public void setLb_reporte(JLabel lb_reporte) {
+        this.lb_reporte = lb_reporte;
+    }
+
+
+    
+    
+    
+    
+    
+    
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

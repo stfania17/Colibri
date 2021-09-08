@@ -12,9 +12,7 @@ public class ControlProveedor {
         prove.setTitle("PROVEEDORES");
         prove.setVisible(true);
     }
-    
-    
-    
+
     public void iniciaControl() { 
         prove.getBut_consultar().addActionListener(l -> cargarDialogo(1));
         prove.getBut_crear().addActionListener(l -> cargarDialogo(2));

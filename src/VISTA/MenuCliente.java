@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
 import javax.swing.JButton;
@@ -13,15 +9,10 @@ import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Usuario
- */
+
 public class MenuCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuCliente
-     */
+
     public MenuCliente() {
         initComponents();
     }
@@ -59,6 +50,7 @@ public class MenuCliente extends javax.swing.JFrame {
         but_granos = new javax.swing.JButton();
         but_hierbas = new javax.swing.JButton();
         but_otros = new javax.swing.JButton();
+        but_salir = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setText("COLIBRÍ");
@@ -170,6 +162,8 @@ public class MenuCliente extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(600, 425));
+        setPreferredSize(new java.awt.Dimension(600, 425));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_productos.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -178,15 +172,15 @@ public class MenuCliente extends javax.swing.JFrame {
         getContentPane().add(lb_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 81, -1, -1));
 
         but_carrito.setText("Carrito");
-        getContentPane().add(but_carrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 82, -1, -1));
+        getContentPane().add(but_carrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, -1));
 
         but_verduras.setText("verduras");
         but_verduras.setMaximumSize(new java.awt.Dimension(3149, 2009));
         but_verduras.setMinimumSize(new java.awt.Dimension(3149, 2009));
-        getContentPane().add(but_verduras, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 151, -1, -1));
+        getContentPane().add(but_verduras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, -1));
 
         but_frutas.setText("frutas");
-        getContentPane().add(but_frutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 151, -1, -1));
+        getContentPane().add(but_frutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 151, 70, -1));
 
         lb_titulo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_titulo.setText("PROYECTO COLIBRÍ");
@@ -198,16 +192,19 @@ public class MenuCliente extends javax.swing.JFrame {
                 but_lacteosActionPerformed(evt);
             }
         });
-        getContentPane().add(but_lacteos, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 151, -1, -1));
+        getContentPane().add(but_lacteos, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
 
         but_granos.setText("granos");
-        getContentPane().add(but_granos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 258, -1, -1));
+        getContentPane().add(but_granos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 258, 80, -1));
 
         but_hierbas.setText("hierbas");
         getContentPane().add(but_hierbas, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 258, -1, -1));
 
         but_otros.setText("otros");
-        getContentPane().add(but_otros, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 258, -1, -1));
+        getContentPane().add(but_otros, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 70, -1));
+
+        but_salir.setText("SALIR");
+        getContentPane().add(but_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -416,10 +413,15 @@ public class MenuCliente extends javax.swing.JFrame {
         this.lb_titulo = lb_titulo;
     }
 
-    
-    /**
-     * @param args the command line arguments
-     */
+    public JButton getBut_salir() {
+        return but_salir;
+    }
+
+    public void setBut_salir(JButton but_salir) {
+        this.but_salir = but_salir;
+    }
+
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -460,6 +462,7 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JButton but_hierbas;
     private javax.swing.JButton but_lacteos;
     private javax.swing.JButton but_otros;
+    private javax.swing.JButton but_salir;
     private javax.swing.JButton but_verduras;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -479,3 +482,4 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lb_titulo;
     // End of variables declaration//GEN-END:variables
 }
+// ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

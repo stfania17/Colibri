@@ -179,6 +179,8 @@ public class Producto extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(685, 460));
+        setPreferredSize(new java.awt.Dimension(685, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 63, 163, -1));
 

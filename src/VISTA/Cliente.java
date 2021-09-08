@@ -165,6 +165,8 @@ public class Cliente extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(650, 435));
+        setPreferredSize(new java.awt.Dimension(650, 435));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         but_eliminar.setText("Eliminar");
@@ -385,10 +387,7 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     
-    
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

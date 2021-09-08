@@ -4,8 +4,8 @@ package CONTROLADOR;
 import VISTA.MenuCliente;
  
 public class ControlMenu {
-    private MenuCliente menu;
-    int n;
+    public static MenuCliente menu = new MenuCliente();
+    static int n;
     
     public ControlMenu(MenuCliente menu) {
         this.menu = menu;
@@ -13,7 +13,7 @@ public class ControlMenu {
         menu.setVisible(true);
     }
     
-    public void iniciaControl() {
+    public static void iniciaControl() {
         //vista.getBtnRefrescar().addActionListener(l -> cargaLista());
         menu.getBut_verduras().addActionListener(l -> cargarDialogo(1));
         menu.getBut_frutas().addActionListener(l -> cargarDialogo(2));
@@ -21,9 +21,13 @@ public class ControlMenu {
         menu.getBut_granos().addActionListener(l -> cargarDialogo(4));
         menu.getBut_hierbas().addActionListener(l -> cargarDialogo(5));
         menu.getBut_otros().addActionListener(l -> cargarDialogo(6));
+        menu.getBut_salir().addActionListener(l->salir());
+        
     }
     
-    private void cargarDialogo(int origen) {
+    public static void mostrar(){menu.setVisible(true);}
+    public static void cerrar(){menu.setVisible(false);}
+    public static void cargarDialogo(int origen) {
         menu.getDlg_Productos().setSize(600, 600);
         menu.getDlg_Productos().setLocationRelativeTo(menu);
 
@@ -49,4 +53,10 @@ public class ControlMenu {
         menu.getDlg_Productos().setVisible(true);
 
     }
+    public static void salir(){
+        cerrar();
+        ControladorRecepcion.mostrar();
+        ControladorRecepcion.iniciarocntrol();
+    } 
 }
+// ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

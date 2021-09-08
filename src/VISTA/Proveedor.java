@@ -192,6 +192,8 @@ public class Proveedor extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(667, 438));
+        setPreferredSize(new java.awt.Dimension(667, 438));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         but_eliminar.setText("Eliminar");
