@@ -52,12 +52,13 @@ public class Producto extends javax.swing.JFrame {
         but_eliminar = new javax.swing.JButton();
         but_modificar = new javax.swing.JButton();
         but_crear = new javax.swing.JButton();
-        but_consultar = new javax.swing.JButton();
+        but_refrescar = new javax.swing.JButton();
         but_limpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_rep_proveedor = new javax.swing.JTable();
+        tbl_rep_producto = new javax.swing.JTable();
         but_atras = new javax.swing.JButton();
         lb_tit_producto = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         lb_tit_productos.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tit_productos.setForeground(new java.awt.Color(102, 0, 0));
@@ -182,13 +183,13 @@ public class Producto extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(685, 460));
         setPreferredSize(new java.awt.Dimension(685, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 63, 163, -1));
+        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 163, -1));
 
         but_eliminar.setText("Eliminar");
-        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 62, -1, -1));
+        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
 
         but_modificar.setText("Modificar");
-        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 62, -1, -1));
+        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
 
         but_crear.setText("Crear");
         but_crear.addActionListener(new java.awt.event.ActionListener() {
@@ -196,15 +197,15 @@ public class Producto extends javax.swing.JFrame {
                 but_crearActionPerformed(evt);
             }
         });
-        getContentPane().add(but_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 62, -1, -1));
+        getContentPane().add(but_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
 
-        but_consultar.setText("Consultar:");
-        getContentPane().add(but_consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 62, -1, -1));
+        but_refrescar.setText("Refrescar");
+        getContentPane().add(but_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
 
         but_limpiar.setText("Limpiar");
         getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 103, -1, -1));
 
-        tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_rep_producto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -215,7 +216,7 @@ public class Producto extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tbl_rep_proveedor);
+        jScrollPane1.setViewportView(tbl_rep_producto);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 587, 230));
 
@@ -225,6 +226,9 @@ public class Producto extends javax.swing.JFrame {
         lb_tit_producto.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tit_producto.setText("PRODUCTOS");
         getContentPane().add(lb_tit_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 21, -1, -1));
+
+        jLabel1.setText("BUSCAR:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -265,12 +269,12 @@ public class Producto extends javax.swing.JFrame {
         this.but_cancelar = but_cancelar;
     }
 
-    public JButton getBut_consultar() {
-        return but_consultar;
+    public JButton getBut_refrescar() {
+        return but_refrescar;
     }
 
-    public void setBut_consultar(JButton but_consultar) {
-        this.but_consultar = but_consultar;
+    public void setBut_refrescar(JButton but_refrescar) {
+        this.but_refrescar = but_refrescar;
     }
 
     public JButton getBut_crear() {
@@ -409,12 +413,12 @@ public class Producto extends javax.swing.JFrame {
         this.lb_tit_productos = lb_tit_productos;
     }
 
-    public JTable getTbl_rep_proveedor() {
-        return tbl_rep_proveedor;
+    public JTable getTbl_rep_producto() {
+        return tbl_rep_producto;
     }
 
-    public void setTbl_rep_proveedor(JTable tbl_rep_proveedor) {
-        this.tbl_rep_proveedor = tbl_rep_proveedor;
+    public void setTbl_rep_producto(JTable tbl_rep_producto) {
+        this.tbl_rep_producto = tbl_rep_producto;
     }
 
     public JTextField getTxt_Emaxima() {
@@ -528,12 +532,13 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JButton but_aceptar;
     private javax.swing.JButton but_atras;
     private javax.swing.JButton but_cancelar;
-    private javax.swing.JButton but_consultar;
     private javax.swing.JButton but_crear;
     private javax.swing.JButton but_eliminar;
     private javax.swing.JButton but_limpiar;
     private javax.swing.JButton but_modificar;
+    private javax.swing.JButton but_refrescar;
     private javax.swing.JComboBox<String> cbx_codProvee;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_Emaxima;
     private javax.swing.JLabel lb_Eminima;
@@ -546,7 +551,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel lb_provee;
     private javax.swing.JLabel lb_tit_producto;
     private javax.swing.JLabel lb_tit_productos;
-    private javax.swing.JTable tbl_rep_proveedor;
+    private javax.swing.JTable tbl_rep_producto;
     private javax.swing.JTextField txt_Emaxima;
     private javax.swing.JTextField txt_Eminima;
     private javax.swing.JTextField txt_categoria;

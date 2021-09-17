@@ -19,7 +19,7 @@ public class Dbproductos extends productos{
     public Dbproductos(){  
     }
     ////////////////////////////////////////////////////////////////////////////
-    public List<productos> mostrarDatos() {
+    public List<productos> listaProductos() {
 
         try {
             List<productos> lista = new ArrayList<productos>();
@@ -48,7 +48,7 @@ public class Dbproductos extends productos{
         }
     }
     ////////////////////////////////////////////////////////////////////////////
-    public List<productos> mostrarDatos(String ida) {
+    public List<productos> listaProducto(String ida) {
         String sql = "select * from productos where ";
             sql+=" UPPER(codigo) like UPPER('%"+ ida + "%') ";
             ResultSet rs = connecta.consulta(sql);
