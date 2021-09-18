@@ -102,8 +102,8 @@ public class Dbproductos extends productos{
         }  
     }
     ////////////////////////////////////////////////////////////////////////////
-    public boolean eliminar(String indentificar){
-        String nsql = "delete from productos where \"codigo\"='" +indentificar+ "'";
+    public boolean eliminar(String identificar){
+        String nsql = "delete from productos where \"codigo\"='" +identificar+ "'";
         if(connecta.noQuery(nsql)==null){
             return true;
         }else{

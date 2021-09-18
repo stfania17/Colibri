@@ -7,6 +7,7 @@ import CONECCIÓN_SQL.Dbproductos;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
  
 public class ControlProducto {
@@ -20,6 +21,7 @@ public class ControlProducto {
         this.modelo= modelo;
         produc.setTitle("PRODUCTOS");
         produc.setVisible(true);
+        cargaLista();
     }
     
     public void iniciaControl() { 
@@ -58,11 +60,11 @@ public class ControlProducto {
     public void DefinirMetodo(int n) {
 
         if (n == 1) {
-            //grabaPersona();
+            grabaProducto();
         } else if (n == 2) {
-            //editarPersona();
+            editarProducto();
         } else if (n == 3) {
-            //eliminarPersona();
+            EliminarProducto();
         }
 
     }
@@ -110,6 +112,92 @@ public class ControlProducto {
                 String.valueOf(p.getE_min()), String.valueOf(p.getE_max()), String.valueOf(p.getPrecio()), p.getCategoria(), p.getCod_proveedor()};
             tblModel.addRow(persona);
         });
+
+    }
+    
+    private void grabaProducto() {
+        String codigo = produc.getTxt_cod().getText();
+        String nombre = produc.getTxt_nombre().getText();
+        String descripcion = produc.getTxt_descripcion().getText();
+        String existencia = produc.getTxt_existencia().getText();
+        String e_minima = produc.getTxt_Eminima().getText();
+        String e_maxima = produc.getTxt_Emaxima().getText();
+        String precio = produc.getTxt_precio().getText();
+        String categoria = produc.getTxt_categoria().getText();
+        
+        Dbproductos producto = new Dbproductos();
+        
+        producto.setCodigo(codigo);
+        producto.setNombre(nombre);
+        producto.setDescripcion(descripcion);
+        producto.setExistencias(Integer.parseInt(existencia));
+        producto.setE_min(Integer.parseInt(e_minima));
+        producto.setE_max(Integer.parseInt(e_maxima));
+        producto.setPrecio(Double.parseDouble(precio));
+        producto.setCategoria(categoria);
+
+        if (producto.insertar()) {
+            JOptionPane.showMessageDialog(produc, "Producto Creado Satisfactoriamente");
+            produc.getDlg_Productos().setVisible(false);
+            cargaLista();
+        } else {
+            JOptionPane.showMessageDialog(produc, "ERROR");
+        }
+    }
+    
+    private void editarProducto() {
+        String codigo = produc.getTxt_cod().getText();
+        String nombre = produc.getTxt_nombre().getText();
+        String descripcion = produc.getTxt_descripcion().getText();
+        String existencia = produc.getTxt_existencia().getText();
+        String e_minima = produc.getTxt_Eminima().getText();
+        String e_maxima = produc.getTxt_Emaxima().getText();
+        String precio = produc.getTxt_precio().getText();
+        String categoria = produc.getTxt_categoria().getText();
+        
+        Dbproductos producto = new Dbproductos();
+        
+        producto.setCodigo(codigo);
+        producto.setNombre(nombre);
+        producto.setDescripcion(descripcion);
+        producto.setExistencias(Integer.parseInt(existencia));
+        producto.setE_min(Integer.parseInt(e_minima));
+        producto.setE_max(Integer.parseInt(e_maxima));
+        producto.setPrecio(Double.parseDouble(precio));
+        producto.setCategoria(categoria);
+
+        if (producto.modificar(codigo)) {
+            JOptionPane.showMessageDialog(produc, "Producto Creado Satisfactoriamente");
+            produc.getDlg_Productos().setVisible(false);
+            cargaLista();
+        } else {
+            JOptionPane.showMessageDialog(produc, "ERROR");
+        }
+    }
+    
+    private void EliminarProducto() {
+        Dbproductos producto = new Dbproductos();
+        int fila = produc.getTbl_rep_producto().getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(produc, "PRIMERO SELECCIONE UN PRODUCTO", "ESTEFANIA MUNOZ", 2);
+        } else {
+            int op = op = JOptionPane.showOptionDialog(null, "ESTA SEGIRO QUE DESEA ELIMNAR ESTE PRODUCTO", "ESTEFANIA MUNOZ",
+                    JOptionPane.YES_NO_CANCEL_OPTION, 2, null, new Object[]{"SI", "NO",}, null);
+            if (op == 0) {
+
+                String id = String.valueOf(produc.getTbl_rep_producto().getValueAt(fila, 0));
+                if (producto.eliminar(id)) {
+                    cargaLista("");
+                    JOptionPane.showMessageDialog(produc, "PRODUCTO ELIMINADO SATISFACTORIAMNETE", "ESTEFANIA MUNOZ", 1);
+                    produc.getDlg_Productos().setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(produc, "ERROR");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(produc, "ACCION CANCELADA", "ESTEFANIA MUNOZ", 1);
+            }
+        }
 
     }
 }
