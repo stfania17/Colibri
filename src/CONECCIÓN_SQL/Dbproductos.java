@@ -79,9 +79,10 @@ public class Dbproductos extends productos{
     ////////////////////////////////////////////////////////////////////////////
     public boolean insertar(){     
     String nsql="INSERT INTO productos(\n" +
-"	codigo, nombre, descripcion, exitencias, e_min, e_max, precio, categoria, cod_proveedor)\n" +
+"	codigo, nombre, descripcion, existencias, e_min, e_max, precio, categoria, cod_proveedor)\n" +
 "	VALUES ('"+getCodigo()+"','"+getNombre()+"','"+getDescripcion()+"','"+getExistencias()+"','"+getE_min()+"','"+getE_max()+"','"+getPrecio()+"','"+getCategoria()+"','"+getCod_proveedor()+"')";
-     if (connecta.noQuery(nsql) == null) {
+        System.out.println(getNombre()+" NOMBRE "+ getCod_proveedor());
+    if (connecta.noQuery(nsql) == null) {
             return true;
         } else {
             System.out.println("Error");

@@ -207,13 +207,13 @@ public class Producto extends javax.swing.JFrame {
 
         tbl_rep_producto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Nombre", "Descripcion", "Existencias", "E_min", "E_max", "Precio", "Cod_proveedor", "Categoria"
             }
         ));
         jScrollPane1.setViewportView(tbl_rep_producto);

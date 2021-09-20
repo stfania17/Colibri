@@ -12,17 +12,17 @@ import javax.swing.table.DefaultTableModel;
  
 public class ControlProducto {
     private Producto produc;
-    private productos modelo;
     private Dbproductos modelo1;
     int n;
 
-    public ControlProducto(Producto produc, productos modelo) {
+    public ControlProducto(Producto produc, Dbproductos modelo1) {
         this.produc = produc;
-        this.modelo= modelo;
+        this.modelo1= modelo1;
         produc.setTitle("PRODUCTOS");
         produc.setVisible(true);
         cargaLista();
     }
+    
     
     public void iniciaControl() { 
         KeyListener kl = new KeyListener() {
@@ -47,7 +47,7 @@ public class ControlProducto {
         produc.getBut_refrescar().addActionListener(l -> cargaLista());
         produc.getBut_crear().addActionListener(l -> cargarDialogo(1));
         produc.getBut_modificar().addActionListener(l -> cargarDialogo(2));
-        produc.getBut_eliminar().addActionListener(l -> cargarDialogo(3));
+        produc.getBut_eliminar().addActionListener(l -> EliminarProducto());
         
         boolean hola = true;
 
@@ -72,18 +72,18 @@ public class ControlProducto {
     private void cargarDialogo(int origen) {
         produc.getDlg_Productos().setSize(600, 600);
         produc.getDlg_Productos().setLocationRelativeTo(produc);
-
+        System.out.println("HOLA MUNDO");
         if (origen == 1) {
             produc.getDlg_Productos().setTitle("CREAR");
             n = 1;
+            System.out.println("HOLA MUNDO IF");
+            produc.getDlg_Productos().setVisible(true);
         } else if (origen == 2) {
             produc.getDlg_Productos().setTitle("MODIFICAR");
             n = 2;
-        } else {
-            produc.getDlg_Productos().setTitle("ELIMINAR");
-            n = 3;
-        }
-        produc.getDlg_Productos().setVisible(true);
+            produc.getDlg_Productos().setVisible(true);
+        } 
+        
 
     }
     
@@ -135,7 +135,8 @@ public class ControlProducto {
         producto.setE_max(Integer.parseInt(e_maxima));
         producto.setPrecio(Double.parseDouble(precio));
         producto.setCategoria(categoria);
-
+        producto.setCod_proveedor("1010");
+        
         if (producto.insertar()) {
             JOptionPane.showMessageDialog(produc, "Producto Creado Satisfactoriamente");
             produc.getDlg_Productos().setVisible(false);
