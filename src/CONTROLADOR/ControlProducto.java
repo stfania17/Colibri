@@ -92,7 +92,7 @@ public class ControlProducto {
         DefaultTableModel tblModel;//Estructura JTbable
         tblModel = (DefaultTableModel) produc.getTbl_rep_producto().getModel();
         tblModel.setNumRows(0);
-        List<productos> lista = modelo1.listaProductos();
+        List<productos> lista = modelo1.mostrarProductos();
         lista.stream().forEach(p -> {
             String[] persona = {p.getCodigo(), p.getNombre(), p.getDescripcion(), String.valueOf(p.getExistencias()),
                 String.valueOf(p.getE_min()), String.valueOf(p.getE_max()), String.valueOf(p.getPrecio()), p.getCategoria(), p.getCod_proveedor()};
@@ -106,7 +106,7 @@ public class ControlProducto {
         DefaultTableModel tblModel; //Estructura JTbable
         tblModel = (DefaultTableModel) produc.getTbl_rep_producto().getModel();
         tblModel.setNumRows(0);
-        List<productos> lista = modelo1.listaProducto(aguja);
+        List<productos> lista = modelo1.mostrarDatos(aguja);
         lista.stream().forEach(p -> {
             String[] persona = {p.getCodigo(), p.getNombre(), p.getDescripcion(), String.valueOf(p.getExistencias()),
                 String.valueOf(p.getE_min()), String.valueOf(p.getE_max()), String.valueOf(p.getPrecio()), p.getCategoria(), p.getCod_proveedor()};

@@ -2,10 +2,12 @@
 package VISTA;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -15,6 +17,8 @@ public class Proveedor extends javax.swing.JFrame {
 
     public Proveedor() {
         initComponents();
+        txt_id.addKeyListener(new VALIDACIONES.Numeros());
+        
     }
 
     /**
@@ -80,6 +84,47 @@ public class Proveedor extends javax.swing.JFrame {
         txt_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_idActionPerformed(evt);
+            }
+        });
+        txt_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_idKeyTyped(evt);
+            }
+        });
+
+        txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nombreKeyTyped(evt);
+            }
+        });
+
+        txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_apellidoKeyTyped(evt);
+            }
+        });
+
+        txt_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_telefonoKeyTyped(evt);
+            }
+        });
+
+        txt_direccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_direccionKeyTyped(evt);
+            }
+        });
+
+        txt_codifo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_codifoKeyTyped(evt);
+            }
+        });
+
+        txt_numcuenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_numcuentaKeyTyped(evt);
             }
         });
 
@@ -193,7 +238,6 @@ public class Proveedor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(667, 438));
-        setPreferredSize(new java.awt.Dimension(667, 438));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         but_eliminar.setText("Eliminar");
@@ -213,13 +257,13 @@ public class Proveedor extends javax.swing.JFrame {
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CEDULA", "APELLIDO", "NOMBRE", "TELEFONO", "DIRECCION", "EDAD", "CODIGO", "NUMERO CUENTA"
             }
         ));
         jScrollPane1.setViewportView(tbl_rep_proveedor);
@@ -241,6 +285,57 @@ public class Proveedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_idActionPerformed
 
+    private void txt_idKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_idKeyTyped
+        if(txt_id.getText().length()>=10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_idKeyTyped
+
+    private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
+        if(txt_nombre.getText().length()>=50){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_nombreKeyTyped
+
+    private void txt_apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apellidoKeyTyped
+        if(txt_apellido.getText().length()>=50){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_apellidoKeyTyped
+
+    private void txt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoKeyTyped
+        if(txt_telefono.getText().length()>=10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_telefonoKeyTyped
+
+    private void txt_direccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_direccionKeyTyped
+        if(txt_direccion.getText().length()>=50){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_direccionKeyTyped
+
+    private void txt_codifoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codifoKeyTyped
+        if(txt_codifo.getText().length()>=10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_codifoKeyTyped
+
+    private void txt_numcuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numcuentaKeyTyped
+        if(txt_numcuenta.getText().length()>=10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_numcuentaKeyTyped
+    
+    
+    
     public JDialog getDlg_Proveedor() {
         return Dlg_Proveedor;
     }
@@ -284,11 +379,9 @@ public class Proveedor extends javax.swing.JFrame {
     public JButton getBut_crear() {
         return but_crear;
     }
-
     public void setBut_crear(JButton but_crear) {
         this.but_crear = but_crear;
     }
-
     public JButton getBut_eliminar() {
         return but_eliminar;
     }
@@ -411,12 +504,12 @@ public class Proveedor extends javax.swing.JFrame {
         this.lb_tituloprov = lb_tituloprov;
     }
 
-    public JTable getTbl_rep_proveedor() {
+    public static JTable getTbl_rep_proveedor() {
         return tbl_rep_proveedor;
     }
 
-    public void setTbl_rep_proveedor(JTable tbl_rep_proveedor) {
-        this.tbl_rep_proveedor = tbl_rep_proveedor;
+    public static void setTbl_rep_proveedor(JTable tbl_rep_proveedor) {
+        Proveedor.tbl_rep_proveedor = tbl_rep_proveedor;
     }
 
     public JTextField getTxt_apellido() {
@@ -511,6 +604,13 @@ public class Proveedor extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -525,11 +625,11 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JButton but_aceptar;
     private javax.swing.JButton but_atras;
     private javax.swing.JButton but_cancelar;
-    private javax.swing.JButton but_consultar;
+    public javax.swing.JButton but_consultar;
     private javax.swing.JButton but_crear;
     private javax.swing.JButton but_eliminar;
     private javax.swing.JButton but_limpiar;
-    private javax.swing.JButton but_modificar;
+    public javax.swing.JButton but_modificar;
     private com.toedter.calendar.JDateChooser dtcFechaNacimiento;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_apellidos;
@@ -542,7 +642,7 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel lb_telefono;
     private javax.swing.JLabel lb_tit_proveedor;
     private javax.swing.JLabel lb_tituloprov;
-    private javax.swing.JTable tbl_rep_proveedor;
+    public static javax.swing.JTable tbl_rep_proveedor;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_codifo;
     private javax.swing.JTextField txt_consulta;

@@ -1,7 +1,11 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
+import MODELO.proveedores;
 import VISTA.Proveedor;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.List;
  
 public class ControlProveedor {
     private Proveedor prove;
@@ -12,8 +16,9 @@ public class ControlProveedor {
         prove.setTitle("PROVEEDORES");
         prove.setVisible(true);
     }
-
+   
     public void iniciaControl() { 
+        
         prove.getBut_consultar().addActionListener(l -> cargarDialogo(1));
         prove.getBut_crear().addActionListener(l -> cargarDialogo(2));
         prove.getBut_modificar().addActionListener(l -> cargarDialogo(3));
@@ -42,4 +47,3 @@ public class ControlProveedor {
     }
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
-//proyecto colibri

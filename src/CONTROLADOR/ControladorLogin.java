@@ -25,11 +25,15 @@ public class ControladorLogin {
     public static void mostrar(){log.setVisible(true);}
     public static void cerrar(){log.setVisible(false);}
     public static void regresar(){
+        log.getMusuario().setText("");
+        log.getMcontraseña().setText("");
         cerrar();
         ControladorPortada.mostrar();
         ControladorPortada.iniciarcontrol();
     }
     public static void ingresar(){
+        log.getMusuario().setText("");
+        log.getMcontraseña().setText("");
         cerrar();
         ControladorRecepcion.mostrar();
         ControladorRecepcion.iniciarocntrol();
@@ -40,7 +44,7 @@ public class ControladorLogin {
         
         if(usuario.equalsIgnoreCase("MASTER") && contraseña.equalsIgnoreCase("1234")){
             ingresar();
-        }else{
+        }else if(!usuario.equalsIgnoreCase("MASTER") || !contraseña.equalsIgnoreCase("1234")){
             JOptionPane.showMessageDialog(null,"INCORRECTO");
         }
     }
@@ -49,11 +53,5 @@ public class ControladorLogin {
         JOptionPane.showMessageDialog(null,""+contraseña);
     }
     ////////////////////////////////////////////////////////////////////////////
-    
-    
-    
-
-
-    
 }
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

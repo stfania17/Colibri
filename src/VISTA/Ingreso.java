@@ -81,9 +81,7 @@ public class Ingreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void but_Rep_ProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but_Rep_ProveedorActionPerformed
-        Proveedor prove = new Proveedor();
-        prove.setVisible(true);
-        this.setVisible(false);
+
     }//GEN-LAST:event_but_Rep_ProveedorActionPerformed
 
     private void but_Rep_ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but_Rep_ProductoActionPerformed

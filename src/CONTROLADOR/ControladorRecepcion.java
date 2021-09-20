@@ -2,6 +2,7 @@
 package CONTROLADOR;
  
 import VISTA.Recepcion;
+import javax.swing.JOptionPane;
 
 
 public class ControladorRecepcion {
@@ -9,15 +10,18 @@ public class ControladorRecepcion {
     ////////////////////////////////////////////////////////////////////////////
     public ControladorRecepcion(Recepcion rec) {
         this.rec = rec;
-        rec.setTitle("MENU DE PRODUCTOS");
+        rec.setTitle("RECEPCION");
         rec.setVisible(true);
         iniciarocntrol();
     }
     ////////////////////////////////////////////////////////////////////////////
     public static void iniciarocntrol(){
-        rec.getCajeros().addActionListener(l->ingresacajero());
+        rec.getCajeros().addActionListener(l->abrirlogin());
         rec.getClientes().addActionListener(l->ingresacliente());
         rec.getSalir().addActionListener(l->regresar());
+        rec.getIngresar().addActionListener(l->comprovar());
+        rec.getSalir1().addActionListener(l->cerralogin());
+        rec.getVisual().addActionListener(l->vercontraseña());
     }
     ////////////////////////////////////////////////////////////////////////////
     public static void mostrar(){rec.setVisible(true);}
@@ -34,8 +38,35 @@ public class ControladorRecepcion {
     }
     public static void ingresacliente(){
         cerrar();
+        
         ControlMenu.mostrar();
         ControlMenu.iniciaControl();
+    }
+    public static void abrirlogin(){
+      rec.getjDialog1().setSize(500,300);
+      rec.getjDialog1().setVisible(true);  
+    }
+    public static void vercontraseña(){
+        JOptionPane.showMessageDialog(null,rec.getMcontraseña().getText());
+    }
+    public static void cerralogin(){
+        rec.getjDialog1().setVisible(false);
+        rec.getMcontraseña().setText("");
+        rec.getMusuario().setText("");
+    }
+    public static void comprovar(){
+        
+        String usuario=rec.getMusuario().getText();
+        String contraseña=rec.getMcontraseña().getText();
+        
+        if(usuario.equalsIgnoreCase("MASTER") && contraseña.equalsIgnoreCase("1234")){
+            rec.getjDialog1().setVisible(false);  
+            rec.getMcontraseña().setText("");
+            rec.getMusuario().setText("");
+            ingresacajero();
+        }else if(!usuario.equalsIgnoreCase("MASTER") || !contraseña.equalsIgnoreCase("1234")){
+            JOptionPane.showMessageDialog(null,"INCORRECTO");
+        }
     }
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

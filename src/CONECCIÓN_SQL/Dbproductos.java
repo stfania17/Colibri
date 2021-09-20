@@ -19,7 +19,7 @@ public class Dbproductos extends productos{
     public Dbproductos(){  
     }
     ////////////////////////////////////////////////////////////////////////////
-    public List<productos> listaProductos() {
+    public List<productos> mostrarProductos() {
 
         try {
             List<productos> lista = new ArrayList<productos>();
@@ -48,7 +48,7 @@ public class Dbproductos extends productos{
         }
     }
     ////////////////////////////////////////////////////////////////////////////
-    public List<productos> listaProducto(String ida) {
+    public List<productos> mostrarDatos(String ida) {
         String sql = "select * from productos where ";
             sql+=" UPPER(codigo) like UPPER('%"+ ida + "%') ";
             ResultSet rs = connecta.consulta(sql);
@@ -112,8 +112,5 @@ public class Dbproductos extends productos{
         }
     }
     ////////////////////////////////////////////////////////////////////////////
-
-
-
 }
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
