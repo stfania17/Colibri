@@ -36,6 +36,13 @@ public class ControladorRecepcion {
         ControladorCajero.mostrar();
         ControladorCajero.iniciarocntrol();
     }
+    
+    /*public void ingresocajero(){
+        cerrar();
+        ControladorCajero cajero=new ControladorCajero();
+        cajero.iniciarControl();
+    }*/
+    
     public static void ingresacliente(){
         cerrar();
         
