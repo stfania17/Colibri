@@ -28,7 +28,9 @@ public class ControlMenu{
     public static ArrayList<productos> pra = new ArrayList<productos>();  
     ///////////////////////  VARIABLES    ////////////////////////////////////// 
     public static DefaultTableModel modelo;
-    public static int n;
+    public static int n=0;
+    public static int posicion=0;
+    public static int posicion2=0;
     /////////////////////    CLASES   //////////////////////////////////////////  
     public static provionalarrryamenu proda= new provionalarrryamenu();
     ///////////////////  VISTAS   ////////////////////////////////////////////// 
@@ -135,12 +137,7 @@ public class ControlMenu{
         /////////////////////////////////
         menu.getDejarlo().addActionListener(l->dejarproducto());  /// DEJAR UN PRODUCTO
     }
-    ////////////////////////////////////////////////////////////////////////////
-    public static void realizarfactura(){
-        cerrar();
-        ControladorCreadorFactura ccf = new ControladorCreadorFactura(ff);
-    }
-    ////////////////////////////////////////////////////////////////////////////  FUNCIONES MENU PRINCIPAL
+    ////////////////  MOSTRAR  MENU SEGUN SU CONTENIDO /////////////////////////
     public static void cargarDialogo(int origen) {
         menu.getDlg_Productos().setSize(650, 600);
         menu.getDlg_Productos().setLocationRelativeTo(menu);
@@ -172,57 +169,8 @@ public class ControlMenu{
         }
         menu.getDlg_Productos().setVisible(true);
     }
-//    public static void menulacteos(){
-//        cargarDialogo(3);
-//        mostrartabla("Lacteos");
-//    }   
-//    public static void menufrutas(){
-//        cargarDialogo(2);  
-//    }
-//    public static void menuotros(){
-//        
-////    }
-    ///  AGREGADOR PROVICIONAL QUE YA NO TIENE UTILIDAD
-//    public static void ingresarproducto(){
-////        int lero=0;        
-////        Random r = new Random();
-////        lero=r.nextInt(000000001+999999999)+999999999;
-////        ////////////////////////////////////////////////////////////////////////
-////        dbu.setCodigo(Integer.toString(lero));
-////        dbu.setNombre("Quesillo Maduro");
-////        dbu.setDescripcion("Quesillo sin sal natural, hecho a partir de leche cuajada");
-////        dbu.setExistencias(10);
-////        dbu.setE_min(10);
-////        dbu.setE_max(3);
-////        dbu.setPrecio(1.50);
-////        dbu.setCategoria("Lacteos");
-////        dbu.setCod_proveedor("1494314255");
-////        /////////////////////////////////////////
-////        if(dbu.insertar()){
-////        JOptionPane.showMessageDialog(null,"Datos Guardados.");
-////        }else{
-////        JOptionPane.showMessageDialog(null,"Error al Guardar.");
-////        }    
-//    }
-    public static void menuprovicional(){ 
-        for (int i = 0; i < per.size(); i++) {
-        proda= new provionalarrryamenu(per.get(i).getCodigo(),per.get(i).getNombre(),per.get(i).getCod_proveedor(),per.get(i).getDescripcion(), per.get(i).getCategoria(),per.get(i).getPrecio(),per.get(i).getExistencias());
-        provicionali.add(proda);        
-     }}
     ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////  FUNCIONES MENU PRODUCTOS
-    public static void mostrartabla(String clase){
-    modelo=(DefaultTableModel)menu.jTable1.getModel();
-    modelo.setRowCount(0);
-     
-    for (int i = 0; i < provicionali.size(); i++) {
-    if(provicionali.get(i).getCategoria().equalsIgnoreCase(clase)){
-    String nombres=traernombre(provicionali.get(i).getCod_proveedor());
-    Object [] fila ={provicionali.get(i).getCodigo() ,provicionali.get(i).getNombre() , nombres ,provicionali.get(i).getDescripcion() ,provicionali.get(i).getPrecio() ,provicionali.get(i).getExistencias()};
-    modelo.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
-    }}} 
-    ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
+    ////////////////   TRAER   NOMBRE DE PERSONA PARA GRAFICAR EN TABLA ////////
     public static String traernombre(String codigopro){
     String name="";
     for (int j = 0; j < prov.size(); j++) {
@@ -232,6 +180,8 @@ public class ControlMenu{
     }
     return name;
     } 
+    //////////////////  NOS  TRAE EL CODIGO  DEL PROVEEDOR /////////////////////
+    ////   PAR TRAER EL CODIGO  DEL PROVEEDOR     //////////////////////////////
     public static String codigoproveedor(String codigopro){
     String name="";
     for (int j = 0; j < per.size(); j++) {
@@ -241,6 +191,7 @@ public class ControlMenu{
     }
     return name;
     }
+    //////////////  BUSCA LOS DATOS DEL PROVEEDOR PARA MOSTRAR    //////////////
     public static void traerdatosproveedor(String codigopro){
         for (int j = 0; j < prov.size(); j++) {
         if(prov.get(j).getCodigo().equalsIgnoreCase(codigoproveedor(codigopro))){
@@ -252,7 +203,7 @@ public class ControlMenu{
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////   FUNCIONES CARRITO
+    //////////////    ABRIR   LA  INTERAZ DE CARRITO  //////////////////////////
     public static void abrircarrito(){
         menu.getCARRITO().setSize(600, 600);
         menu.getCARRITO().setLocationRelativeTo(menu);
@@ -260,7 +211,8 @@ public class ControlMenu{
         menu.getCARRITO().setVisible(true);
         cargartablacarrito();
     }
-    public static void cargarcarrito(){
+    //////////////  CARGAR INFO   AL   CARRITO    //////////////////////////////
+    public static void cargarcarrito(){ /// ARREGLAR
         int seleciona = menu.jTable1.getSelectedRow();
         int canta=Integer.parseInt(menu.getjSpinner1().getValue().toString());
         
@@ -269,59 +221,62 @@ public class ControlMenu{
         String cedu = (String) menu.jTable1.getValueAt(menu.jTable1.getSelectedRow(), 0);
         traerdatosproveedor(cedu);
         
-        for(int i = 0; i < provicionali.size(); i++) {  ///PARA BUSCAR LA INFORMACIÓN.
-        if(provicionali.get(i).getCodigo().equalsIgnoreCase(cedu)){ //ENCONTRAMOS LO QUE BUSCAMOS
-        if(canta<=provicionali.get(i).getExistencias()){                        //PARA EXISTENCIA INSUFICIENTES
+        posicion=buscarposicionenprovicional(cedu);   /// PARA BUSCAR LA INFORMACIÓN.
+                                                            /// ENCONTRAMOS LO QUE BUSCAMOS
+        if(canta<=provicionali.get(posicion).getExistencias()){  //PARA EXISTENCIA INSUFICIENTES
+        //// AHORA EN CASO DE QUE EL CARRO ESTE VACIÓ O NO
+        
+        //////// EN CASO DE QUE YA HAYA ALGO EN EL CARRRITO, BUSCAREMOS SI YA TENEMOS UN PRODUCTO ////
+        if(mateo.size()>0){   
             
-            if(mateo.size()>0){
-                             
-            for (int j = 0; j < mateo.size(); j++) {
-                //BUSCAREMOS EN LA TABLA
-                
-                if(mateo.get(j).getCodigo().equalsIgnoreCase(cedu)){ //SI YA HAY UN PRODUCTO EN TABLA
-                //cantiad 
-                mermarcantidad(cedu,canta);
-                int anter=mateo.get(j).getCantidad();                  // SACAR LA CANTIDAD ANTERIOR
-                canta=canta+anter;
+        posicion2=buscarposicionencarrito(cedu);     
+        //BUSCAREMOS EN LA TABLA
+        if(buscarsiexiste(cedu)==true){        
+        //SI YA HAY UN PRODUCTO EN TABLA
+        //cantiad 
+        mermarcantidad(cedu,canta);
+        int anter=mateo.get(posicion2).getCantidad();                  // SACAR LA CANTIDAD ANTERIOR
+        canta=canta+anter;
 
-                //precio         
-                double ante=mateo.get(j).getPrecio_final();
-                double pf=canta*provicionali.get(i).getPrecio();
+            //precio         
+            double pf=canta*provicionali.get(posicion).getPrecio();
 
-                ///actualizar
-                mateo.get(j).setCantidad(canta);
-                mateo.get(j).setPrecio_final(pf);
-                JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO a lo que ya habia"); 
-                //// AGREGADO A LO QUE YA HABIA, AHORA VEREMOS UNO NUEVO  //////
-                }else if(!mateo.get(j).getCodigo().equalsIgnoreCase(cedu)){ 
-                /////para los recien llegados
-                double pf=canta*provicionali.get(i).getPrecio();
-                
-                carrito julia= new carrito(cedu,provicionali.get(i).getNombre(),canta,provicionali.get(i).getPrecio(), pf);  
-                mateo.add(julia);
+            ///actualizar
+            mateo.get(posicion2).setCantidad(canta);
+            mateo.get(posicion2).setPrecio_final(pf);
+            JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO a lo que ya habia"); 
+            //// AGREGADO A LO QUE YA HABIA, AHORA VEREMOS UNO NUEVO  //////
+            }else if(buscarsiexiste(cedu)==false){ 
+            /////para los recien llegados
+            double pf=canta*provicionali.get(posicion).getPrecio();
 
-                mermarcantidad(cedu,canta);
-                JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO primer vez");     
-                }
-                    
+            carrito julia= new carrito(cedu,provicionali.get(posicion).getNombre(),canta,provicionali.get(posicion).getPrecio(), pf);  
+            mateo.add(julia);
+
+            mermarcantidad(cedu,canta);
+            JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO primer vez");     
             }
-            
             }else{
-            double pf=canta*provicionali.get(i).getPrecio();
+            double pf=canta*provicionali.get(posicion).getPrecio();
                 
-                carrito julia= new carrito(cedu,provicionali.get(i).getNombre(),canta,provicionali.get(i).getPrecio(), pf);  
-                mateo.add(julia);
+            carrito julia= new carrito(cedu,provicionali.get(posicion).getNombre(),canta,provicionali.get(posicion).getPrecio(), pf);  
+            mateo.add(julia);
 
-                mermarcantidad(cedu,canta);
-                JOptionPane.showMessageDialog(null,"PRODUCTO AGREGADO primero origen");     
+            mermarcantidad(cedu,canta);
+            JOptionPane.showMessageDialog(null,"PRODUCTO AGREGADO primero origen");     
             }
                 
             
            
         }else{
-            JOptionPane.showMessageDialog(null,"EXISTENCIAS INSUFICIENTES.");  
+        JOptionPane.showMessageDialog(null,"EXISTENCIAS INSUFICIENTES.");  
         }          
-    }}}} 
+        
+        }else{
+        JOptionPane.showMessageDialog(null,"SELECIONES ALGO.");      
+        }
+    } 
+    ///////////////////    CARGAR   TABLA   AL CARRITO  ////////////////////////
     public static void cargartablacarrito(){
     modelo=(DefaultTableModel)menu.tablacarrito.getModel();
     modelo.setRowCount(0);
@@ -330,13 +285,7 @@ public class ControlMenu{
     Object [] fila ={mateo.get(i).getCodigo() ,mateo.get(i).getNombre() , mateo.get(i).getCantidad(),mateo.get(i).getPrecio(),mateo.get(i).getPrecio_final()};
     modelo.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
     }}  
-    public static void mermarcantidad(String codigo, int cantidad){
-        for (int i = 0; provicionali.size()>i; i++) {
-            if(provicionali.get(i).getCodigo().equalsIgnoreCase(codigo)){
-                n=provicionali.get(i).getExistencias();
-                n=n-cantidad;
-                provicionali.get(i).setExistencias(n);
-    }}}
+    ///////////////////   DEJAR  UN PRODUCTO ///////////////////////////////////
     public static void dejarproducto(){
         int seleciona = menu.tablacarrito.getSelectedRow();
         int canta=Integer.parseInt(menu.getContador().getValue().toString());
@@ -381,9 +330,39 @@ public class ControlMenu{
         JOptionPane.showMessageDialog(null,"SELECIONE ALGO.");      
         }  
     }
+    ////////////////////////   MERMAR CANTIDAD   DE DISPONIBILIDAD  ////////////
+    public static void mermarcantidad(String codigo, int cantidad){
+        for (int i = 0; provicionali.size()>i; i++) {
+            if(provicionali.get(i).getCodigo().equalsIgnoreCase(codigo)){
+                n=provicionali.get(i).getExistencias();
+                n=n-cantidad;
+                provicionali.get(i).setExistencias(n);
+    }}}
+    ////////////////////////////////////////////////////////////////////////////
+    //public static
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
+    ///////////////    ESTA   VAINA    CREA  UN MENU PROVICIONAL ///////////////
+    ///// ¿Porqué?  NO PREGUNTE Y OBSERVER. ////////////////////////////////////
+    public static void menuprovicional(){ 
+        for (int i = 0; i < per.size(); i++) {
+        proda= new provionalarrryamenu(per.get(i).getCodigo(),per.get(i).getNombre(),per.get(i).getCod_proveedor(),per.get(i).getDescripcion(), per.get(i).getCategoria(),per.get(i).getPrecio(),per.get(i).getExistencias());
+        provicionali.add(proda);        
+     }}
     ////////////////////////////////////////////////////////////////////////////
+    /////////////////////   CREA SEGÚN CATEGORIA    ////////////////////////////
+    public static void mostrartabla(String clase){
+    modelo=(DefaultTableModel)menu.jTable1.getModel();
+    modelo.setRowCount(0);
+     
+    for (int i = 0; i < provicionali.size(); i++) {
+    if(provicionali.get(i).getCategoria().equalsIgnoreCase(clase)){
+    String nombres=traernombre(provicionali.get(i).getCod_proveedor());
+    Object [] fila ={provicionali.get(i).getCodigo() ,provicionali.get(i).getNombre() , nombres ,provicionali.get(i).getDescripcion() ,provicionali.get(i).getPrecio() ,provicionali.get(i).getExistencias()};
+    modelo.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
+    }}} 
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////  MOTRAR  TABLA POR MEDIO DE  INICIAL  /////////////////////////
     public static void mostrartablaporvisor(String codei){
     modelo=(DefaultTableModel)menu.jTable1.getModel();
     modelo.setRowCount(0);
@@ -396,7 +375,58 @@ public class ControlMenu{
     }
     }
     ////////////////////////////////////////////////////////////////////////////
-
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////    BUSCAMOS   POSICION DE PRODUCTO  ///////////////////////
+    public static int buscarposicionenprovicional(String codigo){
+        int posicion=0;
+        
+        for (int i = 0; i < provicionali.size(); i++) {
+            if(provicionali.get(i).getCodigo().equalsIgnoreCase(codigo)){
+            posicion=i;        
+            }
+        }
+        return posicion;
+    }
+    ////////////////    BUSCAMOS   POSICION DE PRODUCTO  ///////////////////////
+    public static int buscarposicionencarrito(String codigo){
+        int posicion=0;
+        
+        for (int i = 0; i < mateo.size(); i++) {
+            if(mateo.get(i).getCodigo().equalsIgnoreCase(codigo)){
+            posicion=i;        
+            }
+        }
+        return posicion;
+    }
+    ///////////////////   BUSCAMO SI ES QUE EXISTE EN EL ARRAYLIST  ////////////
+    public static boolean buscarsiexiste(String codigo){
+        int se=0;
+        
+        for (int i = 0; i < mateo.size(); i++) {
+            if(mateo.get(i).getCodigo().equalsIgnoreCase(codigo)){
+            JOptionPane.showMessageDialog(null, "TE ENCONTRE EN CARRITO");
+            se=se+1;     
+            JOptionPane.showMessageDialog(null, "HOLA "+se);
+            }else{
+            se=se+0;  
+            JOptionPane.showMessageDialog(null, "HOLA 0"+se);
+            }
+        }
+        
+        if(se>0){
+        return true;    
+        }else{
+        return false;    
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    /////////////////   VAMOS    A   LA   FACTURA///////////////////////////////
+    public static void realizarfactura(){
+        cerrar();
+        ControladorCreadorFactura ccf = new ControladorCreadorFactura(ff);
+    }
+    ////////////////////////////////////////////////////////////////////////////
  
 
 }
