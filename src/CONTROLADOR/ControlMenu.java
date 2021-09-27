@@ -60,7 +60,7 @@ public class ControlMenu{
         mateo.clear();
         ControladorRecepcion ccr = new ControladorRecepcion(rec);
     } 
-    ////////////////////////////////////////////////////////////////////////////   CEREBRO DEL LUGAR
+    ////////////////////////////////  CEREBRO DEL LUGAR   //////////////////////   
     public static void iniciaControl() {
         MouseListener ky = new MouseListener() {
             @Override

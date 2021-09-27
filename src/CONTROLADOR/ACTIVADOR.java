@@ -1,7 +1,6 @@
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
- 
 import CONECCIÓN_SQL.Dbproductos;
 import CONECCIÓN_SQL.Dbproveedores;
 import CONECCIÓN_SQL.SQConnect;
