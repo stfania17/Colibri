@@ -40,7 +40,6 @@ public class MenuCliente extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        AGREGAR = new javax.swing.JButton();
         SALIR = new javax.swing.JButton();
         CARRITO = new javax.swing.JDialog();
         CANCELAR = new javax.swing.JButton();
@@ -49,6 +48,7 @@ public class MenuCliente extends javax.swing.JFrame {
         tablacarrito = new javax.swing.JTable();
         titulo = new javax.swing.JLabel();
         dejarlo = new javax.swing.JButton();
+        contador = new javax.swing.JSpinner();
         lb_productos = new javax.swing.JLabel();
         but_carrito = new javax.swing.JButton();
         but_verduras = new javax.swing.JButton();
@@ -106,19 +106,16 @@ public class MenuCliente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        AGREGAR.setText("AGREGAR");
-        AGREGAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AGREGARActionPerformed(evt);
-            }
-        });
-
         SALIR.setText("SALIR");
 
         javax.swing.GroupLayout Dlg_ProductosLayout = new javax.swing.GroupLayout(Dlg_Productos.getContentPane());
         Dlg_Productos.getContentPane().setLayout(Dlg_ProductosLayout);
         Dlg_ProductosLayout.setHorizontalGroup(
             Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dlg_ProductosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SALIR)
+                .addGap(20, 20, 20))
             .addGroup(Dlg_ProductosLayout.createSequentialGroup()
                 .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Dlg_ProductosLayout.createSequentialGroup()
@@ -137,26 +134,19 @@ public class MenuCliente extends javax.swing.JFrame {
                             .addComponent(jLabel1)))
                     .addGroup(Dlg_ProductosLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Dlg_ProductosLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(59, 59, 59)
+                        .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(32, Short.MAX_VALUE))
-            .addGroup(Dlg_ProductosLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addGap(59, 59, 59)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AGREGAR)
-                .addGap(86, 86, 86))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dlg_ProductosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SALIR)
-                .addGap(20, 20, 20))
         );
         Dlg_ProductosLayout.setVerticalGroup(
             Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,12 +161,10 @@ public class MenuCliente extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addGap(56, 56, 56)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(AGREGAR))
+                .addGap(27, 27, 27)
+                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Dlg_ProductosLayout.createSequentialGroup()
@@ -196,6 +184,11 @@ public class MenuCliente extends javax.swing.JFrame {
 
         CANCELAR.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         CANCELAR.setText("CANCELAR");
+        CANCELAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CANCELARActionPerformed(evt);
+            }
+        });
 
         comprar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         comprar.setText("EFECTUAR  COMPRA");
@@ -219,11 +212,16 @@ public class MenuCliente extends javax.swing.JFrame {
 
         dejarlo.setText("DEJAR PRODUCTO");
 
+        contador.setModel(new javax.swing.SpinnerNumberModel(1, 1, 500, 1));
+
         javax.swing.GroupLayout CARRITOLayout = new javax.swing.GroupLayout(CARRITO.getContentPane());
         CARRITO.getContentPane().setLayout(CARRITOLayout);
         CARRITOLayout.setHorizontalGroup(
             CARRITOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+            .addGroup(CARRITOLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(contador, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(468, Short.MAX_VALUE))
             .addGroup(CARRITOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(CARRITOLayout.createSequentialGroup()
                     .addGap(0, 33, Short.MAX_VALUE)
@@ -243,7 +241,10 @@ public class MenuCliente extends javax.swing.JFrame {
         );
         CARRITOLayout.setVerticalGroup(
             CARRITOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(CARRITOLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(contador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(224, Short.MAX_VALUE))
             .addGroup(CARRITOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(CARRITOLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -325,13 +326,21 @@ public class MenuCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void AGREGARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AGREGARActionPerformed
-
-    }//GEN-LAST:event_AGREGARActionPerformed
-
     private void but_verdurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but_verdurasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_but_verdurasActionPerformed
+
+    private void CANCELARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELARActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CANCELARActionPerformed
+
+    public JSpinner getContador() {
+        return contador;
+    }
+
+    public void setContador(JSpinner contador) {
+        this.contador = contador;
+    }
 
     public JButton getCANCELAR() {
         return CANCELAR;
@@ -395,14 +404,6 @@ public class MenuCliente extends javax.swing.JFrame {
 
     public void setSALIR(JButton SALIR) {
         this.SALIR = SALIR;
-    }
-
-    public JButton getAGREGAR() {
-        return AGREGAR;
-    }
-
-    public void setAGREGAR(JButton AGREGAR) {
-        this.AGREGAR = AGREGAR;
     }
 
     public JDialog getDlg_Productos() {
@@ -646,7 +647,6 @@ public class MenuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AGREGAR;
     public javax.swing.JButton CANCELAR;
     public javax.swing.JDialog CARRITO;
     private javax.swing.JDialog Dlg_Productos;
@@ -660,6 +660,7 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JButton but_salir;
     private javax.swing.JButton but_verduras;
     public javax.swing.JButton comprar;
+    private javax.swing.JSpinner contador;
     public javax.swing.JButton dejarlo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

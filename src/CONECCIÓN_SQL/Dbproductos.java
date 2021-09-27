@@ -92,8 +92,8 @@ public class Dbproductos extends productos{
     ////////////////////////////////////////////////////////////////////////////
     public boolean modificar(String identificador){
         String nsql = "UPDATE productos set \"nombre\"='"+getNombre()+"',\"descripcion\"='"+getDescripcion()+"',\"existencias\"='"+getExistencias()+"'"
-        +",\"e_min\"='"+getE_min()+"',\"e_max\"='"+getE_max()+",\"precio\"='"+getPrecio()+",\"categoria\"='"+getCategoria()+"'"
-        +",\"cod_proveedor\"='"+getCod_proveedor()
+        +",\"e_min\"='"+getE_min()+"',\"e_max\"='"+getE_max()+"',\"precio\"='"+getPrecio()+"',\"categoria\"='"+getCategoria()+"'"
+        +",\"cod_proveedor\"='"+getCod_proveedor()+"'"
         + "WHERE \"codigo\"='"+identificador+"'";
         if(connecta.noQuery(nsql)==null){
             return true;

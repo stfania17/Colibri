@@ -15,8 +15,7 @@ public class ControlFactura {
   
     public void iniciaControl() { 
         fac.getBut_consultar().addActionListener(l -> cargarDialogo(1));
-        fac.getBut_modificar().addActionListener(l -> cargarDialogo(2));
-        fac.getBut_eliminar().addActionListener(l -> cargarDialogo(3));
+         
     }
     
     private void cargarDialogo(int origen) {

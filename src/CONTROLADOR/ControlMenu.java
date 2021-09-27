@@ -8,7 +8,9 @@ import MODELO.productos;
 import MODELO.proveedores;
 import MODELO.carrito;
 import MODELO.provionalarrryamenu;
+import VISTA.FACTURA_FORMULARIO;
 import VISTA.MenuCliente;
+import VISTA.Recepcion;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -20,51 +22,51 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
  
 public class ControlMenu{ 
-    ////////////////////////////////////////////////////////////////////////////  ARRAYS
+    //////////////////////     ARRAYS       ////////////////////////////////////  
     public static ArrayList<provionalarrryamenu> provicionali = new ArrayList<provionalarrryamenu>();
     public static ArrayList<carrito> mateo=new ArrayList<carrito>();
     public static ArrayList<productos> pra = new ArrayList<productos>();  
-    //////////////////////////////////////////////////////////////////////////// VARIABLES
+    ///////////////////////  VARIABLES    ////////////////////////////////////// 
     public static DefaultTableModel modelo;
     public static int n;
-    ////////////////////////////////////////////////////////////////////////////  CLASES
+    /////////////////////    CLASES   //////////////////////////////////////////  
     public static provionalarrryamenu proda= new provionalarrryamenu();
-    //////////////////////////////////////////////////////////////////////////// VISTAS
+    ///////////////////  VISTAS   ////////////////////////////////////////////// 
     public static MenuCliente menu = new MenuCliente();
-    //////////////////////////////////////////////////////////////////////////// SQL
+    public static Recepcion rec = new Recepcion();
+    public static FACTURA_FORMULARIO ff = new FACTURA_FORMULARIO();
+    //////////////////////      SQL      /////////////////////////////////////// 
     public static SQConnect pg= new SQConnect();
     public static Dbproductos dbu = new Dbproductos();
     public static Dbproveedores dba = new Dbproveedores();
-    //////////////////////////////////////////////////////////////////////////// ARRAY SQL
+    //////////////////////      ARRAY SQL    /////////////////////////////////// 
     public static List<productos> per = dbu.mostrarProductos();
     public static List<proveedores> prov = dba.mostrarDatos();
-    ////////////////////////////////////////////////////////////////////////////   BREQUER
+    ////////////////////////   BREQUER  ////////////////////////////////////////   
     public ControlMenu(MenuCliente menu) {
         this.menu = menu;
         menuprovicional();
+        mostrar();
         menu.setTitle("MENU DE PRODUCTOS");
-        menu.setVisible(true);
+        iniciaControl();
     }
     ////////////////////////////////////////////////////////////////////////////    
-    ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////  FUNCIONES BASICAS
+    ///////////////////////////////  FUNCIONES BASICAS  ////////////////////////
     public static void mostrar(){menu.setVisible(true);}
     public static void cerrar(){menu.setVisible(false);}
     public static void salir(){
         cerrar();
-        menu.getDlg_Productos().setVisible(false);
-        ControladorRecepcion.mostrar();
-        ControladorRecepcion.iniciarocntrol();
+        provicionali.clear();
+        mateo.clear();
+        ControladorRecepcion ccr = new ControladorRecepcion(rec);
     } 
-    public static void salirtabla(){
-        menu.getDlg_Productos().setVisible(false);
-    }
     ////////////////////////////////////////////////////////////////////////////   CEREBRO DEL LUGAR
     public static void iniciaControl() {
         MouseListener ky = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //throw new UnsupportedOperationException("Not supported yet."); 
+            //To change body of generated methods, choose Tools | Templates.
             }
             ////////////////////////////////////////////////////////////////////
             @Override
@@ -111,18 +113,18 @@ public class ControlMenu{
         ////////////////////////////////////SELECTOR DE CATEGORIAS
         menu.getBut_verduras().addActionListener(l -> cargarDialogo(1));
         menu.getBut_frutas().addActionListener(l -> cargarDialogo(2));
-        menu.getBut_lacteos().addActionListener(l -> menulacteos());
+        menu.getBut_lacteos().addActionListener(l -> cargarDialogo(3));  /// UNICO QUE TENEMOS
         menu.getBut_granos().addActionListener(l -> cargarDialogo(4));
         menu.getBut_hierbas().addActionListener(l -> cargarDialogo(5));
         menu.getBut_otros().addActionListener(l -> cargarDialogo(6));
         ////////////////////////////////////////////////////////////////////
+        //// 
         menu.getjTable1().addMouseListener(ky);
         menu.getjTextField1().addKeyListener(ka);
-        //////////////////////////////// AGREGADOR PROVICIONAL
-        menu.getAGREGAR().addActionListener(l->ingresarproducto());
         //////////////////////////////// SALIDAS
         menu.getBut_salir().addActionListener(l->salir());
-        menu.getSALIR().addActionListener(l->salirtabla());
+        menu.getSALIR().addActionListener(l->menu.getDlg_Productos().dispose());
+        menu.getComprar().addActionListener(l->realizarfactura());
         ////////////////////////////////
         ////////////////////////////////
         ////////////////////////////////
@@ -130,60 +132,78 @@ public class ControlMenu{
         menu.getjButton1().addActionListener(l->cargarcarrito());
         menu.getCANCELAR().addActionListener(l->menu.getCARRITO().setVisible(false));
         menu.getBut_carrito().addActionListener(l->abrircarrito());
+        /////////////////////////////////
+        menu.getDejarlo().addActionListener(l->dejarproducto());  /// DEJAR UN PRODUCTO
     }
     ////////////////////////////////////////////////////////////////////////////
+    public static void realizarfactura(){
+        cerrar();
+        ControladorCreadorFactura ccf = new ControladorCreadorFactura(ff);
+    }
     ////////////////////////////////////////////////////////////////////////////  FUNCIONES MENU PRINCIPAL
     public static void cargarDialogo(int origen) {
-        menu.getDlg_Productos().setSize(600, 600);
+        menu.getDlg_Productos().setSize(650, 600);
         menu.getDlg_Productos().setLocationRelativeTo(menu);
 
         if (origen == 1) {
             menu.getDlg_Productos().setTitle("Verduras");
+            mostrartabla("Verduras");
             n = 1;
         } else if (origen == 2) {
             menu.getDlg_Productos().setTitle("Frutas");
+            mostrartabla("Frutas");
             n = 2;
         } else if (origen == 3) {
             menu.getDlg_Productos().setTitle("Lacteos");
+            mostrartabla("Lacteos");
             n = 3;
         } else if (origen == 4) {
             menu.getDlg_Productos().setTitle("Granos");
+            mostrartabla("Granos");
             n = 4;
         } else if (origen == 5) {
-            menu.getDlg_Productos().setTitle("Hiervas");
+            menu.getDlg_Productos().setTitle("Hierbas");
+            mostrartabla("Hierbas");
             n = 5;
         } else{
             menu.getDlg_Productos().setTitle("Otros");
+            mostrartabla("Otros");
             n = 6;
         }
         menu.getDlg_Productos().setVisible(true);
-
     }
-    public static void menulacteos(){
-        cargarDialogo(3);
-        mostrartabla("Lacteos");
-    }   
-    public static void ingresarproducto(){
-//        int lero=0;        
-//        Random r = new Random();
-//        lero=r.nextInt(000000001+999999999)+999999999;
-//        ////////////////////////////////////////////////////////////////////////
-//        dbu.setCodigo(Integer.toString(lero));
-//        dbu.setNombre("Quesillo Maduro");
-//        dbu.setDescripcion("Quesillo sin sal natural, hecho a partir de leche cuajada");
-//        dbu.setExistencias(10);
-//        dbu.setE_min(10);
-//        dbu.setE_max(3);
-//        dbu.setPrecio(1.50);
-//        dbu.setCategoria("Lacteos");
-//        dbu.setCod_proveedor("1494314255");
-//        /////////////////////////////////////////
-//        if(dbu.insertar()){
-//        JOptionPane.showMessageDialog(null,"Datos Guardados.");
-//        }else{
-//        JOptionPane.showMessageDialog(null,"Error al Guardar.");
-//        }    
-    }
+//    public static void menulacteos(){
+//        cargarDialogo(3);
+//        mostrartabla("Lacteos");
+//    }   
+//    public static void menufrutas(){
+//        cargarDialogo(2);  
+//    }
+//    public static void menuotros(){
+//        
+////    }
+    ///  AGREGADOR PROVICIONAL QUE YA NO TIENE UTILIDAD
+//    public static void ingresarproducto(){
+////        int lero=0;        
+////        Random r = new Random();
+////        lero=r.nextInt(000000001+999999999)+999999999;
+////        ////////////////////////////////////////////////////////////////////////
+////        dbu.setCodigo(Integer.toString(lero));
+////        dbu.setNombre("Quesillo Maduro");
+////        dbu.setDescripcion("Quesillo sin sal natural, hecho a partir de leche cuajada");
+////        dbu.setExistencias(10);
+////        dbu.setE_min(10);
+////        dbu.setE_max(3);
+////        dbu.setPrecio(1.50);
+////        dbu.setCategoria("Lacteos");
+////        dbu.setCod_proveedor("1494314255");
+////        /////////////////////////////////////////
+////        if(dbu.insertar()){
+////        JOptionPane.showMessageDialog(null,"Datos Guardados.");
+////        }else{
+////        JOptionPane.showMessageDialog(null,"Error al Guardar.");
+////        }    
+//    }
     public static void menuprovicional(){ 
         for (int i = 0; i < per.size(); i++) {
         proda= new provionalarrryamenu(per.get(i).getCodigo(),per.get(i).getNombre(),per.get(i).getCod_proveedor(),per.get(i).getDescripcion(), per.get(i).getCategoria(),per.get(i).getPrecio(),per.get(i).getExistencias());
@@ -249,16 +269,55 @@ public class ControlMenu{
         String cedu = (String) menu.jTable1.getValueAt(menu.jTable1.getSelectedRow(), 0);
         traerdatosproveedor(cedu);
         
-        for (int i = 0; i < provicionali.size(); i++) {
-        if(provicionali.get(i).getCodigo().equalsIgnoreCase(cedu)){
-            if(canta<provicionali.get(i).getExistencias()){
-        double pf=canta*provicionali.get(i).getPrecio();
-        
-        carrito julia= new carrito(cedu,provicionali.get(i).getNombre(),canta,provicionali.get(i).getPrecio(), pf);  
-        mateo.add(julia);
-        
-        mermarcantidad(cedu,canta);
-        JOptionPane.showMessageDialog(null,"PRODUCTO AGREGADO");    
+        for(int i = 0; i < provicionali.size(); i++) {  ///PARA BUSCAR LA INFORMACIÓN.
+        if(provicionali.get(i).getCodigo().equalsIgnoreCase(cedu)){ //ENCONTRAMOS LO QUE BUSCAMOS
+        if(canta<=provicionali.get(i).getExistencias()){                        //PARA EXISTENCIA INSUFICIENTES
+            
+            if(mateo.size()>0){
+                             
+            for (int j = 0; j < mateo.size(); j++) {
+                //BUSCAREMOS EN LA TABLA
+                
+                if(mateo.get(j).getCodigo().equalsIgnoreCase(cedu)){ //SI YA HAY UN PRODUCTO EN TABLA
+                //cantiad 
+                mermarcantidad(cedu,canta);
+                int anter=mateo.get(j).getCantidad();                  // SACAR LA CANTIDAD ANTERIOR
+                canta=canta+anter;
+
+                //precio         
+                double ante=mateo.get(j).getPrecio_final();
+                double pf=canta*provicionali.get(i).getPrecio();
+
+                ///actualizar
+                mateo.get(j).setCantidad(canta);
+                mateo.get(j).setPrecio_final(pf);
+                JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO a lo que ya habia"); 
+                //// AGREGADO A LO QUE YA HABIA, AHORA VEREMOS UNO NUEVO  //////
+                }else if(!mateo.get(j).getCodigo().equalsIgnoreCase(cedu)){ 
+                /////para los recien llegados
+                double pf=canta*provicionali.get(i).getPrecio();
+                
+                carrito julia= new carrito(cedu,provicionali.get(i).getNombre(),canta,provicionali.get(i).getPrecio(), pf);  
+                mateo.add(julia);
+
+                mermarcantidad(cedu,canta);
+                JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO primer vez");     
+                }
+                    
+            }
+            
+            }else{
+            double pf=canta*provicionali.get(i).getPrecio();
+                
+                carrito julia= new carrito(cedu,provicionali.get(i).getNombre(),canta,provicionali.get(i).getPrecio(), pf);  
+                mateo.add(julia);
+
+                mermarcantidad(cedu,canta);
+                JOptionPane.showMessageDialog(null,"PRODUCTO AGREGADO primero origen");     
+            }
+                
+            
+           
         }else{
             JOptionPane.showMessageDialog(null,"EXISTENCIAS INSUFICIENTES.");  
         }          
@@ -278,6 +337,50 @@ public class ControlMenu{
                 n=n-cantidad;
                 provicionali.get(i).setExistencias(n);
     }}}
+    public static void dejarproducto(){
+        int seleciona = menu.tablacarrito.getSelectedRow();
+        int canta=Integer.parseInt(menu.getContador().getValue().toString());
+ 
+        if (seleciona != -1){ 
+        ////////////////////////////////////////////////////////////////////////    
+        String cedu = (String) menu.tablacarrito.getValueAt(menu.tablacarrito.getSelectedRow(), 0);
+        traerdatosproveedor(cedu);
+        
+        for (int i = 0; i < mateo.size(); i++) {
+            
+        if(mateo.get(i).getCodigo().equalsIgnoreCase(cedu)){
+            if(canta<=mateo.get(i).getCantidad()){
+            int a=mateo.get(i).getCantidad();
+            double pre=mateo.get(i).getPrecio();
+            
+            a=a-canta;
+            pre=pre*a;
+            mateo.get(i).setPrecio_final(pre);
+            mateo.get(i).setCantidad(a);
+            JOptionPane.showMessageDialog(null,"PRODUCTO REITRADO.");  
+            
+            
+                for (int j = 0; j < provicionali.size(); j++) {
+                    if(provicionali.get(j).getCodigo().equalsIgnoreCase(cedu)){
+                        int b=provicionali.get(j).getExistencias()+canta;
+                        provicionali.get(j).setExistencias(b);
+                    }
+                }
+            
+            
+            
+            }else{
+            JOptionPane.showMessageDialog(null,"EXISTENCIAS INSUFICIENTES.");  
+            } 
+        }
+        
+        }
+        
+        
+        }else{
+        JOptionPane.showMessageDialog(null,"SELECIONE ALGO.");      
+        }  
+    }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////

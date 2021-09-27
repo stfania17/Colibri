@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -37,17 +38,19 @@ public class Producto extends javax.swing.JFrame {
         lb_precio = new javax.swing.JLabel();
         lb_provee = new javax.swing.JLabel();
         lb_categoria = new javax.swing.JLabel();
-        txt_cod = new javax.swing.JTextField();
         txt_descripcion = new javax.swing.JTextField();
         txt_nombre = new javax.swing.JTextField();
-        txt_existencia = new javax.swing.JTextField();
-        txt_Eminima = new javax.swing.JTextField();
-        txt_Emaxima = new javax.swing.JTextField();
-        txt_precio = new javax.swing.JTextField();
-        txt_categoria = new javax.swing.JTextField();
         cbx_codProvee = new javax.swing.JComboBox<>();
-        but_aceptar = new javax.swing.JButton();
+        crearproducto = new javax.swing.JButton();
         but_cancelar = new javax.swing.JButton();
+        txt_categoria = new javax.swing.JComboBox<>();
+        precio = new javax.swing.JSpinner();
+        exi_max = new javax.swing.JSpinner();
+        exi_min = new javax.swing.JSpinner();
+        existencia = new javax.swing.JSpinner();
+        txt_cod = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        EDITAR = new javax.swing.JButton();
         txt_consulta = new javax.swing.JTextField();
         but_eliminar = new javax.swing.JButton();
         but_modificar = new javax.swing.JButton();
@@ -60,124 +63,75 @@ public class Producto extends javax.swing.JFrame {
         lb_tit_producto = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
+        Dlg_Productos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         lb_tit_productos.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tit_productos.setForeground(new java.awt.Color(102, 0, 0));
         lb_tit_productos.setText("REGISTRO DE PRODUCTOS");
+        Dlg_Productos.getContentPane().add(lb_tit_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 32, -1, -1));
 
         lb_codigo.setText("Código:");
+        Dlg_Productos.getContentPane().add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 20));
 
         lb_nombre.setText("Nombre:");
+        Dlg_Productos.getContentPane().add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 20));
 
         lb_descripcion.setText("Descripción:");
+        Dlg_Productos.getContentPane().add(lb_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 20));
 
         lb_existencia.setText("Existencia:");
+        Dlg_Productos.getContentPane().add(lb_existencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
 
         lb_Eminima.setText("Existencia_Minima:");
+        Dlg_Productos.getContentPane().add(lb_Eminima, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 20));
 
         lb_Emaxima.setText("Existencia_Maxima:");
+        Dlg_Productos.getContentPane().add(lb_Emaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, 20));
 
         lb_precio.setText("Precio:");
+        Dlg_Productos.getContentPane().add(lb_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, 20));
 
         lb_provee.setText("Cod_Proveedor:");
+        Dlg_Productos.getContentPane().add(lb_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, 20));
 
         lb_categoria.setText("Categoría:");
+        Dlg_Productos.getContentPane().add(lb_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, 20));
+        Dlg_Productos.getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 170, 190, -1));
+        Dlg_Productos.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 132, 190, -1));
 
-        cbx_codProvee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbx_codProvee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
+        Dlg_Productos.getContentPane().add(cbx_codProvee, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 353, 190, -1));
 
-        but_aceptar.setText("Aceptar");
+        crearproducto.setText("CREAR");
+        Dlg_Productos.getContentPane().add(crearproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 80, -1));
 
+        but_cancelar.setBackground(new java.awt.Color(255, 0, 0));
         but_cancelar.setText("Cancelar");
+        Dlg_Productos.getContentPane().add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
 
-        javax.swing.GroupLayout Dlg_ProductosLayout = new javax.swing.GroupLayout(Dlg_Productos.getContentPane());
-        Dlg_Productos.getContentPane().setLayout(Dlg_ProductosLayout);
-        Dlg_ProductosLayout.setHorizontalGroup(
-            Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Dlg_ProductosLayout.createSequentialGroup()
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Dlg_ProductosLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lb_codigo)
-                            .addComponent(lb_nombre)
-                            .addComponent(lb_categoria)
-                            .addComponent(lb_provee)
-                            .addComponent(lb_precio)
-                            .addComponent(lb_Emaxima)
-                            .addComponent(lb_Eminima)
-                            .addComponent(lb_descripcion)
-                            .addComponent(lb_existencia))
-                        .addGap(32, 32, 32)
-                        .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_cod)
-                            .addComponent(txt_nombre)
-                            .addComponent(txt_descripcion)
-                            .addComponent(txt_existencia)
-                            .addComponent(txt_Eminima)
-                            .addComponent(txt_Emaxima)
-                            .addComponent(txt_precio)
-                            .addComponent(txt_categoria)
-                            .addComponent(cbx_codProvee, 0, 190, Short.MAX_VALUE)))
-                    .addGroup(Dlg_ProductosLayout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(lb_tit_productos)))
-                .addContainerGap(155, Short.MAX_VALUE))
-            .addGroup(Dlg_ProductosLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(but_aceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(but_cancelar)
-                .addGap(145, 145, 145))
-        );
-        Dlg_ProductosLayout.setVerticalGroup(
-            Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Dlg_ProductosLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lb_tit_productos)
-                .addGap(31, 31, 31)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_codigo)
-                    .addComponent(txt_cod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_nombre)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_descripcion)
-                    .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_existencia)
-                    .addComponent(txt_existencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_Eminima)
-                    .addComponent(txt_Eminima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lb_Emaxima)
-                    .addComponent(txt_Emaxima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_precio)
-                    .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_provee)
-                    .addComponent(cbx_codProvee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_categoria)
-                    .addComponent(txt_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(Dlg_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dlg_ProductosLayout.createSequentialGroup()
-                        .addComponent(but_aceptar)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dlg_ProductosLayout.createSequentialGroup()
-                        .addComponent(but_cancelar)
-                        .addGap(33, 33, 33))))
-        );
+        txt_categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Verduras", "Lacteos", "Frutas", "Granos", "Hierbas", "Otros" }));
+        Dlg_Productos.getContentPane().add(txt_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 391, 190, -1));
+
+        precio.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 100.0d, 0.25d));
+        Dlg_Productos.getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 322, 108, -1));
+
+        exi_max.setModel(new javax.swing.SpinnerNumberModel(1, 1, 500, 1));
+        Dlg_Productos.getContentPane().add(exi_max, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 284, 108, -1));
+
+        exi_min.setModel(new javax.swing.SpinnerNumberModel(1, 1, 500, 1));
+        Dlg_Productos.getContentPane().add(exi_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 246, 108, 20));
+
+        existencia.setModel(new javax.swing.SpinnerNumberModel(1, 1, 500, 1));
+        Dlg_Productos.getContentPane().add(existencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 208, 108, -1));
+
+        txt_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Dlg_Productos.getContentPane().add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 92, 190, 20));
+
+        jButton1.setText("GENERAR");
+        Dlg_Productos.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 91, -1, -1));
+
+        EDITAR.setText("EDITAR");
+        Dlg_Productos.getContentPane().add(EDITAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 80, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(685, 460));
@@ -221,7 +175,7 @@ public class Producto extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 587, 230));
 
         but_atras.setText("Atras");
-        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 409, -1, -1));
+        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 90, -1));
 
         lb_tit_producto.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tit_producto.setText("PRODUCTOS");
@@ -237,20 +191,20 @@ public class Producto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_but_crearActionPerformed
 
+    public JButton getEDITAR() {
+        return EDITAR;
+    }
+
+    public void setEDITAR(JButton EDITAR) {
+        this.EDITAR = EDITAR;
+    }
+
     public JDialog getDlg_Productos() {
         return Dlg_Productos;
     }
 
     public void setDlg_Productos(JDialog Dlg_Productos) {
         this.Dlg_Productos = Dlg_Productos;
-    }
-
-    public JButton getBut_aceptar() {
-        return but_aceptar;
-    }
-
-    public void setBut_aceptar(JButton but_aceptar) {
-        this.but_aceptar = but_aceptar;
     }
 
     public JButton getBut_atras() {
@@ -267,14 +221,6 @@ public class Producto extends javax.swing.JFrame {
 
     public void setBut_cancelar(JButton but_cancelar) {
         this.but_cancelar = but_cancelar;
-    }
-
-    public JButton getBut_refrescar() {
-        return but_refrescar;
-    }
-
-    public void setBut_refrescar(JButton but_refrescar) {
-        this.but_refrescar = but_refrescar;
     }
 
     public JButton getBut_crear() {
@@ -309,12 +255,68 @@ public class Producto extends javax.swing.JFrame {
         this.but_modificar = but_modificar;
     }
 
+    public JButton getBut_refrescar() {
+        return but_refrescar;
+    }
+
+    public void setBut_refrescar(JButton but_refrescar) {
+        this.but_refrescar = but_refrescar;
+    }
+
     public JComboBox<String> getCbx_codProvee() {
         return cbx_codProvee;
     }
 
     public void setCbx_codProvee(JComboBox<String> cbx_codProvee) {
         this.cbx_codProvee = cbx_codProvee;
+    }
+
+    public JButton getCrearproducto() {
+        return crearproducto;
+    }
+
+    public void setCrearproducto(JButton crearproducto) {
+        this.crearproducto = crearproducto;
+    }
+
+    public JSpinner getExi_max() {
+        return exi_max;
+    }
+
+    public void setExi_max(JSpinner exi_max) {
+        this.exi_max = exi_max;
+    }
+
+    public JSpinner getExi_min() {
+        return exi_min;
+    }
+
+    public void setExi_min(JSpinner exi_min) {
+        this.exi_min = exi_min;
+    }
+
+    public JSpinner getExistencia() {
+        return existencia;
+    }
+
+    public void setExistencia(JSpinner existencia) {
+        this.existencia = existencia;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
     public JScrollPane getjScrollPane1() {
@@ -413,6 +415,22 @@ public class Producto extends javax.swing.JFrame {
         this.lb_tit_productos = lb_tit_productos;
     }
 
+    public JLabel getTxt_cod() {
+        return txt_cod;
+    }
+
+    public void setTxt_cod(JLabel ltxt_cod) {
+        this.txt_cod = ltxt_cod;
+    }
+
+    public JSpinner getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(JSpinner precio) {
+        this.precio = precio;
+    }
+
     public JTable getTbl_rep_producto() {
         return tbl_rep_producto;
     }
@@ -421,36 +439,12 @@ public class Producto extends javax.swing.JFrame {
         this.tbl_rep_producto = tbl_rep_producto;
     }
 
-    public JTextField getTxt_Emaxima() {
-        return txt_Emaxima;
-    }
-
-    public void setTxt_Emaxima(JTextField txt_Emaxima) {
-        this.txt_Emaxima = txt_Emaxima;
-    }
-
-    public JTextField getTxt_Eminima() {
-        return txt_Eminima;
-    }
-
-    public void setTxt_Eminima(JTextField txt_Eminima) {
-        this.txt_Eminima = txt_Eminima;
-    }
-
-    public JTextField getTxt_categoria() {
+    public JComboBox<String> getTxt_categoria() {
         return txt_categoria;
     }
 
-    public void setTxt_categoria(JTextField txt_categoria) {
+    public void setTxt_categoria(JComboBox<String> txt_categoria) {
         this.txt_categoria = txt_categoria;
-    }
-
-    public JTextField getTxt_cod() {
-        return txt_cod;
-    }
-
-    public void setTxt_cod(JTextField txt_cod) {
-        this.txt_cod = txt_cod;
     }
 
     public JTextField getTxt_consulta() {
@@ -469,14 +463,6 @@ public class Producto extends javax.swing.JFrame {
         this.txt_descripcion = txt_descripcion;
     }
 
-    public JTextField getTxt_existencia() {
-        return txt_existencia;
-    }
-
-    public void setTxt_existencia(JTextField txt_existencia) {
-        this.txt_existencia = txt_existencia;
-    }
-
     public JTextField getTxt_nombre() {
         return txt_nombre;
     }
@@ -485,13 +471,7 @@ public class Producto extends javax.swing.JFrame {
         this.txt_nombre = txt_nombre;
     }
 
-    public JTextField getTxt_precio() {
-        return txt_precio;
-    }
-
-    public void setTxt_precio(JTextField txt_precio) {
-        this.txt_precio = txt_precio;
-    }
+   
 
     
  
@@ -529,7 +509,7 @@ public class Producto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Dlg_Productos;
-    private javax.swing.JButton but_aceptar;
+    private javax.swing.JButton EDITAR;
     private javax.swing.JButton but_atras;
     private javax.swing.JButton but_cancelar;
     private javax.swing.JButton but_crear;
@@ -538,6 +518,11 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JButton but_modificar;
     private javax.swing.JButton but_refrescar;
     private javax.swing.JComboBox<String> cbx_codProvee;
+    private javax.swing.JButton crearproducto;
+    private javax.swing.JSpinner exi_max;
+    private javax.swing.JSpinner exi_min;
+    private javax.swing.JSpinner existencia;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_Emaxima;
@@ -551,16 +536,13 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel lb_provee;
     private javax.swing.JLabel lb_tit_producto;
     private javax.swing.JLabel lb_tit_productos;
+    private javax.swing.JSpinner precio;
     private javax.swing.JTable tbl_rep_producto;
-    private javax.swing.JTextField txt_Emaxima;
-    private javax.swing.JTextField txt_Eminima;
-    private javax.swing.JTextField txt_categoria;
-    private javax.swing.JTextField txt_cod;
+    private javax.swing.JComboBox<String> txt_categoria;
+    private javax.swing.JLabel txt_cod;
     private javax.swing.JTextField txt_consulta;
     private javax.swing.JTextField txt_descripcion;
-    private javax.swing.JTextField txt_existencia;
     private javax.swing.JTextField txt_nombre;
-    private javax.swing.JTextField txt_precio;
     // End of variables declaration//GEN-END:variables
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

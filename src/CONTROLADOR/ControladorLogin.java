@@ -2,18 +2,22 @@
 package CONTROLADOR;
 
 import VISTA.Login;
+import VISTA.Portada;
+import VISTA.Recepcion;
 import javax.swing.JOptionPane;
 
 
 public class ControladorLogin {
     ////////////////////////////////////////////////////////////////////////////
     public static Login log = new Login();
+    public static Portada portada = new Portada();
+    public static Recepcion rec = new Recepcion();
     ////////////////////////////////////////////////////////////////////////////
     public ControladorLogin(Login log){
         this.log=log;
-        log.setTitle("LOGGIN");
-        log.setVisible(true);
+        mostrar();
         iniciarcontrol();
+        log.setTitle("LOGGIN");
     }
     ////////////////////////////////////////////////////////////////////////////
     public static void iniciarcontrol(){
@@ -28,16 +32,15 @@ public class ControladorLogin {
         log.getMusuario().setText("");
         log.getMcontraseña().setText("");
         cerrar();
-        ControladorPortada.mostrar();
-        ControladorPortada.iniciarcontrol();
+        ControladorPortada cp = new ControladorPortada(portada);
     }
     public static void ingresar(){
         log.getMusuario().setText("");
         log.getMcontraseña().setText("");
         cerrar();
-        ControladorRecepcion.mostrar();
-        ControladorRecepcion.iniciarocntrol();
+        ControladorRecepcion cr = new ControladorRecepcion(rec);
     }
+    //////////////////////////   COMPROBAR CONTRASEÑA   ////////////////////////
     public static void comprovar(){
         String usuario=log.getMusuario().getText();
         String contraseña=log.getMcontraseña().getText();

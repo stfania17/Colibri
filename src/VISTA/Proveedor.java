@@ -17,8 +17,7 @@ public class Proveedor extends javax.swing.JFrame {
 
     public Proveedor() {
         initComponents();
-        txt_id.addKeyListener(new VALIDACIONES.Numeros());
-        
+        txt_id.addKeyListener(new VALIDACIONES.Numeros());    
     }
 
     /**
@@ -45,12 +44,13 @@ public class Proveedor extends javax.swing.JFrame {
         txt_apellido = new javax.swing.JTextField();
         txt_telefono = new javax.swing.JTextField();
         txt_direccion = new javax.swing.JTextField();
-        txt_codifo = new javax.swing.JTextField();
         txt_numcuenta = new javax.swing.JTextField();
         dtcFechaNacimiento = new com.toedter.calendar.JDateChooser();
         but_aceptar = new javax.swing.JButton();
         but_cancelar = new javax.swing.JButton();
-        but_eliminar = new javax.swing.JButton();
+        DLG_GENERARCODIGO = new javax.swing.JButton();
+        Txt_codifo = new javax.swing.JLabel();
+        DLG_CREAROTRO = new javax.swing.JButton();
         but_modificar = new javax.swing.JButton();
         but_crear = new javax.swing.JButton();
         but_consultar = new javax.swing.JButton();
@@ -61,25 +61,37 @@ public class Proveedor extends javax.swing.JFrame {
         lb_tit_proveedor = new javax.swing.JLabel();
         txt_consulta = new javax.swing.JTextField();
 
+        Dlg_Proveedor.setMinimumSize(new java.awt.Dimension(500, 500));
+        Dlg_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         lb_tituloprov.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tituloprov.setForeground(new java.awt.Color(102, 0, 0));
         lb_tituloprov.setText("REGISTRO DE PROVEEDOR");
+        Dlg_Proveedor.getContentPane().add(lb_tituloprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 23, -1, -1));
 
         lb_id.setText("Id:");
+        Dlg_Proveedor.getContentPane().add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 67, -1, -1));
 
         lb_nombres.setText("Nombres:");
+        Dlg_Proveedor.getContentPane().add(lb_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 105, -1, -1));
 
         lb_apellidos.setText("Apellidos:");
+        Dlg_Proveedor.getContentPane().add(lb_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 143, -1, -1));
 
         lb_telefono.setText("Teléfono:");
+        Dlg_Proveedor.getContentPane().add(lb_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 181, -1, -1));
 
         lb_direccion.setText("Dirección:");
+        Dlg_Proveedor.getContentPane().add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 219, -1, -1));
 
         lb_fecha.setText("Fecha de nacimiento:");
+        Dlg_Proveedor.getContentPane().add(lb_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 263, -1, -1));
 
         lb_codigo.setText("Cod_Proveedor:");
+        Dlg_Proveedor.getContentPane().add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 295, -1, -1));
 
         lb_cuenta.setText("N° cuenta:");
+        Dlg_Proveedor.getContentPane().add(lb_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 339, -1, -1));
 
         txt_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,157 +103,63 @@ public class Proveedor extends javax.swing.JFrame {
                 txt_idKeyTyped(evt);
             }
         });
+        Dlg_Proveedor.getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 64, 186, -1));
 
         txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_nombreKeyTyped(evt);
             }
         });
+        Dlg_Proveedor.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 102, 186, -1));
 
         txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_apellidoKeyTyped(evt);
             }
         });
+        Dlg_Proveedor.getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 257, -1));
 
         txt_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_telefonoKeyTyped(evt);
             }
         });
+        Dlg_Proveedor.getContentPane().add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 178, 257, -1));
 
         txt_direccion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_direccionKeyTyped(evt);
             }
         });
-
-        txt_codifo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_codifoKeyTyped(evt);
-            }
-        });
+        Dlg_Proveedor.getContentPane().add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 219, 256, -1));
 
         txt_numcuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_numcuentaKeyTyped(evt);
             }
         });
+        Dlg_Proveedor.getContentPane().add(txt_numcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 336, 190, -1));
+        Dlg_Proveedor.getContentPane().add(dtcFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 200, -1));
 
         but_aceptar.setText("Aceptar");
+        Dlg_Proveedor.getContentPane().add(but_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
 
         but_cancelar.setText("Cancelar");
+        Dlg_Proveedor.getContentPane().add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
 
-        javax.swing.GroupLayout Dlg_ProveedorLayout = new javax.swing.GroupLayout(Dlg_Proveedor.getContentPane());
-        Dlg_Proveedor.getContentPane().setLayout(Dlg_ProveedorLayout);
-        Dlg_ProveedorLayout.setHorizontalGroup(
-            Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                        .addComponent(lb_telefono)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                        .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                                .addComponent(lb_apellidos)
-                                .addGap(66, 66, 66)
-                                .addComponent(txt_apellido))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Dlg_ProveedorLayout.createSequentialGroup()
-                                .addComponent(lb_codigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txt_codifo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Dlg_ProveedorLayout.createSequentialGroup()
-                                .addComponent(lb_direccion)
-                                .addGap(65, 65, 65)
-                                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_telefono)
-                                    .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                                        .addComponent(txt_direccion)
-                                        .addGap(1, 1, 1))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Dlg_ProveedorLayout.createSequentialGroup()
-                                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Dlg_ProveedorLayout.createSequentialGroup()
-                                        .addComponent(lb_fecha)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Dlg_ProveedorLayout.createSequentialGroup()
-                                        .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lb_nombres)
-                                            .addComponent(lb_id))
-                                        .addGap(66, 66, 66)
-                                        .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                                .addComponent(lb_cuenta)
-                                .addGap(57, 57, 57)
-                                .addComponent(txt_numcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(248, 248, 248))))
-            .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(lb_tituloprov))
-                    .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(but_aceptar)
-                        .addGap(164, 164, 164)
-                        .addComponent(but_cancelar)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        Dlg_ProveedorLayout.setVerticalGroup(
-            Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Dlg_ProveedorLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lb_tituloprov)
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_id)
-                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_nombres)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_apellidos)
-                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_telefono)
-                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lb_direccion)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lb_fecha)
-                    .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_codigo)
-                    .addComponent(txt_codifo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_cuenta)
-                    .addComponent(txt_numcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(Dlg_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(but_aceptar)
-                    .addComponent(but_cancelar))
-                .addGap(29, 29, 29))
-        );
+        DLG_GENERARCODIGO.setText("GENERAR");
+        Dlg_Proveedor.getContentPane().add(DLG_GENERARCODIGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 295, 90, -1));
+
+        Txt_codifo.setBackground(new java.awt.Color(153, 153, 255));
+        Txt_codifo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Dlg_Proveedor.getContentPane().add(Txt_codifo, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 295, 196, 23));
+
+        DLG_CREAROTRO.setText("CREAR");
+        Dlg_Proveedor.getContentPane().add(DLG_CREAROTRO, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(667, 438));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        but_eliminar.setText("Eliminar");
-        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 62, -1, -1));
 
         but_modificar.setText("Modificar");
         getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 62, -1, -1));
@@ -263,7 +181,7 @@ public class Proveedor extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CEDULA", "APELLIDO", "NOMBRE", "TELEFONO", "DIRECCION", "EDAD", "CODIGO", "NUMERO CUENTA"
+                "CODIGO", "APELLIDO", "NOMBRE", "TELEFONO", "DIRECCION", "EDAD", "CEDULA", "NUMERO CUENTA"
             }
         ));
         jScrollPane1.setViewportView(tbl_rep_proveedor);
@@ -320,36 +238,51 @@ public class Proveedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_direccionKeyTyped
 
-    private void txt_codifoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codifoKeyTyped
-        if(txt_codifo.getText().length()>=10){
-            evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
-        }
-    }//GEN-LAST:event_txt_codifoKeyTyped
-
     private void txt_numcuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numcuentaKeyTyped
         if(txt_numcuenta.getText().length()>=10){
             evt.consume();
             JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
         }
     }//GEN-LAST:event_txt_numcuentaKeyTyped
-    
-    
-    
-    public JDialog getDlg_Proveedor() {
+
+    public static JButton getDLG_CREAROTRO() {
+        return DLG_CREAROTRO;
+    }
+
+    public static void setDLG_CREAROTRO(JButton DLG_CREAROTRO) {
+        Proveedor.DLG_CREAROTRO = DLG_CREAROTRO;
+    }
+
+    public static JButton getDLG_GENERARCODIGO() {
+        return DLG_GENERARCODIGO;
+    }
+
+    public static void setDLG_GENERARCODIGO(JButton DLG_GENERARCODIGO) {
+        Proveedor.DLG_GENERARCODIGO = DLG_GENERARCODIGO;
+    }
+
+    public static JDialog getDlg_Proveedor() {
         return Dlg_Proveedor;
     }
 
-    public void setDlg_Proveedor(JDialog Dlg_Proveedor) {
-        this.Dlg_Proveedor = Dlg_Proveedor;
+    public static void setDlg_Proveedor(JDialog Dlg_Proveedor) {
+        Proveedor.Dlg_Proveedor = Dlg_Proveedor;
     }
 
-    public JButton getBut_aceptar() {
+    public static JLabel getTxt_codifo() {
+        return Txt_codifo;
+    }
+
+    public static void setTxt_codifo(JLabel Txt_codifo) {
+        Proveedor.Txt_codifo = Txt_codifo;
+    }
+
+    public static JButton getBut_aceptar() {
         return but_aceptar;
     }
 
-    public void setBut_aceptar(JButton but_aceptar) {
-        this.but_aceptar = but_aceptar;
+    public static void setBut_aceptar(JButton but_aceptar) {
+        Proveedor.but_aceptar = but_aceptar;
     }
 
     public JButton getBut_atras() {
@@ -360,12 +293,12 @@ public class Proveedor extends javax.swing.JFrame {
         this.but_atras = but_atras;
     }
 
-    public JButton getBut_cancelar() {
+    public static JButton getBut_cancelar() {
         return but_cancelar;
     }
 
-    public void setBut_cancelar(JButton but_cancelar) {
-        this.but_cancelar = but_cancelar;
+    public static void setBut_cancelar(JButton but_cancelar) {
+        Proveedor.but_cancelar = but_cancelar;
     }
 
     public JButton getBut_consultar() {
@@ -379,15 +312,9 @@ public class Proveedor extends javax.swing.JFrame {
     public JButton getBut_crear() {
         return but_crear;
     }
+
     public void setBut_crear(JButton but_crear) {
         this.but_crear = but_crear;
-    }
-    public JButton getBut_eliminar() {
-        return but_eliminar;
-    }
-
-    public void setBut_eliminar(JButton but_eliminar) {
-        this.but_eliminar = but_eliminar;
     }
 
     public JButton getBut_limpiar() {
@@ -414,14 +341,12 @@ public class Proveedor extends javax.swing.JFrame {
         this.dtcFechaNacimiento = dtcFechaNacimiento;
     }
 
-    
-
-    public JScrollPane getjScrollPane1() {
+    public static JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
 
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
+    public static void setjScrollPane1(JScrollPane jScrollPane1) {
+        Proveedor.jScrollPane1 = jScrollPane1;
     }
 
     public JLabel getLb_apellidos() {
@@ -504,12 +429,12 @@ public class Proveedor extends javax.swing.JFrame {
         this.lb_tituloprov = lb_tituloprov;
     }
 
-    public static JTable getTbl_rep_proveedor() {
+    public JTable getTbl_rep_proveedor() {
         return tbl_rep_proveedor;
     }
 
-    public static void setTbl_rep_proveedor(JTable tbl_rep_proveedor) {
-        Proveedor.tbl_rep_proveedor = tbl_rep_proveedor;
+    public void setTbl_rep_proveedor(JTable tbl_rep_proveedor) {
+        this.tbl_rep_proveedor = tbl_rep_proveedor;
     }
 
     public JTextField getTxt_apellido() {
@@ -520,20 +445,12 @@ public class Proveedor extends javax.swing.JFrame {
         this.txt_apellido = txt_apellido;
     }
 
-    public JTextField getTxt_codifo() {
-        return txt_codifo;
-    }
-
-    public void setTxt_codifo(JTextField txt_codifo) {
-        this.txt_codifo = txt_codifo;
-    }
-
-    public JTextField getTxt_consulta() {
+    public static JTextField getTxt_consulta() {
         return txt_consulta;
     }
 
-    public void setTxt_consulta(JTextField txt_consulta) {
-        this.txt_consulta = txt_consulta;
+    public static void setTxt_consulta(JTextField txt_consulta) {
+        Proveedor.txt_consulta = txt_consulta;
     }
 
     public JTextField getTxt_direccion() {
@@ -576,11 +493,11 @@ public class Proveedor extends javax.swing.JFrame {
         this.txt_telefono = txt_telefono;
     }
 
-
+   
+ 
     
-    /**
-     * @param args the command line arguments
-     */
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -621,17 +538,19 @@ public class Proveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog Dlg_Proveedor;
-    private javax.swing.JButton but_aceptar;
+    public static javax.swing.JButton DLG_CREAROTRO;
+    public static javax.swing.JButton DLG_GENERARCODIGO;
+    public static javax.swing.JDialog Dlg_Proveedor;
+    public static javax.swing.JLabel Txt_codifo;
+    public static javax.swing.JButton but_aceptar;
     private javax.swing.JButton but_atras;
-    private javax.swing.JButton but_cancelar;
-    public javax.swing.JButton but_consultar;
+    public static javax.swing.JButton but_cancelar;
+    private javax.swing.JButton but_consultar;
     private javax.swing.JButton but_crear;
-    private javax.swing.JButton but_eliminar;
     private javax.swing.JButton but_limpiar;
-    public javax.swing.JButton but_modificar;
+    private javax.swing.JButton but_modificar;
     private com.toedter.calendar.JDateChooser dtcFechaNacimiento;
-    private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_apellidos;
     private javax.swing.JLabel lb_codigo;
     private javax.swing.JLabel lb_cuenta;
@@ -642,10 +561,9 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel lb_telefono;
     private javax.swing.JLabel lb_tit_proveedor;
     private javax.swing.JLabel lb_tituloprov;
-    public static javax.swing.JTable tbl_rep_proveedor;
+    private javax.swing.JTable tbl_rep_proveedor;
     private javax.swing.JTextField txt_apellido;
-    private javax.swing.JTextField txt_codifo;
-    private javax.swing.JTextField txt_consulta;
+    public static javax.swing.JTextField txt_consulta;
     private javax.swing.JTextField txt_direccion;
     private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nombre;

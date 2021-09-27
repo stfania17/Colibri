@@ -22,7 +22,7 @@ public class ControlProveedor {
         prove.getBut_consultar().addActionListener(l -> cargarDialogo(1));
         prove.getBut_crear().addActionListener(l -> cargarDialogo(2));
         prove.getBut_modificar().addActionListener(l -> cargarDialogo(3));
-        prove.getBut_eliminar().addActionListener(l -> cargarDialogo(4));
+        
     }
     
     private void cargarDialogo(int origen) {

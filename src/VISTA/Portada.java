@@ -12,6 +12,7 @@ public class Portada extends javax.swing.JFrame {
  
     public Portada() {
         initComponents();
+        texti.setEditable(false);
     }
 
     /**

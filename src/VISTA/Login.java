@@ -41,21 +41,24 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(102, 255, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("LOGIN");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 11, 74, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 63, 50, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 100, 20));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Contraceña");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 108, 61, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 110, 20));
 
         jScrollPane2.setViewportView(musuario);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 55, 164, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 164, -1));
 
         ingresar.setText("INGRESAR");
-        getContentPane().add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 157, -1, -1));
+        getContentPane().add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
         salir.setText("SALIR");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -63,11 +66,11 @@ public class Login extends javax.swing.JFrame {
                 salirActionPerformed(evt);
             }
         });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 157, -1, -1));
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 80, -1));
 
         visual.setText("0");
-        getContentPane().add(visual, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 99, -1, -1));
-        getContentPane().add(mcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 99, 164, 23));
+        getContentPane().add(visual, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
+        getContentPane().add(mcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 164, 23));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

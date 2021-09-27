@@ -50,8 +50,6 @@ public class Factura extends javax.swing.JFrame {
         but_actualizar = new javax.swing.JButton();
         but_cancelar = new javax.swing.JButton();
         txt_consulta = new javax.swing.JTextField();
-        but_eliminar = new javax.swing.JButton();
-        but_modificar = new javax.swing.JButton();
         but_consultar = new javax.swing.JButton();
         but_limpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -239,32 +237,26 @@ public class Factura extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 63, 163, -1));
 
-        but_eliminar.setText("Eliminar");
-        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 62, -1, -1));
-
-        but_modificar.setText("Modificar");
-        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 62, -1, -1));
-
         but_consultar.setText("Consultar:");
         getContentPane().add(but_consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 62, -1, -1));
 
         but_limpiar.setText("Limpiar");
-        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 103, -1, -1));
+        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CODIGO", "COD_CLIENTE", "FECHA", "COD_DETALLE", "COD_ENCABEZADO", "COD_PRODUCTO", "CANTIDAD", "PRECIO_FINAL"
             }
         ));
         jScrollPane1.setViewportView(tbl_rep_proveedor);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 587, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 750, 230));
 
         but_atras.setText("Atras");
         getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 402, -1, -1));
@@ -318,24 +310,14 @@ public class Factura extends javax.swing.JFrame {
     public void setBut_consultar(JButton but_consultar) {
         this.but_consultar = but_consultar;
     }
-    public JButton getBut_eliminar() {
-        return but_eliminar;
-    }
-    public void setBut_eliminar(JButton but_eliminar) {
-        this.but_eliminar = but_eliminar;
-    }
+ 
     public JButton getBut_limpiar() {
         return but_limpiar;
     }
     public void setBut_limpiar(JButton but_limpiar) {
         this.but_limpiar = but_limpiar;
     }
-    public JButton getBut_modificar() {
-        return but_modificar;
-    }
-    public void setBut_modificar(JButton but_modificar) {
-        this.but_modificar = but_modificar;
-    }
+ 
     public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
@@ -529,9 +511,7 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JButton but_atras;
     private javax.swing.JButton but_cancelar;
     private javax.swing.JButton but_consultar;
-    private javax.swing.JButton but_eliminar;
     private javax.swing.JButton but_limpiar;
-    private javax.swing.JButton but_modificar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_apellidos;
