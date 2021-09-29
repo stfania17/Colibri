@@ -244,7 +244,7 @@ public class ControlMenu{
             ///actualizar
             mateo.get(posicion2).setCantidad(canta);
             mateo.get(posicion2).setPrecio_final(pf);
-            JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO a lo que ya habia"); 
+            JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO."); 
             //// AGREGADO A LO QUE YA HABIA, AHORA VEREMOS UNO NUEVO  //////
             }else if(buscarsiexiste(cedu)==false){ 
             /////para los recien llegados
@@ -254,7 +254,7 @@ public class ControlMenu{
             mateo.add(julia);
 
             mermarcantidad(cedu,canta);
-            JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO primer vez");     
+            JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO.");     
             }
             }else{
             double pf=canta*provicionali.get(posicion).getPrecio();
@@ -263,11 +263,9 @@ public class ControlMenu{
             mateo.add(julia);
 
             mermarcantidad(cedu,canta);
-            JOptionPane.showMessageDialog(null,"PRODUCTO AGREGADO primero origen");     
+            JOptionPane.showMessageDialog(null,"PRODUCTO AGREGADO.");     
             }
-                
-            
-           
+                 
         }else{
         JOptionPane.showMessageDialog(null,"EXISTENCIAS INSUFICIENTES.");  
         }          
@@ -306,7 +304,7 @@ public class ControlMenu{
             pre=pre*a;
             mateo.get(i).setPrecio_final(pre);
             mateo.get(i).setCantidad(a);
-            JOptionPane.showMessageDialog(null,"PRODUCTO REITRADO.");  
+            JOptionPane.showMessageDialog(null,"PRODUCTO RETIRADO.");  
             
             
                 for (int j = 0; j < provicionali.size(); j++) {
@@ -404,12 +402,9 @@ public class ControlMenu{
         
         for (int i = 0; i < mateo.size(); i++) {
             if(mateo.get(i).getCodigo().equalsIgnoreCase(codigo)){
-            JOptionPane.showMessageDialog(null, "TE ENCONTRE EN CARRITO");
             se=se+1;     
-            JOptionPane.showMessageDialog(null, "HOLA "+se);
             }else{
             se=se+0;  
-            JOptionPane.showMessageDialog(null, "HOLA 0"+se);
             }
         }
         

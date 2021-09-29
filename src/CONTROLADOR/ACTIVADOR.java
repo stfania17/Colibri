@@ -22,19 +22,21 @@ public class ACTIVADOR {
     
     public static void main(String[] args) {
         
-//        Portada porta=new Portada();
-//        ControladorPortada control=new ControladorPortada(porta);
+        Portada porta=new Portada();
+        ControladorPortada control=new ControladorPortada(porta);
         
-        Ingreso ingre = new Ingreso();
-        ControladorCajero cc = new ControladorCajero(ingre);
-        /*Dbproductos modelo =new Dbproductos();      
-        Producto produc = new Producto();       
+//      Ingreso ingre = new Ingreso();
+//      ControladorCajero cc = new ControladorCajero(ingre);
+        
+      /*Dbproductos modelo =new Dbproductos();      
+        Producto produc = new Producto(); 
+
         ControlProducto producto = new ControlProducto(produc, modelo);       
         producto.iniciaControl();*/
 
         
-//        MenuCliente mc=new MenuCliente();
-//        ControlMenu cm=new ControlMenu(mc);
+        //MenuCliente mc=new MenuCliente();
+        //ControlMenu cm=new ControlMenu(mc);
     }
 }
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
