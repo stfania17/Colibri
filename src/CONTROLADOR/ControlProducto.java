@@ -279,7 +279,7 @@ public class ControlProducto {
     ///////////////      COMPRBAR QUE EL CODIGO  SEA ÚNICA      ////////////////
     public static boolean comprobarcodigo(String ide){
         int aa=0;
-        for (int i = 0; i < prodi.size(); i++) {
+        for (int i = 0; i < per.size(); i++) {
             if(per.get(i).getCodigo().equalsIgnoreCase(ide)){
                 
             aa=+1;   

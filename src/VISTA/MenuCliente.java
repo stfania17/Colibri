@@ -202,7 +202,7 @@ public class MenuCliente extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "CODIGO", "NOMBRE", "CANTIDAD", "PRECIO", "EXISTENCIA"
+                "CODIGO", "NOMBRE", "CANTIDAD", "PRECIO", "TOTAL"
             }
         ));
         jScrollPane2.setViewportView(tablacarrito);
