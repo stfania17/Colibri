@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -14,6 +15,7 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
+        Login.this.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -25,74 +27,99 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        musuario = new javax.swing.JTextPane();
-        ingresar = new javax.swing.JButton();
-        salir = new javax.swing.JButton();
-        visual = new javax.swing.JButton();
-        mcontraseña = new javax.swing.JPasswordField();
+        jDialog1 = new javax.swing.JDialog();
         jPanelRound1 = new LIB.JPanelRound();
         jEImagePanel1 = new LIB.JEImagePanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        musuario = new javax.swing.JTextPane();
+        mcontraseña = new javax.swing.JPasswordField();
+        visual = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        salir = new javax.swing.JButton();
+        ingresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 235));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(102, 255, 0));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("LOGIN");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 40, -1));
+        jPanelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_user_24px.png"))); // NOI18N
-        jLabel2.setToolTipText("");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 30, 30));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Inicio.png"))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_key_24px.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 30, 30));
+        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
+        jEImagePanel1.setLayout(jEImagePanel1Layout);
+        jEImagePanel1Layout.setHorizontalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+        );
+        jEImagePanel1Layout.setVerticalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
+
+        jPanelRound1.add(jEImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 370));
 
         musuario.setBorder(null);
         musuario.setName(""); // NOI18N
         jScrollPane2.setViewportView(musuario);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 170, 30));
+        jPanelRound1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 170, 30));
 
-        ingresar.setText("INGRESAR");
-        getContentPane().add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 110, 30));
-
-        salir.setText("SALIR");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 110, 30));
+        mcontraseña.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelRound1.add(mcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 170, 30));
 
         visual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_eye_24px.png"))); // NOI18N
-        visual.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        visual.setBorder(null);
         visual.setBorderPainted(false);
         visual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 visualActionPerformed(evt);
             }
         });
-        getContentPane().add(visual, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 30, 30));
+        jPanelRound1.add(visual, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 30, 30));
 
-        mcontraseña.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(mcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 170, 30));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_user_24px.png"))); // NOI18N
+        jLabel2.setToolTipText("");
+        jPanelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 30, 30));
 
-        jPanelRound1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelRound1.setOpaque(true);
-        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 290, 350));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_key_24px.png"))); // NOI18N
+        jPanelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 30, 30));
 
-        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Inicio.png"))); // NOI18N
-        getContentPane().add(jEImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 350));
+        jLabel1.setBackground(new java.awt.Color(102, 255, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/LOGIN-PhotoRoom.png"))); // NOI18N
+        jLabel1.setToolTipText("");
+        jPanelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 170, 50));
+
+        salir.setBackground(new java.awt.Color(102, 153, 255));
+        salir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        salir.setText("SALIR");
+        salir.setToolTipText("");
+        salir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        jPanelRound1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 140, 30));
+
+        ingresar.setBackground(new java.awt.Color(102, 153, 255));
+        ingresar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        ingresar.setText("INGRESAR");
+        ingresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanelRound1.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 140, 30));
+
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 340));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -183,6 +210,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ingresar;
+    private javax.swing.JDialog jDialog1;
     private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
