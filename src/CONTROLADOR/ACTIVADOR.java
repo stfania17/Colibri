@@ -35,6 +35,7 @@ public class ACTIVADOR {
         ControlProducto producto = new ControlProducto(produc, modelo);       
         producto.iniciaControl();*/
 
+      //EJECUCUIN LOGIN
         Login login = new Login();
         ControladorLogin con = new ControladorLogin(login);
         
