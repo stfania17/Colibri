@@ -32,8 +32,8 @@ public class FACTURA_FORMULARIO extends javax.swing.JFrame {
         botonesdepago = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        fechafactura = new javax.swing.JLabel();
+        codigofactura = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         subtitulo1 = new javax.swing.JLabel();
         bcfinal = new javax.swing.JRadioButton();
@@ -66,11 +66,11 @@ public class FACTURA_FORMULARIO extends javax.swing.JFrame {
         jLabel1.setText(" FACTURA");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 150, 20));
 
-        jLabel4.setText("FECHA");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 60, -1));
+        fechafactura.setText("FECHA");
+        jPanel1.add(fechafactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 220, -1));
 
-        jLabel5.setText("CODIGO  FACTURA");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, -1));
+        codigofactura.setText("CODIGO  FACTURA");
+        jPanel1.add(codigofactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 50));
 
@@ -158,6 +158,22 @@ public class FACTURA_FORMULARIO extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JLabel getCodigofactura() {
+        return codigofactura;
+    }
+
+    public void setCodigofactura(JLabel codigofactura) {
+        this.codigofactura = codigofactura;
+    }
+
+    public JLabel getFechafactura() {
+        return fechafactura;
+    }
+
+    public void setFechafactura(JLabel fechafactura) {
+        this.fechafactura = fechafactura;
+    }
  
     public JRadioButton getBccondatos() {
         return bccondatos;
@@ -370,14 +386,14 @@ public class FACTURA_FORMULARIO extends javax.swing.JFrame {
     private javax.swing.JRadioButton bttarjeta;
     private javax.swing.JButton buscarcliente;
     private javax.swing.JButton cancelarventa;
+    private javax.swing.JLabel codigofactura;
+    private javax.swing.JLabel fechafactura;
     private javax.swing.ButtonGroup grupobotones;
     private javax.swing.JButton ingresarcliente;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

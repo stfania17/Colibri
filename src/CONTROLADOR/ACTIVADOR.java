@@ -23,8 +23,8 @@ public class ACTIVADOR {
 
     public static void main(String[] args) {
 
-//        Portada porta=new Portada();
-//        ControladorPortada control=new ControladorPortada(porta);
+        Portada porta=new Portada();
+        ControladorPortada control=new ControladorPortada(porta);
 //      Ingreso ingre = new Ingreso();
 //      ControladorCajero cc = new ControladorCajero(ingre);
         /*Dbproductos modelo =new Dbproductos();      
@@ -32,9 +32,9 @@ public class ACTIVADOR {
 
         ControlProducto producto = new ControlProducto(produc, modelo);       
         producto.iniciaControl();*/
-        //EJECUCUIN LOGIN
-        Login login = new Login();
-        ControladorLogin con = new ControladorLogin(login);
+//        //EJECUCUIN LOGIN
+//        Login login = new Login();
+//        ControladorLogin con = new ControladorLogin(login);
 //        Portada login = new Portada();
 //        ControladorPortada con = new ControladorPortada(login);
 

@@ -24,51 +24,10 @@ public class Recepcion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        mcontraseña = new javax.swing.JPasswordField();
-        ingresar = new javax.swing.JButton();
-        salir1 = new javax.swing.JButton();
-        visual = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        musuario = new javax.swing.JTextPane();
-        jLabel1 = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         clientes = new javax.swing.JButton();
         cajeros = new javax.swing.JButton();
         salir = new javax.swing.JButton();
-
-        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setText("Usuario");
-        jDialog1.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 80, 20));
-
-        jLabel3.setText("Contraceña");
-        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 90, 20));
-        jDialog1.getContentPane().add(mcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 99, 164, 23));
-
-        ingresar.setText("INGRESAR");
-        jDialog1.getContentPane().add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
-
-        salir1.setText("SALIR");
-        salir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salir1ActionPerformed(evt);
-            }
-        });
-        jDialog1.getContentPane().add(salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 157, -1, -1));
-
-        visual.setText("0");
-        jDialog1.getContentPane().add(visual, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 99, -1, -1));
-
-        jScrollPane2.setViewportView(musuario);
-
-        jDialog1.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 55, 164, -1));
-
-        jLabel1.setBackground(new java.awt.Color(102, 255, 0));
-        jLabel1.setText("LOGIN");
-        jDialog1.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 11, 74, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 200));
@@ -97,90 +56,6 @@ public class Recepcion extends javax.swing.JFrame {
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_salirActionPerformed
-
-    private void salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_salir1ActionPerformed
-
-    public JButton getIngresar() {
-        return ingresar;
-    }
-
-    public void setIngresar(JButton ingresar) {
-        this.ingresar = ingresar;
-    }
-
-    public JDialog getjDialog1() {
-        return jDialog1;
-    }
-
-    public void setjDialog1(JDialog jDialog1) {
-        this.jDialog1 = jDialog1;
-    }
-
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
-    }
-
-    public JLabel getjLabel2() {
-        return jLabel2;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
-    public JLabel getjLabel3() {
-        return jLabel3;
-    }
-
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
-    }
-
-    public JScrollPane getjScrollPane2() {
-        return jScrollPane2;
-    }
-
-    public void setjScrollPane2(JScrollPane jScrollPane2) {
-        this.jScrollPane2 = jScrollPane2;
-    }
-
-    public JPasswordField getMcontraseña() {
-        return mcontraseña;
-    }
-
-    public void setMcontraseña(JPasswordField mcontraseña) {
-        this.mcontraseña = mcontraseña;
-    }
-
-    public JTextPane getMusuario() {
-        return musuario;
-    }
-
-    public void setMusuario(JTextPane musuario) {
-        this.musuario = musuario;
-    }
-
-    public JButton getSalir1() {
-        return salir1;
-    }
-
-    public void setSalir1(JButton salir1) {
-        this.salir1 = salir1;
-    }
-
-    public JButton getVisual() {
-        return visual;
-    }
-
-    public void setVisual(JButton visual) {
-        this.visual = visual;
-    }
 
     public JButton getCajeros() {
         return cajeros;
@@ -247,6 +122,14 @@ public class Recepcion extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -259,18 +142,8 @@ public class Recepcion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cajeros;
     private javax.swing.JButton clientes;
-    private javax.swing.JButton ingresar;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPasswordField mcontraseña;
-    private javax.swing.JTextPane musuario;
     private javax.swing.JButton salir;
-    private javax.swing.JButton salir1;
     private javax.swing.JLabel titulo;
-    private javax.swing.JButton visual;
     // End of variables declaration//GEN-END:variables
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

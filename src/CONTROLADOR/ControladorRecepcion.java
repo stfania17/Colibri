@@ -1,6 +1,6 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
- 
+
 import VISTA.Ingreso;
 import VISTA.Login;
 import VISTA.MenuCliente;
@@ -28,9 +28,6 @@ public class ControladorRecepcion {
         rec.getClientes().addActionListener(l->ingresacliente());  // Abrir zona de clientes
         rec.getSalir().addActionListener(l->regresar());  /// SALIR PARA PRIMER LOGIN.
         //////////////  PARTES DEL SEGUNDO LOGIN DE SEGURIDAD //////////////////
-        rec.getIngresar().addActionListener(l->comprovar());   /// INGRESAR EN SEGUNDO LOGIN
-        rec.getSalir1().addActionListener(l->cerralogin());   /// CERRAR EL SEGUNDO LOGINC
-        rec.getVisual().addActionListener(l->vercontraseña());  /// VER CONTRASEÑA DEL SEGUNDO LOGIN
     }
     //////////////   PUERTAS   /////////////////////////////////////////////////
     public static void mostrar(){rec.setVisible(true);}
@@ -47,37 +44,14 @@ public class ControladorRecepcion {
     //////////////////  SECCION CAJERO         /////////////////////////////////
     public static void ingresacajero(){
         cerrar();
-        
         ControladorCajero cc = new ControladorCajero(ig);
-        
     }
     ////////////////////   PARA EL LOGIN SEGUNDO ///////////////////////////////
     public static void abrirlogin(){
-      rec.getjDialog1().setSize(400,250);
-      rec.getjDialog1().setVisible(true);  
-    }
-    public static void cerralogin(){
-        rec.getjDialog1().setVisible(false);
-        rec.getMcontraseña().setText("");
-        rec.getMusuario().setText("");
-    }
-    public static void vercontraseña(){
-        JOptionPane.showMessageDialog(null,rec.getMcontraseña().getText());
+        cerrar();
+        ControladorLogin con = new ControladorLogin(log);  
     }
     /////////////////////// SEGUNDO LOGIN DE SEGURIDAD /////////////////////////
-    public static void comprovar(){
-        String usuario=rec.getMusuario().getText();
-        String contraseña=rec.getMcontraseña().getText();
-        /////////////////////                           ////////////////////////
-        if(usuario.equalsIgnoreCase("MASTER") && contraseña.equalsIgnoreCase("1234")){
-            rec.getjDialog1().setVisible(false);  
-            rec.getMcontraseña().setText("");
-            rec.getMusuario().setText("");
-            ingresacajero();
-        }else if(!usuario.equalsIgnoreCase("MASTER") || !contraseña.equalsIgnoreCase("1234")){
-            JOptionPane.showMessageDialog(null,"INCORRECTO");
-        }
-    }
     ////////////////////////////////////////////////////////////////////////////   
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

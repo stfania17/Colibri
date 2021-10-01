@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
+import VISTA.Ingreso;
 import VISTA.Login;
 import VISTA.Portada;
 import VISTA.Recepcion;
@@ -12,6 +13,7 @@ public class ControladorLogin {
     public static Login log = new Login();
     public static Portada portada = new Portada();
     public static Recepcion rec = new Recepcion();
+    public static Ingreso ingre = new Ingreso();
     ////////////////////////////////////////////////////////////////////////////
     public ControladorLogin(Login log){
         this.log=log;
@@ -32,13 +34,13 @@ public class ControladorLogin {
         log.getMusuario().setText("");
         log.getMcontraseña().setText("");
         cerrar();
-        ControladorPortada cp = new ControladorPortada(portada);
+        ControladorRecepcion cp = new ControladorRecepcion(rec);
     }
     public static void ingresar(){
         log.getMusuario().setText("");
         log.getMcontraseña().setText("");
         cerrar();
-        ControladorRecepcion cr = new ControladorRecepcion(rec);
+        ControladorCajero cc = new ControladorCajero(ingre);
     }
     //////////////////////////   COMPROBAR CONTRASEÑA   ////////////////////////
     public static void comprovar(){

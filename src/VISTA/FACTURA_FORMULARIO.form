@@ -60,17 +60,17 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="fechafactura">
           <Properties>
             <Property name="text" type="java.lang.String" value="FECHA"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="20" width="60" height="-1"/>
+              <AbsoluteConstraints x="370" y="20" width="220" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="codigofactura">
           <Properties>
             <Property name="text" type="java.lang.String" value="CODIGO  FACTURA"/>
           </Properties>
