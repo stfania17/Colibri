@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -12,7 +13,8 @@ public class Portada extends javax.swing.JFrame {
  
     public Portada() {
         initComponents();
-        texti.setEditable(false);
+        Portada.this.setBackground(new Color(0,0,0,0));
+        
     }
 
     /**
@@ -24,62 +26,98 @@ public class Portada extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel5 = new javax.swing.JLabel();
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel2 = new LIB.JEImagePanel();
         entrar = new javax.swing.JButton();
         SALIDA = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        texti = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jEImagePanel1 = new LIB.JEImagePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jLabel5.setText("PROYECTO COLIBRI");
+        jPanelRound1.setBackground(new java.awt.Color(190, 235, 118));
+        jPanelRound1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
 
-        entrar.setText("INGRESO");
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/31b204b86b31bfdd540ab7d81e3778e0.jpg"))); // NOI18N
+
+        entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/INGRESARV-PhotoRoom.png"))); // NOI18N
+        entrar.setBorder(null);
+        entrar.setBorderPainted(false);
+        entrar.setContentAreaFilled(false);
+        entrar.setFocusPainted(false);
         entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarActionPerformed(evt);
             }
         });
 
-        SALIDA.setText("SALIR");
+        SALIDA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIRV-PhotoRoom.png"))); // NOI18N
+        SALIDA.setBorder(null);
+        SALIDA.setBorderPainted(false);
+        SALIDA.setContentAreaFilled(false);
+        SALIDA.setFocusPainted(false);
 
-        texti.setColumns(20);
-        texti.setRows(5);
-        texti.setText("El proyecto tiene como finalidad \nayudar a los adultos mayores de la\nParroquia de Sayausi en la venta de\nproductos organicos como frutas, \nvegetales, lacteos entre otros que\nse mostrarán a continuación\n");
-        jScrollPane1.setViewportView(texti);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SA-PhotoRoom.png"))); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
+        jEImagePanel2.setLayout(jEImagePanel2Layout);
+        jEImagePanel2Layout.setHorizontalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(SALIDA)
+                            .addComponent(entrar)))
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jEImagePanel2Layout.setVerticalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                .addContainerGap(86, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(entrar)
+                .addGap(18, 18, 18)
+                .addComponent(SALIDA)
+                .addGap(36, 36, 36))
+        );
+
+        jPanelRound1.add(jEImagePanel2);
+        jEImagePanel2.setBounds(300, 0, 310, 480);
+
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Portada.png"))); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
+        jEImagePanel1.setLayout(jEImagePanel1Layout);
+        jEImagePanel1Layout.setHorizontalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 310, Short.MAX_VALUE)
+        );
+        jEImagePanel1Layout.setVerticalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+        );
+
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 310, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(entrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SALIDA)
-                .addGap(88, 88, 88))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(154, 154, 154))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47))))
+            .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel5)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SALIDA)
-                    .addComponent(entrar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -106,44 +144,13 @@ public class Portada extends javax.swing.JFrame {
         this.entrar = entrar;
     }
 
-    public JLabel getjLabel5() {
-        return jLabel5;
-    }
-
-    public void setjLabel5(JLabel jLabel5) {
-        this.jLabel5 = jLabel5;
-    }
-
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
-
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
-    }
-
-    public JTextArea getTexti() {
-        return texti;
-    }
-
-    public void setTexti(JTextArea texti) {
-        this.texti = texti;
-    }
-
- 
-    
-    
-    
-    
-    
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton SALIDA;
     public javax.swing.JButton entrar;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea texti;
+    private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JEImagePanel jEImagePanel2;
+    private javax.swing.JLabel jLabel1;
+    private LIB.JPanelRound jPanelRound1;
     // End of variables declaration//GEN-END:variables
 }
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
