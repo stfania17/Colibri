@@ -16,7 +16,6 @@ public class SQConnect {
     ResultSet rs;//resultados de consulta.
     
     String cadConecion="jdbc:postgresql://localhost:5432/PGV_COLIBRI ";
-  
     String pgUser="postgres";
     String pgContra="1234567890";
     

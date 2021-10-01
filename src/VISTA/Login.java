@@ -76,6 +76,7 @@ public class Login extends javax.swing.JFrame {
         visual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_eye_24px.png"))); // NOI18N
         visual.setBorder(null);
         visual.setBorderPainted(false);
+        visual.setContentAreaFilled(false);
         visual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 visualActionPerformed(evt);

@@ -20,25 +20,24 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ACTIVADOR {
-    
+
     public static void main(String[] args) {
-        
+
 //        Portada porta=new Portada();
 //        ControladorPortada control=new ControladorPortada(porta);
-        
 //      Ingreso ingre = new Ingreso();
 //      ControladorCajero cc = new ControladorCajero(ingre);
-        
-      /*Dbproductos modelo =new Dbproductos();      
+        /*Dbproductos modelo =new Dbproductos();      
         Producto produc = new Producto(); 
 
         ControlProducto producto = new ControlProducto(produc, modelo);       
         producto.iniciaControl();*/
-
-      //EJECUCUIN LOGIN
+        //EJECUCUIN LOGIN
         Login login = new Login();
         ControladorLogin con = new ControladorLogin(login);
-        
+//        Portada login = new Portada();
+//        ControladorPortada con = new ControladorPortada(login);
+
         //MenuCliente mc=new MenuCliente();
         //ControlMenu cm=new ControlMenu(mc);
     }
