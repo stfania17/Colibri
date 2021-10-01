@@ -157,6 +157,7 @@ public class FACTURA_FORMULARIO extends javax.swing.JFrame {
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 620, 190));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public JLabel getCodigofactura() {
