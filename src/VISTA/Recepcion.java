@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -12,7 +13,9 @@ public class Recepcion extends javax.swing.JFrame {
 
  
     public Recepcion() {
+        
         initComponents();
+        Recepcion.this.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -24,31 +27,55 @@ public class Recepcion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        titulo = new javax.swing.JLabel();
-        clientes = new javax.swing.JButton();
+        jPanelTransparente1 = new LIB.JPanelTransparente();
+        jEImagePanel1 = new LIB.JEImagePanel();
         cajeros = new javax.swing.JButton();
+        clientes = new javax.swing.JButton();
         salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 200));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titulo.setText("RECEPCION");
-        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 83, 24));
+        jPanelTransparente1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelTransparente1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelTransparente1.setLayout(null);
 
-        clientes.setText("CLIENTES");
-        getContentPane().add(clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 73, 110, 31));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
+        jEImagePanel1.setLayout(null);
 
-        cajeros.setText("CAJEROS");
-        getContentPane().add(cajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 110, 31));
+        cajeros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/CAJERO F.png"))); // NOI18N
+        cajeros.setBorder(null);
+        cajeros.setBorderPainted(false);
+        cajeros.setContentAreaFilled(false);
+        cajeros.setFocusPainted(false);
+        jEImagePanel1.add(cajeros);
+        cajeros.setBounds(110, 170, 200, 200);
 
-        salir.setText("SALIR");
+        clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/CLIENTES-PhotoRoom.png"))); // NOI18N
+        clientes.setBorder(null);
+        clientes.setBorderPainted(false);
+        clientes.setContentAreaFilled(false);
+        jEImagePanel1.add(clientes);
+        clientes.setBounds(470, 170, 210, 201);
+
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR.png"))); // NOI18N
+        salir.setBorder(null);
+        salir.setBorderPainted(false);
+        salir.setContentAreaFilled(false);
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
             }
         });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 131, 81, 35));
+        jEImagePanel1.add(salir);
+        salir.setBounds(600, 440, 170, 60);
+
+        jPanelTransparente1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 790, 510);
+
+        getContentPane().add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 520));
 
         pack();
         setLocationRelativeTo(null);
@@ -82,14 +109,7 @@ public class Recepcion extends javax.swing.JFrame {
         this.salir = salir;
     }
 
-    public JLabel getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(JLabel titulo) {
-        this.titulo = titulo;
-    }
- 
+   
     
     
     
@@ -98,8 +118,9 @@ public class Recepcion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cajeros;
     private javax.swing.JButton clientes;
+    private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JPanelTransparente jPanelTransparente1;
     private javax.swing.JButton salir;
-    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

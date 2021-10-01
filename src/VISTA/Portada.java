@@ -76,7 +76,7 @@ public class Portada extends javax.swing.JFrame {
                     .addGroup(jEImagePanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jEImagePanel2Layout.setVerticalGroup(
             jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +91,7 @@ public class Portada extends javax.swing.JFrame {
         );
 
         jPanelRound1.add(jEImagePanel2);
-        jEImagePanel2.setBounds(300, 0, 320, 490);
+        jEImagePanel2.setBounds(300, 0, 290, 490);
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Portada.png"))); // NOI18N
 
@@ -113,7 +113,7 @@ public class Portada extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
