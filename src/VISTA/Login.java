@@ -49,7 +49,7 @@ public class Login extends javax.swing.JFrame {
         jPanelRound1.setOpaque(true);
         jPanelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Inicio.png"))); // NOI18N
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/login verde.png"))); // NOI18N
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
@@ -95,13 +95,13 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(102, 255, 0));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/LOGIN-PhotoRoom.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/LOGIN FINAL.png"))); // NOI18N
         jLabel1.setToolTipText("");
-        jPanelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 170, 50));
+        jPanelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 200, 50));
 
         salir.setBackground(new java.awt.Color(255, 255, 255));
         salir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR2-PhotoRoom.png"))); // NOI18N
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR VERDE-PhotoRoom.png"))); // NOI18N
         salir.setToolTipText("");
         salir.setBorder(null);
         salir.setBorderPainted(false);
@@ -113,18 +113,18 @@ public class Login extends javax.swing.JFrame {
                 salirActionPerformed(evt);
             }
         });
-        jPanelRound1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 110, 50));
+        jPanelRound1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 150, 40));
 
         ingresar.setBackground(new java.awt.Color(255, 255, 255));
         ingresar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Ingresar2-PhotoRoom.png"))); // NOI18N
+        ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/INGRESAR VERDE-PhotoRoom.png"))); // NOI18N
         ingresar.setBorder(null);
         ingresar.setBorderPainted(false);
         ingresar.setContentAreaFilled(false);
         ingresar.setFocusPainted(false);
         ingresar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Ingresar2-PhotoRoom.png"))); // NOI18N
         ingresar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Ingresar2-PhotoRoom.png"))); // NOI18N
-        jPanelRound1.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 110, 50));
+        jPanelRound1.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 150, -1));
 
         getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 340));
 

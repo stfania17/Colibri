@@ -38,7 +38,7 @@ public class Recepcion extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelTransparente1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelTransparente1.setBackground(new java.awt.Color(0, 0, 0));
         jPanelTransparente1.setForeground(new java.awt.Color(255, 255, 255));
         jPanelTransparente1.setLayout(null);
 

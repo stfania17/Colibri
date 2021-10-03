@@ -43,7 +43,7 @@ public class Portada extends javax.swing.JFrame {
 
         jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/31b204b86b31bfdd540ab7d81e3778e0.jpg"))); // NOI18N
 
-        entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/INGRESARV-PhotoRoom.png"))); // NOI18N
+        entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/INGRESAR VERDE-PhotoRoom.png"))); // NOI18N
         entrar.setBorder(null);
         entrar.setBorderPainted(false);
         entrar.setContentAreaFilled(false);
@@ -54,7 +54,7 @@ public class Portada extends javax.swing.JFrame {
             }
         });
 
-        SALIDA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIRV-PhotoRoom.png"))); // NOI18N
+        SALIDA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR VERDE-PhotoRoom.png"))); // NOI18N
         SALIDA.setBorder(null);
         SALIDA.setBorderPainted(false);
         SALIDA.setContentAreaFilled(false);
@@ -66,32 +66,31 @@ public class Portada extends javax.swing.JFrame {
         jEImagePanel2.setLayout(jEImagePanel2Layout);
         jEImagePanel2Layout.setHorizontalGroup(
             jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26))
             .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(SALIDA)
-                            .addComponent(entrar)))
-                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)))
+                .addGap(88, 88, 88)
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(SALIDA)
+                    .addComponent(entrar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jEImagePanel2Layout.setVerticalGroup(
             jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(54, 54, 54)
                 .addComponent(entrar)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addComponent(SALIDA)
-                .addGap(36, 36, 36))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         jPanelRound1.add(jEImagePanel2);
-        jEImagePanel2.setBounds(300, 0, 290, 490);
+        jEImagePanel2.setBounds(300, 0, 330, 490);
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Portada.png"))); // NOI18N
 
@@ -113,7 +112,7 @@ public class Portada extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
