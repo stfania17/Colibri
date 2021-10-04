@@ -1,6 +1,8 @@
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import LIB.FSPasswordFieldMD;
+import LIB.FSTexFieldMD;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -30,15 +32,14 @@ public class Login extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jPanelRound1 = new LIB.JPanelRound();
         jEImagePanel1 = new LIB.JEImagePanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        musuario = new javax.swing.JTextPane();
-        mcontraseña = new javax.swing.JPasswordField();
         visual = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
         ingresar = new javax.swing.JButton();
+        musuario = new LIB.FSTexFieldMD();
+        mcontraseña = new LIB.FSPasswordFieldMD();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 235));
@@ -64,15 +65,6 @@ public class Login extends javax.swing.JFrame {
 
         jPanelRound1.add(jEImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 350));
 
-        musuario.setBorder(null);
-        musuario.setName(""); // NOI18N
-        jScrollPane2.setViewportView(musuario);
-
-        jPanelRound1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 240, 30));
-
-        mcontraseña.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanelRound1.add(mcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 240, 30));
-
         visual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_eye_24px.png"))); // NOI18N
         visual.setBorder(null);
         visual.setBorderPainted(false);
@@ -82,7 +74,7 @@ public class Login extends javax.swing.JFrame {
                 visualActionPerformed(evt);
             }
         });
-        jPanelRound1.add(visual, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 30, 30));
+        jPanelRound1.add(visual, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 30, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_user_24px.png"))); // NOI18N
@@ -117,6 +109,16 @@ public class Login extends javax.swing.JFrame {
         ingresar.setFocusPainted(false);
         jPanelRound1.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 150, -1));
 
+        musuario.setForeground(new java.awt.Color(0, 0, 0));
+        musuario.setBordeColorFocus(new java.awt.Color(0, 204, 102));
+        musuario.setPlaceholder("Usuario");
+        jPanelRound1.add(musuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
+
+        mcontraseña.setForeground(new java.awt.Color(0, 0, 0));
+        mcontraseña.setBordeColorFocus(new java.awt.Color(0, 204, 102));
+        mcontraseña.setPlaceholder("Contraseña");
+        jPanelRound1.add(mcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
+
         getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 350));
 
         pack();
@@ -127,13 +129,23 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_visualActionPerformed
 
-    public JPasswordField getMcontraseña() {
+    public FSPasswordFieldMD getMcontraseña() {
         return mcontraseña;
     }
 
-    public void setMcontraseña(JPasswordField mcontraseña) {
+    public void setMcontraseña(FSPasswordFieldMD mcontraseña) {
         this.mcontraseña = mcontraseña;
     }
+
+    public FSTexFieldMD getMusuario() {
+        return musuario;
+    }
+
+    public void setMusuario(FSTexFieldMD musuario) {
+        this.musuario = musuario;
+    }
+
+  
     
     public JButton getIngresar() {
         return ingresar;
@@ -167,21 +179,7 @@ public class Login extends javax.swing.JFrame {
         this.jLabel3 = jLabel3;
     }
 
-    public JScrollPane getjScrollPane2() {
-        return jScrollPane2;
-    }
-
-    public void setjScrollPane2(JScrollPane jScrollPane2) {
-        this.jScrollPane2 = jScrollPane2;
-    }
-
-    public JTextPane getMusuario() {
-        return musuario;
-    }
-
-    public void setMusuario(JTextPane musuario) {
-        this.musuario = musuario;
-    }
+ 
 
     public JButton getSalir() {
         return salir;
@@ -215,9 +213,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private LIB.JPanelRound jPanelRound1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPasswordField mcontraseña;
-    private javax.swing.JTextPane musuario;
+    private LIB.FSPasswordFieldMD mcontraseña;
+    private LIB.FSTexFieldMD musuario;
     private javax.swing.JButton salir;
     private javax.swing.JButton visual;
     // End of variables declaration//GEN-END:variables
