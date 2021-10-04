@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -14,6 +15,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     public MenuCliente() {
         initComponents();
+        MenuCliente.this.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -49,16 +51,17 @@ public class MenuCliente extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         dejarlo = new javax.swing.JButton();
         contador = new javax.swing.JSpinner();
-        lb_productos = new javax.swing.JLabel();
-        but_carrito = new javax.swing.JButton();
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
+        jEImagePanel2 = new LIB.JEImagePanel();
+        but_granos = new javax.swing.JButton();
         but_verduras = new javax.swing.JButton();
         but_frutas = new javax.swing.JButton();
-        lb_titulo = new javax.swing.JLabel();
-        but_lacteos = new javax.swing.JButton();
-        but_granos = new javax.swing.JButton();
         but_hierbas = new javax.swing.JButton();
-        but_otros = new javax.swing.JButton();
+        but_carrito = new javax.swing.JButton();
         but_salir = new javax.swing.JButton();
+        but_lacteos = new javax.swing.JButton();
+        but_otros = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setText("COLIBRÍ");
@@ -263,18 +266,31 @@ public class MenuCliente extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 425));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMinimumSize(new java.awt.Dimension(1340, 738));
+        setUndecorated(true);
+        getContentPane().setLayout(null);
 
-        lb_productos.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lb_productos.setForeground(new java.awt.Color(51, 102, 0));
-        lb_productos.setText("PRODUCTOS");
-        getContentPane().add(lb_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 81, -1, -1));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
 
-        but_carrito.setText("Carrito");
-        getContentPane().add(but_carrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, -1));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/PRODUCTOS.png"))); // NOI18N
+        jEImagePanel1.setLayout(null);
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 482, 690);
 
-        but_verduras.setText("verduras");
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/1.jpg"))); // NOI18N
+
+        but_granos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/GRANOS ICO.png"))); // NOI18N
+        but_granos.setBorder(null);
+        but_granos.setBorderPainted(false);
+        but_granos.setContentAreaFilled(false);
+        but_granos.setFocusPainted(false);
+
+        but_verduras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/VERDURAS ICO.png"))); // NOI18N
+        but_verduras.setBorder(null);
+        but_verduras.setBorderPainted(false);
+        but_verduras.setContentAreaFilled(false);
+        but_verduras.setFocusPainted(false);
         but_verduras.setMaximumSize(new java.awt.Dimension(3149, 2009));
         but_verduras.setMinimumSize(new java.awt.Dimension(3149, 2009));
         but_verduras.addActionListener(new java.awt.event.ActionListener() {
@@ -282,34 +298,102 @@ public class MenuCliente extends javax.swing.JFrame {
                 but_verdurasActionPerformed(evt);
             }
         });
-        getContentPane().add(but_verduras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, -1));
 
-        but_frutas.setText("frutas");
-        getContentPane().add(but_frutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 151, 70, -1));
+        but_frutas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/FRUTAS ICO.png"))); // NOI18N
+        but_frutas.setBorder(null);
+        but_frutas.setBorderPainted(false);
+        but_frutas.setContentAreaFilled(false);
+        but_frutas.setFocusPainted(false);
 
-        lb_titulo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        lb_titulo.setText("PROYECTO COLIBRÍ");
-        getContentPane().add(lb_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 22, -1, -1));
+        but_hierbas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/HIERBAS ICO.png"))); // NOI18N
+        but_hierbas.setBorder(null);
+        but_hierbas.setBorderPainted(false);
+        but_hierbas.setContentAreaFilled(false);
+        but_hierbas.setFocusPainted(false);
 
-        but_lacteos.setText("lacteos");
+        but_carrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CARRITO ICO.png"))); // NOI18N
+        but_carrito.setBorder(null);
+        but_carrito.setBorderPainted(false);
+        but_carrito.setContentAreaFilled(false);
+        but_carrito.setFocusPainted(false);
+
+        but_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR VERDE-PhotoRoom.png"))); // NOI18N
+        but_salir.setBorder(null);
+        but_salir.setBorderPainted(false);
+        but_salir.setContentAreaFilled(false);
+        but_salir.setFocusPainted(false);
+
+        but_lacteos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LACTEOS ICO.png"))); // NOI18N
+        but_lacteos.setBorder(null);
+        but_lacteos.setBorderPainted(false);
+        but_lacteos.setContentAreaFilled(false);
+        but_lacteos.setFocusPainted(false);
         but_lacteos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 but_lacteosActionPerformed(evt);
             }
         });
-        getContentPane().add(but_lacteos, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
 
-        but_granos.setText("granos");
-        getContentPane().add(but_granos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 258, 80, -1));
+        but_otros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/OTROS ICO.png"))); // NOI18N
+        but_otros.setBorder(null);
+        but_otros.setBorderPainted(false);
+        but_otros.setContentAreaFilled(false);
+        but_otros.setFocusPainted(false);
 
-        but_hierbas.setText("hierbas");
-        getContentPane().add(but_hierbas, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 258, -1, -1));
+        javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
+        jEImagePanel2.setLayout(jEImagePanel2Layout);
+        jEImagePanel2Layout.setHorizontalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(but_salir))
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(but_granos)
+                            .addComponent(but_verduras, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
+                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(but_frutas)
+                            .addComponent(but_hierbas))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(but_lacteos)
+                            .addComponent(but_otros)
+                            .addComponent(but_carrito))))
+                .addGap(53, 53, 53))
+        );
+        jEImagePanel2Layout.setVerticalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(but_verduras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(but_frutas)))
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(but_carrito)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addComponent(but_lacteos)))
+                .addGap(116, 116, 116)
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(but_hierbas)
+                    .addComponent(but_granos, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(but_otros))
+                .addGap(134, 134, 134)
+                .addComponent(but_salir)
+                .addGap(69, 69, 69))
+        );
 
-        but_otros.setText("otros");
-        getContentPane().add(but_otros, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 70, -1));
+        jPanelRound1.add(jEImagePanel2);
+        jEImagePanel2.setBounds(480, 10, 840, 690);
 
-        but_salir.setText("SALIR");
-        getContentPane().add(but_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, -1, -1));
+        getContentPane().add(jPanelRound1);
+        jPanelRound1.setBounds(0, 0, 1320, 690);
 
         pack();
         setLocationRelativeTo(null);
@@ -583,22 +667,6 @@ public class MenuCliente extends javax.swing.JFrame {
         this.jTextField1 = jTextField1;
     }
 
-    public JLabel getLb_productos() {
-        return lb_productos;
-    }
-
-    public void setLb_productos(JLabel lb_productos) {
-        this.lb_productos = lb_productos;
-    }
-
-    public JLabel getLb_titulo() {
-        return lb_titulo;
-    }
-
-    public void setLb_titulo(JLabel lb_titulo) {
-        this.lb_titulo = lb_titulo;
-    }
-
     public JButton getBut_salir() {
         return but_salir;
     }
@@ -626,6 +694,8 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JSpinner contador;
     public javax.swing.JButton dejarlo;
     private javax.swing.JButton jButton1;
+    private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JEImagePanel jEImagePanel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -635,13 +705,12 @@ public class MenuCliente extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
+    private LIB.JPanelRound jPanelRound1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
     public javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lb_productos;
-    private javax.swing.JLabel lb_titulo;
     public javax.swing.JTable tablacarrito;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables

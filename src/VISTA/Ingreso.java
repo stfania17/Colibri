@@ -10,7 +10,7 @@ public class Ingreso extends javax.swing.JFrame {
  
     public Ingreso() {
         initComponents();
-        Ingreso.this.setBackground(new Color(0,0,0,0));
+        Ingreso.this.setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
