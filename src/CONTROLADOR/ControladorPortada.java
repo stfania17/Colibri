@@ -30,7 +30,7 @@ public class ControladorPortada {
         ControladorRecepcion cr = new ControladorRecepcion(rec);
     }
     public static void salir(){
-        portada.dispose();
+        System.exit(0);
     }
     ////////////////////////////////////////////////////////////////////////////
 //    public ControladorPortada(Portada porta){
