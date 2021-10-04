@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -9,6 +10,7 @@ public class Ingreso extends javax.swing.JFrame {
  
     public Ingreso() {
         initComponents();
+        Ingreso.this.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -20,46 +22,91 @@ public class Ingreso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lb_admin = new javax.swing.JLabel();
-        lb_reporte = new javax.swing.JLabel();
-        but_Rep_Proveedor = new javax.swing.JButton();
-        but_Rep_Producto = new javax.swing.JButton();
-        but_Rep_Factura = new javax.swing.JButton();
-        but_Rep_Cliente = new javax.swing.JButton();
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
+        jEImagePanel2 = new LIB.JEImagePanel();
         but_Salir = new javax.swing.JButton();
+        but_Rep_Producto = new javax.swing.JButton();
+        but_Rep_Proveedor = new javax.swing.JButton();
+        but_Rep_Cliente = new javax.swing.JButton();
+        but_Rep_Factura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(500, 385));
-        setPreferredSize(new java.awt.Dimension(500, 385));
+        setMinimumSize(new java.awt.Dimension(870, 519));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(870, 519));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lb_admin.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        lb_admin.setText("ADMINISTRADOR");
-        getContentPane().add(lb_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 35, -1, -1));
+        jPanelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelRound1.setToolTipText("");
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
 
-        lb_reporte.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lb_reporte.setForeground(new java.awt.Color(0, 0, 204));
-        lb_reporte.setText("REPORTES");
-        getContentPane().add(lb_reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 101, -1, -1));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Ingreso.png"))); // NOI18N
+        jEImagePanel1.setLayout(null);
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 370, 520);
 
-        but_Rep_Proveedor.setText("REPORTES DE PROVEEDORES");
-        getContentPane().add(but_Rep_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 280, -1));
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/31b204b86b31bfdd540ab7d81e3778e0.jpg"))); // NOI18N
+        jEImagePanel2.setLayout(null);
 
-        but_Rep_Producto.setText("REPORTES DE PRODUCTOS");
-        getContentPane().add(but_Rep_Producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 280, -1));
+        but_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR VERDE-PhotoRoom.png"))); // NOI18N
+        but_Salir.setBorder(null);
+        but_Salir.setBorderPainted(false);
+        but_Salir.setContentAreaFilled(false);
+        but_Salir.setFocusPainted(false);
+        jEImagePanel2.add(but_Salir);
+        but_Salir.setBounds(340, 450, 150, 40);
 
-        but_Rep_Factura.setText("REPORTES DE FACTURAS");
-        getContentPane().add(but_Rep_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 280, -1));
+        but_Rep_Producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Reporte prODUCTOS.png"))); // NOI18N
+        but_Rep_Producto.setBorder(null);
+        but_Rep_Producto.setBorderPainted(false);
+        but_Rep_Producto.setContentAreaFilled(false);
+        but_Rep_Producto.setFocusPainted(false);
+        but_Rep_Producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                but_Rep_ProductoActionPerformed(evt);
+            }
+        });
+        jEImagePanel2.add(but_Rep_Producto);
+        but_Rep_Producto.setBounds(110, 130, 310, 70);
 
-        but_Rep_Cliente.setText("REPORTES DE CLIENTES");
-        getContentPane().add(but_Rep_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 280, -1));
+        but_Rep_Proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Reporte proveedores.png"))); // NOI18N
+        but_Rep_Proveedor.setBorder(null);
+        but_Rep_Proveedor.setBorderPainted(false);
+        but_Rep_Proveedor.setContentAreaFilled(false);
+        but_Rep_Proveedor.setFocusPainted(false);
+        jEImagePanel2.add(but_Rep_Proveedor);
+        but_Rep_Proveedor.setBounds(110, 40, 310, 70);
 
-        but_Salir.setText("Salir");
-        getContentPane().add(but_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 90, -1));
+        but_Rep_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Reporte CLIENTES.png"))); // NOI18N
+        but_Rep_Cliente.setBorder(null);
+        but_Rep_Cliente.setBorderPainted(false);
+        but_Rep_Cliente.setContentAreaFilled(false);
+        but_Rep_Cliente.setFocusPainted(false);
+        jEImagePanel2.add(but_Rep_Cliente);
+        but_Rep_Cliente.setBounds(110, 310, 310, 70);
+
+        but_Rep_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Reporte FACTURAS .png"))); // NOI18N
+        but_Rep_Factura.setBorder(null);
+        but_Rep_Factura.setBorderPainted(false);
+        but_Rep_Factura.setContentAreaFilled(false);
+        but_Rep_Factura.setFocusPainted(false);
+        jEImagePanel2.add(but_Rep_Factura);
+        but_Rep_Factura.setBounds(110, 220, 310, 70);
+
+        jPanelRound1.add(jEImagePanel2);
+        jEImagePanel2.setBounds(360, 0, 510, 520);
+
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 520));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void but_Rep_ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but_Rep_ProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_but_Rep_ProductoActionPerformed
 
     public JButton getBut_Rep_Cliente() {
         return but_Rep_Cliente;
@@ -96,19 +143,6 @@ public class Ingreso extends javax.swing.JFrame {
         this.but_Salir = but_Salir;
     }
 
-    public JLabel getLb_admin() {
-        return lb_admin;
-    }
-    public void setLb_admin(JLabel lb_admin) {
-        this.lb_admin = lb_admin;
-    }
-
-    public JLabel getLb_reporte() {
-        return lb_reporte;
-    }
-    public void setLb_reporte(JLabel lb_reporte) {
-        this.lb_reporte = lb_reporte;
-    }
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
   
@@ -119,8 +153,9 @@ public class Ingreso extends javax.swing.JFrame {
     private javax.swing.JButton but_Rep_Producto;
     private javax.swing.JButton but_Rep_Proveedor;
     private javax.swing.JButton but_Salir;
-    private javax.swing.JLabel lb_admin;
-    private javax.swing.JLabel lb_reporte;
+    private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JPanelRound jPanelRound1;
     // End of variables declaration//GEN-END:variables
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
