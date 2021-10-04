@@ -59,10 +59,10 @@ public class Login extends javax.swing.JFrame {
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGap(0, 350, Short.MAX_VALUE)
         );
 
-        jPanelRound1.add(jEImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 370));
+        jPanelRound1.add(jEImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 350));
 
         musuario.setBorder(null);
         musuario.setName(""); // NOI18N
@@ -106,13 +106,6 @@ public class Login extends javax.swing.JFrame {
         salir.setBorder(null);
         salir.setBorderPainted(false);
         salir.setContentAreaFilled(false);
-        salir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR2-PhotoRoom.png"))); // NOI18N
-        salir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR2-PhotoRoom.png"))); // NOI18N
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
-            }
-        });
         jPanelRound1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 150, 40));
 
         ingresar.setBackground(new java.awt.Color(255, 255, 255));
@@ -122,19 +115,13 @@ public class Login extends javax.swing.JFrame {
         ingresar.setBorderPainted(false);
         ingresar.setContentAreaFilled(false);
         ingresar.setFocusPainted(false);
-        ingresar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Ingresar2-PhotoRoom.png"))); // NOI18N
-        ingresar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Ingresar2-PhotoRoom.png"))); // NOI18N
         jPanelRound1.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 150, -1));
 
-        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 340));
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 350));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_salirActionPerformed
 
     private void visualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualActionPerformed
         // TODO add your handling code here:
@@ -203,6 +190,8 @@ public class Login extends javax.swing.JFrame {
     public void setSalir(JButton salir) {
         this.salir = salir;
     }
+
+ 
 
     public JButton getVisual() {
         return visual;
