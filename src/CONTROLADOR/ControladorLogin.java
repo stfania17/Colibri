@@ -55,7 +55,7 @@ public class ControladorLogin {
     }
     public static void mostra(){
         String contraseña=log.getMcontraseña().getText();
-        JOptionPane.showMessageDialog(null,""+contraseña);
+        JOptionPane.showMessageDialog(null,"Su contraseña ingresada es: "+contraseña);
     }
     ////////////////////////////////////////////////////////////////////////////
 }
