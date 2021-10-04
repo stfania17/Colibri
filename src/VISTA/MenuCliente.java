@@ -377,7 +377,7 @@ public class MenuCliente extends javax.swing.JFrame {
                     .addGroup(jEImagePanel2Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(but_carrito)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addComponent(but_lacteos)))
                 .addGap(116, 116, 116)
                 .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,7 +390,7 @@ public class MenuCliente extends javax.swing.JFrame {
         );
 
         jPanelRound1.add(jEImagePanel2);
-        jEImagePanel2.setBounds(480, 10, 840, 690);
+        jEImagePanel2.setBounds(480, 0, 840, 700);
 
         getContentPane().add(jPanelRound1);
         jPanelRound1.setBounds(0, 0, 1320, 690);
