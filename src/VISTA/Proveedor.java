@@ -1,7 +1,9 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import LIB.FSTexFieldMD;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,13 +13,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
- 
-public class Proveedor extends javax.swing.JFrame {
 
+public class Proveedor extends javax.swing.JFrame {
 
     public Proveedor() {
         initComponents();
-        txt_id.addKeyListener(new VALIDACIONES.Numeros());    
+        Proveedor.this.setBackground(new Color(0, 0, 0, 0));
+        txt_id.addKeyListener(new VALIDACIONES.Numeros());
     }
 
     /**
@@ -51,15 +53,17 @@ public class Proveedor extends javax.swing.JFrame {
         DLG_GENERARCODIGO = new javax.swing.JButton();
         Txt_codifo = new javax.swing.JLabel();
         DLG_CREAROTRO = new javax.swing.JButton();
-        but_modificar = new javax.swing.JButton();
-        but_crear = new javax.swing.JButton();
-        but_consultar = new javax.swing.JButton();
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
+        jEImagePanel2 = new LIB.JEImagePanel();
         but_limpiar = new javax.swing.JButton();
+        but_crear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_rep_proveedor = new javax.swing.JTable();
+        but_consultar = new javax.swing.JButton();
+        but_modificar = new javax.swing.JButton();
         but_atras = new javax.swing.JButton();
-        lb_tit_proveedor = new javax.swing.JLabel();
-        txt_consulta = new javax.swing.JTextField();
+        txt_consulta = new LIB.FSTexFieldMD();
 
         Dlg_Proveedor.setMinimumSize(new java.awt.Dimension(500, 500));
         Dlg_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -159,19 +163,34 @@ public class Proveedor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(667, 438));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        but_modificar.setText("Modificar");
-        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 62, -1, -1));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
 
-        but_crear.setText("Crear");
-        getContentPane().add(but_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 62, -1, -1));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/proveedores.png"))); // NOI18N
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 540, 750);
 
-        but_consultar.setText("Consultar:");
-        getContentPane().add(but_consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 62, -1, -1));
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
+        jEImagePanel2.setLayout(null);
 
-        but_limpiar.setText("Limpiar");
-        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 103, -1, -1));
+        but_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LIMPIAR ICO.png"))); // NOI18N
+        but_limpiar.setBorder(null);
+        but_limpiar.setBorderPainted(false);
+        but_limpiar.setContentAreaFilled(false);
+        but_limpiar.setFocusPainted(false);
+        jEImagePanel2.add(but_limpiar);
+        but_limpiar.setBounds(830, 150, 160, 50);
+
+        but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
+        but_crear.setBorder(null);
+        but_crear.setBorderPainted(false);
+        but_crear.setContentAreaFilled(false);
+        but_crear.setFocusPainted(false);
+        jEImagePanel2.add(but_crear);
+        but_crear.setBounds(460, 150, 165, 50);
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,15 +205,44 @@ public class Proveedor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_rep_proveedor);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 587, 230));
+        jEImagePanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(50, 250, 930, 310);
 
-        but_atras.setText("Atras");
-        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 393, -1, -1));
+        but_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/BUSCAR ICO.png"))); // NOI18N
+        but_consultar.setBorder(null);
+        but_consultar.setBorderPainted(false);
+        but_consultar.setContentAreaFilled(false);
+        but_consultar.setFocusPainted(false);
+        jEImagePanel2.add(but_consultar);
+        but_consultar.setBounds(50, 150, 170, 50);
 
-        lb_tit_proveedor.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        lb_tit_proveedor.setText("PROVEEDORES");
-        getContentPane().add(lb_tit_proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 21, -1, -1));
-        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 63, 163, -1));
+        but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
+        but_modificar.setBorder(null);
+        but_modificar.setBorderPainted(false);
+        but_modificar.setContentAreaFilled(false);
+        but_modificar.setFocusPainted(false);
+        jEImagePanel2.add(but_modificar);
+        but_modificar.setBounds(640, 150, 170, 50);
+
+        but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_atras.setBorder(null);
+        but_atras.setBorderPainted(false);
+        but_atras.setContentAreaFilled(false);
+        but_atras.setFocusPainted(false);
+        jEImagePanel2.add(but_atras);
+        but_atras.setBounds(830, 680, 180, 60);
+
+        txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
+        txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
+        txt_consulta.setColorTransparente(true);
+        txt_consulta.setPlaceholder("Buscar...");
+        jEImagePanel2.add(txt_consulta);
+        txt_consulta.setBounds(230, 150, 180, 42);
+
+        jPanelRound1.add(jEImagePanel2);
+        jEImagePanel2.setBounds(540, 0, 1020, 750);
+
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 750));
 
         pack();
         setLocationRelativeTo(null);
@@ -205,44 +253,44 @@ public class Proveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_idActionPerformed
 
     private void txt_idKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_idKeyTyped
-        if(txt_id.getText().length()>=10){
+        if (txt_id.getText().length() >= 10) {
             evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+            JOptionPane.showMessageDialog(null, "SOLO HASTA 10 DIGITOS");
         }
     }//GEN-LAST:event_txt_idKeyTyped
 
     private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
-        if(txt_nombre.getText().length()>=50){
+        if (txt_nombre.getText().length() >= 50) {
             evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+            JOptionPane.showMessageDialog(null, "SOLO HASTA 50 DIGITOS");
         }
     }//GEN-LAST:event_txt_nombreKeyTyped
 
     private void txt_apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apellidoKeyTyped
-        if(txt_apellido.getText().length()>=50){
+        if (txt_apellido.getText().length() >= 50) {
             evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+            JOptionPane.showMessageDialog(null, "SOLO HASTA 50 DIGITOS");
         }
     }//GEN-LAST:event_txt_apellidoKeyTyped
 
     private void txt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoKeyTyped
-        if(txt_telefono.getText().length()>=10){
+        if (txt_telefono.getText().length() >= 10) {
             evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+            JOptionPane.showMessageDialog(null, "SOLO HASTA 10 DIGITOS");
         }
     }//GEN-LAST:event_txt_telefonoKeyTyped
 
     private void txt_direccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_direccionKeyTyped
-        if(txt_direccion.getText().length()>=50){
+        if (txt_direccion.getText().length() >= 50) {
             evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+            JOptionPane.showMessageDialog(null, "SOLO HASTA 50 DIGITOS");
         }
     }//GEN-LAST:event_txt_direccionKeyTyped
 
     private void txt_numcuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numcuentaKeyTyped
-        if(txt_numcuenta.getText().length()>=10){
+        if (txt_numcuenta.getText().length() >= 10) {
             evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+            JOptionPane.showMessageDialog(null, "SOLO HASTA 10 DIGITOS");
         }
     }//GEN-LAST:event_txt_numcuentaKeyTyped
 
@@ -414,14 +462,6 @@ public class Proveedor extends javax.swing.JFrame {
         this.lb_telefono = lb_telefono;
     }
 
-    public JLabel getLb_tit_proveedor() {
-        return lb_tit_proveedor;
-    }
-
-    public void setLb_tit_proveedor(JLabel lb_tit_proveedor) {
-        this.lb_tit_proveedor = lb_tit_proveedor;
-    }
-
     public JLabel getLb_tituloprov() {
         return lb_tituloprov;
     }
@@ -444,14 +484,6 @@ public class Proveedor extends javax.swing.JFrame {
 
     public void setTxt_apellido(JTextField txt_apellido) {
         this.txt_apellido = txt_apellido;
-    }
-
-    public static JTextField getTxt_consulta() {
-        return txt_consulta;
-    }
-
-    public static void setTxt_consulta(JTextField txt_consulta) {
-        Proveedor.txt_consulta = txt_consulta;
     }
 
     public JTextField getTxt_direccion() {
@@ -494,11 +526,18 @@ public class Proveedor extends javax.swing.JFrame {
         this.txt_telefono = txt_telefono;
     }
 
-   
- 
-    
+  
+
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
+
+    public FSTexFieldMD getTxt_consulta() {
+        return txt_consulta;
+    }
+
+    public void setTxt_consulta(FSTexFieldMD txt_consulta) {
+        this.txt_consulta = txt_consulta;
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -514,6 +553,9 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JButton but_limpiar;
     private javax.swing.JButton but_modificar;
     private com.toedter.calendar.JDateChooser dtcFechaNacimiento;
+    private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JPanelRound jPanelRound1;
     public static javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_apellidos;
     private javax.swing.JLabel lb_codigo;
@@ -523,11 +565,10 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel lb_id;
     private javax.swing.JLabel lb_nombres;
     private javax.swing.JLabel lb_telefono;
-    private javax.swing.JLabel lb_tit_proveedor;
     private javax.swing.JLabel lb_tituloprov;
     private javax.swing.JTable tbl_rep_proveedor;
     private javax.swing.JTextField txt_apellido;
-    public static javax.swing.JTextField txt_consulta;
+    private LIB.FSTexFieldMD txt_consulta;
     private javax.swing.JTextField txt_direccion;
     private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nombre;

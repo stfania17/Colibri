@@ -63,7 +63,8 @@ public class ControlProveedor_REPORTE {
             }
         };
         //////////////////////////////////////////////////////////////////////// 
-        Proveedor.getTxt_consulta().addKeyListener(ky);
+//        ERROR ALFONSO CONSULTAR
+//        Proveedor.getTxt_consulta.addKeyListener(ky);
         
         prove.getBut_consultar().addActionListener(l -> mostrartabla());        /// MOSTRAR TABLA
         prove.getBut_crear().addActionListener(l -> abrirngreso());             /// INGRESAR PROVEEDOR
