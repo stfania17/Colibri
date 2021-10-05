@@ -19,6 +19,7 @@ public class Proveedor extends javax.swing.JFrame {
     public Proveedor() {
         initComponents();
         Proveedor.this.setBackground(new Color(0, 0, 0, 0));
+        Dlg_Proveedor.setLocationRelativeTo(null);
         txt_id.addKeyListener(new VALIDACIONES.Numeros());
     }
 

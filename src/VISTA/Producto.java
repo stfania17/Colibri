@@ -17,6 +17,7 @@ public class Producto extends javax.swing.JFrame {
  
     public Producto() {
         initComponents();
+        Dlg_Productos.setLocationRelativeTo(null);
         Producto.this.setBackground(new Color(0, 0, 0, 0));
     }
 
