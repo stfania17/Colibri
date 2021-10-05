@@ -1,7 +1,9 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import LIB.FSTexFieldMD;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -15,6 +17,7 @@ public class Cliente extends javax.swing.JFrame {
  
     public Cliente() {
         initComponents();
+        Cliente.this.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -44,15 +47,17 @@ public class Cliente extends javax.swing.JFrame {
         but_actualizar = new javax.swing.JButton();
         but_cancelar = new javax.swing.JButton();
         dtcFechaNacimiento = new com.toedter.calendar.JDateChooser();
-        but_eliminar = new javax.swing.JButton();
-        but_modificar = new javax.swing.JButton();
-        but_consultar = new javax.swing.JButton();
-        but_limpiar = new javax.swing.JButton();
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
+        jEImagePanel2 = new LIB.JEImagePanel();
+        but_atras = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_rep_proveedor = new javax.swing.JTable();
-        but_atras = new javax.swing.JButton();
-        lb_tit_cliente = new javax.swing.JLabel();
-        txt_consulta = new javax.swing.JTextField();
+        but_consultar = new javax.swing.JButton();
+        but_eliminar = new javax.swing.JButton();
+        but_modificar = new javax.swing.JButton();
+        but_limpiar = new javax.swing.JButton();
+        txt_consulta = new LIB.FSTexFieldMD();
 
         lb_cliente.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_cliente.setForeground(new java.awt.Color(102, 0, 0));
@@ -167,20 +172,37 @@ public class Cliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(650, 435));
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(650, 435));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        but_eliminar.setText("Eliminar");
-        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 62, -1, -1));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
 
-        but_modificar.setText("Modificar");
-        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 62, -1, -1));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/CLIENTES.png"))); // NOI18N
 
-        but_consultar.setText("Consultar:");
-        getContentPane().add(but_consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 62, -1, -1));
+        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
+        jEImagePanel1.setLayout(jEImagePanel1Layout);
+        jEImagePanel1Layout.setHorizontalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+        jEImagePanel1Layout.setVerticalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
 
-        but_limpiar.setText("Limpiar");
-        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 103, -1, -1));
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 450, 580);
+
+        jEImagePanel2.setToolTipText("");
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
+
+        but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_atras.setBorder(null);
+        but_atras.setBorderPainted(false);
+        but_atras.setContentAreaFilled(false);
+        but_atras.setFocusPainted(false);
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,15 +217,82 @@ public class Cliente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_rep_proveedor);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 587, 230));
+        but_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/BUSCAR ICO.png"))); // NOI18N
+        but_consultar.setBorder(null);
+        but_consultar.setBorderPainted(false);
+        but_consultar.setContentAreaFilled(false);
+        but_consultar.setFocusPainted(false);
 
-        but_atras.setText("Atras");
-        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 400, -1, -1));
+        but_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ELIMINAR ICO.png"))); // NOI18N
+        but_eliminar.setBorder(null);
+        but_eliminar.setBorderPainted(false);
+        but_eliminar.setContentAreaFilled(false);
+        but_eliminar.setFocusPainted(false);
 
-        lb_tit_cliente.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        lb_tit_cliente.setText("CLIENTES");
-        getContentPane().add(lb_tit_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 21, -1, -1));
-        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 63, 163, -1));
+        but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
+        but_modificar.setBorderPainted(false);
+        but_modificar.setContentAreaFilled(false);
+        but_modificar.setFocusPainted(false);
+
+        but_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LIMPIAR ICO.png"))); // NOI18N
+        but_limpiar.setBorder(null);
+        but_limpiar.setBorderPainted(false);
+        but_limpiar.setContentAreaFilled(false);
+        but_limpiar.setFocusPainted(false);
+
+        txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
+        txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
+        txt_consulta.setColorTransparente(true);
+        txt_consulta.setPlaceholder("Buscar...");
+
+        javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
+        jEImagePanel2.setLayout(jEImagePanel2Layout);
+        jEImagePanel2Layout.setHorizontalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(but_atras))
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(but_consultar)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(but_eliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(but_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(but_limpiar))
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 864, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 27, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jEImagePanel2Layout.setVerticalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(but_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(but_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(but_limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(but_consultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(82, 82, 82)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(but_atras)
+                .addContainerGap())
+        );
+
+        jPanelRound1.add(jEImagePanel2);
+        jEImagePanel2.setBounds(450, 0, 940, 580);
+
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 580));
 
         pack();
         setLocationRelativeTo(null);
@@ -318,12 +407,7 @@ public class Cliente extends javax.swing.JFrame {
     public void setLb_telefono(JLabel lb_telefono) {
         this.lb_telefono = lb_telefono;
     }
-    public JLabel getLb_tit_cliente() {
-        return lb_tit_cliente;
-    }
-    public void setLb_tit_cliente(JLabel lb_tit_cliente) {
-        this.lb_tit_cliente = lb_tit_cliente;
-    }
+   
     public JTable getTbl_rep_proveedor() {
         return tbl_rep_proveedor;
     }
@@ -340,13 +424,15 @@ public class Cliente extends javax.swing.JFrame {
         this.txt_apellidos = txt_apellidos;
     }
 
-    public JTextField getTxt_consulta() {
+    public FSTexFieldMD getTxt_consulta() {
         return txt_consulta;
     }
 
-    public void setTxt_consulta(JTextField txt_consulta) {
+    public void setTxt_consulta(FSTexFieldMD txt_consulta) {
         this.txt_consulta = txt_consulta;
     }
+
+
 
     public JTextField getTxt_correo() {
         return txt_correo;
@@ -402,6 +488,9 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JButton but_limpiar;
     private javax.swing.JButton but_modificar;
     private com.toedter.calendar.JDateChooser dtcFechaNacimiento;
+    private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JPanelRound jPanelRound1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_apellido;
     private javax.swing.JLabel lb_cliente;
@@ -411,10 +500,9 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel lb_id;
     private javax.swing.JLabel lb_nombres;
     private javax.swing.JLabel lb_telefono;
-    private javax.swing.JLabel lb_tit_cliente;
     private javax.swing.JTable tbl_rep_proveedor;
     private javax.swing.JTextField txt_apellidos;
-    private javax.swing.JTextField txt_consulta;
+    private LIB.FSTexFieldMD txt_consulta;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_direccion;
     private javax.swing.JTextField txt_id;
