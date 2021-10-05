@@ -356,7 +356,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="230" y="150" width="180" height="-1"/>
+                  <AbsoluteConstraints x="240" y="150" width="220" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -374,7 +374,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="460" y="150" width="-1" height="50"/>
+                  <AbsoluteConstraints x="490" y="150" width="-1" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -441,7 +441,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="640" y="150" width="170" height="50"/>
+                  <AbsoluteConstraints x="660" y="150" width="170" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>

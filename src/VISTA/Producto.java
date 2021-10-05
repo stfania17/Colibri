@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -16,6 +17,7 @@ public class Producto extends javax.swing.JFrame {
  
     public Producto() {
         initComponents();
+        Producto.this.setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
@@ -51,19 +53,19 @@ public class Producto extends javax.swing.JFrame {
         txt_cod = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         EDITAR = new javax.swing.JButton();
-        txt_consulta = new javax.swing.JTextField();
-        but_eliminar = new javax.swing.JButton();
-        but_modificar = new javax.swing.JButton();
-        but_crear = new javax.swing.JButton();
-        but_refrescar = new javax.swing.JButton();
-        but_limpiar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_rep_producto = new javax.swing.JTable();
-        but_atras = new javax.swing.JButton();
-        lb_tit_producto = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanelRound1 = new LIB.JPanelRound();
         jEImagePanel1 = new LIB.JEImagePanel();
+        jEImagePanel2 = new LIB.JEImagePanel();
+        but_atras = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_rep_producto = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        but_limpiar = new javax.swing.JButton();
+        but_crear = new javax.swing.JButton();
+        but_modificar = new javax.swing.JButton();
+        but_eliminar = new javax.swing.JButton();
+        but_refrescar = new javax.swing.JButton();
+        txt_consulta = new LIB.FSTexFieldMD();
 
         Dlg_Productos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -136,29 +138,29 @@ public class Producto extends javax.swing.JFrame {
         Dlg_Productos.getContentPane().add(EDITAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 80, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(685, 460));
+        setMaximumSize(new java.awt.Dimension(685, 460));
+        setMinimumSize(new java.awt.Dimension(1528, 796));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(685, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 140, 163, -1));
 
-        but_eliminar.setText("Eliminar");
-        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 140, -1, -1));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
 
-        but_modificar.setText("Modificar");
-        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 140, -1, -1));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/PRODUCTOS 2.png"))); // NOI18N
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 570, 750);
 
-        but_crear.setText("Crear");
-        but_crear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                but_crearActionPerformed(evt);
-            }
-        });
-        getContentPane().add(but_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 140, -1, -1));
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
+        jEImagePanel2.setLayout(null);
 
-        but_refrescar.setText("Refrescar");
-        getContentPane().add(but_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 140, -1, -1));
-
-        but_limpiar.setText("Limpiar");
-        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, -1, -1));
+        but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_atras.setBorder(null);
+        but_atras.setBorderPainted(false);
+        but_atras.setContentAreaFilled(false);
+        but_atras.setFocusPainted(false);
+        jEImagePanel2.add(but_atras);
+        but_atras.setBounds(740, 670, 180, 60);
 
         tbl_rep_producto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,24 +175,69 @@ public class Producto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_rep_producto);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 587, 230));
+        jEImagePanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(60, 340, 850, 280);
 
-        but_atras.setText("Atras");
-        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 470, 90, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/BUSCAR ICO.png"))); // NOI18N
+        jEImagePanel2.add(jLabel1);
+        jLabel1.setBounds(50, 130, 170, 50);
 
-        lb_tit_producto.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        lb_tit_producto.setText("PRODUCTOS");
-        getContentPane().add(lb_tit_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 100, -1, -1));
+        but_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LIMPIAR ICO.png"))); // NOI18N
+        but_limpiar.setBorder(null);
+        but_limpiar.setBorderPainted(false);
+        but_limpiar.setContentAreaFilled(false);
+        but_limpiar.setFocusPainted(false);
+        jEImagePanel2.add(but_limpiar);
+        but_limpiar.setBounds(750, 200, 165, 50);
 
-        jLabel1.setText("BUSCAR:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, -1, -1));
+        but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
+        but_crear.setBorder(null);
+        but_crear.setBorderPainted(false);
+        but_crear.setContentAreaFilled(false);
+        but_crear.setFocusPainted(false);
+        but_crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                but_crearActionPerformed(evt);
+            }
+        });
+        jEImagePanel2.add(but_crear);
+        but_crear.setBounds(550, 130, 170, 50);
 
-        jPanelRound1.setOpaque(true);
-        jPanelRound1.setLayout(null);
-        jPanelRound1.add(jEImagePanel1);
-        jEImagePanel1.setBounds(0, 0, 440, 750);
+        but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
+        but_modificar.setBorder(null);
+        but_modificar.setBorderPainted(false);
+        but_modificar.setContentAreaFilled(false);
+        but_modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        but_modificar.setFocusPainted(false);
+        jEImagePanel2.add(but_modificar);
+        but_modificar.setBounds(750, 130, 165, 50);
 
-        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 750));
+        but_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ELIMINAR ICO.png"))); // NOI18N
+        but_eliminar.setBorder(null);
+        but_eliminar.setBorderPainted(false);
+        but_eliminar.setContentAreaFilled(false);
+        but_eliminar.setFocusPainted(false);
+        jEImagePanel2.add(but_eliminar);
+        but_eliminar.setBounds(550, 200, 170, 50);
+
+        but_refrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR ICO.png"))); // NOI18N
+        but_refrescar.setBorderPainted(false);
+        but_refrescar.setContentAreaFilled(false);
+        but_refrescar.setFocusPainted(false);
+        jEImagePanel2.add(but_refrescar);
+        but_refrescar.setBounds(490, 130, 50, 50);
+
+        txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
+        txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 0));
+        txt_consulta.setColorTransparente(true);
+        txt_consulta.setPlaceholder("Buscar...");
+        jEImagePanel2.add(txt_consulta);
+        txt_consulta.setBounds(230, 130, 240, 42);
+
+        jPanelRound1.add(jEImagePanel2);
+        jEImagePanel2.setBounds(570, 0, 940, 750);
+
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 750));
 
         pack();
         setLocationRelativeTo(null);
@@ -408,13 +455,7 @@ public class Producto extends javax.swing.JFrame {
         this.lb_provee = lb_provee;
     }
 
-    public JLabel getLb_tit_producto() {
-        return lb_tit_producto;
-    }
-
-    public void setLb_tit_producto(JLabel lb_tit_producto) {
-        this.lb_tit_producto = lb_tit_producto;
-    }
+   
 
     public JLabel getLb_tit_productos() {
         return lb_tit_productos;
@@ -460,9 +501,6 @@ public class Producto extends javax.swing.JFrame {
         return txt_consulta;
     }
 
-    public void setTxt_consulta(JTextField txt_consulta) {
-        this.txt_consulta = txt_consulta;
-    }
 
     public JTextField getTxt_descripcion() {
         return txt_descripcion;
@@ -503,6 +541,7 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JSpinner existencia;
     private javax.swing.JButton jButton1;
     private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JEImagePanel jEImagePanel2;
     private javax.swing.JLabel jLabel1;
     private LIB.JPanelRound jPanelRound1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -515,13 +554,12 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JLabel lb_nombre;
     private javax.swing.JLabel lb_precio;
     private javax.swing.JLabel lb_provee;
-    private javax.swing.JLabel lb_tit_producto;
     private javax.swing.JLabel lb_tit_productos;
     private javax.swing.JSpinner precio;
     private javax.swing.JTable tbl_rep_producto;
     private javax.swing.JComboBox<String> txt_categoria;
     private javax.swing.JLabel txt_cod;
-    private javax.swing.JTextField txt_consulta;
+    private LIB.FSTexFieldMD txt_consulta;
     private javax.swing.JTextField txt_descripcion;
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables

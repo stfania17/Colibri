@@ -188,7 +188,7 @@ public class Proveedor extends javax.swing.JFrame {
         txt_consulta.setColorTransparente(true);
         txt_consulta.setPlaceholder("Buscar...");
         jEImagePanel2.add(txt_consulta);
-        txt_consulta.setBounds(230, 150, 180, 42);
+        txt_consulta.setBounds(240, 150, 220, 42);
 
         but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         but_crear.setBorder(null);
@@ -196,7 +196,7 @@ public class Proveedor extends javax.swing.JFrame {
         but_crear.setContentAreaFilled(false);
         but_crear.setFocusPainted(false);
         jEImagePanel2.add(but_crear);
-        but_crear.setBounds(460, 150, 165, 50);
+        but_crear.setBounds(490, 150, 165, 50);
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -228,7 +228,7 @@ public class Proveedor extends javax.swing.JFrame {
         but_modificar.setContentAreaFilled(false);
         but_modificar.setFocusPainted(false);
         jEImagePanel2.add(but_modificar);
-        but_modificar.setBounds(640, 150, 170, 50);
+        but_modificar.setBounds(660, 150, 170, 50);
 
         but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_atras.setBorder(null);
