@@ -57,13 +57,13 @@ public class Proveedor extends javax.swing.JFrame {
         jEImagePanel1 = new LIB.JEImagePanel();
         jEImagePanel2 = new LIB.JEImagePanel();
         but_limpiar = new javax.swing.JButton();
+        txt_consulta = new LIB.FSTexFieldMD();
         but_crear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_rep_proveedor = new javax.swing.JTable();
         but_consultar = new javax.swing.JButton();
         but_modificar = new javax.swing.JButton();
         but_atras = new javax.swing.JButton();
-        txt_consulta = new LIB.FSTexFieldMD();
 
         Dlg_Proveedor.setMinimumSize(new java.awt.Dimension(500, 500));
         Dlg_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -167,11 +167,10 @@ public class Proveedor extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelRound1.setOpaque(true);
-        jPanelRound1.setLayout(null);
+        jPanelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/proveedores.png"))); // NOI18N
-        jPanelRound1.add(jEImagePanel1);
-        jEImagePanel1.setBounds(0, 0, 540, 750);
+        jPanelRound1.add(jEImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 750));
 
         jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
         jEImagePanel2.setLayout(null);
@@ -182,7 +181,14 @@ public class Proveedor extends javax.swing.JFrame {
         but_limpiar.setContentAreaFilled(false);
         but_limpiar.setFocusPainted(false);
         jEImagePanel2.add(but_limpiar);
-        but_limpiar.setBounds(830, 150, 160, 50);
+        but_limpiar.setBounds(830, 150, 170, 50);
+
+        txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
+        txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
+        txt_consulta.setColorTransparente(true);
+        txt_consulta.setPlaceholder("Buscar...");
+        jEImagePanel2.add(txt_consulta);
+        txt_consulta.setBounds(230, 150, 180, 42);
 
         but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         but_crear.setBorder(null);
@@ -232,15 +238,7 @@ public class Proveedor extends javax.swing.JFrame {
         jEImagePanel2.add(but_atras);
         but_atras.setBounds(830, 680, 180, 60);
 
-        txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
-        txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
-        txt_consulta.setColorTransparente(true);
-        txt_consulta.setPlaceholder("Buscar...");
-        jEImagePanel2.add(txt_consulta);
-        txt_consulta.setBounds(230, 150, 180, 42);
-
-        jPanelRound1.add(jEImagePanel2);
-        jEImagePanel2.setBounds(540, 0, 1020, 750);
+        jPanelRound1.add(jEImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 1020, 750));
 
         getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 750));
 
