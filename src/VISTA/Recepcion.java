@@ -43,6 +43,7 @@ public class Recepcion extends javax.swing.JFrame {
         jPanelTransparente1.setLayout(null);
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
+        jEImagePanel1.setOpaque(false);
         jEImagePanel1.setLayout(null);
 
         cajeros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/CAJERO F.png"))); // NOI18N
@@ -73,7 +74,7 @@ public class Recepcion extends javax.swing.JFrame {
         salir.setBounds(600, 440, 170, 60);
 
         jPanelTransparente1.add(jEImagePanel1);
-        jEImagePanel1.setBounds(0, 0, 790, 510);
+        jEImagePanel1.setBounds(0, 0, 790, 520);
 
         getContentPane().add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 520));
 

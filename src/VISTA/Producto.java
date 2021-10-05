@@ -62,6 +62,8 @@ public class Producto extends javax.swing.JFrame {
         but_atras = new javax.swing.JButton();
         lb_tit_producto = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
 
         Dlg_Productos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -105,9 +107,9 @@ public class Producto extends javax.swing.JFrame {
         crearproducto.setText("CREAR");
         Dlg_Productos.getContentPane().add(crearproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 80, -1));
 
-        but_cancelar.setBackground(new java.awt.Color(255, 0, 0));
+        but_cancelar.setBackground(new java.awt.Color(255, 255, 255));
         but_cancelar.setText("Cancelar");
-        Dlg_Productos.getContentPane().add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
+        Dlg_Productos.getContentPane().add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, -1, -1));
 
         txt_categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Verduras", "Lacteos", "Frutas", "Granos", "Hierbas", "Otros" }));
         Dlg_Productos.getContentPane().add(txt_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 391, 190, -1));
@@ -135,15 +137,14 @@ public class Producto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(685, 460));
-        setPreferredSize(new java.awt.Dimension(685, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 163, -1));
+        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 140, 163, -1));
 
         but_eliminar.setText("Eliminar");
-        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
+        getContentPane().add(but_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 140, -1, -1));
 
         but_modificar.setText("Modificar");
-        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+        getContentPane().add(but_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 140, -1, -1));
 
         but_crear.setText("Crear");
         but_crear.addActionListener(new java.awt.event.ActionListener() {
@@ -151,13 +152,13 @@ public class Producto extends javax.swing.JFrame {
                 but_crearActionPerformed(evt);
             }
         });
-        getContentPane().add(but_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        getContentPane().add(but_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 140, -1, -1));
 
         but_refrescar.setText("Refrescar");
-        getContentPane().add(but_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
+        getContentPane().add(but_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 140, -1, -1));
 
         but_limpiar.setText("Limpiar");
-        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 103, -1, -1));
+        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, -1, -1));
 
         tbl_rep_producto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,17 +173,24 @@ public class Producto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_rep_producto);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 587, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 587, 230));
 
         but_atras.setText("Atras");
-        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 90, -1));
+        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 470, 90, -1));
 
         lb_tit_producto.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tit_producto.setText("PRODUCTOS");
-        getContentPane().add(lb_tit_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 21, -1, -1));
+        getContentPane().add(lb_tit_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 100, -1, -1));
 
         jLabel1.setText("BUSCAR:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, -1, -1));
+
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 440, 750);
+
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 750));
 
         pack();
         setLocationRelativeTo(null);
@@ -494,7 +502,9 @@ public class Producto extends javax.swing.JFrame {
     private javax.swing.JSpinner exi_min;
     private javax.swing.JSpinner existencia;
     private javax.swing.JButton jButton1;
+    private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
+    private LIB.JPanelRound jPanelRound1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_Emaxima;
     private javax.swing.JLabel lb_Eminima;
