@@ -96,7 +96,6 @@ public class MenuCliente extends javax.swing.JFrame {
         jLabel6.setText("Teléfono:");
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel7.setText("p");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

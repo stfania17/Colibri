@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import LIB.FSTexFieldMD;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -168,7 +169,6 @@ public class Factura extends javax.swing.JFrame {
                                         .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(txt_direccion)
                                             .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGap(18, 18, 18)
                             .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lb_dia, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                                 .addComponent(lb_facnumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -236,7 +236,9 @@ public class Factura extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(670, 440));
+        setMinimumSize(new java.awt.Dimension(1461, 721));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1461, 721));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelRound1.setOpaque(true);
@@ -248,20 +250,19 @@ public class Factura extends javax.swing.JFrame {
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 730, Short.MAX_VALUE)
         );
 
         jPanelRound1.add(jEImagePanel1);
-        jEImagePanel1.setBounds(0, 0, 500, 720);
+        jEImagePanel1.setBounds(0, 0, 520, 730);
 
         jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
 
         but_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/BUSCAR ICO.png"))); // NOI18N
-        but_consultar.setToolTipText("");
         but_consultar.setBorder(null);
         but_consultar.setBorderPainted(false);
         but_consultar.setContentAreaFilled(false);
@@ -270,13 +271,12 @@ public class Factura extends javax.swing.JFrame {
         txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
         txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
         txt_consulta.setColorTransparente(true);
-        txt_consulta.setPlaceholder("Buscar..");
+        txt_consulta.setPlaceholder("Buscar...");
 
         but_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LIMPIAR ICO.png"))); // NOI18N
-        but_limpiar.setToolTipText("");
         but_limpiar.setBorder(null);
-        but_limpiar.setBorderPainted(false);
         but_limpiar.setContentAreaFilled(false);
+        but_limpiar.setDefaultCapable(false);
         but_limpiar.setFocusPainted(false);
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
@@ -303,44 +303,43 @@ public class Factura extends javax.swing.JFrame {
         jEImagePanel2Layout.setHorizontalGroup(
             jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel2Layout.createSequentialGroup()
                         .addComponent(but_consultar)
-                        .addGap(26, 26, 26)
+                        .addGap(18, 18, 18)
                         .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(but_limpiar)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addGap(226, 226, 226)
+                        .addComponent(but_limpiar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(but_atras)
-                .addGap(21, 21, 21))
+                .addGap(37, 37, 37))
         );
         jEImagePanel2Layout.setVerticalGroup(
             jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(174, 174, 174)
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(but_limpiar))
                     .addComponent(but_consultar))
-                .addGap(64, 64, 64)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addComponent(but_atras)
-                .addGap(21, 21, 21))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jPanelRound1.add(jEImagePanel2);
-        jEImagePanel2.setBounds(500, 0, 910, 720);
+        jEImagePanel2.setBounds(520, 0, 940, 720);
 
-        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1410, 720));
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 720));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cedulaActionPerformed
@@ -355,6 +354,8 @@ public class Factura extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_totalActionPerformed
 
+    
+    
     public JDialog getDlg_Factura() {
         return Dlg_Factura;
     }
@@ -478,7 +479,6 @@ public class Factura extends javax.swing.JFrame {
         this.lb_telefono = lb_telefono;
     }
    
-    
     public JLabel getLb_total() {
         return lb_total;
     }
@@ -509,9 +509,15 @@ public class Factura extends javax.swing.JFrame {
     public void setTxt_cedula(JTextField txt_cedula) {
         this.txt_cedula = txt_cedula;
     }
-    public JTextField getTxt_consulta() {
+
+    public FSTexFieldMD getTxt_consulta() {
         return txt_consulta;
     }
+
+    public void setTxt_consulta(FSTexFieldMD txt_consulta) {
+        this.txt_consulta = txt_consulta;
+    }
+  
     
     public JTextField getTxt_direccion() {
         return txt_direccion;
@@ -542,6 +548,8 @@ public class Factura extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
