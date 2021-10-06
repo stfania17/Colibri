@@ -30,7 +30,6 @@ public class Cliente extends javax.swing.JFrame {
     private void initComponents() {
 
         Dlg_Cliente = new javax.swing.JDialog();
-        lb_cliente = new javax.swing.JLabel();
         lb_id = new javax.swing.JLabel();
         lb_nombres = new javax.swing.JLabel();
         lb_apellido = new javax.swing.JLabel();
@@ -44,9 +43,11 @@ public class Cliente extends javax.swing.JFrame {
         txt_direccion = new javax.swing.JTextField();
         txt_telefono = new javax.swing.JTextField();
         txt_correo = new javax.swing.JTextField();
+        dtcFechaNacimiento = new com.toedter.calendar.JDateChooser();
+        jPanelRound2 = new LIB.JPanelRound();
+        jEImagePanel3 = new LIB.JEImagePanel();
         but_actualizar = new javax.swing.JButton();
         but_cancelar = new javax.swing.JButton();
-        dtcFechaNacimiento = new com.toedter.calendar.JDateChooser();
         jPanelRound1 = new LIB.JPanelRound();
         jEImagePanel1 = new LIB.JEImagePanel();
         jEImagePanel2 = new LIB.JEImagePanel();
@@ -59,116 +60,73 @@ public class Cliente extends javax.swing.JFrame {
         but_limpiar = new javax.swing.JButton();
         txt_consulta = new LIB.FSTexFieldMD();
 
-        lb_cliente.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        lb_cliente.setForeground(new java.awt.Color(102, 0, 0));
-        lb_cliente.setText("DATOS DEL CLIENTE");
+        Dlg_Cliente.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_id.setText("Id:");
+        Dlg_Cliente.getContentPane().add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
 
         lb_nombres.setText("Nombres:");
+        Dlg_Cliente.getContentPane().add(lb_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
 
         lb_apellido.setText("Apellidos:");
+        Dlg_Cliente.getContentPane().add(lb_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
 
         lb_direccion.setText("Dirección:");
+        Dlg_Cliente.getContentPane().add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, -1, -1));
 
         lb_telefono.setText("Teléfono:");
+        Dlg_Cliente.getContentPane().add(lb_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
 
         lb_fecha.setText("F. Nacimiento:");
+        Dlg_Cliente.getContentPane().add(lb_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
         lb_correo.setText("Correo:");
+        Dlg_Cliente.getContentPane().add(lb_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
+        Dlg_Cliente.getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 190, -1));
+        Dlg_Cliente.getContentPane().add(txt_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 193, -1));
+        Dlg_Cliente.getContentPane().add(txt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 193, -1));
+        Dlg_Cliente.getContentPane().add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 193, -1));
+        Dlg_Cliente.getContentPane().add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 193, -1));
+        Dlg_Cliente.getContentPane().add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 193, -1));
+        Dlg_Cliente.getContentPane().add(dtcFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 193, -1));
 
-        but_actualizar.setText("Actualizar");
+        jPanelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelRound2.setOpaque(true);
+        jPanelRound2.setLayout(null);
 
-        but_cancelar.setText("Cancelar");
+        jEImagePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Datos cliente.png"))); // NOI18N
 
-        javax.swing.GroupLayout Dlg_ClienteLayout = new javax.swing.GroupLayout(Dlg_Cliente.getContentPane());
-        Dlg_Cliente.getContentPane().setLayout(Dlg_ClienteLayout);
-        Dlg_ClienteLayout.setHorizontalGroup(
-            Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(lb_cliente))
-                    .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                                .addComponent(lb_fecha)
-                                .addGap(18, 18, 18)
-                                .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                                    .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lb_telefono)
-                                        .addComponent(lb_apellido))
-                                    .addGap(41, 41, 41)
-                                    .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txt_apellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                        .addComponent(txt_telefono)))
-                                .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                                    .addComponent(lb_direccion)
-                                    .addGap(40, 40, 40)
-                                    .addComponent(txt_direccion))
-                                .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                                    .addComponent(lb_correo)
-                                    .addGap(50, 50, 50)
-                                    .addComponent(txt_correo, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                                .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                                    .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lb_nombres)
-                                        .addComponent(lb_id))
-                                    .addGap(41, 41, 41)
-                                    .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txt_nombres)
-                                        .addComponent(txt_id)))))))
-                .addContainerGap(143, Short.MAX_VALUE))
-            .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(but_actualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(but_cancelar)
-                .addGap(123, 123, 123))
+        javax.swing.GroupLayout jEImagePanel3Layout = new javax.swing.GroupLayout(jEImagePanel3);
+        jEImagePanel3.setLayout(jEImagePanel3Layout);
+        jEImagePanel3Layout.setHorizontalGroup(
+            jEImagePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
-        Dlg_ClienteLayout.setVerticalGroup(
-            Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Dlg_ClienteLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lb_cliente)
-                .addGap(27, 27, 27)
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_id)
-                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_nombres)
-                    .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_apellido)
-                    .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_direccion)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_telefono)
-                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_correo))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lb_fecha)
-                    .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addGroup(Dlg_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(but_actualizar)
-                    .addComponent(but_cancelar))
-                .addGap(27, 27, 27))
+        jEImagePanel3Layout.setVerticalGroup(
+            jEImagePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
+
+        jPanelRound2.add(jEImagePanel3);
+        jEImagePanel3.setBounds(0, 0, 450, 620);
+
+        but_actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR 2 ICO.png"))); // NOI18N
+        but_actualizar.setBorder(null);
+        but_actualizar.setBorderPainted(false);
+        but_actualizar.setContentAreaFilled(false);
+        but_actualizar.setFocusPainted(false);
+        jPanelRound2.add(but_actualizar);
+        but_actualizar.setBounds(610, 420, 165, 50);
+
+        but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_cancelar.setBorder(null);
+        but_cancelar.setBorderPainted(false);
+        but_cancelar.setContentAreaFilled(false);
+        but_cancelar.setFocusPainted(false);
+        jPanelRound2.add(but_cancelar);
+        but_cancelar.setBounds(730, 550, 180, 60);
+
+        Dlg_Cliente.getContentPane().add(jPanelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 620));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(650, 435));
@@ -364,12 +322,7 @@ public class Cliente extends javax.swing.JFrame {
     public void setLb_apellido(JLabel lb_apellido) {
         this.lb_apellido = lb_apellido;
     }
-    public JLabel getLb_cliente() {
-        return lb_cliente;
-    }
-    public void setLb_cliente(JLabel lb_cliente) {
-        this.lb_cliente = lb_cliente;
-    }
+   
     public JLabel getLb_correo() {
         return lb_correo;
     }
@@ -489,10 +442,11 @@ public class Cliente extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dtcFechaNacimiento;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JEImagePanel jEImagePanel3;
     private LIB.JPanelRound jPanelRound1;
+    private LIB.JPanelRound jPanelRound2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_apellido;
-    private javax.swing.JLabel lb_cliente;
     private javax.swing.JLabel lb_correo;
     private javax.swing.JLabel lb_direccion;
     private javax.swing.JLabel lb_fecha;
