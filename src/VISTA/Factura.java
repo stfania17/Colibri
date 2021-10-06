@@ -49,13 +49,15 @@ public class Factura extends javax.swing.JFrame {
         txt_total = new javax.swing.JTextField();
         but_actualizar = new javax.swing.JButton();
         but_cancelar = new javax.swing.JButton();
-        txt_consulta = new javax.swing.JTextField();
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
+        jEImagePanel2 = new LIB.JEImagePanel();
         but_consultar = new javax.swing.JButton();
+        txt_consulta = new LIB.FSTexFieldMD();
         but_limpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_rep_proveedor = new javax.swing.JTable();
         but_atras = new javax.swing.JButton();
-        lb_tit_factura = new javax.swing.JLabel();
 
         lb_factura.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_factura.setForeground(new java.awt.Color(0, 153, 51));
@@ -233,15 +235,47 @@ public class Factura extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(670, 440));
-        setPreferredSize(new java.awt.Dimension(670, 440));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txt_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 63, 163, -1));
 
-        but_consultar.setText("Consultar:");
-        getContentPane().add(but_consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 62, -1, -1));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
 
-        but_limpiar.setText("Limpiar");
-        getContentPane().add(but_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/FACTURAS.png"))); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
+        jEImagePanel1.setLayout(jEImagePanel1Layout);
+        jEImagePanel1Layout.setHorizontalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+        jEImagePanel1Layout.setVerticalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 500, 720);
+
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
+
+        but_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/BUSCAR ICO.png"))); // NOI18N
+        but_consultar.setToolTipText("");
+        but_consultar.setBorder(null);
+        but_consultar.setBorderPainted(false);
+        but_consultar.setContentAreaFilled(false);
+        but_consultar.setFocusPainted(false);
+
+        txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
+        txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
+        txt_consulta.setColorTransparente(true);
+        txt_consulta.setPlaceholder("Buscar..");
+
+        but_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LIMPIAR ICO.png"))); // NOI18N
+        but_limpiar.setToolTipText("");
+        but_limpiar.setBorder(null);
+        but_limpiar.setBorderPainted(false);
+        but_limpiar.setContentAreaFilled(false);
+        but_limpiar.setFocusPainted(false);
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -256,14 +290,52 @@ public class Factura extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_rep_proveedor);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 144, 750, 230));
+        but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_atras.setBorder(null);
+        but_atras.setBorderPainted(false);
+        but_atras.setContentAreaFilled(false);
+        but_atras.setFocusPainted(false);
 
-        but_atras.setText("Atras");
-        getContentPane().add(but_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 402, -1, -1));
+        javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
+        jEImagePanel2.setLayout(jEImagePanel2Layout);
+        jEImagePanel2Layout.setHorizontalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addComponent(but_consultar)
+                        .addGap(26, 26, 26)
+                        .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(but_limpiar)))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(but_atras)
+                .addGap(21, 21, 21))
+        );
+        jEImagePanel2Layout.setVerticalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(but_limpiar))
+                    .addComponent(but_consultar))
+                .addGap(64, 64, 64)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addComponent(but_atras)
+                .addGap(21, 21, 21))
+        );
 
-        lb_tit_factura.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        lb_tit_factura.setText("FACTURA");
-        getContentPane().add(lb_tit_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 21, -1, -1));
+        jPanelRound1.add(jEImagePanel2);
+        jEImagePanel2.setBounds(500, 0, 910, 720);
+
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1410, 720));
 
         pack();
         setLocationRelativeTo(null);
@@ -403,12 +475,8 @@ public class Factura extends javax.swing.JFrame {
     public void setLb_telefono(JLabel lb_telefono) {
         this.lb_telefono = lb_telefono;
     }
-    public JLabel getLb_tit_factura() {
-        return lb_tit_factura;
-    }
-    public void setLb_tit_factura(JLabel lb_tit_factura) {
-        this.lb_tit_factura = lb_tit_factura;
-    }
+   
+    
     public JLabel getLb_total() {
         return lb_total;
     }
@@ -442,9 +510,7 @@ public class Factura extends javax.swing.JFrame {
     public JTextField getTxt_consulta() {
         return txt_consulta;
     }
-    public void setTxt_consulta(JTextField txt_consulta) {
-        this.txt_consulta = txt_consulta;
-    }
+    
     public JTextField getTxt_direccion() {
         return txt_direccion;
     }
@@ -483,6 +549,9 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JButton but_cancelar;
     private javax.swing.JButton but_consultar;
     private javax.swing.JButton but_limpiar;
+    private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JPanelRound jPanelRound1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_apellidos;
@@ -497,13 +566,12 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel lb_nombres;
     private javax.swing.JLabel lb_numfac;
     private javax.swing.JLabel lb_telefono;
-    private javax.swing.JLabel lb_tit_factura;
     private javax.swing.JLabel lb_total;
     private javax.swing.JTable table_fac;
     private javax.swing.JTable tbl_rep_proveedor;
     private javax.swing.JTextField txt_apellidos;
     private javax.swing.JTextField txt_cedula;
-    private javax.swing.JTextField txt_consulta;
+    private LIB.FSTexFieldMD txt_consulta;
     private javax.swing.JTextField txt_direccion;
     private javax.swing.JTextField txt_nombres;
     private javax.swing.JTextField txt_telefono;
