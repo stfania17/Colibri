@@ -4,8 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Ingresocliente.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/MenuCliente.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Recepcion.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Producto.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/CONTROLADOR/ControlFactura.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/FACTURA_FORMULARIO.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Factura.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/CONTROLADOR/ControladorRecepcion.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Login.java</file>
             <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Cliente.java</file>
-            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/CONTROLADOR/ACTIVADOR.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Proveedor.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Portada.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Ingreso.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/CONTROLADOR/ControlMenu.java</file>
         </group>
     </open-files>
 </project-private>
