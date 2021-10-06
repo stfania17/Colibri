@@ -34,7 +34,6 @@ public class Factura extends javax.swing.JFrame {
         lb_numfac = new javax.swing.JLabel();
         lb_facnumero = new javax.swing.JLabel();
         lb_nacimiento = new javax.swing.JLabel();
-        lb_dia = new javax.swing.JLabel();
         lb_cedula = new javax.swing.JLabel();
         lb_nombres = new javax.swing.JLabel();
         lb_apellidos = new javax.swing.JLabel();
@@ -47,11 +46,14 @@ public class Factura extends javax.swing.JFrame {
         txt_direccion = new javax.swing.JTextField();
         txt_telefono = new javax.swing.JTextField();
         lb_total = new javax.swing.JLabel();
+        txt_total = new javax.swing.JTextField();
+        jPanelRound2 = new LIB.JPanelRound();
+        jEImagePanel3 = new LIB.JEImagePanel();
+        lb_dia = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_fac = new javax.swing.JTable();
-        txt_total = new javax.swing.JTextField();
-        but_actualizar = new javax.swing.JButton();
         but_cancelar = new javax.swing.JButton();
+        but_actualizar = new javax.swing.JButton();
         jPanelRound1 = new LIB.JPanelRound();
         jEImagePanel1 = new LIB.JEImagePanel();
         jEImagePanel2 = new LIB.JEImagePanel();
@@ -62,41 +64,90 @@ public class Factura extends javax.swing.JFrame {
         tbl_rep_proveedor = new javax.swing.JTable();
         but_atras = new javax.swing.JButton();
 
+        Dlg_Factura.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         lb_factura.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_factura.setForeground(new java.awt.Color(0, 153, 51));
         lb_factura.setText("FACTURA");
+        Dlg_Factura.getContentPane().add(lb_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, -1, -1));
 
         lb_logo.setText("jLabel2");
+        Dlg_Factura.getContentPane().add(lb_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
 
         lb_numfac.setText("Factura N°:");
+        Dlg_Factura.getContentPane().add(lb_numfac, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 70, -1, -1));
+        Dlg_Factura.getContentPane().add(lb_facnumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 70, 133, 16));
 
         lb_nacimiento.setText("Fecha:");
+        Dlg_Factura.getContentPane().add(lb_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 110, -1, -1));
 
         lb_cedula.setText("Cedula:");
+        Dlg_Factura.getContentPane().add(lb_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, -1, -1));
 
         lb_nombres.setText("Nombres:");
+        Dlg_Factura.getContentPane().add(lb_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, -1, -1));
 
         lb_apellidos.setText("Apellidos:");
+        Dlg_Factura.getContentPane().add(lb_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, -1, -1));
 
         lb_telefono.setText("Teléfono:");
+        Dlg_Factura.getContentPane().add(lb_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 140, -1, -1));
 
         lb_fechanac.setText("Fecha_Nac:");
+        Dlg_Factura.getContentPane().add(lb_fechanac, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 180, -1, -1));
 
         lb_direccion.setText("Direccion:");
+        Dlg_Factura.getContentPane().add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, -1));
 
         txt_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cedulaActionPerformed(evt);
             }
         });
+        Dlg_Factura.getContentPane().add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 130, -1));
 
         txt_nombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nombresActionPerformed(evt);
             }
         });
+        Dlg_Factura.getContentPane().add(txt_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, 130, -1));
+        Dlg_Factura.getContentPane().add(txt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 129, -1));
+        Dlg_Factura.getContentPane().add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 129, -1));
+        Dlg_Factura.getContentPane().add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 140, 130, 30));
 
         lb_total.setText("Total a Pagar:");
+        Dlg_Factura.getContentPane().add(lb_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 600, -1, -1));
+
+        txt_total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_totalActionPerformed(evt);
+            }
+        });
+        Dlg_Factura.getContentPane().add(txt_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 600, 63, -1));
+
+        jPanelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelRound2.setToolTipText("");
+        jPanelRound2.setOpaque(true);
+        jPanelRound2.setLayout(null);
+
+        jEImagePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Facturas_1.png"))); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel3Layout = new javax.swing.GroupLayout(jEImagePanel3);
+        jEImagePanel3.setLayout(jEImagePanel3Layout);
+        jEImagePanel3Layout.setHorizontalGroup(
+            jEImagePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+        jEImagePanel3Layout.setVerticalGroup(
+            jEImagePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
+        );
+
+        jPanelRound2.add(jEImagePanel3);
+        jEImagePanel3.setBounds(0, 0, 500, 710);
+        jPanelRound2.add(lb_dia);
+        lb_dia.setBounds(900, 100, 133, 14);
 
         table_fac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,129 +162,27 @@ public class Factura extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(table_fac);
 
-        txt_total.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_totalActionPerformed(evt);
-            }
-        });
+        jPanelRound2.add(jScrollPane2);
+        jScrollPane2.setBounds(540, 330, 670, 241);
 
-        but_actualizar.setText("Actualizar");
+        but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_cancelar.setBorder(null);
+        but_cancelar.setBorderPainted(false);
+        but_cancelar.setContentAreaFilled(false);
+        but_cancelar.setDefaultCapable(false);
+        but_cancelar.setFocusPainted(false);
+        jPanelRound2.add(but_cancelar);
+        but_cancelar.setBounds(1060, 640, 180, 60);
 
-        but_cancelar.setText("Cancelar");
+        but_actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR 2 ICO.png"))); // NOI18N
+        but_actualizar.setBorder(null);
+        but_actualizar.setBorderPainted(false);
+        but_actualizar.setContentAreaFilled(false);
+        but_actualizar.setFocusPainted(false);
+        jPanelRound2.add(but_actualizar);
+        but_actualizar.setBounds(540, 620, 165, 50);
 
-        javax.swing.GroupLayout Dlg_FacturaLayout = new javax.swing.GroupLayout(Dlg_Factura.getContentPane());
-        Dlg_Factura.getContentPane().setLayout(Dlg_FacturaLayout);
-        Dlg_FacturaLayout.setHorizontalGroup(
-            Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                            .addGap(66, 66, 66)
-                            .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                                    .addComponent(lb_logo)
-                                    .addGap(271, 271, 271)
-                                    .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lb_numfac)
-                                        .addComponent(lb_nacimiento)))
-                                .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                                    .addComponent(lb_factura)
-                                    .addGap(148, 148, 148))
-                                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                                        .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                                                .addComponent(lb_nombres)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txt_nombres))
-                                            .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                                                .addComponent(lb_cedula)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(125, 125, 125)
-                                        .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lb_fechanac)
-                                            .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                                                .addComponent(lb_telefono)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                                        .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dlg_FacturaLayout.createSequentialGroup()
-                                                .addComponent(lb_apellidos)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                            .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                                                .addComponent(lb_direccion)
-                                                .addGap(9, 9, 9)))
-                                        .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txt_direccion)
-                                            .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lb_dia, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                                .addComponent(lb_facnumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dlg_FacturaLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lb_total)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(32, 32, 32))
-                        .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(but_actualizar)
-                        .addGap(144, 144, 144)
-                        .addComponent(but_cancelar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Dlg_FacturaLayout.setVerticalGroup(
-            Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Dlg_FacturaLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lb_factura)
-                .addGap(47, 47, 47)
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lb_logo)
-                        .addComponent(lb_numfac))
-                    .addComponent(lb_facnumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_nacimiento)
-                    .addComponent(lb_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_cedula)
-                    .addComponent(lb_telefono)
-                    .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_nombres)
-                    .addComponent(lb_fechanac)
-                    .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_apellidos)
-                    .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_direccion)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_total)
-                    .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(Dlg_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(but_actualizar)
-                    .addComponent(but_cancelar))
-                .addGap(48, 48, 48))
-        );
+        Dlg_Factura.getContentPane().add(jPanelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 710));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1461, 721));
@@ -561,7 +510,9 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JButton but_limpiar;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JEImagePanel jEImagePanel3;
     private LIB.JPanelRound jPanelRound1;
+    private LIB.JPanelRound jPanelRound2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_apellidos;
