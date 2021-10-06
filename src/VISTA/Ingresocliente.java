@@ -6,6 +6,7 @@
 package VISTA;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -21,6 +22,8 @@ public class Ingresocliente extends javax.swing.JFrame {
      */
     public Ingresocliente() {
         initComponents();
+        Ingresocliente.this.setBackground(new Color(0, 0, 0, 0));
+
     }
 
     public JButton getBut_aceptar() {
@@ -55,13 +58,7 @@ public class Ingresocliente extends javax.swing.JFrame {
         this.lb_apellido = lb_apellido;
     }
 
-    public JLabel getLb_cliente() {
-        return lb_cliente;
-    }
-
-    public void setLb_cliente(JLabel lb_cliente) {
-        this.lb_cliente = lb_cliente;
-    }
+  
 
     public JLabel getLb_correo() {
         return lb_correo;
@@ -159,8 +156,6 @@ public class Ingresocliente extends javax.swing.JFrame {
         this.txt_telefono = txt_telefono;
     }
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -170,6 +165,8 @@ public class Ingresocliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
         lb_nombres = new javax.swing.JLabel();
         txt_correo = new javax.swing.JTextField();
         lb_apellido = new javax.swing.JLabel();
@@ -183,121 +180,95 @@ public class Ingresocliente extends javax.swing.JFrame {
         txt_id = new javax.swing.JTextField();
         txt_nombres = new javax.swing.JTextField();
         txt_apellidos = new javax.swing.JTextField();
-        lb_cliente = new javax.swing.JLabel();
         txt_direccion = new javax.swing.JTextField();
         lb_id = new javax.swing.JLabel();
         txt_telefono = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(911, 580));
+        setUndecorated(true);
+        getContentPane().setLayout(null);
+
+        jPanelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
+
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Datos cliente.png"))); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
+        jEImagePanel1.setLayout(jEImagePanel1Layout);
+        jEImagePanel1Layout.setHorizontalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+        jEImagePanel1Layout.setVerticalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 420, 580);
 
         lb_nombres.setText("Nombres:");
+        jPanelRound1.add(lb_nombres);
+        lb_nombres.setBounds(520, 120, 56, 16);
+        jPanelRound1.add(txt_correo);
+        txt_correo.setBounds(620, 280, 193, 22);
 
         lb_apellido.setText("Apellidos:");
+        jPanelRound1.add(lb_apellido);
+        lb_apellido.setBounds(520, 160, 56, 16);
 
-        but_aceptar.setText("Aceptar");
+        but_aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACEPTAR ICO.png"))); // NOI18N
+        but_aceptar.setBorder(null);
+        but_aceptar.setBorderPainted(false);
+        but_aceptar.setContentAreaFilled(false);
+        but_aceptar.setFocusPainted(false);
+        jPanelRound1.add(but_aceptar);
+        but_aceptar.setBounds(580, 390, 180, 50);
 
         lb_direccion.setText("Dirección:");
+        jPanelRound1.add(lb_direccion);
+        lb_direccion.setBounds(520, 210, 57, 16);
 
-        but_cancelar.setText("Cancelar");
+        but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_cancelar.setBorder(null);
+        but_cancelar.setBorderPainted(false);
+        but_cancelar.setContentAreaFilled(false);
+        but_cancelar.setFocusPainted(false);
+        jPanelRound1.add(but_cancelar);
+        but_cancelar.setBounds(710, 470, 180, 60);
 
         lb_telefono.setText("Teléfono:");
+        jPanelRound1.add(lb_telefono);
+        lb_telefono.setBounds(520, 250, 55, 16);
+        jPanelRound1.add(dtcFechaNacimiento);
+        dtcFechaNacimiento.setBounds(620, 330, 200, 20);
 
         lb_fecha.setText("F. Nacimiento:");
+        jPanelRound1.add(lb_fecha);
+        lb_fecha.setBounds(520, 330, 83, 16);
 
         lb_correo.setText("Correo:");
-
-        lb_cliente.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        lb_cliente.setForeground(new java.awt.Color(102, 0, 0));
-        lb_cliente.setText("DATOS DEL CLIENTE");
+        jPanelRound1.add(lb_correo);
+        lb_correo.setBounds(520, 290, 44, 16);
+        jPanelRound1.add(txt_id);
+        txt_id.setBounds(620, 70, 190, 22);
+        jPanelRound1.add(txt_nombres);
+        txt_nombres.setBounds(620, 120, 190, 22);
+        jPanelRound1.add(txt_apellidos);
+        txt_apellidos.setBounds(620, 160, 190, 22);
+        jPanelRound1.add(txt_direccion);
+        txt_direccion.setBounds(620, 200, 190, 22);
 
         lb_id.setText("Id:");
+        jPanelRound1.add(lb_id);
+        lb_id.setBounds(520, 80, 16, 16);
+        jPanelRound1.add(txt_telefono);
+        txt_telefono.setBounds(620, 240, 190, 22);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lb_fecha)
-                        .addGap(18, 18, 18)
-                        .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lb_telefono)
-                                .addComponent(lb_apellido))
-                            .addGap(41, 41, 41)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txt_apellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                .addComponent(txt_telefono)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lb_direccion)
-                            .addGap(40, 40, 40)
-                            .addComponent(txt_direccion))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lb_correo)
-                            .addGap(50, 50, 50)
-                            .addComponent(txt_correo, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lb_nombres)
-                                .addComponent(lb_id))
-                            .addGap(41, 41, 41)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txt_nombres)
-                                .addComponent(txt_id))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(lb_cliente)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(but_aceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                .addComponent(but_cancelar)
-                .addGap(123, 123, 123))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lb_cliente)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_id)
-                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_nombres)
-                    .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_apellido)
-                    .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_direccion)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_telefono)
-                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_correo))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lb_fecha)
-                    .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(but_aceptar)
-                    .addComponent(but_cancelar))
-                .addGap(27, 27, 27))
-        );
+        getContentPane().add(jPanelRound1);
+        jPanelRound1.setBounds(0, 0, 910, 580);
 
         pack();
         setLocationRelativeTo(null);
@@ -306,14 +277,14 @@ public class Ingresocliente extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton but_aceptar;
     private javax.swing.JButton but_cancelar;
     private com.toedter.calendar.JDateChooser dtcFechaNacimiento;
+    private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JPanelRound jPanelRound1;
     private javax.swing.JLabel lb_apellido;
-    private javax.swing.JLabel lb_cliente;
     private javax.swing.JLabel lb_correo;
     private javax.swing.JLabel lb_direccion;
     private javax.swing.JLabel lb_fecha;

@@ -9,6 +9,7 @@ import MODELO.persona;
 import MODELO.proveedores;
 import VISTA.Cliente;
 import VISTA.Ingreso;
+import VISTA.Ingresocliente;
 import VISTA.Login;
 import VISTA.MenuCliente;
 import VISTA.Portada;

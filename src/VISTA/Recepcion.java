@@ -61,7 +61,7 @@ public class Recepcion extends javax.swing.JFrame {
         jEImagePanel1.add(clientes);
         clientes.setBounds(470, 170, 210, 201);
 
-        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/SALIR.png"))); // NOI18N
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         salir.setBorder(null);
         salir.setBorderPainted(false);
         salir.setContentAreaFilled(false);
@@ -71,7 +71,7 @@ public class Recepcion extends javax.swing.JFrame {
             }
         });
         jEImagePanel1.add(salir);
-        salir.setBounds(600, 440, 170, 60);
+        salir.setBounds(600, 450, 180, 60);
 
         jPanelTransparente1.add(jEImagePanel1);
         jEImagePanel1.setBounds(0, 0, 790, 520);

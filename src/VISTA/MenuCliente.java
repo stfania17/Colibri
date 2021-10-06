@@ -63,6 +63,8 @@ public class MenuCliente extends javax.swing.JFrame {
         but_lacteos = new javax.swing.JButton();
         but_otros = new javax.swing.JButton();
 
+        Dlg_Productos.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setText("COLIBRÍ");
 
@@ -184,6 +186,8 @@ public class MenuCliente extends javax.swing.JFrame {
                 .addComponent(SALIR)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        CARRITO.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         CANCELAR.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         CANCELAR.setText("CANCELAR");
@@ -371,7 +375,7 @@ public class MenuCliente extends javax.swing.JFrame {
                 .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(but_verduras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(but_frutas)))
                     .addGroup(jEImagePanel2Layout.createSequentialGroup()
