@@ -1,6 +1,7 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -14,6 +15,7 @@ public class Factura extends javax.swing.JFrame {
  
     public Factura() {
         initComponents();
+        Factura.this.setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
