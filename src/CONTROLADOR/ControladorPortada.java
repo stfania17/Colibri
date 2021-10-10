@@ -1,17 +1,17 @@
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
-import VISTA.Login;
-import VISTA.Portada;
-import VISTA.Recepcion;
+import VISTA.Vista_login;
+import VISTA.Vista_portada;
+import VISTA.Vista_recepcion;
 
 public class ControladorPortada {
     ////////////////////////////////////////////////////////////////////////////
-    public static Portada portada = new Portada();
-    public static Login log = new Login();
-    public static Recepcion rec = new Recepcion();
+    public static Vista_portada portada = new Vista_portada();
+    public static Vista_login log = new Vista_login();
+    public static Vista_recepcion rec = new Vista_recepcion();
     ////////////////////////////////////////////////////////////////////////////
-    public ControladorPortada(Portada porta) {
+    public ControladorPortada(Vista_portada porta) {
         this.portada=porta;
         mostrar();
         porta.setTitle("PORTADA");
@@ -30,7 +30,7 @@ public class ControladorPortada {
         ControladorRecepcion cr = new ControladorRecepcion(rec);
     }
     public static void salir(){
-        System.exit(0);
+        portada.dispose();
     }
     ////////////////////////////////////////////////////////////////////////////
 //    public ControladorPortada(Portada porta){

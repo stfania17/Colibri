@@ -1,17 +1,17 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
-import MODELO.proveedores;
-import VISTA.Proveedor;
+import CLASES.proveedores;
+import VISTA.Vista_proveedor;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
  
 public class ControlProveedor {
-    private Proveedor prove;
+    private Vista_proveedor prove;
     int n;
 
-    public ControlProveedor(Proveedor prove) {
+    public ControlProveedor(Vista_proveedor prove) {
         this.prove = prove;
         prove.setTitle("PROVEEDORES");
         prove.setVisible(true);
@@ -19,7 +19,7 @@ public class ControlProveedor {
    
     public void iniciaControl() { 
         
-        prove.getBut_consultar().addActionListener(l -> cargarDialogo(1));
+
         prove.getBut_crear().addActionListener(l -> cargarDialogo(2));
         prove.getBut_modificar().addActionListener(l -> cargarDialogo(3));
         

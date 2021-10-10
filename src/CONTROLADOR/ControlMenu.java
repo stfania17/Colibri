@@ -1,16 +1,19 @@
 //proyecto colibri muñoz gutama matute
 package CONTROLADOR;
 
-import CONECCIÓN_SQL.Dbproductos;
-import CONECCIÓN_SQL.Dbproveedores;
+import CONECCIÓN_SQL.modelo_productos;
+import CONECCIÓN_SQL.modelo_proveedores;
 import CONECCIÓN_SQL.SQConnect;
-import MODELO.productos;
-import MODELO.proveedores;
-import MODELO.carrito;
-import MODELO.provionalarrryamenu;
-import VISTA.FACTURA_FORMULARIO;
-import VISTA.MenuCliente;
-import VISTA.Recepcion;
+import CLASES.productos;
+import CLASES.proveedores;
+import CLASES.carrito;
+import CLASES.provionalarrryamenu;
+import CONECCIÓN_SQL.Render;
+import VISTA.Vista_factura_formulario;
+import VISTA.Vista_menu_cliente;
+import VISTA.Vista_producto;
+import VISTA.Vista_recepcion;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -18,36 +21,58 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.ws.Holder;
  
 public class ControlMenu{ 
     //////////////////////     ARRAYS       ////////////////////////////////////  
+    public static ArrayList<provionalarrryamenu> provicionalgranos = new ArrayList<provionalarrryamenu>();
+    public static ArrayList<provionalarrryamenu> provicionalverduras = new ArrayList<provionalarrryamenu>();
+    public static ArrayList<provionalarrryamenu> provicionallacteos = new ArrayList<provionalarrryamenu>();
+    public static ArrayList<provionalarrryamenu> provicionalfrutas = new ArrayList<provionalarrryamenu>();
+    public static ArrayList<provionalarrryamenu> provicionalotros = new ArrayList<provionalarrryamenu>();
+    public static ArrayList<provionalarrryamenu> provicionalhierbas = new ArrayList<provionalarrryamenu>();
+    ////////////////////
     public static ArrayList<provionalarrryamenu> provicionali = new ArrayList<provionalarrryamenu>();
+    ////////////////////
+    ////////////////////////////  HOLA MARIA
+    ////////////////////////////////////////////////////////////////////////////
     public static ArrayList<carrito> mateo=new ArrayList<carrito>();
     public static ArrayList<productos> pra = new ArrayList<productos>();  
     ///////////////////////  VARIABLES    ////////////////////////////////////// 
-    public static DefaultTableModel modelo;
+    public static DefaultTableModel modelo_tabla;
     public static int n=0;
     public static int posicion=0;
     public static int posicion2=0;
     /////////////////////    CLASES   //////////////////////////////////////////  
     public static provionalarrryamenu proda= new provionalarrryamenu();
     ///////////////////  VISTAS   ////////////////////////////////////////////// 
-    public static MenuCliente menu = new MenuCliente();
-    public static Recepcion rec = new Recepcion();
-    public static FACTURA_FORMULARIO ff = new FACTURA_FORMULARIO();
+    public static Vista_menu_cliente menu = new Vista_menu_cliente();
+    public static Vista_recepcion rec = new Vista_recepcion();
+    public static Vista_factura_formulario ff = new Vista_factura_formulario();
     //////////////////////      SQL      /////////////////////////////////////// 
     public static SQConnect pg= new SQConnect();
-    public static Dbproductos dbu = new Dbproductos();
-    public static Dbproveedores dba = new Dbproveedores();
+    public static modelo_productos modelo_produ = new modelo_productos();
+    public static modelo_proveedores dba = new modelo_proveedores();
     //////////////////////      ARRAY SQL    /////////////////////////////////// 
-    public static List<productos> per = dbu.mostrarProductos();
+    public static List<productos> per = modelo_produ.mostrarProductos();
     public static List<proveedores> prov = dba.mostrarDatos();
+    
+    public static List<productos> pro_lac = modelo_produ.mostrarDatosLacteos();
+    public static List<productos> pro_gran = modelo_produ.mostrarDatosGranos();
+    public static List<productos> pro_otros = modelo_produ.mostrarDatosOtros();
+    public static List<productos> pro_verd = modelo_produ.mostrarDatosVerduras();
+    public static List<productos> pro_frut = modelo_produ.mostrarDatosFrutas();
+    public static List<productos> pro_hierb = modelo_produ.mostrarDatosHierbas();
     ////////////////////////   BREQUER  ////////////////////////////////////////   
-    public ControlMenu(MenuCliente menu) {
+    public ControlMenu(Vista_menu_cliente menu) {
         this.menu = menu;
-        menuprovicional();
+        ////////////  TABLAS AUTOMATICAS   ///////////////////
+        crearmenuprovicional();
         mostrar();
         menu.setTitle("MENU DE PRODUCTOS");
         iniciaControl();
@@ -58,7 +83,8 @@ public class ControlMenu{
     public static void cerrar(){menu.setVisible(false);}
     public static void salir(){
         cerrar();
-        provicionali.clear();
+        provicionalgranos.clear();
+        provicionallacteos.clear();
         mateo.clear();
         ControladorRecepcion ccr = new ControladorRecepcion(rec);
     } 
@@ -84,32 +110,38 @@ public class ControlMenu{
             ////////////////////////////////////////////////////////////////////
             @Override
             public void mouseReleased(MouseEvent e) {
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //throw new UnsupportedOperationException("Not supported yet."); 
+            //To change body of generated methods, choose Tools | Templates.
              
             }
             @Override
             public void mouseEntered(MouseEvent e) {
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //throw new UnsupportedOperationException("Not supported yet."); 
+            //To change body of generated methods, choose Tools | Templates.
             }
             @Override
             public void mouseExited(MouseEvent e) {
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //throw new UnsupportedOperationException("Not supported yet."); 
+            //To change body of generated methods, choose Tools | Templates.
             }
     };
         //vista.getBtnRefrescar().addActionListener(l -> cargaLista());
         KeyListener ka = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //throw new UnsupportedOperationException("Not supported yet."); 
+            //To change body of generated methods, choose Tools | Templates.
             }
             @Override
             public void keyPressed(KeyEvent e) {
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //throw new UnsupportedOperationException("Not supported yet."); 
+            //To change body of generated methods, choose Tools | Templates.
             }
             @Override
             public void keyReleased(KeyEvent e) {
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            mostrartablaporvisor(menu.getjTextField1().getText());
+            //throw new UnsupportedOperationException("Not supported yet."); 
+            //To change body of generated methods, choose Tools | Templates.
+            mostrartablaporvisor(menu.getCategoriatabla().getText(),menu.getjTextField1().getText());
             }
         };
         ////////////////////////////////////SELECTOR DE CATEGORIAS
@@ -120,15 +152,12 @@ public class ControlMenu{
         menu.getBut_hierbas().addActionListener(l -> cargarDialogo(5));
         menu.getBut_otros().addActionListener(l -> cargarDialogo(6));
         ////////////////////////////////////////////////////////////////////
-        //// 
         menu.getjTable1().addMouseListener(ky);
         menu.getjTextField1().addKeyListener(ka);
         //////////////////////////////// SALIDAS
         menu.getBut_salir().addActionListener(l->salir());
         menu.getSALIR().addActionListener(l->menu.getDlg_Productos().dispose());
         menu.getComprar().addActionListener(l->realizarfactura());
-        ////////////////////////////////
-        ////////////////////////////////
         ////////////////////////////////
         ////////////////////////////////
         menu.getjButton1().addActionListener(l->cargarcarrito());
@@ -139,32 +168,39 @@ public class ControlMenu{
     }
     ////////////////  MOSTRAR  MENU SEGUN SU CONTENIDO /////////////////////////
     public static void cargarDialogo(int origen) {
-        menu.getDlg_Productos().setSize(650, 600);
+        menu.getDlg_Productos().setSize(800, 550);
         menu.getDlg_Productos().setLocationRelativeTo(menu);
 
         if (origen == 1) {
             menu.getDlg_Productos().setTitle("Verduras");
-            mostrartabla("Verduras");
+            menu.getCategoriatabla().setText("Verduras");
+            mostrartablaverduras();
+            
             n = 1;
         } else if (origen == 2) {
             menu.getDlg_Productos().setTitle("Frutas");
-            mostrartabla("Frutas");
+            menu.getCategoriatabla().setText("Frutas");
+            mostrartablafrutas();
             n = 2;
         } else if (origen == 3) {
             menu.getDlg_Productos().setTitle("Lacteos");
-            mostrartabla("Lacteos");
+            menu.getCategoriatabla().setText("Lacteos");
+            mostrartablalacteos();
             n = 3;
         } else if (origen == 4) {
             menu.getDlg_Productos().setTitle("Granos");
-            mostrartabla("Granos");
+            menu.getCategoriatabla().setText("Granos");
+            cargaListasGranos();
             n = 4;
         } else if (origen == 5) {
             menu.getDlg_Productos().setTitle("Hierbas");
-            mostrartabla("Hierbas");
+            menu.getCategoriatabla().setText("Hierbas");
+            mostrartablahierbas();
             n = 5;
         } else{
             menu.getDlg_Productos().setTitle("Otros");
-            mostrartabla("Otros");
+            menu.getCategoriatabla().setText("Otros");
+            mostrartablaotros();
             n = 6;
         }
         menu.getDlg_Productos().setVisible(true);
@@ -205,7 +241,7 @@ public class ControlMenu{
     ////////////////////////////////////////////////////////////////////////////
     //////////////    ABRIR   LA  INTERAZ DE CARRITO  //////////////////////////
     public static void abrircarrito(){
-        menu.getCARRITO().setSize(600, 600);
+        menu.getCARRITO().setSize(820,310);
         menu.getCARRITO().setLocationRelativeTo(menu);
         menu.getCARRITO().setTitle("CARRITO");
         menu.getCARRITO().setVisible(true);
@@ -276,12 +312,12 @@ public class ControlMenu{
     } 
     ///////////////////    CARGAR   TABLA   AL CARRITO  ////////////////////////
     public static void cargartablacarrito(){
-    modelo=(DefaultTableModel)menu.tablacarrito.getModel();
-    modelo.setRowCount(0);
+    modelo_tabla=(DefaultTableModel)menu.tablacarrito.getModel();
+    modelo_tabla.setRowCount(0);
   
     for (int i = 0; i < mateo.size(); i++) {
     Object [] fila ={mateo.get(i).getCodigo() ,mateo.get(i).getNombre() , mateo.get(i).getCantidad(),mateo.get(i).getPrecio(),mateo.get(i).getPrecio_final()};
-    modelo.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
+    modelo_tabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
     }}  
     ///////////////////   DEJAR  UN PRODUCTO ///////////////////////////////////
     public static void dejarproducto(){
@@ -342,37 +378,61 @@ public class ControlMenu{
     ////////////////////////////////////////////////////////////////////////////
     ///////////////    ESTA   VAINA    CREA  UN MENU PROVICIONAL ///////////////
     ///// ¿Porqué?  NO PREGUNTE Y OBSERVER. ////////////////////////////////////
-    public static void menuprovicional(){ 
+    public static void crearmenuprovicional(){ 
         for (int i = 0; i < per.size(); i++) {
-        proda= new provionalarrryamenu(per.get(i).getCodigo(),per.get(i).getNombre(),per.get(i).getCod_proveedor(),per.get(i).getDescripcion(), per.get(i).getCategoria(),per.get(i).getPrecio(),per.get(i).getExistencias());
+        proda= new provionalarrryamenu(per.get(i).getCodigo(),per.get(i).getNombre(),per.get(i).getCod_proveedor(),per.get(i).getDescripcion(), per.get(i).getCategoria(),per.get(i).getPrecio(),per.get(i).getExistencias(),per.get(i).getFoto());
         provicionali.add(proda);        
      }}
     ////////////////////////////////////////////////////////////////////////////
-    /////////////////////   CREA SEGÚN CATEGORIA    ////////////////////////////
-    public static void mostrartabla(String clase){
-    modelo=(DefaultTableModel)menu.jTable1.getModel();
-    modelo.setRowCount(0);
-     
-    for (int i = 0; i < provicionali.size(); i++) {
-    if(provicionali.get(i).getCategoria().equalsIgnoreCase(clase)){
-    String nombres=traernombre(provicionali.get(i).getCod_proveedor());
-    Object [] fila ={provicionali.get(i).getCodigo() ,provicionali.get(i).getNombre() , nombres ,provicionali.get(i).getDescripcion() ,provicionali.get(i).getPrecio() ,provicionali.get(i).getExistencias()};
-    modelo.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
-    }}} 
+    ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     ////////////  MOTRAR  TABLA POR MEDIO DE  INICIAL  /////////////////////////
-    public static void mostrartablaporvisor(String codei){
-    modelo=(DefaultTableModel)menu.jTable1.getModel();
-    modelo.setRowCount(0);
-    per =dbu.mostrarDatos(codei);
-    
-    for (int i = 0; i < per.size(); i++) {
-    String nombres=traernombre(per.get(i).getCod_proveedor());
-    Object [] fila ={per.get(i).getCodigo() ,per.get(i).getNombre() , nombres ,per.get(i).getDescripcion() ,per.get(i).getPrecio() ,per.get(i).getExistencias()};
-    modelo.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
-    }
-    }
+    ////////////////////////////////////////////////////////////////////////////    
     ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    public static void cargaListasGranos() {
+        //Acciones necesarias para extraer los datos MODELO y Mostrar en la vista
+        //Estructura JTbable
+        menu.getjTable1().setDefaultRenderer(Object.class, new Render());
+        menu.getjTable1().setRowHeight(100);
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+
+        modelo_tabla = (DefaultTableModel) menu.getjTable1().getModel();
+        //tblModel.setNumRows(0);
+        
+        List<productos> lista = modelo_produ.mostrarDatosGranos();
+        
+        
+        int ncols = modelo_tabla.getColumnCount();
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach(p -> {
+            modelo_tabla.addRow(new Object[ncols]);
+            // vista.getTxtNombres().setText(vista.getTblPersona().setValueAt(p.getNombres(), i.value, 1));
+            menu.getjTable1().setValueAt(p.getCodigo(), i.value, 0);
+            menu.getjTable1().setValueAt(p.getNombre(), i.value, 1);
+            menu.getjTable1().setValueAt(p.getCod_proveedor(), i.value, 2);            
+            menu.getjTable1().setValueAt(p.getDescripcion(), i.value, 3);
+            menu.getjTable1().setValueAt(p.getPrecio(), i.value, 4);
+            
+            for (int j = 0; j < provicionali.size(); j++) {
+                if(provicionali.get(j).getCodigo().equals(p.getCodigo())){
+            menu.getjTable1().setValueAt(provicionali.get(j).getExistencias(), i.value, 5);        
+                } 
+            }
+
+            Image img = p.getFoto();
+            if (img != null) {
+                Image nimg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(nimg);
+                renderer.setIcon(icon);
+                menu.getjTable1().setValueAt(new JLabel(icon), i.value, 6);
+            } else {
+                menu.getjTable1().setValueAt(null, i.value, 6);
+            }
+            i.value++;
+
+        });
+    }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////    BUSCAMOS   POSICION DE PRODUCTO  ///////////////////////
     public static int buscarposicionenprovicional(String codigo){
@@ -416,13 +476,165 @@ public class ControlMenu{
     }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    /////////////////   VAMOS    A   LA   FACTURA///////////////////////////////
-    public static void realizarfactura(){
-        cerrar();
-        ControladorCreadorFactura ccf = new ControladorCreadorFactura(ff);
+    /////////////////////     TABLAS           /////////////////////////////////
+        /////////////////////   CREA SEGÚN CATEGORIA    ////////////////////////////
+    public static void mostrartablalacteos(){
+    modelo_tabla=(DefaultTableModel)menu.jTable1.getModel();
+    modelo_tabla.setRowCount(0);
+     
+    for (int i = 0; i < pro_lac.size(); i++) {
+    
+    String nombres=traernombre(provicionali.get(i).getCod_proveedor());
+    Object [] fila ={provicionali.get(i).getCodigo() ,provicionali.get(i).getNombre() , nombres ,provicionali.get(i).getDescripcion() ,provicionali.get(i).getPrecio() ,provicionali.get(i).getExistencias()};
+    modelo_tabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
+    }} 
+    ////////////////////////////////////////////////////////////////////////////
+    public static void mostrartablahierbas(){
+    modelo_tabla=(DefaultTableModel)menu.jTable1.getModel();
+    modelo_tabla.setRowCount(0);
+     
+    for (int i = 0; i < pro_hierb.size(); i++) {
+    
+    String nombres=traernombre(provicionali.get(i).getCod_proveedor());
+    Object [] fila ={provicionali.get(i).getCodigo() ,provicionali.get(i).getNombre() , nombres ,provicionali.get(i).getDescripcion() ,provicionali.get(i).getPrecio() ,provicionali.get(i).getExistencias()};
+    modelo_tabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
+    }} 
+    ////////////////////////////////////////////////////////////////////////////
+    public static void mostrartablafrutas(){
+    modelo_tabla=(DefaultTableModel)menu.jTable1.getModel();
+    modelo_tabla.setRowCount(0);
+     
+    for (int i = 0; i < pro_frut.size(); i++) {
+    
+    String nombres=traernombre(provicionali.get(i).getCod_proveedor());
+    Object [] fila ={provicionali.get(i).getCodigo() ,provicionali.get(i).getNombre() , nombres ,provicionali.get(i).getDescripcion() ,provicionali.get(i).getPrecio() ,provicionali.get(i).getExistencias()};
+    modelo_tabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
+    }} 
+    ////////////////////////////////////////////////////////////////////////////
+    public static void mostrartablaotros(){
+    modelo_tabla=(DefaultTableModel)menu.jTable1.getModel();
+    modelo_tabla.setRowCount(0);
+     
+    for (int i = 0; i < pro_otros.size(); i++) {
+    
+    String nombres=traernombre(provicionali.get(i).getCod_proveedor());
+    Object [] fila ={provicionali.get(i).getCodigo() ,provicionali.get(i).getNombre() , nombres ,provicionali.get(i).getDescripcion() ,provicionali.get(i).getPrecio() ,provicionali.get(i).getExistencias()};
+    modelo_tabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
+    }} 
+    ////////////////////////////////////////////////////////////////////////////
+    public static void mostrartablagranos(){
+    modelo_tabla=(DefaultTableModel)menu.jTable1.getModel();
+    modelo_tabla.setRowCount(0);
+     
+    for (int i = 0; i < pro_gran.size(); i++) {
+    
+    String nombres=traernombre(pro_gran.get(i).getCod_proveedor());
+    Object [] fila ={pro_gran.get(i).getCodigo() ,pro_gran.get(i).getNombre() , nombres ,pro_gran.get(i).getDescripcion() ,pro_gran.get(i).getPrecio() ,pro_gran.get(i).getExistencias()};
+    modelo_tabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
+    }}
+    ////////////////////////////////////////////////////////////////////////////
+    public static void mostrartablaverduras(){
+    modelo_tabla=(DefaultTableModel)menu.jTable1.getModel();
+    modelo_tabla.setRowCount(0);
+     
+    for (int i = 0; i < per.size(); i++) {
+    
+    String nombres=traernombre(per.get(i).getCod_proveedor());
+    
+    Object [] fila ={per.get(i).getCodigo() ,per.get(i).getNombre() , nombres ,
+    pro_verd.get(i).getDescripcion() ,pro_verd.get(i).getPrecio() ,pro_verd.get(i).getExistencias()};
+    
+    
+    modelo_tabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
+    }}
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+        public static void mostrartablaporvisor(String ctaegoria, String ide) {
+        menu.jTable1.setDefaultRenderer(Object.class, new Render());
+        menu.jTable1.setRowHeight(100);
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        //system
+        modelo_tabla = (DefaultTableModel) menu.jTable1.getModel();
+        String categoria=menu.getCategoriatabla().getText();
+ 
+        List<productos> lista= modelo_produ.mostrarDatosPorcategoria(categoria,ide);
+        
+        int ncols = 1;
+        
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach(p -> {
+            modelo_tabla.addRow(new Object[ncols]);
+ 
+            menu.jTable1.setValueAt(p.getCodigo(), i.value, 0);
+            menu.jTable1.setValueAt(p.getNombre(), i.value, 1);
+            menu.jTable1.setValueAt(p.getCod_proveedor(), i.value, 2);
+            menu.jTable1.setValueAt(p.getDescripcion(), i.value, 3);
+            menu.jTable1.setValueAt(p.getExistencias(), i.value, 4);
+            menu.jTable1.setValueAt(p.getPrecio(), i.value, 5);
+
+            Image img = p.getFoto();
+            if (img != null) {
+                Image nimg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(nimg);
+                renderer.setIcon(icon);
+                menu.jTable1.setValueAt(new JLabel(icon), i.value, 6);
+            } else {
+                menu.jTable1.setValueAt(null, i.value, 6);
+            }
+            i.value++;
+        });
     }
     ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    public static void mostrarDatos(String ida) {
+        menu.jTable1.setDefaultRenderer(Object.class, new Render());
+        menu.jTable1.setRowHeight(100);
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        //system
+        modelo_tabla = (DefaultTableModel) menu.jTable1.getModel();
+        String categoria=menu.getCategoriatabla().getText();
  
+        List<productos> lista= modelo_produ.mostrarDatosPorcategoria(categoria,ida);
+        
+        int ncols = 1;
+        
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach(p -> {
+            modelo_tabla.addRow(new Object[ncols]);
+ 
+            menu.jTable1.setValueAt(p.getCodigo(), i.value, 0);
+            menu.jTable1.setValueAt(p.getNombre(), i.value, 1);
+            menu.jTable1.setValueAt(p.getCod_proveedor(), i.value, 2);
+            menu.jTable1.setValueAt(p.getDescripcion(), i.value, 3);
+            menu.jTable1.setValueAt(p.getExistencias(), i.value, 4);
+            menu.jTable1.setValueAt(p.getPrecio(), i.value, 5);
 
+            Image img = p.getFoto();
+            if (img != null) {
+                Image nimg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(nimg);
+                renderer.setIcon(icon);
+                menu.jTable1.setValueAt(new JLabel(icon), i.value, 6);
+            } else {
+                menu.jTable1.setValueAt(null, i.value, 6);
+            }
+            i.value++;
+        });
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    /////////////////   VAMOS    A   LA   FACTURA///////////////////////////////
+    public static void realizarfactura(){
+        ControladorCreadorFactura ccf = new ControladorCreadorFactura(ff);
+    }
+    
+    
+    
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

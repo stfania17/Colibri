@@ -1,44 +1,60 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
-import VISTA.Producto;
-import MODELO.productos;
-import CONECCIÓN_SQL.Dbproductos;
-import CONECCIÓN_SQL.Dbproveedores;
-import MODELO.proveedores;
-import VISTA.Ingreso;
+import VISTA.Vista_producto;
+import CLASES.productos;
+import CONECCIÓN_SQL.modelo_productos;
+import CONECCIÓN_SQL.modelo_proveedores;
+import CONECCIÓN_SQL.Render;
+import CLASES.proveedores;
+import VISTA.Vista_ingreso;
+import java.awt.Image;
+ 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.ws.Holder;
  
 public class ControlProducto {
     //////////////////     TRAER INTERFACES   ////////////////////////////
-    public static Producto produc;
-    public static Ingreso ingre = new Ingreso();
+    public static Vista_producto vista_produ;
+    public static Vista_ingreso vista_menucajero = new Vista_ingreso();
     /////////////////////////////////    SQLs   //////////////////////////////
-    public static Dbproductos modelo1 = new Dbproductos();
-    public static Dbproveedores dbu = new Dbproveedores();
+    public static modelo_productos modelo_produ = new modelo_productos();
+    public static modelo_proveedores modelo_provedo = new modelo_proveedores();
     ///////////////////////   TABLA   //////////////////////////////////////////
-    public static DefaultTableModel modelo;
+    public static DefaultTableModel modelo_tabla;
     /////////////////////    VARIANTES    //////////////////////////
     public static int n;
+    public static String ruta="";
     ///////////////////////////   ARRRALISTS  //////////////////////////////////
-    public static List<proveedores> per = dbu.mostrarDatos();  
-    public static List<productos> prodi = modelo1.mostrarProductos();  
- 
+    public static List<proveedores> per = modelo_provedo.mostrarDatos();  
+    public static List<productos> prodi = modelo_produ.mostrarProductos();  
+  
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    public ControlProducto(Producto produc) {
-        this.produc = produc;
-        mostrar();
+    public ControlProducto(Vista_producto produc) {
+        this.vista_produ = produc;
+        mostrar_interfaz();
         cargaLista();
-        buscarcedula();
+        llenarcuadrocedulas();
         iniciaControl();
     }
-    
+   
     public static void iniciaControl() { 
         KeyListener kl = new KeyListener() {
             @Override
@@ -55,27 +71,58 @@ public class ControlProducto {
             public void keyReleased(KeyEvent e) {
             //throw new UnsupportedOperationException("Not supported yet."); 
             //To change body of generated methods, choose Tools | Templates.
-            cargaLista(produc.getTxt_consulta().getText());
+            mostrarDatos(vista_produ.getTxt_consulta().getText());
+//          cargaLista(vista_produ.getTxt_consulta().getText());
             }
-
+ 
         };
         //but_cancelar
-        produc.getBut_refrescar().addActionListener(l -> cargaLista());         ///  CARGAR LA TABLA
-        produc.getBut_crear().addActionListener(l -> cargarDialogo(1));         ///  CREAR UN PRODUCTO
-        produc.getBut_modificar().addActionListener(l -> cargarDialogo(2));     ///  MODIFICAR PRODUCTO
-        produc.getBut_eliminar().addActionListener(l -> EliminarProducto());    ///  ELIMINAR  PRODUCTO
-        produc.getjButton1().addActionListener(l->generacodi());
-        produc.getBut_cancelar().addActionListener(l->produc.getDlg_Productos().setVisible(false));
+        vista_produ.getBut_refrescar().addActionListener(l -> cargaLista());         ///  CARGAR LA TABLA
+        vista_produ.getBut_crear().addActionListener(l -> cargarDialogo(1));         ///  CREAR UN PRODUCTO
+        vista_produ.getBut_modificar().addActionListener(l -> cargarDialogo(2));     ///  MODIFICAR PRODUCTO
+        vista_produ.getBut_eliminar().addActionListener(l -> EliminarProducto());    ///  ELIMINAR  PRODUCTO
+        vista_produ.getjButton1().addActionListener(l->generacodi());
+        vista_produ.getBut_cancelar().addActionListener(l->vista_produ.getDlg_Productos().setVisible(false));
         //crearproducto
         boolean hola = true;
-        produc.getCrearproducto().addActionListener(l -> DefinirMetodo(1));     /// EFECTUAR CREACIÓN
-        produc.getEDITAR().addActionListener(l->DefinirMetodo(2));              /// EFECTUAR EDICION
+        vista_produ.getCrearproducto().addActionListener(l -> {
+            try {
+                
+                if(verificarqueestetodobien()==true){
+                DefinirMetodo(1);    
+                }else{
+                    JOptionPane.showMessageDialog(null,"Datos Incompletos");
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });     /// EFECTUAR CREACIÓN
+        vista_produ.getEDITAR().addActionListener(l->{
+            try {
+                
+                
+                if(verificarqueestetodobien()==true){
+                DefinirMetodo(2);    
+                }else{
+                    JOptionPane.showMessageDialog(null,"Datos Incompletos");
+                }
+                
+                
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });              /// EFECTUAR EDICION
         //Controlador Buscar
-        produc.getTxt_consulta().addKeyListener(kl);                            /// KEYLISTENER
-        produc.getBut_atras().addActionListener(l->salir());                    /// SALIR
+        vista_produ.getTxt_consulta().addKeyListener(kl);                            /// KEYLISTENER
+        vista_produ.getBut_atras().addActionListener(l->salir_interfaz());                    /// SALIR
+        /////////// EXAMINAR FOTO  //////////////////////////////77
+        vista_produ.getExaminarfoto().addActionListener(l->examinarFoto());
+        vista_produ.getBut_limpiar().addActionListener(l->limpiartabla());
     }
-    
-    public static void DefinirMetodo(int n) {
+    ////////////////////////////////////////////////////////////////////////////
+    public static void DefinirMetodo(int n) throws SQLException {
         if (n == 1) {
         grabaProducto();
         } else if (n == 2) {     
@@ -86,169 +133,272 @@ public class ControlProducto {
     }
     ////////////////////////////////////////////////////////////////////////////
     public static void cargarDialogo(int origen) {
-        produc.getDlg_Productos().setSize(700, 520);
-        produc.getDlg_Productos().setLocationRelativeTo(produc);
+        vista_produ.getDlg_Productos().setSize(700, 520);
+        vista_produ.getDlg_Productos().setLocationRelativeTo(vista_produ);
          
         if (origen == 1) { /////////   CREACION
-            produc.getCrearproducto().setEnabled(true);
-            produc.getEDITAR().setEnabled(false); 
-            produc.getjButton1().setEnabled(true);
-            produc.getDlg_Productos().setTitle("CREAR");
+            vista_produ.getCrearproducto().setEnabled(true);
+            vista_produ.getEDITAR().setEnabled(false); 
+            vista_produ.getjButton1().setEnabled(true);
+            vista_produ.getDlg_Productos().setTitle("CREAR");
             //n = 1;
-            produc.getDlg_Productos().setVisible(true);
+            vista_produ.getDlg_Productos().setVisible(true);
         } else if (origen == 2) {  //////////  EDITAR
             modificarProducto();
-            produc.getCrearproducto().setEnabled(false);
-            produc.getEDITAR().setEnabled(true); 
-            produc.getjButton1().setEnabled(false);
-            produc.getDlg_Productos().setTitle("MODIFICAR");
+            vista_produ.getCrearproducto().setEnabled(false);
+            vista_produ.getEDITAR().setEnabled(true); 
+            vista_produ.getjButton1().setEnabled(false);
+            vista_produ.getDlg_Productos().setTitle("MODIFICAR");
             //n = 2;
-            produc.getDlg_Productos().setVisible(true);
+            vista_produ.getDlg_Productos().setVisible(true);
         } 
     }
     ////////////////////   TABLA    NORMAL   ///////////////////////////////////
-    public static void cargaLista() {
+    public static void cargaLista(){
         //Acciones necesarias para extraer los datos MODELO y Mostrar en la vista
         //Estructura JTbable
-        modelo = (DefaultTableModel) produc.getTbl_rep_producto().getModel();
-        modelo.setNumRows(0);
-        
-        List<productos> lista = modelo1.mostrarProductos();
-        
-        lista.stream().forEach(p -> {
-        String[] persona = {p.getCodigo(), p.getNombre(), p.getDescripcion(), String.valueOf(p.getExistencias()),
-        String.valueOf(p.getE_min()), String.valueOf(p.getE_max()), String.valueOf(p.getPrecio()), p.getCod_proveedor(), p.getCategoria()};
-        modelo.addRow(persona);
-        });
+        vista_produ.getTbl_rep_producto().setDefaultRenderer(Object.class, new Render());
+        vista_produ.getTbl_rep_producto().setRowHeight(100);
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+ 
+        modelo_tabla = (DefaultTableModel) vista_produ.getTbl_rep_producto().getModel();
+        //tblModel.setNumRows(0);
 
+        int ncols = 1;
+        Holder<Integer> i = new Holder<>(0);
+        prodi.stream().forEach(p -> {
+            modelo_tabla.addRow(new Object[ncols]);
+            
+            vista_produ.getTbl_rep_producto().setValueAt(p.getCodigo(), i.value, 0); 
+            vista_produ.getTbl_rep_producto().setValueAt(p.getNombre(), i.value, 1);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getDescripcion(), i.value, 2);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getExistencias(), i.value, 3);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getE_max(), i.value, 4);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getE_min(), i.value, 5);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getPrecio(), i.value, 6);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getCategoria(), i.value, 7);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getCod_proveedor(), i.value, 8);
+            
+            Image img = p.getFoto();
+            if (img != null) {
+                Image nimg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(nimg);
+                renderer.setIcon(icon);
+                vista_produ.getTbl_rep_producto().setValueAt(new JLabel(icon), i.value, 9);
+            } else {
+                vista_produ.getTbl_rep_producto().setValueAt(null, i.value, 9);
+            }
+            i.value++;
+         System.out.println(prodi.size());
+        }  ///AQUPI TERMINA 
+        );
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    public static void mostrarDatos(String ida) {
+        vista_produ.getTbl_rep_producto().setDefaultRenderer(Object.class, new Render());
+        vista_produ.getTbl_rep_producto().setRowHeight(100);
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+//system
+        modelo_tabla = (DefaultTableModel) vista_produ.getTbl_rep_producto().getModel();
+        //tblModel.setNumRows(0);
+        List<productos> lista = modelo_produ.mostrarDatos(ida);
+        
+        int ncols = 1;
+        
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach(p -> {
+            modelo_tabla.addRow(new Object[ncols]);
+            // vista.getTxtNombres().setText(vista.getTblPersona().setValueAt(p.getNombres(), i.value, 1));
+            vista_produ.getTbl_rep_producto().setValueAt(p.getCodigo(), i.value, 0);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getNombre(), i.value, 1);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getDescripcion(), i.value, 2);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getExistencias(), i.value, 3);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getE_max(), i.value, 4);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getE_min(), i.value, 5);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getPrecio(), i.value, 6);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getCategoria(), i.value, 7);
+            vista_produ.getTbl_rep_producto().setValueAt(p.getCod_proveedor(), i.value, 8);
+            
+            Image img = p.getFoto();
+            if (img != null) {
+                Image nimg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(nimg);
+                renderer.setIcon(icon);
+                vista_produ.getTbl_rep_producto().setValueAt(new JLabel(icon), i.value, 9);
+            } else {
+                vista_produ.getTbl_rep_producto().setValueAt(null, i.value, 9);
+            }
+            i.value++;
+            System.out.println(lista.size());
+        });
     }
     ///////////////////////     TABLA    CON AGUJA  ////////////////////////////
-    public static void cargaLista(String aguja) {
-        //Acciones necesarios para extraer los datos MODELO Y Mostrar en la Vista
-        DefaultTableModel tblModel; //Estructura JTbable
-        tblModel = (DefaultTableModel) produc.getTbl_rep_producto().getModel();
-        tblModel.setNumRows(0);
-        List<productos> lista = modelo1.mostrarDatos(aguja);
-        lista.stream().forEach(p -> {
-            String[] persona = {p.getCodigo(), p.getNombre(), p.getDescripcion(), String.valueOf(p.getExistencias()),
-                String.valueOf(p.getE_min()), String.valueOf(p.getE_max()), String.valueOf(p.getPrecio()), p.getCod_proveedor(), p.getCategoria()};
-            tblModel.addRow(persona);
-        });
-
-    }
+//    public static void cargaLista(String aguja) {
+//        //Acciones necesarios para extraer los datos MODELO Y Mostrar en la Vista
+//        DefaultTableModel tblModel; //Estructura JTbable
+//        tblModel = (DefaultTableModel) vista_produ.getTbl_rep_producto().getModel();
+//        tblModel.setNumRows(0);
+//        List<productos> lista = modelo_produ.mostrarDatos(aguja);
+//        lista.stream().forEach(p -> {
+//            String[] persona = {p.getCodigo(), p.getNombre(), p.getDescripcion(), String.valueOf(p.getExistencias()),
+//                String.valueOf(p.getE_min()), String.valueOf(p.getE_max()), String.valueOf(p.getPrecio()), p.getCategoria(), p.getCod_proveedor()};
+//            tblModel.addRow(persona);
+//        });
+//
+//    }
     ////////////////////////    CREAR     PRODUCTO   ///////////////////////////
     public static void grabaProducto() {
-        String codigo = produc.getTxt_cod().getText();
-        String nombre = produc.getTxt_nombre().getText();
-        String descripcion = produc.getTxt_descripcion().getText();
-        String existencia = produc.getExistencia().getValue().toString();
-        String e_minima = produc.getExi_min().getValue().toString();
-        String e_maxima = produc.getExi_max().getValue().toString();
-        String precio = produc.getPrecio().getValue().toString();
-        String categoria = produc.getTxt_categoria().getSelectedItem().toString();
-        String codigoproveedor = produc.getCbx_codProvee().getSelectedItem().toString();
+        ////////////////////////////////////////////////////////////////////////
+        String codigo = vista_produ.getTxt_cod().getText();
+        String nombre = vista_produ.getTxt_nombre().getText();
+        String descripcion = vista_produ.getTxt_descripcion().getText();
+        String existencia = vista_produ.getExistencia().getValue().toString();
+        String e_minima = vista_produ.getExi_min().getValue().toString();
+        String e_maxima = vista_produ.getExi_max().getValue().toString();
+        String precio = vista_produ.getPrecio().getValue().toString();
+        String categoria = vista_produ.getTxt_categoria().getSelectedItem().toString();
+        String codigoproveedor = vista_produ.getCbx_codProvee().getSelectedItem().toString();
+        ////////////////////////////////////////////////////////////////////////
+        modelo_produ.setCodigo(codigo);
+        modelo_produ.setNombre(nombre);
+        modelo_produ.setDescripcion(descripcion);
+        modelo_produ.setExistencias(Integer.parseInt(existencia));
+        modelo_produ.setE_min(Integer.parseInt(e_minima));
+        modelo_produ.setE_max(Integer.parseInt(e_maxima));
+        modelo_produ.setPrecio(Double.parseDouble(precio));
+        modelo_produ.setCategoria(categoria);
+        modelo_produ.setCod_proveedor(codigoproveedor);
         
-        modelo1.setCodigo(codigo);
-        modelo1.setNombre(nombre);
-        modelo1.setDescripcion(descripcion);
-        modelo1.setExistencias(Integer.parseInt(existencia));
-        modelo1.setE_min(Integer.parseInt(e_minima));
-        modelo1.setE_max(Integer.parseInt(e_maxima));
-        modelo1.setPrecio(Double.parseDouble(precio));
-        modelo1.setCategoria(categoria);
-        modelo1.setCod_proveedor(codigoproveedor);
+        ImageIcon ic = (ImageIcon) vista_produ.getLblFoto().getIcon();
+        modelo_produ.setFoto(ic.getImage());
         
-        if (modelo1.insertar()) {
-            JOptionPane.showMessageDialog(produc, "Producto Creado Satisfactoriamente");
-            produc.getDlg_Productos().setVisible(false);
+        if (modelo_produ.insertar()) {
+            JOptionPane.showMessageDialog(vista_produ, "Producto Creado Satisfactoriamente");
+            vista_produ.getDlg_Productos().setVisible(false);
             cargaLista();
         } else {
-            JOptionPane.showMessageDialog(produc, "ERROR");
+            JOptionPane.showMessageDialog(vista_produ, "ERROR");
         }
     }
-    ///////////////////   EDITAR   PRODUCTO   ///////////////////////////////////
-    public static void editarProducto() {
-        String codigo = produc.getTxt_cod().getText();
-        String nombre = produc.getTxt_nombre().getText();
-        String descripcion = produc.getTxt_descripcion().getText();
-        String existencia = produc.getExistencia().getValue().toString();
-        String e_minima = produc.getExi_min().getValue().toString();
-        String e_maxima = produc.getExi_max().getValue().toString();
-        String precio = produc.getPrecio().getValue().toString();
-        String categoria = produc.getTxt_categoria().getSelectedItem().toString();
-        String codigoproveedor = produc.getCbx_codProvee().getSelectedItem().toString();
+    ///////////////////   EDITAR   PRODUCTO   //////////////////////////////////
+    public static void editarProducto() throws SQLException {
+        String codigo = vista_produ.getTxt_cod().getText();
+        String nombre = vista_produ.getTxt_nombre().getText();
+        String descripcion = vista_produ.getTxt_descripcion().getText();
+        String existencia = vista_produ.getExistencia().getValue().toString();
+        String e_minima = vista_produ.getExi_min().getValue().toString();
+        String e_maxima = vista_produ.getExi_max().getValue().toString();
+        String precio = vista_produ.getPrecio().getValue().toString();
+        String categoria = vista_produ.getTxt_categoria().getSelectedItem().toString();
+        String codigoproveedor = vista_produ.getCbx_codProvee().getSelectedItem().toString();
         
          
-        modelo1.setNombre(nombre);
-        modelo1.setDescripcion(descripcion);
-        modelo1.setExistencias(Integer.parseInt(existencia));
-        modelo1.setE_min(Integer.parseInt(e_minima));
-        modelo1.setE_max(Integer.parseInt(e_maxima));
-        modelo1.setPrecio(Double.parseDouble(precio));
-        modelo1.setCategoria(categoria);
-        modelo1.setCod_proveedor(codigoproveedor);
-
-        if (modelo1.modificar(codigo)) {
-            JOptionPane.showMessageDialog(produc, "Producto Creado Satisfactoriamente");
-            produc.getDlg_Productos().setVisible(false);
+        modelo_produ.setNombre(nombre);
+        modelo_produ.setDescripcion(descripcion);
+        modelo_produ.setExistencias(Integer.parseInt(existencia));
+        modelo_produ.setE_min(Integer.parseInt(e_minima));
+        modelo_produ.setE_max(Integer.parseInt(e_maxima));
+        modelo_produ.setPrecio(Double.parseDouble(precio));
+        modelo_produ.setCategoria(categoria);
+        modelo_produ.setCod_proveedor(codigoproveedor);
+          
+        ImageIcon ic = (ImageIcon) vista_produ.getLblFoto().getIcon();
+        modelo_produ.setFoto(ic.getImage());
+        
+        int resultado = JOptionPane.showConfirmDialog(vista_produ, "ESTA SEGURO QUE LOS DATOS INGRESADOS SON CORRECTOS", "Confirmacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (resultado == JOptionPane.YES_NO_OPTION) {
+            if (modelo_produ.modificar(codigo)) {
+            JOptionPane.showMessageDialog(vista_produ, "Producto Modificado Satisfactoriamente");
+            vista_produ.getDlg_Productos().setVisible(false);
             cargaLista();
-        } else {
-            JOptionPane.showMessageDialog(produc, "ERROR");
+            } else {
+
+            }
         }
     }
+    ////////////////////////////////////////////////////////////////////////////
     ///////////////////  ELIMINAR    PRODUCTO   ////////////////////////////////
     public static void EliminarProducto() {
-        Dbproductos producto = new Dbproductos();
-        int fila = produc.getTbl_rep_producto().getSelectedRow();
+        modelo_productos producto = new modelo_productos();
+        int fila = vista_produ.getTbl_rep_producto().getSelectedRow();
         if (fila == -1) {
-            JOptionPane.showMessageDialog(produc, "PRIMERO SELECCIONE UN PRODUCTO", "ESTEFANIA MUNOZ", 2);
+            JOptionPane.showMessageDialog(vista_produ, "PRIMERO SELECCIONE UN PRODUCTO", "ESTEFANIA MUNOZ", 2);
         } else {
             int op = op = JOptionPane.showOptionDialog(null, "ESTA SEGIRO QUE DESEA ELIMNAR ESTE PRODUCTO", "ESTEFANIA MUNOZ",
                     JOptionPane.YES_NO_CANCEL_OPTION, 2, null, new Object[]{"SI", "NO",}, null);
             if (op == 0) {
-                String id = String.valueOf(produc.getTbl_rep_producto().getValueAt(fila, 0));
+                String id = String.valueOf(vista_produ.getTbl_rep_producto().getValueAt(fila, 0));
                 if (producto.eliminar(id)) {
-                    cargaLista("");
-                    JOptionPane.showMessageDialog(produc, "PRODUCTO ELIMINADO SATISFACTORIAMNETE", "ESTEFANIA MUNOZ", 1);
-                    produc.getDlg_Productos().setVisible(false);
+                    mostrarDatos("");
+                    JOptionPane.showMessageDialog(vista_produ, "PRODUCTO ELIMINADO SATISFACTORIAMNETE", "ESTEFANIA MUNOZ", 1);
+                    vista_produ.getDlg_Productos().setVisible(false);
                 } else {
-                    JOptionPane.showMessageDialog(produc, "ERROR");
+                    JOptionPane.showMessageDialog(vista_produ, "ERROR");
                 }
             } else {
-                JOptionPane.showMessageDialog(produc, "ACCION CANCELADA", "ESTEFANIA MUNOZ", 1);
+                JOptionPane.showMessageDialog(vista_produ, "ACCION CANCELADA", "ESTEFANIA MUNOZ", 1);
             }
         }
     }
     /////////////////  ABRIRI   EL EDIDAR  /////////////////////////////////////
     public static void modificarProducto() {
-        int fila = produc.getTbl_rep_producto().getSelectedRow();
+        int fila = vista_produ.getTbl_rep_producto().getSelectedRow();
         if (fila == -1) {
-            JOptionPane.showMessageDialog(produc, "PRIMERO SELECCIONE UN PRODUCTO", "ESTEFANIA MUNOZ", 2);
+            JOptionPane.showMessageDialog(vista_produ, "PRIMERO SELECCIONE UN PRODUCTO", "ESTEFANIA MUNOZ", 2);
         }else {
-            String id = String.valueOf(produc.getTbl_rep_producto().getValueAt(fila, 0));
+            String id = String.valueOf(vista_produ.getTbl_rep_producto().getValueAt(fila, 0));
             for (int i = 0; i <prodi.size(); i++) {
                 if(prodi.get(i).getCodigo().equalsIgnoreCase(id)){
-                    produc.getTxt_cod().setText(id);
-                    produc.getTxt_nombre().setText(prodi.get(i).getNombre());
-                    produc.getTxt_descripcion().setText(prodi.get(i).getDescripcion());
+                    vista_produ.getTxt_cod().setText(id);
+                    vista_produ.getTxt_nombre().setText(prodi.get(i).getNombre());
+                    vista_produ.getTxt_descripcion().setText(prodi.get(i).getDescripcion());
                 }
             }            
         }
     }
     ////////////////////////////////////////////////////////////////////////////
-    public static void mostrar(){produc.setVisible(true);}
-    public static void cerrar(){produc.setVisible(false);}
-    public static void salir(){
-        cerrar();
-        ControladorCajero ccj = new ControladorCajero(ingre);
+    ///////////////////////////    PUERTAS     /////////////////////////////////
+    public static void mostrar_interfaz(){vista_produ.setVisible(true);}
+    public static void cerrar_interfaz(){vista_produ.setVisible(false);}
+    public static void salir_interfaz(){
+        cerrar_interfaz();
+        limpiartabla();
+        vista_produ.getCbx_codProvee().removeAllItems();
+        ControladorCajero ccj = new ControladorCajero(vista_menucajero);
     }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    protected void buscarcedula(){        
+    public static void examinarFoto() {
+        JFileChooser jfc = new JFileChooser();
+        jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = jfc.showOpenDialog(null);
+        
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            ruta=jfc.getSelectedFile().getAbsolutePath();
+            try {
+                
+                Image miImagen = ImageIO.read(jfc.getSelectedFile()).getScaledInstance(
+                        vista_produ.getLblFoto().getWidth(),
+                        vista_produ.getLblFoto().getHeight(),
+                        Image.SCALE_DEFAULT);
+                
+                Icon icono = new ImageIcon(miImagen);
+                vista_produ.getLblFoto().setIcon(icono);
+                vista_produ.getLblFoto().updateUI();
+                vista_produ.getLblFoto().setText("");
+            } catch (IOException ex) {
+                Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    protected void llenarcuadrocedulas(){        
         ////////////////////
         for (int i = 0; i < per.size(); i++) {
         String codigo=per.get(i).getCodigo();
-        produc.getCbx_codProvee().insertItemAt(codigo, i);
+        vista_produ.getCbx_codProvee().insertItemAt(codigo, i);
         }
     }
     ////////////////////////////////////////////////////////////////////////////
@@ -273,18 +423,18 @@ public class ControlProducto {
        //////////////////
        }while(ca!=0);
        //////////////
-       produc.getTxt_cod().setText(co);
+       vista_produ.getTxt_cod().setText(co);
     }
     ///////  COMPROVADORES /////////////////////////////////////////////////////
     ///////////////      COMPRBAR QUE EL CODIGO  SEA ÚNICA      ////////////////
     public static boolean comprobarcodigo(String ide){
         int aa=0;
         for (int i = 0; i < per.size(); i++) {
-            if(per.get(i).getCodigo().equalsIgnoreCase(ide)){
+            if(per.get(i).getCodigo().equals(ide)){
                 
-            aa=+1;   
+            aa=aa+1;   
             }else{
-            aa=+0;   
+            aa=aa+0;   
             }}
         if(aa==1){
             JOptionPane.showMessageDialog(null,"El coigo: "+ide+" \nYa está ocupado");
@@ -293,5 +443,39 @@ public class ControlProducto {
             return true;
         }
     }
+    ////////////////////////////////////////////////////////////////////////////
+    ///////////////   VERIFICADOR   DE   DATOS  INGRESADOS  ////////////////////
+    public static boolean verificarqueestetodobien(){
+        int senal=0;
+
+        String existencia = vista_produ.getExistencia().getValue().toString();
+        String e_minima = vista_produ.getExi_min().getValue().toString();
+        String e_maxima = vista_produ.getExi_max().getValue().toString();
+        String precio = vista_produ.getPrecio().getValue().toString();
+        
+        String categoria = vista_produ.getTxt_categoria().getSelectedItem().toString();
+        String codigoproveedor = vista_produ.getCbx_codProvee().getSelectedItem().toString();
+        String foto=vista_produ.getLblFoto().getText();
+        
+        if(vista_produ.getTxt_cod().getText().isEmpty()||vista_produ.getTxt_nombre().getText().isEmpty()||
+        vista_produ.getTxt_descripcion().getText().isEmpty()||categoria.equalsIgnoreCase("SELECIONE")||
+        foto.equals("IMAGEN")){
+        senal=senal+1;
+        }else{
+        senal=senal+0;
+        }
+        
+        if(senal>0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    //////////////////////////////////////////////////////////////////////////// 
+    public static void limpiartabla(){
+        modelo_tabla.getDataVector().removeAllElements();
+        vista_produ.getTbl_rep_producto().updateUI();
+    }
+    ////////////////////////////////////////////////////////////////////////////
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

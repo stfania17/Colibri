@@ -1,21 +1,21 @@
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
-import VISTA.Ingreso;
-import VISTA.Login;
-import VISTA.Portada;
-import VISTA.Recepcion;
+import VISTA.Vista_ingreso;
+import VISTA.Vista_login;
+import VISTA.Vista_portada;
+import VISTA.Vista_recepcion;
 import javax.swing.JOptionPane;
 
 
 public class ControladorLogin {
     ////////////////////////////////////////////////////////////////////////////
-    public static Login log = new Login();
-    public static Portada portada = new Portada();
-    public static Recepcion rec = new Recepcion();
-    public static Ingreso ingre = new Ingreso();
+    public static Vista_login log = new Vista_login();
+    public static Vista_portada portada = new Vista_portada();
+    public static Vista_recepcion rec = new Vista_recepcion();
+    public static Vista_ingreso ingre = new Vista_ingreso();
     ////////////////////////////////////////////////////////////////////////////
-    public ControladorLogin(Login log){
+    public ControladorLogin(Vista_login log){
         this.log=log;
         mostrar();
         iniciarcontrol();
@@ -55,7 +55,7 @@ public class ControladorLogin {
     }
     public static void mostra(){
         String contraseña=log.getMcontraseña().getText();
-        JOptionPane.showMessageDialog(null,"Su contraseña ingresada es: "+contraseña);
+        JOptionPane.showMessageDialog(null,""+contraseña);
     }
     ////////////////////////////////////////////////////////////////////////////
 }

@@ -1,22 +1,22 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
-import VISTA.Ingreso;
-import VISTA.Login;
-import VISTA.MenuCliente;
-import VISTA.Portada;
-import VISTA.Recepcion;
+import VISTA.Vista_ingreso;
+import VISTA.Vista_login;
+import VISTA.Vista_menu_cliente;
+import VISTA.Vista_portada;
+import VISTA.Vista_recepcion;
 import javax.swing.JOptionPane;
 
 public class ControladorRecepcion {
     ///////////////////////   DATOS A FUNCIONAR ////////////////////////////////
-    public static Recepcion rec = new Recepcion();
-    public static MenuCliente mc=new MenuCliente();
-    public static Ingreso ig = new Ingreso();
-    public static Login log = new Login();
-    public static Portada port = new Portada();
+    public static Vista_recepcion rec = new Vista_recepcion();
+    public static Vista_menu_cliente mc=new Vista_menu_cliente();
+    public static Vista_ingreso ig = new Vista_ingreso();
+    public static Vista_login log = new Vista_login();
+    public static Vista_portada port = new Vista_portada();
     ////////////  BREQUER            ///////////////////////////////////////////
-    public ControladorRecepcion(Recepcion rec) {
+    public ControladorRecepcion(Vista_recepcion rec) {
         this.rec = rec;
         mostrar();
         rec.setTitle("RECEPCION");

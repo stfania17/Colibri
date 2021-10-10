@@ -1,11 +1,11 @@
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package CONTROLADOR;
 
-import CONECCIÓN_SQL.Dbproveedores;
+import CONECCIÓN_SQL.modelo_proveedores;
 import CONECCIÓN_SQL.SQConnect;
-import MODELO.proveedores;
-import VISTA.Ingreso;
-import VISTA.Proveedor;
+import CLASES.proveedores;
+import VISTA.Vista_ingreso;
+import VISTA.Vista_proveedor;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.time.Instant;
@@ -23,12 +23,12 @@ import javax.swing.table.DefaultTableModel;
 public class ControlProveedor_REPORTE {
     //////////////      CONECCIONES SQL     ////////////////////////////////////
     public static SQConnect pg= new SQConnect();
-    public static Dbproveedores dbu = new Dbproveedores();
+    public static modelo_proveedores modelo_provedores = new modelo_proveedores();
     ///////////////////////    ARRAYLISTS    ///////////////////////////////////
-    public static List<proveedores> per = dbu.mostrarDatos();  
+    public static List<proveedores> lista_proveedores = modelo_provedores.mostrarDatos();  
     ///////////////////  INTERFACES     ////////////////////////////////////////
-    public static Proveedor prove;
-    public static Ingreso ingre = new Ingreso();
+    public static Vista_proveedor prove;
+    public static Vista_ingreso ingre = new Vista_ingreso();
     ////////////////////    VARIANTES   ////////////////////////////////////////
     public static int n;
     public static Date fecha = new Date();
@@ -38,9 +38,9 @@ public class ControlProveedor_REPORTE {
     //////////////////////   TABLA   ///////////////////////////////////////////
     public static DefaultTableModel modelo;
     ////////////////////////////////////////////////////////////////////////////
-    public ControlProveedor_REPORTE(Proveedor prove){
+    public ControlProveedor_REPORTE(Vista_proveedor prove){
         this.prove=prove;
-        mostrar();
+        mostrar_interfaz();
         mostrartabla();
         iniciarcontrol();
     }
@@ -63,25 +63,24 @@ public class ControlProveedor_REPORTE {
             }
         };
         //////////////////////////////////////////////////////////////////////// 
-//        ERROR ALFONSO CONSULTAR
         prove.getTxt_consulta().addKeyListener(ky);
         
-        prove.getBut_consultar().addActionListener(l -> mostrartabla());        /// MOSTRAR TABLA
+        prove.getBut_refrescar().addActionListener(l -> mostrartabla());        /// MOSTRAR TABLA
         prove.getBut_crear().addActionListener(l -> abrirngreso());             /// INGRESAR PROVEEDOR
-        prove.getBut_modificar().addActionListener(l -> muestramodifica());     /// MUESTRA MODIFICAR 
+        prove.getBut_modificar().addActionListener(l -> cargaratosparamodificar());     /// MUESTRA MODIFICAR 
+        prove.getBut_limpiar().addActionListener(l->limpiartabla());
         ////////////// ELIMINAR NO DISPONIBLE   //////////////
         prove.getBut_aceptar().addActionListener(l->modificarproveedores());    ///  MODIFICAR 
         prove.getBut_cancelar().addActionListener(l->cerrarcreador());          //CERRAR MODIFICADOR
         prove.getBut_atras().addActionListener(l->salir());                     /// SALIR DEL PROVEEDORbut_atras
         prove.getDLG_GENERARCODIGO().addActionListener(l->generacodi());        /// GENEREAR UN CODIGO
         prove.getDLG_CREAROTRO().addActionListener(l->ingresarproveedor());       /// CREAR PROVEEDOR  
-        prove.getBut_limpiar().addActionListener(l->blanqueartabla());
-        
+        ////////////////////////////////////////////////////////////////////////
     }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     ///////////////////      PUERTAS       /////////////////////////////////////
-    public static void mostrar(){prove.setVisible(true);}
+    public static void mostrar_interfaz(){prove.setVisible(true);}
     public static void cerrar(){prove.setVisible(false);}
     public static void salir(){
         cerrar();
@@ -91,39 +90,40 @@ public class ControlProveedor_REPORTE {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////     CREAR UN NUEVO   PROVEEDOR    /////////////////////
     public static void abrirngreso(){
-        Proveedor.getDlg_Proveedor().setSize(500 , 500);
+        Vista_proveedor.getDlg_Proveedor().setSize(500 , 500);
         
         prove.getDLG_GENERARCODIGO().setEnabled(true);
-        Proveedor.getDlg_Proveedor().setVisible(true);
-        Proveedor.getBut_aceptar().setEnabled(false); 
+        prove.getDlg_Proveedor().setVisible(true);
+        prove.getDLG_CREAROTRO().setEnabled(true);
+        prove.getBut_aceptar().setEnabled(false); 
     }
     ////////////////////     INGRESAR DATOS   SOBRE PROVEEDORES   //////////////
-    public static void ingresarproveedor(){       
+    public static void ingresarproveedor(){
+        
         if(comprobarcedula(prove.getTxt_id().getText())==true){
+        if(comprobarcodigo(prove.getTxt_codifo().getText())==true){
         //////////////////   SI TODO VA BIEN ENTRA ESTO  ///////////////////////
-        if(//prove.getTxt_codifo().getText().equalsIgnoreCase("")||
-        prove.getTxt_apellido().getText().equalsIgnoreCase("")||
-        prove.getTxt_nombre().getText().equalsIgnoreCase("")||
-        prove.getTxt_direccion().getText().equalsIgnoreCase("")||
-        prove.getTxt_id().getText().equalsIgnoreCase("")||
-        prove.getTxt_numcuenta().getText().equalsIgnoreCase("")||
-        prove.getTxt_telefono().getText().equalsIgnoreCase("")){
-        JOptionPane.showMessageDialog(null,"NO HAY DATOS");
-        }else{
-        dbu.setCodigo(prove.getTxt_codifo().getText());
-        dbu.setNumero_cuenta(prove.getTxt_numcuenta().getText());
-        dbu.setCedula(prove.getTxt_id().getText());
-        dbu.setApellido(prove.getTxt_apellido().getText());
-        dbu.setNombre(prove.getTxt_nombre().getText());
-        dbu.setTelefono(prove.getTxt_telefono().getText());
-        dbu.setDireccion(prove.getTxt_direccion().getText());
-        dbu.setFechanacimiento(prove.getDtcFechaNacimiento().getDate());
+        if(verificarqueestetodobien()==true){
+        modelo_provedores.setCodigo(prove.getTxt_codifo().getText());
+        modelo_provedores.setNumero_cuenta(prove.getTxt_numcuenta().getText());
+        modelo_provedores.setCedula(prove.getTxt_id().getText());
+        modelo_provedores.setApellido(prove.getTxt_apellido().getText());
+        modelo_provedores.setNombre(prove.getTxt_nombre().getText());
+        modelo_provedores.setTelefono(prove.getTxt_telefono().getText());
+        modelo_provedores.setDireccion(prove.getTxt_direccion().getText());
+        modelo_provedores.setFechanacimiento(prove.getDtcFechaNacimiento().getDate());
         /////////////////////////////////////////
-        if(dbu.insertar()){
+        if(modelo_provedores.insertar()){
         JOptionPane.showMessageDialog(null,"Datos Guardados.");
+        prove.getTbl_rep_proveedor().updateUI();
         }else{
         JOptionPane.showMessageDialog(null,"Error al Guardar.");
-        }}
+        }    
+        }else{
+        JOptionPane.showMessageDialog(null,"DATOS INCORRECTOS");
+        }
+        
+        }
     }
     }
     ////////////////    SALIR DE CREADOR DE PROVEEROES  ////////////////////////
@@ -134,62 +134,57 @@ public class ControlProveedor_REPORTE {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////     MODIFICAR  PROVEEDORES   //////////////////////////////
     ////////////////////     MOSTRAR   EL  MOFICIADOR   ////////////////////////
-    public static void muestramodifica(){
-        prove.getDlg_Proveedor().setVisible(true);
-        cargaratosparamodificar();
-        prove.getDLG_GENERARCODIGO().setEnabled(false);
-        
-        prove.getDlg_Proveedor().setSize(600,600);   
-        prove.getBut_aceptar().setEnabled(true);
-        prove.getDLG_CREAROTRO().setEnabled(false);
-    }   
     /////////////////  ABRIRI   EL EDIDAR  /////////////////////////////////////
     public static void cargaratosparamodificar(){
         int fila = prove.getTbl_rep_proveedor().getSelectedRow();
         if (fila == -1) {
         JOptionPane.showMessageDialog(prove, "PRIMERO SELECCIONE UN PROVEEDOR", "HHH", 2);
-        }else {                                       //Tbl_rep_proveedor
+        }else {
+            //Tbl_rep_proveedor
+        prove.getDlg_Proveedor().setVisible(true);
+        prove.getDLG_GENERARCODIGO().setEnabled(false);
+        
+        prove.getDlg_Proveedor().setSize(600,600);   
+        prove.getBut_aceptar().setEnabled(true);
+        prove.getDLG_CREAROTRO().setEnabled(false);
             String codigo = String.valueOf(prove.getTbl_rep_proveedor().getValueAt(fila, 0));
-            for (int i = 0; i <per.size(); i++) {
-                if(per.get(i).getCodigo().equalsIgnoreCase(codigo)){
+            for (int i = 0; i <lista_proveedores.size(); i++) {
+                if(lista_proveedores.get(i).getCodigo().equalsIgnoreCase(codigo)){
                     prove.getTxt_codifo().setText(codigo);
                     
-                    prove.getTxt_id().setText(per.get(i).getCedula());
-                    prove.getTxt_nombre().setText(per.get(i).getNombre());
-                    prove.getTxt_apellido().setText(per.get(i).getApellido());
-                    prove.getTxt_telefono().setText(per.get(i).getTelefono());
-                    prove.getTxt_direccion().setText(per.get(i).getDireccion());
-                    prove.getTxt_numcuenta().setText(per.get(i).getNumero_cuenta());
+                    prove.getTxt_id().setText(lista_proveedores.get(i).getCedula());
+                    prove.getTxt_nombre().setText(lista_proveedores.get(i).getNombre());
+                    prove.getTxt_apellido().setText(lista_proveedores.get(i).getApellido());
+                    prove.getTxt_telefono().setText(lista_proveedores.get(i).getTelefono());
+                    prove.getTxt_direccion().setText(lista_proveedores.get(i).getDireccion());
+                    prove.getTxt_numcuenta().setText(lista_proveedores.get(i).getNumero_cuenta());
                 }
             }            
         }
     }
     ////////////////     MODIFICAR  DATOS   SOBRE   PROVEEDORES   //////////////
     public static void modificarproveedores(){
-        if(prove.getTxt_codifo().getText().equalsIgnoreCase("")||
-        prove.getTxt_apellido().getText().equalsIgnoreCase("")||
-        prove.getTxt_nombre().getText().equalsIgnoreCase("")||
-        prove.getTxt_direccion().getText().equalsIgnoreCase("")||
-        prove.getTxt_id().getText().equalsIgnoreCase("")||
-        prove.getTxt_numcuenta().getText().equalsIgnoreCase("")||
-        prove.getTxt_telefono().getText().equalsIgnoreCase("")){
-        JOptionPane.showMessageDialog(null,"NO HAY DATOS");
-        }else{
-        dbu.setCodigo(prove.getTxt_codifo().getText());
-        dbu.setNumero_cuenta(prove.getTxt_numcuenta().getText());
-        dbu.setCedula(prove.getTxt_id().getText());
-        dbu.setApellido(prove.getTxt_apellido().getText());
-        dbu.setNombre(prove.getTxt_nombre().getText());
-        dbu.setTelefono(prove.getTxt_telefono().getText());
-        dbu.setDireccion(prove.getTxt_direccion().getText());
-        dbu.setFechanacimiento(prove.getDtcFechaNacimiento().getDate());
-        /////////////////////////////////////////
-        if(dbu.modificar(prove.getTxt_codifo().getText())){
-        JOptionPane.showMessageDialog(null,"Datos Guardados.");
         
+        if(verificarqueestetodobien()==true){
+        modelo_provedores.setCodigo(prove.getTxt_codifo().getText());
+        modelo_provedores.setNumero_cuenta(prove.getTxt_numcuenta().getText());
+        modelo_provedores.setCedula(prove.getTxt_id().getText());
+        modelo_provedores.setApellido(prove.getTxt_apellido().getText());
+        modelo_provedores.setNombre(prove.getTxt_nombre().getText());
+        modelo_provedores.setTelefono(prove.getTxt_telefono().getText());
+        modelo_provedores.setDireccion(prove.getTxt_direccion().getText());
+        modelo_provedores.setFechanacimiento(prove.getDtcFechaNacimiento().getDate());
+        /////////////////////////////////////////
+        if(modelo_provedores.modificar(prove.getTxt_codifo().getText())){
+        JOptionPane.showMessageDialog(null,"Datos Guardados.");
+        prove.getTbl_rep_proveedor().updateUI();
         }else{
         JOptionPane.showMessageDialog(null,"Error al Guardar.");
-        }}  
+        }     
+        }else{
+        JOptionPane.showMessageDialog(null,"Datos Incorrectos.");    
+        }
+         
     }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
@@ -199,13 +194,13 @@ public class ControlProveedor_REPORTE {
     modelo=(DefaultTableModel)prove.getTbl_rep_proveedor().getModel();
     modelo.setRowCount(0);
     
-    for (int i = 0; i < per.size(); i++) {
+    for (int i = 0; i < lista_proveedores.size(); i++) {
         
-    hola=convertToLocalDateViaMilisecond(per.get(i).getFechanacimiento());
-    fecha=per.get(i).getFechanacimiento();  ///CARGAR LA FECHA DEL SQL A UN DATE.
+    hola=convertToLocalDateViaMilisecond(lista_proveedores.get(i).getFechanacimiento());
+    fecha=lista_proveedores.get(i).getFechanacimiento();  ///CARGAR LA FECHA DEL SQL A UN DATE.
     periodo=Period.between(hola,chao); //CALCULAR EL TIEMPO ENTRE FECHAS
     
-    Object [] fila ={per.get(i).getCodigo(),per.get(i).getApellido(),per.get(i).getNombre(),per.get(i).getTelefono(),per.get(i).getDireccion(),periodo.getYears(),per.get(i).getCedula(),per.get(i).getNumero_cuenta()};
+    Object [] fila ={lista_proveedores.get(i).getCodigo(),lista_proveedores.get(i).getApellido(),lista_proveedores.get(i).getNombre(),lista_proveedores.get(i).getTelefono(),lista_proveedores.get(i).getDireccion(),periodo.getYears(),lista_proveedores.get(i).getCedula(),lista_proveedores.get(i).getNumero_cuenta()};
     modelo.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.
     }
     }
@@ -214,7 +209,7 @@ public class ControlProveedor_REPORTE {
   //modelo = (DefaultTableModel) produc.getTbl_rep_producto().getModel();
     modelo=(DefaultTableModel)prove.getTbl_rep_proveedor().getModel();
     modelo.setRowCount(0);
-    List<proveedores> per =dbu.mostrarDatos(codei);
+    List<proveedores> per =modelo_provedores.mostrarDatos(codei);
     ////////////////////////////////////////////////////////////////////////////
     for (int i = 0; i < per.size(); i++) {
     hola=convertToLocalDateViaMilisecond(per.get(i).getFechanacimiento());
@@ -224,8 +219,6 @@ public class ControlProveedor_REPORTE {
     modelo.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.      
     }
     }
-    ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     /////////////////////////////   GENERADOR DE CODIGO  ///////////////////////
@@ -251,21 +244,17 @@ public class ControlProveedor_REPORTE {
        //////////////
        prove.getTxt_codifo().setText(co);
     }
-    //////////////////////////////  BLANQUEAR   LA TABLA  //////////////////////
-    public static void blanqueartabla(){
-        prove.getTbl_rep_proveedor();
-    }
     ///////  COMPROVADORES /////////////////////////////////////////////////////
     ///////////////      COMPRBAR QUE LA DECULA SEA ÚNICA      /////////////////
     public static boolean comprobarcedula(String ide){
         int aa=0;
-        for (int i = 0; i < per.size(); i++) {
-            if(per.get(i).getCedula().equalsIgnoreCase(ide)){
-            aa=+1;   
+        for (int i = 0; i < lista_proveedores.size(); i++) {
+            if(lista_proveedores.get(i).getCedula().equals(ide)){
+            aa=aa+1;   
             }else{
-            aa=+0;   
+            aa=aa+0;   
             }}
-        if(aa==1){
+        if(aa>0){
             JOptionPane.showMessageDialog(null,"La cedula: "+ide+" \nYa está ocupada");
             return false;
         }else{
@@ -275,15 +264,15 @@ public class ControlProveedor_REPORTE {
     ///////////////      COMPRBAR QUE EL CODIGO  SEA ÚNICA      /////////////////
     public static boolean comprobarcodigo(String ide){
         int aa=0;
-        for (int i = 0; i < per.size(); i++) {
-            if(per.get(i).getCodigo().equalsIgnoreCase(ide)){
+        for (int i = 0; i < lista_proveedores.size(); i++) {
+            if(lista_proveedores.get(i).getCodigo().equals(ide)){
                 
-            aa=+1;   
+            aa=aa+1;   
             }else{
-            aa=+0;   
+            aa=aa+0;   
             }}
-        if(aa==1){
-            JOptionPane.showMessageDialog(null,"El coigo: "+ide+" \nYa está ocupado");
+        if(aa>0){
+            JOptionPane.showMessageDialog(null,"El codigo: "+ide+" \nYa está ocupado");
             return false;
         }else{
             return true;
@@ -294,6 +283,32 @@ public class ControlProveedor_REPORTE {
     return Instant.ofEpochMilli(dateToConvert.getTime())
       .atZone(ZoneId.systemDefault())
       .toLocalDate();
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    ///////////////   VERIFICADOR   DE   DATOS  INGRESADOS  ////////////////////
+    public static boolean verificarqueestetodobien(){
+        int senal=0; 
+        /////////////////////////////////////////////////////////
+        if(prove.getTxt_codifo().getText().isEmpty()||prove.getTxt_apellido().getText().isEmpty()||
+           prove.getTxt_nombre().getText().isEmpty()||prove.getTxt_direccion().getText().isEmpty()||
+           prove.getTxt_id().getText().isEmpty()||prove.getTxt_numcuenta().getText().isEmpty()||
+           prove.getTxt_telefono().getText().isEmpty()||prove.getDtcFechaNacimiento().getDate()==null){
+            senal=senal+1;
+        }else{
+            senal=senal+0;
+        }
+        ///////////////////
+        if(senal>0){
+            return false;
+        }else{
+            return true;
+        }
+        ///////////////////
+    }
+////////////////////////////////////////////////////////////////////////////////
+    public static void limpiartabla(){
+        modelo.getDataVector().removeAllElements();
+        prove.getTbl_rep_proveedor().updateUI();
     }
     ////////////////////////////////////////////////////////////////////////////
 }

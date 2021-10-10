@@ -5,8 +5,8 @@
  */
 package CONTROLADOR;
 
-import CONECCIÓN_SQL.Dbclientes;
-import VISTA.Ingresocliente;
+import CONECCIÓN_SQL.modelo_clientes;
+import VISTA.Vista_ingreso_cliente;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -18,10 +18,10 @@ import javax.swing.JOptionPane;
  */
 public class ControlRegistroCliente {
     
-    private Ingresocliente cliente;
-    private Dbclientes modelo;
+    private Vista_ingreso_cliente cliente;
+    private modelo_clientes modelo;
 
-    public ControlRegistroCliente(Ingresocliente cliente) {
+    public ControlRegistroCliente(Vista_ingreso_cliente cliente) {
         this.cliente = cliente;
         cliente.setTitle("CLIENTES");
         cliente.setVisible(true);
@@ -37,6 +37,7 @@ public class ControlRegistroCliente {
         ZoneId zid = ZoneId.of("America/Guayaquil");
         ZonedDateTime zdt = ZonedDateTime.ofInstant(instant, zid);
         Date fecha = Date.valueOf(zdt.toLocalDate());
+        
         String codigo = cliente.getTxt_id().getText();
         String nombre = cliente.getTxt_nombres().getText();
         String apellido = cliente.getTxt_apellidos().getText();
