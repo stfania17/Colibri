@@ -225,7 +225,7 @@ public class Vista_ingreso_cliente extends javax.swing.JFrame {
         but_aceptar.setContentAreaFilled(false);
         but_aceptar.setFocusPainted(false);
         jPanelRound1.add(but_aceptar);
-        but_aceptar.setBounds(580, 390, 180, 50);
+        but_aceptar.setBounds(460, 420, 180, 50);
 
         lb_direccion.setText("Dirección:");
         jPanelRound1.add(lb_direccion);
@@ -237,7 +237,7 @@ public class Vista_ingreso_cliente extends javax.swing.JFrame {
         but_cancelar.setContentAreaFilled(false);
         but_cancelar.setFocusPainted(false);
         jPanelRound1.add(but_cancelar);
-        but_cancelar.setBounds(710, 470, 180, 60);
+        but_cancelar.setBounds(690, 410, 180, 60);
 
         lb_telefono.setText("Teléfono:");
         jPanelRound1.add(lb_telefono);

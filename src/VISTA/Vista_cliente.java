@@ -19,7 +19,7 @@ public class Vista_cliente extends javax.swing.JFrame {
     public Vista_cliente() {
         initComponents();
         Vista_cliente.this.setBackground(new Color(0,0,0,0));
-        txt_consulta.addKeyListener(new VALIDACIONES.Numeros());
+        //txt_consulta.addKeyListener(new VALIDACIONES.Numeros());
     }
 
     /**
@@ -157,7 +157,6 @@ public class Vista_cliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1375, 580));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1375, 580));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelRound1.setOpaque(true);
@@ -212,7 +211,7 @@ public class Vista_cliente extends javax.swing.JFrame {
         txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
         txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
         txt_consulta.setColorTransparente(true);
-        txt_consulta.setPlaceholder("CODIGO CLIENTE - CEDULA");
+        txt_consulta.setPlaceholder("CODIGO CLIENTE - CEDULA - NOMBRE");
         txt_consulta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_consultaKeyTyped(evt);
@@ -249,12 +248,12 @@ public class Vista_cliente extends javax.swing.JFrame {
                     .addComponent(but_refrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                        .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
+                        .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(but_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(but_limpiar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(agregarcliente)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -294,9 +293,9 @@ public class Vista_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarclienteActionPerformed
 
     private void txt_consultaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_consultaKeyTyped
-        if(txt_consulta.getText().length()>=10){
+        if(txt_consulta.getText().length()>=50){
             evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
         }
     }//GEN-LAST:event_txt_consultaKeyTyped
 

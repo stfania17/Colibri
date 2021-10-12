@@ -51,6 +51,10 @@ public class modelo_proveedores extends proveedores{
     public List<proveedores> mostrarDatos(String ida) {
         String sql = "select * from proveedores where ";
             sql+=" UPPER(codigo) like UPPER('%"+ ida + "%') ";
+            sql+=" or UPPER(cedula) like UPPER('%"+ ida + "%')"; 
+            sql+=" or UPPER(nombre) like UPPER('%"+ ida + "%')"; 
+            sql+=" or UPPER(apellido) like UPPER('%"+ ida + "%')"; 
+            
             ResultSet rs = connecta.consulta(sql);
             List<proveedores> lista = new ArrayList<proveedores>();
         try {

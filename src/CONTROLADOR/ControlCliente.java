@@ -89,7 +89,7 @@ public class ControlCliente {
         ///////////////    MODIFCAR  AL FLACO     //////////////////////////////
         vista_cli.getBut_actualizar().addActionListener(l->modificarproveedores());
         ////////////////////////////////////////////////////////////////////////
-        vista_cli.getBut_refrescar().addActionListener(l->mostrartabla());
+        vista_cli.getBut_refrescar().addActionListener(l->crearalclientefinal());
         vista_cli.getBut_limpiar().addActionListener(l->limpiartabla());
   
     }
@@ -333,7 +333,24 @@ public class ControlCliente {
         vista_cli.getTabla_clientes().updateUI();
     }
     ////////////////////////////////////////////////////////////////////////////
-    
+    public void crearalclientefinal(){
+        
+        modelo_cli.setCodigo("0000000000");
+        modelo_cli.setCedula("0000000000");
+        modelo_cli.setApellido("FINAL");
+        modelo_cli.setNombre("CONSUMIDOR");
+        modelo_cli.setTelefono("0000000000");
+        modelo_cli.setDireccion("0000000000");
+        modelo_cli.setCorreo("0000000000");
+        modelo_cli.setFechanacimiento(vista_cli.getDtcFechaNacimiento().getDate());
+        /////////////////////////////////////////
+        if(modelo_cli.insertar()){
+        JOptionPane.showMessageDialog(null,"Datos Guardados.");
+        vista_cli.getTabla_clientes().updateUI();
+        }else{
+        JOptionPane.showMessageDialog(null,"Error al Guardar.");
+        }
+    }
     ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////    
 }

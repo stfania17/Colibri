@@ -33,6 +33,7 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         grupobotones = new javax.swing.ButtonGroup();
         botonesdepago = new javax.swing.ButtonGroup();
         ingresocliente = new javax.swing.JDialog();
+        portadacaratula = new LIB.JEImagePanel();
         generarcodigocliente = new javax.swing.JButton();
         codigocliente = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -52,6 +53,24 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         cedula = new javax.swing.JTextField();
         crearcliente = new javax.swing.JButton();
         cancelarcrear = new javax.swing.JButton();
+        jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
+        lb_nombres = new javax.swing.JLabel();
+        txt_correo = new javax.swing.JTextField();
+        lb_apellido = new javax.swing.JLabel();
+        but_aceptar = new javax.swing.JButton();
+        lb_direccion = new javax.swing.JLabel();
+        but_cancelar = new javax.swing.JButton();
+        lb_telefono = new javax.swing.JLabel();
+        dtcFechaNacimiento1 = new com.toedter.calendar.JDateChooser();
+        lb_fecha = new javax.swing.JLabel();
+        lb_correo = new javax.swing.JLabel();
+        txt_id = new javax.swing.JTextField();
+        txt_nombres = new javax.swing.JTextField();
+        txt_apellidos = new javax.swing.JTextField();
+        txt_direccion = new javax.swing.JTextField();
+        lb_id = new javax.swing.JLabel();
+        txt_telefono = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         fechafactura = new javax.swing.JLabel();
@@ -72,56 +91,160 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jasparin = new javax.swing.JButton();
 
+        ingresocliente.setBackground(new java.awt.Color(255, 255, 255));
         ingresocliente.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        portadacaratula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Datos cliente.png"))); // NOI18N
+
+        javax.swing.GroupLayout portadacaratulaLayout = new javax.swing.GroupLayout(portadacaratula);
+        portadacaratula.setLayout(portadacaratulaLayout);
+        portadacaratulaLayout.setHorizontalGroup(
+            portadacaratulaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+        portadacaratulaLayout.setVerticalGroup(
+            portadacaratulaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+
+        ingresocliente.getContentPane().add(portadacaratula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         generarcodigocliente.setText("GENERAR");
-        ingresocliente.getContentPane().add(generarcodigocliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+        ingresocliente.getContentPane().add(generarcodigocliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
         codigocliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        ingresocliente.getContentPane().add(codigocliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 180, 23));
+        ingresocliente.getContentPane().add(codigocliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 180, 23));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("INGRESO   CLIENTE");
-        ingresocliente.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 180, 30));
+        ingresocliente.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 180, 30));
 
         jLabel5.setText("CEDULA");
-        ingresocliente.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 90, 20));
+        ingresocliente.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 90, 20));
 
         jLabel6.setText("APELLIDO");
-        ingresocliente.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 90, 20));
+        ingresocliente.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 90, 20));
 
         jLabel7.setText("NOMBRE");
-        ingresocliente.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 90, 20));
+        ingresocliente.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 90, 20));
 
         jLabel8.setText("DIRECCION");
-        ingresocliente.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 90, 20));
+        ingresocliente.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 90, 20));
 
         jLabel9.setText("CORREO");
-        ingresocliente.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 90, 20));
+        ingresocliente.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, 20));
 
         jLabel10.setText("TELEFONO");
-        ingresocliente.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 90, 20));
-        ingresocliente.getContentPane().add(dtcFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 200, -1));
+        ingresocliente.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 90, 20));
+        ingresocliente.getContentPane().add(dtcFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 200, -1));
 
         jLabel11.setText("NACIMIENTO");
-        ingresocliente.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 80, 20));
-        ingresocliente.getContentPane().add(telefoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 180, -1));
-        ingresocliente.getContentPane().add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 180, -1));
-        ingresocliente.getContentPane().add(direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 180, -1));
-        ingresocliente.getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 180, -1));
-        ingresocliente.getContentPane().add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 180, -1));
-        ingresocliente.getContentPane().add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
+        ingresocliente.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 80, 20));
+        ingresocliente.getContentPane().add(telefoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 180, -1));
+        ingresocliente.getContentPane().add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 180, -1));
+        ingresocliente.getContentPane().add(direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 180, -1));
+        ingresocliente.getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 180, -1));
+        ingresocliente.getContentPane().add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 180, -1));
+        ingresocliente.getContentPane().add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 180, -1));
 
-        crearcliente.setText("INGRESAR   ");
-        ingresocliente.getContentPane().add(crearcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+        crearcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACEPTAR ICO.png"))); // NOI18N
+        crearcliente.setBorder(null);
+        crearcliente.setBorderPainted(false);
+        crearcliente.setContentAreaFilled(false);
+        crearcliente.setFocusPainted(false);
+        ingresocliente.getContentPane().add(crearcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
 
-        cancelarcrear.setText("CANCELAR");
-        ingresocliente.getContentPane().add(cancelarcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 90, -1));
+        cancelarcrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        cancelarcrear.setBorder(null);
+        cancelarcrear.setBorderPainted(false);
+        cancelarcrear.setContentAreaFilled(false);
+        cancelarcrear.setFocusPainted(false);
+        ingresocliente.getContentPane().add(cancelarcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, -1, -1));
+
+        jPanelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelRound1.setOpaque(true);
+        jPanelRound1.setLayout(null);
+
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Datos cliente.png"))); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
+        jEImagePanel1.setLayout(jEImagePanel1Layout);
+        jEImagePanel1Layout.setHorizontalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+        jEImagePanel1Layout.setVerticalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+
+        jPanelRound1.add(jEImagePanel1);
+        jEImagePanel1.setBounds(0, 0, 420, 580);
+
+        lb_nombres.setText("Nombres:");
+        jPanelRound1.add(lb_nombres);
+        lb_nombres.setBounds(520, 120, 46, 14);
+        jPanelRound1.add(txt_correo);
+        txt_correo.setBounds(620, 280, 193, 20);
+
+        lb_apellido.setText("Apellidos:");
+        jPanelRound1.add(lb_apellido);
+        lb_apellido.setBounds(520, 160, 46, 14);
+
+        but_aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACEPTAR ICO.png"))); // NOI18N
+        but_aceptar.setBorder(null);
+        but_aceptar.setBorderPainted(false);
+        but_aceptar.setContentAreaFilled(false);
+        but_aceptar.setFocusPainted(false);
+        jPanelRound1.add(but_aceptar);
+        but_aceptar.setBounds(460, 420, 180, 50);
+
+        lb_direccion.setText("Dirección:");
+        jPanelRound1.add(lb_direccion);
+        lb_direccion.setBounds(520, 210, 47, 14);
+
+        but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_cancelar.setBorder(null);
+        but_cancelar.setBorderPainted(false);
+        but_cancelar.setContentAreaFilled(false);
+        but_cancelar.setFocusPainted(false);
+        jPanelRound1.add(but_cancelar);
+        but_cancelar.setBounds(690, 410, 180, 60);
+
+        lb_telefono.setText("Teléfono:");
+        jPanelRound1.add(lb_telefono);
+        lb_telefono.setBounds(520, 250, 46, 14);
+        jPanelRound1.add(dtcFechaNacimiento1);
+        dtcFechaNacimiento1.setBounds(620, 330, 200, 20);
+
+        lb_fecha.setText("F. Nacimiento:");
+        jPanelRound1.add(lb_fecha);
+        lb_fecha.setBounds(520, 330, 69, 14);
+
+        lb_correo.setText("Correo:");
+        jPanelRound1.add(lb_correo);
+        lb_correo.setBounds(520, 290, 37, 14);
+        jPanelRound1.add(txt_id);
+        txt_id.setBounds(620, 70, 190, 20);
+        jPanelRound1.add(txt_nombres);
+        txt_nombres.setBounds(620, 120, 190, 20);
+        jPanelRound1.add(txt_apellidos);
+        txt_apellidos.setBounds(620, 160, 190, 20);
+        jPanelRound1.add(txt_direccion);
+        txt_direccion.setBounds(620, 200, 190, 20);
+
+        lb_id.setText("Id:");
+        jPanelRound1.add(lb_id);
+        lb_id.setBounds(520, 80, 14, 14);
+        jPanelRound1.add(txt_telefono);
+        txt_telefono.setBounds(620, 240, 190, 20);
+
+        ingresocliente.getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -129,14 +252,14 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 150, 20));
 
         fechafactura.setText("FECHA");
-        jPanel1.add(fechafactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 220, -1));
+        jPanel1.add(fechafactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 180, -1));
 
         codigofactura.setText("CODIGO  FACTURA");
         jPanel1.add(codigofactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 50));
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         subtitulo1.setText("EL COIGO DE LA FACTURA SE GENERARÁ  DE MANERA AUTOMATICA.");
@@ -162,7 +285,7 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 150));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 204, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablacarrito.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -183,7 +306,7 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 620, 200));
 
-        jPanel4.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(102, 255, 102));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cancelarventa.setBackground(new java.awt.Color(255, 0, 0));
@@ -546,6 +669,8 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
     private javax.swing.JRadioButton bcfinal;
     private javax.swing.ButtonGroup botonesdepago;
     private javax.swing.JButton buscarcliente;
+    private javax.swing.JButton but_aceptar;
+    private javax.swing.JButton but_cancelar;
     private javax.swing.JButton cancelarcrear;
     private javax.swing.JButton cancelarventa;
     private javax.swing.JTextField cedula;
@@ -556,12 +681,14 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
     private javax.swing.JButton crearcliente;
     private javax.swing.JTextField direccion;
     private com.toedter.calendar.JDateChooser dtcFechaNacimiento;
+    private com.toedter.calendar.JDateChooser dtcFechaNacimiento1;
     private javax.swing.JLabel fechafactura;
     private javax.swing.JButton generarcodigocliente;
     private javax.swing.ButtonGroup grupobotones;
     private javax.swing.JButton ingresarcliente;
     private javax.swing.JDialog ingresocliente;
     private javax.swing.JButton jButton2;
+    private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -575,13 +702,28 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private LIB.JPanelRound jPanelRound1;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jasparin;
     private javax.swing.JTextField jtbuscacliente;
+    private javax.swing.JLabel lb_apellido;
+    private javax.swing.JLabel lb_correo;
+    private javax.swing.JLabel lb_direccion;
+    private javax.swing.JLabel lb_fecha;
+    private javax.swing.JLabel lb_id;
+    private javax.swing.JLabel lb_nombres;
+    private javax.swing.JLabel lb_telefono;
     private javax.swing.JTextField nombre;
+    private LIB.JEImagePanel portadacaratula;
     private javax.swing.JLabel subtitulo1;
     public javax.swing.JTable tablacarrito;
     private javax.swing.JTextField telefoo;
+    private javax.swing.JTextField txt_apellidos;
+    private javax.swing.JTextField txt_correo;
+    private javax.swing.JTextField txt_direccion;
+    private javax.swing.JTextField txt_id;
+    private javax.swing.JTextField txt_nombres;
+    private javax.swing.JTextField txt_telefono;
     // End of variables declaration//GEN-END:variables
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

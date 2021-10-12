@@ -29,24 +29,25 @@ public class Vista_menu_cliente extends javax.swing.JFrame {
 
         Dlg_Productos = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jSpinner1 = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        SALIR = new javax.swing.JButton();
         jEImagePanel3 = new LIB.JEImagePanel();
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel9 = new javax.swing.JLabel();
         jPanelRound2 = new LIB.JPanelRound();
         categoriaseccion = new javax.swing.JLabel();
         categoriatabla = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        SALIR = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        buscarpor = new javax.swing.JButton();
         CARRITO = new javax.swing.JDialog();
         jPanelRound3 = new LIB.JPanelRound();
         titulo = new javax.swing.JLabel();
@@ -77,16 +78,6 @@ public class Vista_menu_cliente extends javax.swing.JFrame {
         jLabel1.setText("COLIBRÍ");
         Dlg_Productos.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
-        jLabel2.setText("Código:");
-        Dlg_Productos.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        Dlg_Productos.getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 78, -1));
-
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 40, 1));
         Dlg_Productos.getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, -1, -1));
 
@@ -103,36 +94,13 @@ public class Vista_menu_cliente extends javax.swing.JFrame {
         jLabel3.setText("PROVEEDOR");
         Dlg_Productos.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, -1, -1));
 
-        jLabel4.setText("Nombre:");
-        Dlg_Productos.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
-
-        jLabel5.setText("Apellido:");
-        Dlg_Productos.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
-
-        jLabel6.setText("Teléfono:");
-        Dlg_Productos.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
-
-        jLabel7.setBackground(new java.awt.Color(204, 204, 255));
-        Dlg_Productos.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 138, 16));
-
-        SALIR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
-        SALIR.setBorder(null);
-        SALIR.setBorderPainted(false);
-        SALIR.setContentAreaFilled(false);
-        SALIR.setFocusPainted(false);
-        Dlg_Productos.getContentPane().add(SALIR, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 470, -1, -1));
-
         jEImagePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Productos Dlg.png"))); // NOI18N
         jEImagePanel3.setLayout(null);
         Dlg_Productos.getContentPane().add(jEImagePanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 540));
-        Dlg_Productos.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 138, 14));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "CODIGO", "NOMBRE", "PROVEEDOR", "DESCRIPCION", "PRECIO", "EXISTENCIA", "FOTO"
@@ -140,8 +108,7 @@ public class Vista_menu_cliente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        Dlg_Productos.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 540, 164));
-        Dlg_Productos.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 138, 14));
+        Dlg_Productos.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 224, 540, 230));
 
         jPanelRound2.setBackground(new java.awt.Color(255, 255, 255));
         jPanelRound2.setOpaque(true);
@@ -152,6 +119,55 @@ public class Vista_menu_cliente extends javax.swing.JFrame {
         categoriatabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelRound2.add(categoriatabla);
         categoriatabla.setBounds(710, 100, 150, 20);
+
+        jLabel5.setText("Apellido:");
+        jPanelRound2.add(jLabel5);
+        jLabel5.setBounds(510, 180, 41, 20);
+
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelRound2.add(jLabel8);
+        jLabel8.setBounds(550, 180, 138, 20);
+
+        jLabel6.setText("Teléfono:");
+        jPanelRound2.add(jLabel6);
+        jLabel6.setBounds(710, 180, 46, 20);
+
+        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelRound2.add(jLabel9);
+        jLabel9.setBounds(760, 180, 138, 20);
+
+        jLabel4.setText("Nombre:");
+        jPanelRound2.add(jLabel4);
+        jLabel4.setBounds(340, 180, 41, 20);
+
+        jLabel7.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelRound2.add(jLabel7);
+        jLabel7.setBounds(380, 180, 120, 20);
+
+        SALIR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        SALIR.setBorder(null);
+        SALIR.setBorderPainted(false);
+        SALIR.setContentAreaFilled(false);
+        SALIR.setFocusPainted(false);
+        jPanelRound2.add(SALIR);
+        SALIR.setBounds(720, 460, 180, 60);
+
+        jLabel2.setText("Código:");
+        jPanelRound2.add(jLabel2);
+        jLabel2.setBounds(350, 60, 37, 20);
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanelRound2.add(jTextField1);
+        jTextField1.setBounds(400, 60, 110, 20);
+
+        buscarpor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/search.png"))); // NOI18N
+        jPanelRound2.add(buscarpor);
+        buscarpor.setBounds(520, 60, 49, 30);
 
         Dlg_Productos.getContentPane().add(jPanelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 540));
 
@@ -363,6 +379,14 @@ public class Vista_menu_cliente extends javax.swing.JFrame {
     private void CANCELARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELARActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CANCELARActionPerformed
+
+    public JButton getBuscarpor() {
+        return buscarpor;
+    }
+
+    public void setBuscarpor(JButton buscarpor) {
+        this.buscarpor = buscarpor;
+    }
 
     public JLabel getCategoriaseccion() {
         return categoriaseccion;
@@ -647,6 +671,7 @@ public class Vista_menu_cliente extends javax.swing.JFrame {
     public javax.swing.JDialog CARRITO;
     private javax.swing.JDialog Dlg_Productos;
     private javax.swing.JButton SALIR;
+    public javax.swing.JButton buscarpor;
     public javax.swing.JButton but_carrito;
     private javax.swing.JButton but_frutas;
     private javax.swing.JButton but_granos;

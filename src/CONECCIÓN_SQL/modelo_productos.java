@@ -373,6 +373,8 @@ public class modelo_productos extends productos{
 
             String sql = "select * from productos where ";
             sql+=" UPPER(codigo) like UPPER('%"+ cadena + "%')";
+            sql+="or UPPER (nombre) like UPPER ('%"+cadena+"%')";
+            sql+="or UPPER (cod_proveedor) like UPPER ('%"+cadena+"%')";
             
             
             ResultSet rs = connecta.consulta(sql);
@@ -414,7 +416,8 @@ public class modelo_productos extends productos{
             String sql = "select * from productos where ";
             sql+=" UPPER(categoria) like UPPER('%"+categoria+ "%')";
             sql+="AND UPPER (codigo) like UPPER ('%"+ida+"%')";
-            
+            sql+="or UPPER (nombre) like UPPER ('%"+ida+"%')";
+            sql+="or UPPER (cod_proveedor) like UPPER ('%"+ida+"%')";
 
             ResultSet rs = connecta.consulta(sql);
             List<productos> lista = new ArrayList<productos>();

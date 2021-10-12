@@ -32,6 +32,7 @@ public class Vista_producto extends javax.swing.JFrame {
     private void initComponents() {
 
         Dlg_Productos = new javax.swing.JDialog();
+        paneldemodificacion = new javax.swing.JPanel();
         lb_tit_productos = new javax.swing.JLabel();
         lb_codigo = new javax.swing.JLabel();
         lb_nombre = new javax.swing.JLabel();
@@ -44,19 +45,22 @@ public class Vista_producto extends javax.swing.JFrame {
         lb_categoria = new javax.swing.JLabel();
         txt_descripcion = new javax.swing.JTextField();
         txt_nombre = new javax.swing.JTextField();
-        cbx_codProvee = new javax.swing.JComboBox<>();
-        crearproducto = new javax.swing.JButton();
-        but_cancelar = new javax.swing.JButton();
         txt_categoria = new javax.swing.JComboBox<>();
+        cbx_codProvee = new javax.swing.JComboBox<>();
         precio = new javax.swing.JSpinner();
         exi_max = new javax.swing.JSpinner();
         exi_min = new javax.swing.JSpinner();
         existencia = new javax.swing.JSpinner();
         txt_cod = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        EDITAR = new javax.swing.JButton();
         lblFoto = new javax.swing.JLabel();
         examinarfoto = new javax.swing.JButton();
+        crearproducto = new javax.swing.JButton();
+        EDITAR = new javax.swing.JButton();
+        but_cancelar = new javax.swing.JButton();
+        apellidoaqui = new javax.swing.JLabel();
+        nombreaqui = new javax.swing.JLabel();
+        ver = new javax.swing.JButton();
         jPanelRound1 = new LIB.JPanelRound();
         jEImagePanel2 = new LIB.JEImagePanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -65,105 +69,139 @@ public class Vista_producto extends javax.swing.JFrame {
         but_limpiar = new javax.swing.JButton();
         but_crear = new javax.swing.JButton();
         but_modificar = new javax.swing.JButton();
-        but_eliminar = new javax.swing.JButton();
         but_refrescar = new javax.swing.JButton();
         txt_consulta = new LIB.FSTexFieldMD();
         categoria = new javax.swing.JLabel();
+        buscarpor = new javax.swing.JButton();
         jEImagePanel1 = new LIB.JEImagePanel();
 
         Dlg_Productos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        paneldemodificacion.setBackground(new java.awt.Color(255, 255, 153));
+        paneldemodificacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         lb_tit_productos.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tit_productos.setForeground(new java.awt.Color(102, 0, 0));
         lb_tit_productos.setText("REGISTRO DE PRODUCTOS");
-        Dlg_Productos.getContentPane().add(lb_tit_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 32, -1, -1));
+        paneldemodificacion.add(lb_tit_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 32, -1, -1));
 
         lb_codigo.setText("Código:");
-        Dlg_Productos.getContentPane().add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 20));
+        paneldemodificacion.add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 20));
 
         lb_nombre.setText("Nombre:");
-        Dlg_Productos.getContentPane().add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 20));
+        paneldemodificacion.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 20));
 
         lb_descripcion.setText("Descripción:");
-        Dlg_Productos.getContentPane().add(lb_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 20));
+        paneldemodificacion.add(lb_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 20));
 
         lb_existencia.setText("Existencia:");
-        Dlg_Productos.getContentPane().add(lb_existencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
+        paneldemodificacion.add(lb_existencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
 
         lb_Eminima.setText("Existencia_Minima:");
-        Dlg_Productos.getContentPane().add(lb_Eminima, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 20));
+        paneldemodificacion.add(lb_Eminima, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 180, 20));
 
         lb_Emaxima.setText("Existencia_Maxima:");
-        Dlg_Productos.getContentPane().add(lb_Emaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, 20));
+        paneldemodificacion.add(lb_Emaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 220, 20));
 
         lb_precio.setText("Precio:");
-        Dlg_Productos.getContentPane().add(lb_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, 20));
+        paneldemodificacion.add(lb_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 180, 20));
 
         lb_provee.setText("Cod_Proveedor:");
-        Dlg_Productos.getContentPane().add(lb_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, 20));
+        paneldemodificacion.add(lb_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, 20));
 
         lb_categoria.setText("Categoría:");
-        Dlg_Productos.getContentPane().add(lb_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, 20));
+        paneldemodificacion.add(lb_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, 20));
 
         txt_descripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_descripcionKeyTyped(evt);
             }
         });
-        Dlg_Productos.getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 170, 190, -1));
+        paneldemodificacion.add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 170, 190, -1));
 
         txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_nombreKeyTyped(evt);
             }
         });
-        Dlg_Productos.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 132, 190, -1));
-
-        cbx_codProvee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
-        Dlg_Productos.getContentPane().add(cbx_codProvee, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 353, 190, -1));
-
-        crearproducto.setText("CREAR");
-        Dlg_Productos.getContentPane().add(crearproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 80, -1));
-
-        but_cancelar.setBackground(new java.awt.Color(255, 0, 0));
-        but_cancelar.setText("Cancelar");
-        Dlg_Productos.getContentPane().add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
+        paneldemodificacion.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 132, 190, -1));
 
         txt_categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Verduras", "Lacteos", "Frutas", "Granos", "Hierbas", "Otros" }));
-        Dlg_Productos.getContentPane().add(txt_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 391, 190, -1));
+        paneldemodificacion.add(txt_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 190, -1));
+
+        cbx_codProvee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
+        paneldemodificacion.add(cbx_codProvee, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 353, 190, -1));
 
         precio.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 100.0d, 0.25d));
-        Dlg_Productos.getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 322, 108, -1));
+        paneldemodificacion.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 322, 108, -1));
 
         exi_max.setModel(new javax.swing.SpinnerNumberModel(1, 1, 500, 1));
-        Dlg_Productos.getContentPane().add(exi_max, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 284, 108, -1));
+        paneldemodificacion.add(exi_max, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 284, 108, -1));
 
         exi_min.setModel(new javax.swing.SpinnerNumberModel(1, 1, 500, 1));
-        Dlg_Productos.getContentPane().add(exi_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 246, 108, 20));
+        exi_min.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                exi_minKeyTyped(evt);
+            }
+        });
+        paneldemodificacion.add(exi_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 246, 108, 20));
 
         existencia.setModel(new javax.swing.SpinnerNumberModel(1, 1, 500, 1));
-        Dlg_Productos.getContentPane().add(existencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 208, 108, -1));
+        paneldemodificacion.add(existencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 208, 108, -1));
 
         txt_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Dlg_Productos.getContentPane().add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 92, 190, 20));
+        paneldemodificacion.add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 92, 190, 20));
 
         jButton1.setText("GENERAR");
-        Dlg_Productos.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 91, -1, -1));
+        paneldemodificacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 91, -1, -1));
 
-        EDITAR.setText("EDITAR");
-        Dlg_Productos.getContentPane().add(EDITAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 80, -1));
+        lblFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paneldemodificacion.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 170, 140));
 
-        lblFoto.setText("IMAGEN");
-        Dlg_Productos.getContentPane().add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 170, 140));
-
+        examinarfoto.setBackground(new java.awt.Color(153, 255, 153));
         examinarfoto.setText("EXAMINAR  FOTO");
-        Dlg_Productos.getContentPane().add(examinarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 140, -1));
+        paneldemodificacion.add(examinarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 140, -1));
+
+        crearproducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
+        crearproducto.setBorder(null);
+        crearproducto.setBorderPainted(false);
+        crearproducto.setContentAreaFilled(false);
+        crearproducto.setFocusPainted(false);
+        crearproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearproductoActionPerformed(evt);
+            }
+        });
+        paneldemodificacion.add(crearproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+
+        EDITAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR 2 ICO.png"))); // NOI18N
+        EDITAR.setBorder(null);
+        EDITAR.setBorderPainted(false);
+        EDITAR.setContentAreaFilled(false);
+        EDITAR.setFocusPainted(false);
+        paneldemodificacion.add(EDITAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 180, -1));
+
+        but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_cancelar.setBorder(null);
+        but_cancelar.setBorderPainted(false);
+        but_cancelar.setContentAreaFilled(false);
+        but_cancelar.setFocusPainted(false);
+        paneldemodificacion.add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
+
+        apellidoaqui.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paneldemodificacion.add(apellidoaqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 100, 20));
+
+        nombreaqui.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paneldemodificacion.add(nombreaqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 100, 20));
+
+        ver.setText("VER");
+        paneldemodificacion.add(ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
+
+        Dlg_Productos.getContentPane().add(paneldemodificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 520));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(685, 460));
         setMinimumSize(new java.awt.Dimension(1350, 700));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1350, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelRound1.setOpaque(true);
@@ -204,7 +242,7 @@ public class Vista_producto extends javax.swing.JFrame {
         but_limpiar.setContentAreaFilled(false);
         but_limpiar.setFocusPainted(false);
         jEImagePanel2.add(but_limpiar);
-        but_limpiar.setBounds(550, 200, 170, 50);
+        but_limpiar.setBounds(550, 190, 170, 50);
 
         but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         but_crear.setBorder(null);
@@ -217,7 +255,7 @@ public class Vista_producto extends javax.swing.JFrame {
             }
         });
         jEImagePanel2.add(but_crear);
-        but_crear.setBounds(20, 120, 170, 50);
+        but_crear.setBounds(50, 130, 170, 50);
 
         but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
         but_modificar.setBorder(null);
@@ -228,20 +266,12 @@ public class Vista_producto extends javax.swing.JFrame {
         jEImagePanel2.add(but_modificar);
         but_modificar.setBounds(550, 130, 165, 50);
 
-        but_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ELIMINAR ICO.png"))); // NOI18N
-        but_eliminar.setBorder(null);
-        but_eliminar.setBorderPainted(false);
-        but_eliminar.setContentAreaFilled(false);
-        but_eliminar.setFocusPainted(false);
-        jEImagePanel2.add(but_eliminar);
-        but_eliminar.setBounds(20, 200, 170, 50);
-
         but_refrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR ICO.png"))); // NOI18N
         but_refrescar.setBorderPainted(false);
         but_refrescar.setContentAreaFilled(false);
         but_refrescar.setFocusPainted(false);
         jEImagePanel2.add(but_refrescar);
-        but_refrescar.setBounds(460, 130, 50, 50);
+        but_refrescar.setBounds(60, 190, 50, 50);
 
         txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
         txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 0));
@@ -258,6 +288,11 @@ public class Vista_producto extends javax.swing.JFrame {
         categoria.setText("CATEGORIA");
         jEImagePanel2.add(categoria);
         categoria.setBounds(550, 60, 110, 14);
+
+        buscarpor.setBackground(new java.awt.Color(255, 255, 102));
+        buscarpor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/search.png"))); // NOI18N
+        jEImagePanel2.add(buscarpor);
+        buscarpor.setBounds(460, 140, 49, 30);
 
         jPanelRound1.add(jEImagePanel2);
         jEImagePanel2.setBounds(460, 0, 990, 750);
@@ -296,13 +331,60 @@ public class Vista_producto extends javax.swing.JFrame {
 
     private void txt_consultaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_consultaKeyTyped
         // TODO add your handling code here:1267515805
-        if(txt_consulta.getText().length()>=10){
+        if(txt_consulta.getText().length()>=50){
             evt.consume();
-            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
         }
     }//GEN-LAST:event_txt_consultaKeyTyped
 
-    
+    private void crearproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearproductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crearproductoActionPerformed
+
+    private void exi_minKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_exi_minKeyTyped
+         
+    }//GEN-LAST:event_exi_minKeyTyped
+
+    public JButton getVer() {
+        return ver;
+    }
+
+    public void setVer(JButton ver) {
+        this.ver = ver;
+    }
+
+    public JButton getBuscarpor() {
+        return buscarpor;
+    }
+
+    public void setBuscarpor(JButton buscarpor) {
+        this.buscarpor = buscarpor;
+    }
+
+    public JLabel getApellidoaqui() {
+        return apellidoaqui;
+    }
+
+    public void setApellidoaqui(JLabel apellidoaqui) {
+        this.apellidoaqui = apellidoaqui;
+    }
+
+    public JLabel getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(JLabel categoria) {
+        this.categoria = categoria;
+    }
+
+    public JLabel getNombreaqui() {
+        return nombreaqui;
+    }
+
+    public void setNombreaqui(JLabel nombreaqui) {
+        this.nombreaqui = nombreaqui;
+    }
+
     public JButton getExaminarfoto() {
         return examinarfoto;
     }
@@ -357,14 +439,6 @@ public class Vista_producto extends javax.swing.JFrame {
 
     public void setBut_crear(JButton but_crear) {
         this.but_crear = but_crear;
-    }
-
-    public JButton getBut_eliminar() {
-        return but_eliminar;
-    }
-
-    public void setBut_eliminar(JButton but_eliminar) {
-        this.but_eliminar = but_eliminar;
     }
 
     public JButton getBut_limpiar() {
@@ -591,10 +665,11 @@ public class Vista_producto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Dlg_Productos;
     private javax.swing.JButton EDITAR;
+    private javax.swing.JLabel apellidoaqui;
+    public javax.swing.JButton buscarpor;
     private javax.swing.JButton but_atras;
     private javax.swing.JButton but_cancelar;
     private javax.swing.JButton but_crear;
-    private javax.swing.JButton but_eliminar;
     private javax.swing.JButton but_limpiar;
     private javax.swing.JButton but_modificar;
     private javax.swing.JButton but_refrescar;
@@ -621,6 +696,8 @@ public class Vista_producto extends javax.swing.JFrame {
     private javax.swing.JLabel lb_provee;
     private javax.swing.JLabel lb_tit_productos;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel nombreaqui;
+    private javax.swing.JPanel paneldemodificacion;
     private javax.swing.JSpinner precio;
     private javax.swing.JTable tbl_rep_producto;
     private javax.swing.JComboBox<String> txt_categoria;
@@ -628,6 +705,7 @@ public class Vista_producto extends javax.swing.JFrame {
     private LIB.FSTexFieldMD txt_consulta;
     private javax.swing.JTextField txt_descripcion;
     private javax.swing.JTextField txt_nombre;
+    private javax.swing.JButton ver;
     // End of variables declaration//GEN-END:variables
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

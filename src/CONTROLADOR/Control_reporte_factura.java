@@ -4,14 +4,27 @@ package CONTROLADOR;
 import CLASES.detalle_factura;
 import CLASES.encabezado_factura;
 import CONECCIÓN_SQL.Modelo_cabeza_factura;
+import CONECCIÓN_SQL.SQConnect;
 import CONECCIÓN_SQL.modelo_detalle_factura;
 import VISTA.Vista_factura;
 import VISTA.Vista_ingreso;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
- 
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.util.JRFontNotFoundException;
+
+
 public class Control_reporte_factura {
     ////////////////////   VISTAS   ///////////////////////////////////
     public static Vista_factura vista_fac = new Vista_factura();
@@ -27,8 +40,6 @@ public class Control_reporte_factura {
     
     ///////////////////////   VARIABLES    ///////////////////////////
     public static int n;
-
-    
     ///////////////////////    BREQUER    /////////////////////////
     public Control_reporte_factura(Vista_factura fac) {
         this.vista_fac  = fac;
@@ -40,7 +51,7 @@ public class Control_reporte_factura {
         llenartabladetallefactura();
     }
     
-    public static void inicarcontrol(){
+    public void inicarcontrol(){
         KeyListener ky = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -70,6 +81,15 @@ public class Control_reporte_factura {
         vista_fac.getBut_limpiar().addActionListener(l-> limpiartabla());
         vista_fac.getBut_atras().addActionListener(l->salir()); 
         vista_fac.getBut_consultar().addActionListener(l->refrscaramabs());
+        
+        
+        vista_fac.getFacturasjasper().addActionListener(l->{
+            try {
+                abrirjasper();
+            } catch (JRException ex) {
+                Logger.getLogger(Control_reporte_factura.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         
     }
     ////////////////////////////////////////////////////////////////////////////
@@ -149,6 +169,28 @@ public class Control_reporte_factura {
         vista_fac.getTabladetalles().updateUI();           
     }
     ////////////////////////////////////////////////////////////////////////////
- 
+    ////////////////////////////////////////////////////////////////////////////
+    public void abrirjasper() throws JRException{
+        SQConnect  hola = new SQConnect();
+        
+        try {
+        JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/ARCHIVOS/COLIBRI.jasper"));
+        
+        Map<String, Object> parametro = new HashMap<String, Object>();
+        String aguj="";
+        aguj=vista_fac.getBuscacabeza().getText();  
+        parametro.put("aguja","%"+aguj+"%");
+        
+        JasperPrint jp = JasperFillManager.fillReport(jr,parametro,hola.getCon());
+        JasperViewer jv = new JasperViewer(jp); 
+        jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(Control_reporte_factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    
+////////////////////////////////////////////////////////////////////////////////
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

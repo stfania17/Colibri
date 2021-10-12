@@ -38,7 +38,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
- 
+
 public class ControladorCreadorFactura {
     ///////////////////////   VISTAS    ////////////////////////////////////////
     public static Vista_factura_formulario ff = new Vista_factura_formulario();
@@ -87,6 +87,7 @@ public class ControladorCreadorFactura {
         ff.getCrearcliente().addActionListener(l->ingresarproveedor());
         ff.getBuscarcliente().addActionListener(l->buscacliente());
         ff.getGenerarcodigocliente().addActionListener(l->generacodigocliente());
+        
         ff.getjButton2().addActionListener(l->{
             try {
                 creacabeza();
@@ -108,7 +109,7 @@ public class ControladorCreadorFactura {
     ////////////////////////////////////////////////////////////////////////////
     public static void abrircreador(){
         ff.getIngresocliente().setVisible(true);
-        ff.getIngresocliente().setSize(400, 375);
+        ff.getIngresocliente().setSize(865, 580);
     }
     ////////////////////////////////////////////////////////////////////////////
     public void creacabeza() throws SQLException, JRException{
@@ -118,12 +119,12 @@ public class ControladorCreadorFactura {
         
         modeloafactura.setCodigo(ff.getCodigofactura().getText());
         modeloafactura.setFecha(sqlDate);
-        modeloafactura.setCod_cliente(ff.getCodigodelcliente().getText());
+        modeloafactura.setCod_cliente(queconsumidor());
         
         if(modeloafactura.insertar()){
             creardetalle();
             mermarcantidadoficial();
-            
+            JOptionPane.showMessageDialog(ff, "FACTURA CREADA");
         } else {
             JOptionPane.showMessageDialog(ff, "ERROR EN CABEZA");
         }   
@@ -140,12 +141,11 @@ public class ControladorCreadorFactura {
             modelodetalle.setPrecio_final(sumatotal());
             
             if (modelodetalle.insertar()) {
-            JOptionPane.showMessageDialog(ff, "FACTURA CREADA");    
+                
             } else {  
             JOptionPane.showMessageDialog(ff, "ERROR EN DETALLE"); 
             }
         }
-        JOptionPane.showMessageDialog(null,"Detalles realizados.");
     }
     
     public static double sumatotal(){
@@ -207,14 +207,11 @@ public class ControladorCreadorFactura {
         String codigo=ff.getJtbuscacliente().getText();
         
         for (int i = 0; i < listaclientes.size(); i++) {
-            if(listaclientes.get(i).getCodigo().equalsIgnoreCase(codigo)){
-                ff.getCodigodelcliente().setText(codigo); 
+            if(listaclientes.get(i).getCedula().equalsIgnoreCase(codigo)){
+                ff.getCodigodelcliente().setText(listaclientes.get(i).getCodigo()); 
             }
         }
     }
-    ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     /////////////////   FUNCIONES AUTOMATICAS DE LA TABLA  /////////////////////
@@ -397,21 +394,21 @@ public class ControladorCreadorFactura {
     }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
     public void abrirjasper() throws JRException{
         SQConnect  hola = new SQConnect();
         
         try {
-        JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/ARCHIVOS/COLIBRI1.jasper"));
+        JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/ARCHIVOS/COLIBRI.jasper"));
         
         Map<String, Object> parametro = new HashMap<String, Object>();
         String aguj="";
            
         aguj=ff.getCodigofactura().getText();
-         System.out.println(aguj);
+
         parametro.put("aguja","%"+aguj+"%");
-        
-        
+        parametro.put("parame", "iconocolibrie.jpg");        
+        //src\\ICONOS\\
         JasperPrint jp = JasperFillManager.fillReport(jr,parametro,hola.getCon());
         JasperViewer jv = new JasperViewer(jp); 
         jv.setVisible(true);
@@ -421,6 +418,16 @@ public class ControladorCreadorFactura {
         }
     }
     ////////////////////////////////////////////////////////////////////////////
+    public static String queconsumidor(){
+        String cedula="";
+        if(ff.getBcfinal().isSelected()){
+        cedula="0000000000"; 
+        }else{
+        
+        cedula=ff.getJtbuscacliente().getText();
+        }
+        return cedula;
+    }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
 }

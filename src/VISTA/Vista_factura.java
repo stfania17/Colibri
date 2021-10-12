@@ -75,6 +75,7 @@ public class Vista_factura extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         buscacabeza = new LIB.FSTexFieldMD();
         buscadetalle = new LIB.FSTexFieldMD();
+        facturasjasper = new javax.swing.JButton();
 
         Dlg_Factura.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -299,6 +300,8 @@ public class Vista_factura extends javax.swing.JFrame {
             }
         });
 
+        facturasjasper.setText("JASPER");
+
         javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
         jEImagePanel2.setLayout(jEImagePanel2Layout);
         jEImagePanel2Layout.setHorizontalGroup(
@@ -329,7 +332,9 @@ public class Vista_factura extends javax.swing.JFrame {
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jEImagePanel2Layout.createSequentialGroup()
                                 .addComponent(but_consultar)
-                                .addGap(397, 397, 397)
+                                .addGap(145, 145, 145)
+                                .addComponent(facturasjasper)
+                                .addGap(179, 179, 179)
                                 .addComponent(but_limpiar)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
@@ -352,9 +357,14 @@ public class Vista_factura extends javax.swing.JFrame {
                         .addComponent(buscadetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(but_limpiar)
-                    .addComponent(but_consultar))
-                .addGap(18, 18, 18)
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(but_limpiar)
+                            .addComponent(but_consultar))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
+                        .addComponent(facturasjasper)
+                        .addGap(6, 6, 6)))
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -400,6 +410,14 @@ public class Vista_factura extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "SOLO HASTA 10 DIGITOS");
         }
     }//GEN-LAST:event_buscadetalleKeyTyped
+
+    public JButton getFacturasjasper() {
+        return facturasjasper;
+    }
+
+    public void setFacturasjasper(JButton facturasjasper) {
+        this.facturasjasper = facturasjasper;
+    }
 
     
     
@@ -710,6 +728,7 @@ public class Vista_factura extends javax.swing.JFrame {
     private javax.swing.JButton but_consultar;
     private javax.swing.JButton but_limpiar;
     private javax.swing.JTable cabezafactura;
+    private javax.swing.JButton facturasjasper;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel2;
     private LIB.JEImagePanel jEImagePanel3;

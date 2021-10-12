@@ -44,6 +44,9 @@ public static List<productos> prodi = modelo_produ.mostrarProductos();
 //
 //        Vista_menu_cliente mc=new Vista_menu_cliente();
 //        ControlMenu cm=new ControlMenu(mc);
+
+       
+
     }
 }
 // ESPINOZA ALFONSO DAVID, DANNY GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

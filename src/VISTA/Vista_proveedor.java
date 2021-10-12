@@ -10,6 +10,7 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -33,6 +34,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
     private void initComponents() {
 
         Dlg_Proveedor = new javax.swing.JDialog();
+        paneldefondo = new javax.swing.JPanel();
         lb_tituloprov = new javax.swing.JLabel();
         lb_id = new javax.swing.JLabel();
         lb_nombres = new javax.swing.JLabel();
@@ -41,19 +43,19 @@ public class Vista_proveedor extends javax.swing.JFrame {
         lb_direccion = new javax.swing.JLabel();
         lb_fecha = new javax.swing.JLabel();
         lb_codigo = new javax.swing.JLabel();
-        lb_cuenta = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
         txt_nombre = new javax.swing.JTextField();
         txt_apellido = new javax.swing.JTextField();
+        lb_cuenta = new javax.swing.JLabel();
         txt_telefono = new javax.swing.JTextField();
         txt_direccion = new javax.swing.JTextField();
         txt_numcuenta = new javax.swing.JTextField();
         dtcFechaNacimiento = new com.toedter.calendar.JDateChooser();
-        but_aceptar = new javax.swing.JButton();
-        but_cancelar = new javax.swing.JButton();
         DLG_GENERARCODIGO = new javax.swing.JButton();
         Txt_codifo = new javax.swing.JLabel();
         DLG_CREAROTRO = new javax.swing.JButton();
+        but_aceptar = new javax.swing.JButton();
+        but_cancelar = new javax.swing.JButton();
         jPanelRound1 = new LIB.JPanelRound();
         jEImagePanel2 = new LIB.JEImagePanel();
         but_limpiar = new javax.swing.JButton();
@@ -66,37 +68,38 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_refrescar = new javax.swing.JButton();
         jEImagePanel1 = new LIB.JEImagePanel();
 
-        Dlg_Proveedor.setMinimumSize(new java.awt.Dimension(500, 500));
+        Dlg_Proveedor.setMinimumSize(new java.awt.Dimension(480, 580));
+        Dlg_Proveedor.setPreferredSize(new java.awt.Dimension(480, 580));
         Dlg_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        paneldefondo.setBackground(new java.awt.Color(255, 255, 204));
+        paneldefondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_tituloprov.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb_tituloprov.setForeground(new java.awt.Color(102, 0, 0));
         lb_tituloprov.setText("REGISTRO DE PROVEEDOR");
-        Dlg_Proveedor.getContentPane().add(lb_tituloprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 23, -1, -1));
+        paneldefondo.add(lb_tituloprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 23, -1, -1));
 
         lb_id.setText("Id:");
-        Dlg_Proveedor.getContentPane().add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 67, -1, -1));
+        paneldefondo.add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 67, -1, -1));
 
         lb_nombres.setText("Nombres:");
-        Dlg_Proveedor.getContentPane().add(lb_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 105, -1, -1));
+        paneldefondo.add(lb_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 105, -1, -1));
 
         lb_apellidos.setText("Apellidos:");
-        Dlg_Proveedor.getContentPane().add(lb_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 143, -1, -1));
+        paneldefondo.add(lb_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 143, -1, -1));
 
         lb_telefono.setText("Teléfono:");
-        Dlg_Proveedor.getContentPane().add(lb_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 181, -1, -1));
+        paneldefondo.add(lb_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 181, -1, -1));
 
         lb_direccion.setText("Dirección:");
-        Dlg_Proveedor.getContentPane().add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 219, -1, -1));
+        paneldefondo.add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 219, -1, -1));
 
         lb_fecha.setText("Fecha de nacimiento:");
-        Dlg_Proveedor.getContentPane().add(lb_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 263, -1, -1));
+        paneldefondo.add(lb_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 263, -1, -1));
 
         lb_codigo.setText("Cod_Proveedor:");
-        Dlg_Proveedor.getContentPane().add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 295, -1, -1));
-
-        lb_cuenta.setText("N° cuenta:");
-        Dlg_Proveedor.getContentPane().add(lb_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 339, -1, -1));
+        paneldefondo.add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 295, -1, -1));
 
         txt_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,59 +111,82 @@ public class Vista_proveedor extends javax.swing.JFrame {
                 txt_idKeyTyped(evt);
             }
         });
-        Dlg_Proveedor.getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 64, 186, -1));
+        paneldefondo.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 64, 186, -1));
 
         txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_nombreKeyTyped(evt);
             }
         });
-        Dlg_Proveedor.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 102, 186, -1));
+        paneldefondo.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 102, 186, -1));
 
         txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_apellidoKeyTyped(evt);
             }
         });
-        Dlg_Proveedor.getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 257, -1));
+        paneldefondo.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 257, -1));
+
+        lb_cuenta.setText("N° cuenta:");
+        paneldefondo.add(lb_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 339, -1, -1));
 
         txt_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_telefonoKeyTyped(evt);
             }
         });
-        Dlg_Proveedor.getContentPane().add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 178, 257, -1));
+        paneldefondo.add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 178, 257, -1));
 
         txt_direccion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_direccionKeyTyped(evt);
             }
         });
-        Dlg_Proveedor.getContentPane().add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 219, 256, -1));
+        paneldefondo.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 219, 256, -1));
 
         txt_numcuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_numcuentaKeyTyped(evt);
             }
         });
-        Dlg_Proveedor.getContentPane().add(txt_numcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 336, 190, -1));
-        Dlg_Proveedor.getContentPane().add(dtcFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 200, -1));
-
-        but_aceptar.setText("Aceptar");
-        Dlg_Proveedor.getContentPane().add(but_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
-
-        but_cancelar.setText("Cancelar");
-        Dlg_Proveedor.getContentPane().add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
+        paneldefondo.add(txt_numcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 336, 190, -1));
+        paneldefondo.add(dtcFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 200, -1));
 
         DLG_GENERARCODIGO.setText("GENERAR");
-        Dlg_Proveedor.getContentPane().add(DLG_GENERARCODIGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 295, 90, -1));
+        paneldefondo.add(DLG_GENERARCODIGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 295, 90, -1));
 
         Txt_codifo.setBackground(new java.awt.Color(153, 153, 255));
         Txt_codifo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Dlg_Proveedor.getContentPane().add(Txt_codifo, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 295, 196, 23));
+        Txt_codifo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paneldefondo.add(Txt_codifo, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 295, 196, 23));
 
-        DLG_CREAROTRO.setText("CREAR");
-        Dlg_Proveedor.getContentPane().add(DLG_CREAROTRO, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, -1, -1));
+        DLG_CREAROTRO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
+        DLG_CREAROTRO.setBorder(null);
+        DLG_CREAROTRO.setBorderPainted(false);
+        DLG_CREAROTRO.setContentAreaFilled(false);
+        DLG_CREAROTRO.setFocusPainted(false);
+        DLG_CREAROTRO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DLG_CREAROTROActionPerformed(evt);
+            }
+        });
+        paneldefondo.add(DLG_CREAROTRO, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+
+        but_aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR 2 ICO.png"))); // NOI18N
+        but_aceptar.setBorder(null);
+        but_aceptar.setBorderPainted(false);
+        but_aceptar.setContentAreaFilled(false);
+        but_aceptar.setFocusPainted(false);
+        paneldefondo.add(but_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 180, -1));
+
+        but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
+        but_cancelar.setBorder(null);
+        but_cancelar.setBorderPainted(false);
+        but_cancelar.setContentAreaFilled(false);
+        but_cancelar.setFocusPainted(false);
+        paneldefondo.add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, -1, -1));
+
+        Dlg_Proveedor.getContentPane().add(paneldefondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 540));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1355, 670));
@@ -292,6 +318,39 @@ public class Vista_proveedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_numcuentaKeyTyped
 
+    private void DLG_CREAROTROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DLG_CREAROTROActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DLG_CREAROTROActionPerformed
+
+    public JButton getDLG_CREAROTRO() {
+        return DLG_CREAROTRO;
+    }
+
+    public void setDLG_CREAROTRO(JButton DLG_CREAROTRO) {
+        this.DLG_CREAROTRO = DLG_CREAROTRO;
+    }
+
+    public JButton getBut_aceptar() {
+        return but_aceptar;
+    }
+
+    public void setBut_aceptar(JButton but_aceptar) {
+        this.but_aceptar = but_aceptar;
+    }
+
+    public JButton getBut_cancelar() {
+        return but_cancelar;
+    }
+
+    public void setBut_cancelar(JButton but_cancelar) {
+        this.but_cancelar = but_cancelar;
+    }
+
+    
+    
+    
+    
+    
     public JButton getBut_refrescar() {
         return but_refrescar;
     }
@@ -300,12 +359,12 @@ public class Vista_proveedor extends javax.swing.JFrame {
         this.but_refrescar = but_refrescar;
     }
 
-    public static JButton getDLG_CREAROTRO() {
-        return DLG_CREAROTRO;
+    public JPanel getPaneldefondo() {
+        return paneldefondo;
     }
 
-    public static void setDLG_CREAROTRO(JButton DLG_CREAROTRO) {
-        Vista_proveedor.DLG_CREAROTRO = DLG_CREAROTRO;
+    public void setPaneldefondo(JPanel paneldefondo) {
+        this.paneldefondo = paneldefondo;
     }
 
     public static JButton getDLG_GENERARCODIGO() {
@@ -332,13 +391,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         Vista_proveedor.Txt_codifo = Txt_codifo;
     }
 
-    public static JButton getBut_aceptar() {
-        return but_aceptar;
-    }
-
-    public static void setBut_aceptar(JButton but_aceptar) {
-        Vista_proveedor.but_aceptar = but_aceptar;
-    }
+ 
 
     public JButton getBut_atras() {
         return but_atras;
@@ -348,13 +401,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         this.but_atras = but_atras;
     }
 
-    public static JButton getBut_cancelar() {
-        return but_cancelar;
-    }
-
-    public static void setBut_cancelar(JButton but_cancelar) {
-        Vista_proveedor.but_cancelar = but_cancelar;
-    }
+   
 
     public JButton getBut_crear() {
         return but_crear;
@@ -539,13 +586,13 @@ public class Vista_proveedor extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton DLG_CREAROTRO;
+    private javax.swing.JButton DLG_CREAROTRO;
     public static javax.swing.JButton DLG_GENERARCODIGO;
     public static javax.swing.JDialog Dlg_Proveedor;
     public static javax.swing.JLabel Txt_codifo;
-    public static javax.swing.JButton but_aceptar;
+    private javax.swing.JButton but_aceptar;
     private javax.swing.JButton but_atras;
-    public static javax.swing.JButton but_cancelar;
+    private javax.swing.JButton but_cancelar;
     private javax.swing.JButton but_crear;
     private javax.swing.JButton but_limpiar;
     private javax.swing.JButton but_modificar;
@@ -564,6 +611,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel lb_nombres;
     private javax.swing.JLabel lb_telefono;
     private javax.swing.JLabel lb_tituloprov;
+    private javax.swing.JPanel paneldefondo;
     private javax.swing.JTable tbl_rep_proveedor;
     private javax.swing.JTextField txt_apellido;
     private LIB.FSTexFieldMD txt_consulta;

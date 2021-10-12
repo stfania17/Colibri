@@ -56,6 +56,8 @@ public class modelo_clientes extends clientes{
         String sql = "select * from clientes where ";
             sql+=" codigo like ('%"+ida+ "%') ";
             sql+=" or cedula like ('%"+ida+ "%') ";
+            sql+=" or apellido like ('%"+ida+ "%') ";
+            sql+=" or nombre like ('%"+ida+ "%') ";
             ResultSet rs = connecta.consulta(sql);
             List<clientes> lista = new ArrayList<clientes>();
         try {
