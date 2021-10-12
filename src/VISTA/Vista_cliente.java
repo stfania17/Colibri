@@ -64,6 +64,7 @@ public class Vista_cliente extends javax.swing.JFrame {
         txt_consulta = new LIB.FSTexFieldMD();
         agregarcliente = new javax.swing.JButton();
         but_refrescar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         Dlg_Cliente.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -146,7 +147,7 @@ public class Vista_cliente extends javax.swing.JFrame {
 
         generarcodigocliente.setText("GENERAR");
         jPanelRound2.add(generarcodigocliente);
-        generarcodigocliente.setBounds(510, 370, 79, 23);
+        generarcodigocliente.setBounds(510, 370, 87, 25);
 
         codigocliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelRound2.add(codigocliente);
@@ -180,12 +181,15 @@ public class Vista_cliente extends javax.swing.JFrame {
 
         jEImagePanel2.setToolTipText("");
         jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
+        jEImagePanel2.setLayout(null);
 
         but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_atras.setBorder(null);
         but_atras.setBorderPainted(false);
         but_atras.setContentAreaFilled(false);
         but_atras.setFocusPainted(false);
+        jEImagePanel2.add(but_atras);
+        but_atras.setBounds(715, 497, 180, 60);
 
         tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -197,16 +201,23 @@ public class Vista_cliente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla_clientes);
 
+        jEImagePanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(16, 253, 895, 189);
+
         but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
         but_modificar.setBorderPainted(false);
         but_modificar.setContentAreaFilled(false);
         but_modificar.setFocusPainted(false);
+        jEImagePanel2.add(but_modificar);
+        but_modificar.setBounds(402, 139, 163, 50);
 
         but_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LIMPIAR ICO.png"))); // NOI18N
         but_limpiar.setBorder(null);
         but_limpiar.setBorderPainted(false);
         but_limpiar.setContentAreaFilled(false);
         but_limpiar.setFocusPainted(false);
+        jEImagePanel2.add(but_limpiar);
+        but_limpiar.setBounds(571, 139, 165, 50);
 
         txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
         txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
@@ -217,6 +228,8 @@ public class Vista_cliente extends javax.swing.JFrame {
                 txt_consultaKeyTyped(evt);
             }
         });
+        jEImagePanel2.add(txt_consulta);
+        txt_consulta.setBounds(16, 147, 312, 42);
 
         agregarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         agregarcliente.setBorder(null);
@@ -228,52 +241,19 @@ public class Vista_cliente extends javax.swing.JFrame {
                 agregarclienteActionPerformed(evt);
             }
         });
+        jEImagePanel2.add(agregarcliente);
+        agregarcliente.setBounds(746, 139, 165, 50);
 
         but_refrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR ICO.png"))); // NOI18N
         but_refrescar.setBorderPainted(false);
         but_refrescar.setContentAreaFilled(false);
         but_refrescar.setFocusPainted(false);
+        jEImagePanel2.add(but_refrescar);
+        but_refrescar.setBounds(346, 139, 50, 50);
 
-        javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
-        jEImagePanel2.setLayout(jEImagePanel2Layout);
-        jEImagePanel2Layout.setHorizontalGroup(
-            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(but_atras)
-                .addGap(130, 130, 130))
-            .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(but_refrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                        .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(but_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(but_limpiar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(agregarcliente)))
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-        jEImagePanel2Layout.setVerticalGroup(
-            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(but_limpiar)
-                    .addComponent(but_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agregarcliente))
-                .addGap(18, 18, 18)
-                .addComponent(but_refrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(but_atras)
-                .addGap(48, 48, 48))
-        );
+        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscador:"));
+        jEImagePanel2.add(jLabel1);
+        jLabel1.setBounds(10, 120, 330, 80);
 
         jPanelRound1.add(jEImagePanel2);
         jEImagePanel2.setBounds(450, 0, 930, 580);
@@ -523,6 +503,7 @@ public class Vista_cliente extends javax.swing.JFrame {
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel2;
     private LIB.JEImagePanel jEImagePanel3;
+    private javax.swing.JLabel jLabel1;
     private LIB.JPanelRound jPanelRound1;
     private LIB.JPanelRound jPanelRound2;
     private javax.swing.JScrollPane jScrollPane1;

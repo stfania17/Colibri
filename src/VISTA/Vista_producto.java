@@ -32,6 +32,8 @@ public class Vista_producto extends javax.swing.JFrame {
     private void initComponents() {
 
         Dlg_Productos = new javax.swing.JDialog();
+        jPanelRound2 = new LIB.JPanelRound();
+        jEImagePanel3 = new LIB.JEImagePanel();
         paneldemodificacion = new javax.swing.JPanel();
         lb_tit_productos = new javax.swing.JLabel();
         lb_codigo = new javax.swing.JLabel();
@@ -73,11 +75,19 @@ public class Vista_producto extends javax.swing.JFrame {
         txt_consulta = new LIB.FSTexFieldMD();
         categoria = new javax.swing.JLabel();
         buscarpor = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jEImagePanel1 = new LIB.JEImagePanel();
 
         Dlg_Productos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        paneldemodificacion.setBackground(new java.awt.Color(255, 255, 153));
+        jPanelRound2.setOpaque(true);
+        jPanelRound2.setLayout(null);
+
+        jEImagePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Productos Dlg.png"))); // NOI18N
+        jPanelRound2.add(jEImagePanel3);
+        jEImagePanel3.setBounds(0, 0, 410, 550);
+
+        paneldemodificacion.setBackground(new java.awt.Color(255, 255, 255));
         paneldemodificacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_tit_productos.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -86,16 +96,16 @@ public class Vista_producto extends javax.swing.JFrame {
         paneldemodificacion.add(lb_tit_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 32, -1, -1));
 
         lb_codigo.setText("Código:");
-        paneldemodificacion.add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 20));
+        paneldemodificacion.add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 20));
 
         lb_nombre.setText("Nombre:");
-        paneldemodificacion.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 20));
+        paneldemodificacion.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 20));
 
         lb_descripcion.setText("Descripción:");
-        paneldemodificacion.add(lb_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 20));
+        paneldemodificacion.add(lb_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 20));
 
         lb_existencia.setText("Existencia:");
-        paneldemodificacion.add(lb_existencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
+        paneldemodificacion.add(lb_existencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 20));
 
         lb_Eminima.setText("Existencia_Minima:");
         paneldemodificacion.add(lb_Eminima, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 180, 20));
@@ -104,13 +114,13 @@ public class Vista_producto extends javax.swing.JFrame {
         paneldemodificacion.add(lb_Emaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 220, 20));
 
         lb_precio.setText("Precio:");
-        paneldemodificacion.add(lb_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 180, 20));
+        paneldemodificacion.add(lb_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 180, 20));
 
         lb_provee.setText("Cod_Proveedor:");
-        paneldemodificacion.add(lb_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, 20));
+        paneldemodificacion.add(lb_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, 20));
 
         lb_categoria.setText("Categoría:");
-        paneldemodificacion.add(lb_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, 20));
+        paneldemodificacion.add(lb_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, 20));
 
         txt_descripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -153,14 +163,14 @@ public class Vista_producto extends javax.swing.JFrame {
         paneldemodificacion.add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 92, 190, 20));
 
         jButton1.setText("GENERAR");
-        paneldemodificacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 91, -1, -1));
+        paneldemodificacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
 
         lblFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneldemodificacion.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 170, 140));
 
         examinarfoto.setBackground(new java.awt.Color(153, 255, 153));
         examinarfoto.setText("EXAMINAR  FOTO");
-        paneldemodificacion.add(examinarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 140, -1));
+        paneldemodificacion.add(examinarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 140, -1));
 
         crearproducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         crearproducto.setBorder(null);
@@ -172,21 +182,21 @@ public class Vista_producto extends javax.swing.JFrame {
                 crearproductoActionPerformed(evt);
             }
         });
-        paneldemodificacion.add(crearproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+        paneldemodificacion.add(crearproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, -1, -1));
 
         EDITAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR 2 ICO.png"))); // NOI18N
         EDITAR.setBorder(null);
         EDITAR.setBorderPainted(false);
         EDITAR.setContentAreaFilled(false);
         EDITAR.setFocusPainted(false);
-        paneldemodificacion.add(EDITAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 180, -1));
+        paneldemodificacion.add(EDITAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 180, -1));
 
         but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_cancelar.setBorder(null);
         but_cancelar.setBorderPainted(false);
         but_cancelar.setContentAreaFilled(false);
         but_cancelar.setFocusPainted(false);
-        paneldemodificacion.add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
+        paneldemodificacion.add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, -1, -1));
 
         apellidoaqui.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneldemodificacion.add(apellidoaqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 100, 20));
@@ -197,7 +207,10 @@ public class Vista_producto extends javax.swing.JFrame {
         ver.setText("VER");
         paneldemodificacion.add(ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
 
-        Dlg_Productos.getContentPane().add(paneldemodificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 520));
+        jPanelRound2.add(paneldemodificacion);
+        paneldemodificacion.setBounds(410, 0, 660, 550);
+
+        Dlg_Productos.getContentPane().add(jPanelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 550));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1350, 700));
@@ -221,7 +234,7 @@ public class Vista_producto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbl_rep_producto);
 
         jEImagePanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 270, 850, 300);
+        jScrollPane1.setBounds(60, 280, 850, 300);
 
         but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_atras.setBorder(null);
@@ -234,7 +247,7 @@ public class Vista_producto extends javax.swing.JFrame {
             }
         });
         jEImagePanel2.add(but_atras);
-        but_atras.setBounds(580, 600, 180, 60);
+        but_atras.setBounds(770, 630, 180, 60);
 
         but_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LIMPIAR ICO.png"))); // NOI18N
         but_limpiar.setBorder(null);
@@ -242,7 +255,7 @@ public class Vista_producto extends javax.swing.JFrame {
         but_limpiar.setContentAreaFilled(false);
         but_limpiar.setFocusPainted(false);
         jEImagePanel2.add(but_limpiar);
-        but_limpiar.setBounds(550, 190, 170, 50);
+        but_limpiar.setBounds(700, 140, 170, 50);
 
         but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         but_crear.setBorder(null);
@@ -255,7 +268,7 @@ public class Vista_producto extends javax.swing.JFrame {
             }
         });
         jEImagePanel2.add(but_crear);
-        but_crear.setBounds(50, 130, 170, 50);
+        but_crear.setBounds(510, 140, 170, 50);
 
         but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
         but_modificar.setBorder(null);
@@ -264,14 +277,14 @@ public class Vista_producto extends javax.swing.JFrame {
         but_modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         but_modificar.setFocusPainted(false);
         jEImagePanel2.add(but_modificar);
-        but_modificar.setBounds(550, 130, 165, 50);
+        but_modificar.setBounds(510, 210, 170, 50);
 
         but_refrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR ICO.png"))); // NOI18N
         but_refrescar.setBorderPainted(false);
         but_refrescar.setContentAreaFilled(false);
         but_refrescar.setFocusPainted(false);
         jEImagePanel2.add(but_refrescar);
-        but_refrescar.setBounds(60, 190, 50, 50);
+        but_refrescar.setBounds(430, 140, 50, 50);
 
         txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
         txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 0));
@@ -283,23 +296,27 @@ public class Vista_producto extends javax.swing.JFrame {
             }
         });
         jEImagePanel2.add(txt_consulta);
-        txt_consulta.setBounds(230, 130, 200, 42);
+        txt_consulta.setBounds(80, 170, 200, 42);
 
         categoria.setText("CATEGORIA");
         jEImagePanel2.add(categoria);
-        categoria.setBounds(550, 60, 110, 14);
+        categoria.setBounds(550, 60, 110, 16);
 
         buscarpor.setBackground(new java.awt.Color(255, 255, 102));
         buscarpor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/search.png"))); // NOI18N
         jEImagePanel2.add(buscarpor);
-        buscarpor.setBounds(460, 140, 49, 30);
+        buscarpor.setBounds(320, 180, 49, 30);
+
+        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscador:"));
+        jEImagePanel2.add(jLabel1);
+        jLabel1.setBounds(60, 140, 330, 90);
 
         jPanelRound1.add(jEImagePanel2);
-        jEImagePanel2.setBounds(460, 0, 990, 750);
+        jEImagePanel2.setBounds(510, 0, 1000, 760);
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/PRODUCTOS 2.png"))); // NOI18N
         jPanelRound1.add(jEImagePanel1);
-        jEImagePanel1.setBounds(0, 0, 510, 750);
+        jEImagePanel1.setBounds(0, 0, 510, 770);
 
         getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 750));
 
@@ -683,7 +700,10 @@ public class Vista_producto extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JEImagePanel jEImagePanel3;
+    private javax.swing.JLabel jLabel1;
     private LIB.JPanelRound jPanelRound1;
+    private LIB.JPanelRound jPanelRound2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_Emaxima;
     private javax.swing.JLabel lb_Eminima;

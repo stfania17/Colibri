@@ -200,7 +200,6 @@ public class Vista_factura extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1310, 720));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1310, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelRound1.setOpaque(true);
@@ -284,6 +283,9 @@ public class Vista_factura extends javax.swing.JFrame {
 
         jLabel3.setText("CABEZAS");
 
+        buscacabeza.setForeground(new java.awt.Color(0, 0, 0));
+        buscacabeza.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        buscacabeza.setColorTransparente(true);
         buscacabeza.setFont(new java.awt.Font("Roboto Bold", 1, 10)); // NOI18N
         buscacabeza.setPlaceholder("CODIGO FACTURA - CODIGO CLIENTE");
         buscacabeza.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -292,6 +294,9 @@ public class Vista_factura extends javax.swing.JFrame {
             }
         });
 
+        buscadetalle.setForeground(new java.awt.Color(0, 0, 0));
+        buscadetalle.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        buscadetalle.setColorTransparente(true);
         buscadetalle.setFont(new java.awt.Font("Roboto Bold", 1, 10)); // NOI18N
         buscadetalle.setPlaceholder("COD.CABEZA - COD.DETALLE - COD.PRODUCTO");
         buscadetalle.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -300,7 +305,11 @@ public class Vista_factura extends javax.swing.JFrame {
             }
         });
 
-        facturasjasper.setText("JASPER");
+        facturasjasper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/IMPRIMIR ICO.png"))); // NOI18N
+        facturasjasper.setBorder(null);
+        facturasjasper.setBorderPainted(false);
+        facturasjasper.setContentAreaFilled(false);
+        facturasjasper.setFocusPainted(false);
 
         javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
         jEImagePanel2.setLayout(jEImagePanel2Layout);
@@ -308,77 +317,64 @@ public class Vista_factura extends javax.swing.JFrame {
             jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel2Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 64, Short.MAX_VALUE))
-                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                        .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(buscacabeza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                                        .addGap(88, 88, 88)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(227, 227, 227)
-                                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(buscadetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                                        .addGap(57, 57, 57)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                                .addComponent(but_consultar)
-                                .addGap(145, 145, 145)
-                                .addComponent(facturasjasper)
-                                .addGap(179, 179, 179)
-                                .addComponent(but_limpiar)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(but_atras)
-                .addGap(203, 203, 203))
+                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(but_atras)
+                    .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                            .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buscacabeza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buscadetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(82, 82, 82)
+                            .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                                    .addComponent(but_consultar)
+                                    .addGap(34, 34, 34)
+                                    .addComponent(but_limpiar))
+                                .addComponent(facturasjasper))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 34, Short.MAX_VALUE))
         );
         jEImagePanel2Layout.setVerticalGroup(
             jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buscacabeza, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buscadetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(131, 131, 131)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                        .addComponent(buscacabeza, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buscadetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jEImagePanel2Layout.createSequentialGroup()
                         .addGroup(jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(but_limpiar)
-                            .addComponent(but_consultar))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel2Layout.createSequentialGroup()
-                        .addComponent(facturasjasper)
-                        .addGap(6, 6, 6)))
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                                .addComponent(but_consultar)
+                                .addGap(18, 18, 18)
+                                .addComponent(facturasjasper))
+                            .addComponent(but_limpiar))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
+                .addGap(60, 60, 60)
                 .addComponent(but_atras)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
         );
 
         jPanelRound1.add(jEImagePanel2);
-        jEImagePanel2.setBounds(520, 0, 830, 720);
+        jEImagePanel2.setBounds(520, 0, 800, 720);
 
         getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 720));
 
@@ -445,12 +441,7 @@ public class Vista_factura extends javax.swing.JFrame {
     public void setBut_cancelar(JButton but_cancelar) {
         this.but_cancelar = but_cancelar;
     }
-    public JButton getBut_consultar() {
-        return but_consultar;
-    }
-    public void setBut_consultar(JButton but_consultar) {
-        this.but_consultar = but_consultar;
-    }
+  
  
     public JButton getBut_limpiar() {
         return but_limpiar;
@@ -714,6 +705,14 @@ public class Vista_factura extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+
+    public JButton getBut_consultar() {
+        return but_consultar;
+    }
+
+    public void setBut_consultar(JButton but_consultar) {
+        this.but_consultar = but_consultar;
+    }
 
     
     

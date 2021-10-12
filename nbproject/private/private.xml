@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/CONECCIÓN_SQL/modelo_productos.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/CONTROLADOR/ACTIVADOR.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Vista_factura_formulario.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/VISTA/Vista_cliente.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/Colibri/src/CONECCIÓN_SQL/SQConnect.java</file>
+        </group>
     </open-files>
 </project-private>

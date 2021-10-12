@@ -2,6 +2,7 @@
 package VISTA;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -19,6 +20,7 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
     /** Creates new form FACTURA_FORMULARIO */
     public Vista_factura_formulario() {
         initComponents();
+        Vista_factura_formulario.this.setBackground(new Color(0,0,0,0));
     }
 
     /** This method is called from within the constructor to
@@ -71,6 +73,8 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         txt_direccion = new javax.swing.JTextField();
         lb_id = new javax.swing.JLabel();
         txt_telefono = new javax.swing.JTextField();
+        jPanelRound2 = new LIB.JPanelRound();
+        jEImagePanel2 = new LIB.JEImagePanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         fechafactura = new javax.swing.JLabel();
@@ -152,14 +156,14 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         crearcliente.setBorderPainted(false);
         crearcliente.setContentAreaFilled(false);
         crearcliente.setFocusPainted(false);
-        ingresocliente.getContentPane().add(crearcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
+        ingresocliente.getContentPane().add(crearcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, -1, -1));
 
         cancelarcrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         cancelarcrear.setBorder(null);
         cancelarcrear.setBorderPainted(false);
         cancelarcrear.setContentAreaFilled(false);
         cancelarcrear.setFocusPainted(false);
-        ingresocliente.getContentPane().add(cancelarcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, -1, -1));
+        ingresocliente.getContentPane().add(cancelarcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, -1, -1));
 
         jPanelRound1.setBackground(new java.awt.Color(255, 255, 255));
         jPanelRound1.setOpaque(true);
@@ -183,13 +187,13 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         lb_nombres.setText("Nombres:");
         jPanelRound1.add(lb_nombres);
-        lb_nombres.setBounds(520, 120, 46, 14);
+        lb_nombres.setBounds(520, 120, 56, 16);
         jPanelRound1.add(txt_correo);
-        txt_correo.setBounds(620, 280, 193, 20);
+        txt_correo.setBounds(620, 280, 193, 22);
 
         lb_apellido.setText("Apellidos:");
         jPanelRound1.add(lb_apellido);
-        lb_apellido.setBounds(520, 160, 46, 14);
+        lb_apellido.setBounds(520, 160, 56, 16);
 
         but_aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACEPTAR ICO.png"))); // NOI18N
         but_aceptar.setBorder(null);
@@ -201,7 +205,7 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         lb_direccion.setText("Dirección:");
         jPanelRound1.add(lb_direccion);
-        lb_direccion.setBounds(520, 210, 47, 14);
+        lb_direccion.setBounds(520, 210, 57, 16);
 
         but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_cancelar.setBorder(null);
@@ -213,36 +217,56 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         lb_telefono.setText("Teléfono:");
         jPanelRound1.add(lb_telefono);
-        lb_telefono.setBounds(520, 250, 46, 14);
+        lb_telefono.setBounds(520, 250, 55, 16);
         jPanelRound1.add(dtcFechaNacimiento1);
         dtcFechaNacimiento1.setBounds(620, 330, 200, 20);
 
         lb_fecha.setText("F. Nacimiento:");
         jPanelRound1.add(lb_fecha);
-        lb_fecha.setBounds(520, 330, 69, 14);
+        lb_fecha.setBounds(520, 330, 83, 16);
 
         lb_correo.setText("Correo:");
         jPanelRound1.add(lb_correo);
-        lb_correo.setBounds(520, 290, 37, 14);
+        lb_correo.setBounds(520, 290, 44, 16);
         jPanelRound1.add(txt_id);
-        txt_id.setBounds(620, 70, 190, 20);
+        txt_id.setBounds(620, 70, 190, 22);
         jPanelRound1.add(txt_nombres);
-        txt_nombres.setBounds(620, 120, 190, 20);
+        txt_nombres.setBounds(620, 120, 190, 22);
         jPanelRound1.add(txt_apellidos);
-        txt_apellidos.setBounds(620, 160, 190, 20);
+        txt_apellidos.setBounds(620, 160, 190, 22);
         jPanelRound1.add(txt_direccion);
-        txt_direccion.setBounds(620, 200, 190, 20);
+        txt_direccion.setBounds(620, 200, 190, 22);
 
         lb_id.setText("Id:");
         jPanelRound1.add(lb_id);
-        lb_id.setBounds(520, 80, 14, 14);
+        lb_id.setBounds(520, 80, 16, 16);
         jPanelRound1.add(txt_telefono);
-        txt_telefono.setBounds(620, 240, 190, 20);
+        txt_telefono.setBounds(620, 240, 190, 22);
 
         ingresocliente.getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelRound2.setOpaque(true);
+        jPanelRound2.setLayout(null);
+
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Facturas_1.png"))); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
+        jEImagePanel2.setLayout(jEImagePanel2Layout);
+        jEImagePanel2Layout.setHorizontalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
+        );
+        jEImagePanel2Layout.setVerticalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        jPanelRound2.add(jEImagePanel2);
+        jEImagePanel2.setBounds(0, 0, 390, 470);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -257,7 +281,8 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         codigofactura.setText("CODIGO  FACTURA");
         jPanel1.add(codigofactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 50));
+        jPanelRound2.add(jPanel1);
+        jPanel1.setBounds(390, 0, 620, 50);
 
         jPanel2.setBackground(new java.awt.Color(153, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -267,10 +292,12 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         grupobotones.add(bcfinal);
         bcfinal.setText("CONSUMIDOR FINAL");
+        bcfinal.setContentAreaFilled(false);
         jPanel2.add(bcfinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 130, -1));
 
         grupobotones.add(bccondatos);
         bccondatos.setText("DATOS");
+        bccondatos.setContentAreaFilled(false);
         jPanel2.add(bccondatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, -1));
         jPanel2.add(jtbuscacliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 120, -1));
 
@@ -283,7 +310,8 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         codigodelcliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(codigodelcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 120, 20));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 150));
+        jPanelRound2.add(jPanel2);
+        jPanel2.setBounds(390, 50, 620, 150);
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -304,7 +332,8 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 600, 90));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 620, 200));
+        jPanelRound2.add(jPanel3);
+        jPanel3.setBounds(390, 200, 620, 200);
 
         jPanel4.setBackground(new java.awt.Color(102, 255, 102));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -320,7 +349,10 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         jasparin.setText("GENERAR   FACTURA");
         jPanel4.add(jasparin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 620, 70));
+        jPanelRound2.add(jPanel4);
+        jPanel4.setBounds(390, 400, 620, 70);
+
+        getContentPane().add(jPanelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 470));
 
         pack();
         setLocationRelativeTo(null);
@@ -689,6 +721,7 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
     private javax.swing.JDialog ingresocliente;
     private javax.swing.JButton jButton2;
     private LIB.JEImagePanel jEImagePanel1;
+    private LIB.JEImagePanel jEImagePanel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -703,6 +736,7 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private LIB.JPanelRound jPanelRound1;
+    private LIB.JPanelRound jPanelRound2;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jasparin;
     private javax.swing.JTextField jtbuscacliente;

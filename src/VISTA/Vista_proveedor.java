@@ -34,6 +34,8 @@ public class Vista_proveedor extends javax.swing.JFrame {
     private void initComponents() {
 
         Dlg_Proveedor = new javax.swing.JDialog();
+        jPanelRound2 = new LIB.JPanelRound();
+        jEImagePanel3 = new LIB.JEImagePanel();
         paneldefondo = new javax.swing.JPanel();
         lb_tituloprov = new javax.swing.JLabel();
         lb_id = new javax.swing.JLabel();
@@ -66,13 +68,20 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_modificar = new javax.swing.JButton();
         but_atras = new javax.swing.JButton();
         but_refrescar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jEImagePanel1 = new LIB.JEImagePanel();
 
         Dlg_Proveedor.setMinimumSize(new java.awt.Dimension(480, 580));
-        Dlg_Proveedor.setPreferredSize(new java.awt.Dimension(480, 580));
         Dlg_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        paneldefondo.setBackground(new java.awt.Color(255, 255, 204));
+        jPanelRound2.setOpaque(true);
+        jPanelRound2.setLayout(null);
+
+        jEImagePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Proveedores 2.png"))); // NOI18N
+        jPanelRound2.add(jEImagePanel3);
+        jEImagePanel3.setBounds(0, 0, 400, 550);
+
+        paneldefondo.setBackground(new java.awt.Color(255, 255, 255));
         paneldefondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_tituloprov.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -111,21 +120,21 @@ public class Vista_proveedor extends javax.swing.JFrame {
                 txt_idKeyTyped(evt);
             }
         });
-        paneldefondo.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 64, 186, -1));
+        paneldefondo.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 200, -1));
 
         txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_nombreKeyTyped(evt);
             }
         });
-        paneldefondo.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 102, 186, -1));
+        paneldefondo.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 200, -1));
 
         txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_apellidoKeyTyped(evt);
             }
         });
-        paneldefondo.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 257, -1));
+        paneldefondo.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 200, -1));
 
         lb_cuenta.setText("N° cuenta:");
         paneldefondo.add(lb_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 339, -1, -1));
@@ -135,30 +144,30 @@ public class Vista_proveedor extends javax.swing.JFrame {
                 txt_telefonoKeyTyped(evt);
             }
         });
-        paneldefondo.add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 178, 257, -1));
+        paneldefondo.add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 200, -1));
 
         txt_direccion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_direccionKeyTyped(evt);
             }
         });
-        paneldefondo.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 219, 256, -1));
+        paneldefondo.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 200, -1));
 
         txt_numcuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_numcuentaKeyTyped(evt);
             }
         });
-        paneldefondo.add(txt_numcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 336, 190, -1));
+        paneldefondo.add(txt_numcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 200, -1));
         paneldefondo.add(dtcFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 200, -1));
 
         DLG_GENERARCODIGO.setText("GENERAR");
-        paneldefondo.add(DLG_GENERARCODIGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 295, 90, -1));
+        paneldefondo.add(DLG_GENERARCODIGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 90, -1));
 
         Txt_codifo.setBackground(new java.awt.Color(153, 153, 255));
         Txt_codifo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Txt_codifo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        paneldefondo.add(Txt_codifo, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 295, 196, 23));
+        paneldefondo.add(Txt_codifo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 196, 23));
 
         DLG_CREAROTRO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         DLG_CREAROTRO.setBorder(null);
@@ -170,23 +179,26 @@ public class Vista_proveedor extends javax.swing.JFrame {
                 DLG_CREAROTROActionPerformed(evt);
             }
         });
-        paneldefondo.add(DLG_CREAROTRO, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+        paneldefondo.add(DLG_CREAROTRO, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, -1));
 
         but_aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR 2 ICO.png"))); // NOI18N
         but_aceptar.setBorder(null);
         but_aceptar.setBorderPainted(false);
         but_aceptar.setContentAreaFilled(false);
         but_aceptar.setFocusPainted(false);
-        paneldefondo.add(but_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 180, -1));
+        paneldefondo.add(but_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 180, -1));
 
         but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_cancelar.setBorder(null);
         but_cancelar.setBorderPainted(false);
         but_cancelar.setContentAreaFilled(false);
         but_cancelar.setFocusPainted(false);
-        paneldefondo.add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, -1, -1));
+        paneldefondo.add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
 
-        Dlg_Proveedor.getContentPane().add(paneldefondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 540));
+        jPanelRound2.add(paneldefondo);
+        paneldefondo.setBounds(400, 0, 550, 550);
+
+        Dlg_Proveedor.getContentPane().add(jPanelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 550));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1355, 670));
@@ -205,14 +217,14 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_limpiar.setContentAreaFilled(false);
         but_limpiar.setFocusPainted(false);
         jEImagePanel2.add(but_limpiar);
-        but_limpiar.setBounds(670, 140, 170, 50);
+        but_limpiar.setBounds(870, 160, 170, 50);
 
         txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
         txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
         txt_consulta.setColorTransparente(true);
         txt_consulta.setPlaceholder("Buscar...");
         jEImagePanel2.add(txt_consulta);
-        txt_consulta.setBounds(220, 140, 220, 50);
+        txt_consulta.setBounds(60, 180, 290, 50);
 
         but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         but_crear.setBorder(null);
@@ -220,7 +232,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_crear.setContentAreaFilled(false);
         but_crear.setFocusPainted(false);
         jEImagePanel2.add(but_crear);
-        but_crear.setBounds(480, 70, 180, 50);
+        but_crear.setBounds(500, 160, 170, 50);
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -236,7 +248,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbl_rep_proveedor);
 
         jEImagePanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 230, 830, 320);
+        jScrollPane1.setBounds(40, 310, 1010, 320);
 
         but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
         but_modificar.setBorder(null);
@@ -244,7 +256,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_modificar.setContentAreaFilled(false);
         but_modificar.setFocusPainted(false);
         jEImagePanel2.add(but_modificar);
-        but_modificar.setBounds(490, 140, 170, 50);
+        but_modificar.setBounds(690, 160, 170, 50);
 
         but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_atras.setBorder(null);
@@ -252,14 +264,18 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_atras.setContentAreaFilled(false);
         but_atras.setFocusPainted(false);
         jEImagePanel2.add(but_atras);
-        but_atras.setBounds(630, 560, 180, 60);
+        but_atras.setBounds(870, 660, 180, 60);
 
         but_refrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR ICO.png"))); // NOI18N
         but_refrescar.setBorderPainted(false);
         but_refrescar.setContentAreaFilled(false);
         but_refrescar.setFocusPainted(false);
         jEImagePanel2.add(but_refrescar);
-        but_refrescar.setBounds(110, 140, 50, 50);
+        but_refrescar.setBounds(420, 160, 50, 50);
+
+        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscador:"));
+        jEImagePanel2.add(jLabel1);
+        jLabel1.setBounds(40, 160, 330, 90);
 
         jPanelRound1.add(jEImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 1090, 750));
 
@@ -600,7 +616,10 @@ public class Vista_proveedor extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dtcFechaNacimiento;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JEImagePanel jEImagePanel3;
+    private javax.swing.JLabel jLabel1;
     private LIB.JPanelRound jPanelRound1;
+    private LIB.JPanelRound jPanelRound2;
     public static javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_apellidos;
     private javax.swing.JLabel lb_codigo;
