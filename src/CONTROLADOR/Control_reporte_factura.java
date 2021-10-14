@@ -10,11 +10,14 @@ import VISTA.Vista_factura;
 import VISTA.Vista_ingreso;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -53,6 +56,32 @@ public class Control_reporte_factura {
     }
 
     public void inicarcontrol() {
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        MouseListener ml = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+            //To change body of generated methods, choose Tools | Templates.
+            }
+            @Override
+            public void mousePressed(MouseEvent me) {
+            //To change body of generated methods, choose Tools | Templates.
+            }
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            //To change body of generated methods, choose Tools | Templates.
+            cargaratosparamodificar();
+            }
+            @Override
+            public void mouseEntered(MouseEvent me) {
+            //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+            //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         KeyListener ky = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -190,12 +219,13 @@ public class Control_reporte_factura {
         SQConnect hola = new SQConnect();
 
         try {
-            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/ARCHIVOS/COLIBRI.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/CLASES/COLIBRI.jasper"));
 
             Map<String, Object> parametro = new HashMap<String, Object>();
             String aguj = "";
             aguj = vista_fac.getBuscacabeza().getText();
             parametro.put("aguja", "%" + aguj + "%");
+            parametro.put("parame", "src\\ICONOS\\iconocolibrie.jpg");    
 
             JasperPrint jp = JasperFillManager.fillReport(jr, parametro, hola.getCon());
             JasperViewer jv = new JasperViewer(jp);
@@ -203,6 +233,25 @@ public class Control_reporte_factura {
 
         } catch (JRException ex) {
             Logger.getLogger(Control_reporte_factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+        public void cargaratosparamodificar(){
+        int fila = vista_fac.getCabezafactura().getSelectedRow();
+        if (fila == -1) {
+        JOptionPane.showMessageDialog(vista_fac, "PRIMERO SELECCIONE UN PROVEEDOR", " ", 2);
+        }else {
+            //Tbl_rep_proveedor
+         
+        
+  
+            String codigo = String.valueOf(vista_fac.getCabezafactura().getValueAt(fila, 1));
+            for (int i = 0; i <listacabeza.size(); i++) {
+                if(listacabeza.get(i).getCodigo().equalsIgnoreCase(codigo)){
+                    vista_fac.getBuscacabeza().setText(codigo);
+                }
+            }            
         }
     }
     ////////////////////////////////////////////////////////////////////////////

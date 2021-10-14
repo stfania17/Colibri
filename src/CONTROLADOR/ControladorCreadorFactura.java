@@ -378,8 +378,8 @@ public class ControladorCreadorFactura {
                    modelo_produ.setCod_proveedor(listaproductos.get(j).getCod_proveedor());
                    
                    modelo_produ.setFoto(ho);
-                   
-                   if(modelo_produ.modificar(co)){
+                   //modificarsinfoto(String identificador)
+                   if(modelo_produ.modificarsinfoto(co)){
                    
                        mateos.get(i).setCantidad(ce);
                    
@@ -399,7 +399,7 @@ public class ControladorCreadorFactura {
         SQConnect  hola = new SQConnect();
         
         try {
-        JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/ARCHIVOS/COLIBRI.jasper"));
+        JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/CLASES/COLIBRI.jasper"));
         
         Map<String, Object> parametro = new HashMap<String, Object>();
         String aguj="";
@@ -407,7 +407,7 @@ public class ControladorCreadorFactura {
         aguj=ff.getCodigofactura().getText();
 
         parametro.put("aguja","%"+aguj+"%");
-        parametro.put("parame", "iconocolibrie.jpg");        
+        parametro.put("parame", "src\\ICONOS\\iconocolibrie.jpg");        
         //src\\ICONOS\\
         JasperPrint jp = JasperFillManager.fillReport(jr,parametro,hola.getCon());
         JasperViewer jv = new JasperViewer(jp); 

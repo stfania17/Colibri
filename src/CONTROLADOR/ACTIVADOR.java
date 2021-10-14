@@ -27,10 +27,10 @@ public static List<productos> prodi = modelo_produ.mostrarProductos();
     public static void main(String[] args) {
 
 //        
-//        Vista_portada porta=new Vista_portada();
-//        ControladorPortada control=new ControladorPortada(porta);
-      Vista_ingreso ingre = new Vista_ingreso();
-      ControladorCajero cc = new ControladorCajero(ingre);
+        Vista_portada porta=new Vista_portada();
+        ControladorPortada control=new ControladorPortada(porta);
+//      Vista_ingreso ingre = new Vista_ingreso();
+//      ControladorCajero cc = new ControladorCajero(ingre);
         /*Dbproductos modelo =new Dbproductos();      
         Vista_producto produc = new Vista_producto(); 
 

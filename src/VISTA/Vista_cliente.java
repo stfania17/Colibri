@@ -19,7 +19,8 @@ public class Vista_cliente extends javax.swing.JFrame {
     public Vista_cliente() {
         initComponents();
         Vista_cliente.this.setBackground(new Color(0,0,0,0));
-        //txt_consulta.addKeyListener(new VALIDACIONES.Numeros());
+        txt_id.addKeyListener(new VALIDACIONES.Numeros());
+        txt_telefono.addKeyListener(new VALIDACIONES.Numeros());
     }
 
     /**
@@ -88,11 +89,47 @@ public class Vista_cliente extends javax.swing.JFrame {
 
         lb_correo.setText("Correo:");
         Dlg_Cliente.getContentPane().add(lb_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
+
+        txt_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_idKeyTyped(evt);
+            }
+        });
         Dlg_Cliente.getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 190, -1));
+
+        txt_nombres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nombresKeyTyped(evt);
+            }
+        });
         Dlg_Cliente.getContentPane().add(txt_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 193, -1));
+
+        txt_apellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_apellidosKeyTyped(evt);
+            }
+        });
         Dlg_Cliente.getContentPane().add(txt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 193, -1));
+
+        txt_direccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_direccionKeyTyped(evt);
+            }
+        });
         Dlg_Cliente.getContentPane().add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 193, -1));
+
+        txt_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_telefonoKeyTyped(evt);
+            }
+        });
         Dlg_Cliente.getContentPane().add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 193, -1));
+
+        txt_correo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_correoKeyTyped(evt);
+            }
+        });
         Dlg_Cliente.getContentPane().add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 193, -1));
         Dlg_Cliente.getContentPane().add(dtcFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 193, -1));
 
@@ -143,11 +180,11 @@ public class Vista_cliente extends javax.swing.JFrame {
         but_cancelar.setContentAreaFilled(false);
         but_cancelar.setFocusPainted(false);
         jPanelRound2.add(but_cancelar);
-        but_cancelar.setBounds(730, 550, 180, 60);
+        but_cancelar.setBounds(570, 490, 180, 60);
 
         generarcodigocliente.setText("GENERAR");
         jPanelRound2.add(generarcodigocliente);
-        generarcodigocliente.setBounds(510, 370, 87, 25);
+        generarcodigocliente.setBounds(510, 370, 79, 23);
 
         codigocliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelRound2.add(codigocliente);
@@ -278,6 +315,48 @@ public class Vista_cliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
         }
     }//GEN-LAST:event_txt_consultaKeyTyped
+
+    private void txt_idKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_idKeyTyped
+        if(txt_id.getText().length()>=10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_idKeyTyped
+
+    private void txt_nombresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombresKeyTyped
+        if(txt_nombres.getText().length()>=50){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_nombresKeyTyped
+
+    private void txt_apellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apellidosKeyTyped
+        if(txt_apellidos.getText().length()>=50){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_apellidosKeyTyped
+
+    private void txt_direccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_direccionKeyTyped
+        if(txt_direccion.getText().length()>=50){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_direccionKeyTyped
+
+    private void txt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoKeyTyped
+        if(txt_telefono.getText().length()>=10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_telefonoKeyTyped
+
+    private void txt_correoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_correoKeyTyped
+        if(txt_correo.getText().length()>=50){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 50 DIGITOS");
+        }
+    }//GEN-LAST:event_txt_correoKeyTyped
 
     public JButton getAgregarcliente() {
         return agregarcliente;

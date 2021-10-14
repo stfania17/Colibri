@@ -6,14 +6,14 @@ import CONECCIÓN_SQL.SQConnect;
 import CONECCIÓN_SQL.modelo_clientes;
 import VISTA.Vista_cliente;
 import VISTA.Vista_ingreso;
-import java.awt.event.KeyEvent;
+import java.awt.event.KeyEvent; 
 import java.awt.event.KeyListener;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.Date;
+import java.util.Date; 
 import java.util.List;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -48,7 +48,7 @@ public class ControlCliente {
         mostrar();
         mostrartabla();
         iniciarControl();
-    }
+    }//but_refrescar
     /////////////////////             CEREBRO    ///////////////////////////////
     public void iniciarControl() { 
         ////////////////////////////////////////////////////////////////////////
@@ -89,8 +89,9 @@ public class ControlCliente {
         ///////////////    MODIFCAR  AL FLACO     //////////////////////////////
         vista_cli.getBut_actualizar().addActionListener(l->modificarproveedores());
         ////////////////////////////////////////////////////////////////////////
-        vista_cli.getBut_refrescar().addActionListener(l->crearalclientefinal());
+        vista_cli.getBut_refrescar().addActionListener(l->mostrartabla());
         vista_cli.getBut_limpiar().addActionListener(l->limpiartabla());
+        vista_cli.getBut_cancelar().addActionListener(l->cerrarelcreador());
   
     }
     ////////////////////////////////////////////////////////////////////////////
@@ -104,12 +105,12 @@ public class ControlCliente {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     public static void abrirngreso(){
-        vista_cli.getDlg_Cliente().setSize(500 , 500);
+        vista_cli.getDlg_Cliente().setSize(920 , 620);
         
         vista_cli.getGenerarcodigocliente().setEnabled(true);
         vista_cli.getDlg_Cliente().setVisible(true);
         vista_cli.getBut_crear().setEnabled(true);
-        vista_cli.getBut_modificar().setEnabled(false); 
+        vista_cli.getBut_actualizar().setEnabled(false); 
     }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
@@ -176,7 +177,9 @@ public class ControlCliente {
         //but_actualizar
         if (modelo_cli.insertar()) {
             JOptionPane.showMessageDialog(vista_cli, "Cliente Creado Satisfactoriamente");
- 
+            blanquearingreso();
+            vista_cli.getDlg_Cliente().setVisible(false);
+            
         } else {
             JOptionPane.showMessageDialog(vista_cli, "ERROR");
         }
@@ -189,14 +192,14 @@ public class ControlCliente {
     public static void cargaratosparamodificar(){
         int fila = vista_cli.getTabla_clientes().getSelectedRow();
         if (fila == -1) {
-        JOptionPane.showMessageDialog(vista_cli, "PRIMERO SELECCIONE UN PROVEEDOR", "HHH", 2);
+        JOptionPane.showMessageDialog(vista_cli, "PRIMERO SELECCIONE UN PROVEEDOR", "MODIFICAR", 2);
         }else {
             //Tabla_clientes
         vista_cli.getDlg_Cliente().setVisible(true);
         vista_cli.getGenerarcodigocliente().setEnabled(false);
         vista_cli.getBut_crear().setEnabled(false);
         
-        vista_cli.getDlg_Cliente().setSize(600,600);   
+        vista_cli.getDlg_Cliente().setSize(920,620);   //[920, 620]
         vista_cli.getBut_actualizar().setEnabled(true);
 //        vista_cli.getDLG_CREAROTRO().setEnabled(false);
             String codigo = String.valueOf(vista_cli.getTabla_clientes().getValueAt(fila, 0));
@@ -210,6 +213,7 @@ public class ControlCliente {
                     vista_cli.getTxt_telefono().setText(lista_clientes.get(i).getTelefono());
                     vista_cli.getTxt_direccion().setText(lista_clientes.get(i).getDireccion());
                     vista_cli.getTxt_correo().setText(lista_clientes.get(i).getCorreo());
+                    vista_cli.getDtcFechaNacimiento().setDate(lista_clientes.get(i).getFechanacimiento());
                 }
             }            
         }
@@ -333,7 +337,7 @@ public class ControlCliente {
         vista_cli.getTabla_clientes().updateUI();
     }
     ////////////////////////////////////////////////////////////////////////////
-    public void crearalclientefinal(){
+    public static void crearalclientefinal(){
         
         modelo_cli.setCodigo("0000000000");
         modelo_cli.setCedula("0000000000");
@@ -347,11 +351,32 @@ public class ControlCliente {
         if(modelo_cli.insertar()){
         JOptionPane.showMessageDialog(null,"Datos Guardados.");
         vista_cli.getTabla_clientes().updateUI();
+        blanquearingreso();
         }else{
         JOptionPane.showMessageDialog(null,"Error al Guardar.");
         }
     }
     ////////////////////////////////////////////////////////////////////////////
+    public static void blanquearingreso(){
+        vista_cli.getTxt_id().setText("");
+        vista_cli.getCodigocliente().setText("");
+        vista_cli.getTxt_apellidos().setText("");
+        vista_cli.getTxt_nombres().setText("");
+        vista_cli.getTxt_direccion().setText("");
+        vista_cli.getTxt_correo().setText("");
+        vista_cli.getTxt_telefono().setText("");
+       
+        
+    }
+////////////////////////////////////////////////////////////////////////////////
+    public static void cerrarelcreador(){
+        blanquearingreso();
+        vista_cli.getDlg_Cliente().setVisible(false);
+        
+        vista_cli.getGenerarcodigocliente().setEnabled(true);
+        vista_cli.getBut_crear().setEnabled(true);
+        vista_cli.getBut_actualizar().setEnabled(true); 
+    }
 ////////////////////////////////////////////////////////////////////////////////    
 }
 // ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//

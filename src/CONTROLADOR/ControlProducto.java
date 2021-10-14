@@ -9,7 +9,7 @@ import CONECCIÓN_SQL.Render;
 import CLASES.proveedores;
 import VISTA.Vista_ingreso;
 import java.awt.Image;
- 
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;

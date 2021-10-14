@@ -564,6 +564,26 @@ public class modelo_productos extends productos{
         }
     }
     ////////////////////////////////////////////////////////////////////////////
+    public boolean modificarsinfoto(String identificador) throws SQLException{     
+ 
+ 
+    ///////////////////////////////////////////////////////    
+        String sqla = "UPDATE productos "
+                + "SET nombre='" + getNombre() + "', descripcion='"+getDescripcion()+"', existencias='" + getExistencias()
+                + "', e_min='" + getE_min() + "', e_max='" + getE_max() + "', precio='" + getPrecio()
+                + "', categoria='" + getCategoria() +"' , cod_proveedor='"+getCod_proveedor()+"'"
+                + " WHERE codigo= '" +  identificador+ "'";
+        
+//        System.out.println(sqla);
+//        return connecta.accion(sqla);
+        
+        if(connecta.noQuery(sqla) == null) {
+            return true;
+        } else {
+            System.out.println("Error");
+            return false;
+        }
+    }    
  
 //////////////////////////////////////////////////////////////////////////////// 
 }

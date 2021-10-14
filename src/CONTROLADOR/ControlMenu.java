@@ -170,7 +170,7 @@ public class ControlMenu{
     }
     ////////////////  MOSTRAR  MENU SEGUN SU CONTENIDO /////////////////////////
     public static void cargarDialogo(int origen) {
-        menu.getDlg_Productos().setSize(920, 600);
+        menu.getDlg_Productos().setSize(1050, 540);
         menu.getDlg_Productos().setLocationRelativeTo(menu);
 
         if (origen == 1) {
