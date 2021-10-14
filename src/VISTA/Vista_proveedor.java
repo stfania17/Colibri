@@ -5,6 +5,7 @@ import LIB.FSTexFieldMD;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
@@ -22,6 +23,9 @@ public class Vista_proveedor extends javax.swing.JFrame {
         Vista_proveedor.this.setBackground(new Color(0, 0, 0, 0));
         Dlg_Proveedor.setLocationRelativeTo(null);
         txt_id.addKeyListener(new VALIDACIONES.Numeros());
+        txt_telefono.addKeyListener(new VALIDACIONES.Numeros());
+        
+setIconImage(new ImageIcon(getClass().getResource("/ICONOS/iconocolibrie.jpg")).getImage());
     }
 
     /**
@@ -59,6 +63,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_aceptar = new javax.swing.JButton();
         but_cancelar = new javax.swing.JButton();
         jPanelRound1 = new LIB.JPanelRound();
+        jEImagePanel1 = new LIB.JEImagePanel();
         jEImagePanel2 = new LIB.JEImagePanel();
         but_limpiar = new javax.swing.JButton();
         txt_consulta = new LIB.FSTexFieldMD();
@@ -69,7 +74,6 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_atras = new javax.swing.JButton();
         but_refrescar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jEImagePanel1 = new LIB.JEImagePanel();
 
         Dlg_Proveedor.setMinimumSize(new java.awt.Dimension(480, 580));
         Dlg_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -193,7 +197,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_cancelar.setBorderPainted(false);
         but_cancelar.setContentAreaFilled(false);
         but_cancelar.setFocusPainted(false);
-        paneldefondo.add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
+        paneldefondo.add(but_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, -1));
 
         jPanelRound2.add(paneldefondo);
         paneldefondo.setBounds(400, 0, 550, 550);
@@ -208,6 +212,11 @@ public class Vista_proveedor extends javax.swing.JFrame {
         jPanelRound1.setOpaque(true);
         jPanelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/proveedores.png"))); // NOI18N
+        jPanelRound1.add(jEImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 670));
+
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/recepcion.png"))); // NOI18N
         jEImagePanel2.setLayout(null);
 
@@ -217,14 +226,14 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_limpiar.setContentAreaFilled(false);
         but_limpiar.setFocusPainted(false);
         jEImagePanel2.add(but_limpiar);
-        but_limpiar.setBounds(870, 160, 170, 50);
+        but_limpiar.setBounds(360, 200, 170, 50);
 
         txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
         txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 51));
         txt_consulta.setColorTransparente(true);
         txt_consulta.setPlaceholder("Buscar...");
         jEImagePanel2.add(txt_consulta);
-        txt_consulta.setBounds(60, 180, 290, 50);
+        txt_consulta.setBounds(40, 140, 290, 50);
 
         but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         but_crear.setBorder(null);
@@ -232,14 +241,11 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_crear.setContentAreaFilled(false);
         but_crear.setFocusPainted(false);
         jEImagePanel2.add(but_crear);
-        but_crear.setBounds(500, 160, 170, 50);
+        but_crear.setBounds(560, 130, 170, 50);
 
         tbl_rep_proveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "CODIGO", "APELLIDO", "NOMBRE", "TELEFONO", "DIRECCION", "EDAD", "CEDULA", "NUMERO CUENTA"
@@ -248,7 +254,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbl_rep_proveedor);
 
         jEImagePanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(40, 310, 1010, 320);
+        jScrollPane1.setBounds(30, 260, 940, 370);
 
         but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
         but_modificar.setBorder(null);
@@ -256,7 +262,7 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_modificar.setContentAreaFilled(false);
         but_modificar.setFocusPainted(false);
         jEImagePanel2.add(but_modificar);
-        but_modificar.setBounds(690, 160, 170, 50);
+        but_modificar.setBounds(560, 200, 170, 50);
 
         but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_atras.setBorder(null);
@@ -264,25 +270,20 @@ public class Vista_proveedor extends javax.swing.JFrame {
         but_atras.setContentAreaFilled(false);
         but_atras.setFocusPainted(false);
         jEImagePanel2.add(but_atras);
-        but_atras.setBounds(870, 660, 180, 60);
+        but_atras.setBounds(750, 190, 180, 60);
 
         but_refrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR ICO.png"))); // NOI18N
         but_refrescar.setBorderPainted(false);
         but_refrescar.setContentAreaFilled(false);
         but_refrescar.setFocusPainted(false);
         jEImagePanel2.add(but_refrescar);
-        but_refrescar.setBounds(420, 160, 50, 50);
+        but_refrescar.setBounds(370, 130, 50, 50);
 
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscador:"));
         jEImagePanel2.add(jLabel1);
-        jLabel1.setBounds(40, 160, 330, 90);
+        jLabel1.setBounds(30, 120, 330, 90);
 
-        jPanelRound1.add(jEImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 1090, 750));
-
-        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/proveedores.png"))); // NOI18N
-        jPanelRound1.add(jEImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 750));
-
-        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 750));
+        getContentPane().add(jEImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 990, 670));
 
         pack();
         setLocationRelativeTo(null);

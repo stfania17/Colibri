@@ -45,17 +45,29 @@ public class ControladorLogin {
     //////////////////////////   COMPROBAR CONTRASEÑA   ////////////////////////
     public static void comprovar(){
         String usuario=log.getMusuario().getText();
-        String contraseña=log.getMcontraseña().getText();
+        char[] contraseña=log.getMcontraseña().getPassword();
+        System.out.println(contraseña);
+        String passa="";
         
-        if(usuario.equalsIgnoreCase("MASTER") && contraseña.equalsIgnoreCase("1234")){
+        for (int i = 0; i <contraseña.length; i++) {
+            passa=passa+contraseña[i];
+        }
+        
+        if(usuario.equalsIgnoreCase("MASTER") && passa.equals("1234")){
             ingresar();
-        }else if(!usuario.equalsIgnoreCase("MASTER") || !contraseña.equalsIgnoreCase("1234")){
+        }else if(!usuario.equalsIgnoreCase("MASTER") || !passa.equals("1234")){
             JOptionPane.showMessageDialog(null,"INCORRECTO");
         }
     }
     public static void mostra(){
-        String contraseña=log.getMcontraseña().getText();
-        JOptionPane.showMessageDialog(null,""+contraseña);
+        char[] contraseña=log.getMcontraseña().getPassword();
+        System.out.println(contraseña);
+        String passa="";
+        
+        for (int i = 0; i <contraseña.length; i++) {
+            passa=passa+contraseña[i];
+        }
+        JOptionPane.showMessageDialog(null,""+passa);
     }
     ////////////////////////////////////////////////////////////////////////////
 }

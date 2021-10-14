@@ -67,6 +67,8 @@ public class ControladorCreadorFactura {
         
         cargarfechaycosigo();
         generacodigofactura();
+        
+        ff.getJasparin().setEnabled(false);
     }
     ///////////////////      PUERTAS       /////////////////////////////////////
     public static void mostrar(){ff.setVisible(true);}
@@ -119,15 +121,22 @@ public class ControladorCreadorFactura {
         
         modeloafactura.setCodigo(ff.getCodigofactura().getText());
         modeloafactura.setFecha(sqlDate);
-        modeloafactura.setCod_cliente(queconsumidor());
-        
+        modeloafactura.setCod_cliente(ff.getCodigodelcliente().getText());
+//        modeloafactura.setCod_cliente(queconsumidor());
+                //codigodelcliente
+        if(!ff.getCodigodelcliente().getText().isEmpty()){
+            
         if(modeloafactura.insertar()){
             creardetalle();
             mermarcantidadoficial();
             JOptionPane.showMessageDialog(ff, "FACTURA CREADA");
+            ff.getJasparin().setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(ff, "ERROR EN CABEZA");
         }   
+        }else{
+            JOptionPane.showMessageDialog(ff, "Falta Codigo Cliente.");
+        }
     }
     ////////////////////////////////////////////////////////////////////////////
     public static void creardetalle(){
@@ -418,16 +427,16 @@ public class ControladorCreadorFactura {
         }
     }
     ////////////////////////////////////////////////////////////////////////////
-    public static String queconsumidor(){
-        String cedula="";
-        if(ff.getBcfinal().isSelected()){
-        cedula="0000000000"; 
-        }else{
-        
-        cedula=ff.getJtbuscacliente().getText();
-        }
-        return cedula;
-    }
+//    public static String queconsumidor(){
+//        String cedula="";
+//        if(ff.getBcfinal().isSelected()){
+//        cedula="0000000000"; 
+//        }else{
+//        
+//        cedula=ff.getJtbuscacliente().getText();
+//        }
+//        return cedula;
+//    }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
 }

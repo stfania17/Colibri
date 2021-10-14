@@ -135,7 +135,8 @@ public class ControlProducto {
     }
     ////////////////////////////////////////////////////////////////////////////
     public static void cargarDialogo(int origen) {
-        vista_produ.getDlg_Productos().setSize(690, 530);
+        //[1070, 550]
+        vista_produ.getDlg_Productos().setSize(1070, 550);
         vista_produ.getDlg_Productos().setLocationRelativeTo(vista_produ);
          
         if (origen == 1) { /////////   CREACION
@@ -281,6 +282,11 @@ public class ControlProducto {
     }
     ///////////////////   EDITAR   PRODUCTO   //////////////////////////////////
     public static void editarProducto() throws SQLException {
+        if(controlarvalores()==false){
+            JOptionPane.showMessageDialog(vista_produ,"VALORES NUMERIOS INCORRECTOS");
+        }else if(controlarvalores()==true){
+            
+        
         String codigo = vista_produ.getTxt_cod().getText();
         String nombre = vista_produ.getTxt_nombre().getText();
         String descripcion = vista_produ.getTxt_descripcion().getText();
@@ -314,6 +320,7 @@ public class ControlProducto {
 
             }
         }
+        }    
     }
     ////////////////////////////////////////////////////////////////////////////
     ///////////////////  ELIMINAR    PRODUCTO   ////////////////////////////////
@@ -351,6 +358,7 @@ public class ControlProducto {
                     vista_produ.getTxt_cod().setText(id);
                     vista_produ.getTxt_nombre().setText(prodi.get(i).getNombre());
                     vista_produ.getTxt_descripcion().setText(prodi.get(i).getDescripcion());
+                    
                 }
             }            
         }
@@ -492,12 +500,13 @@ public class ControlProducto {
     ////////////////////////////////////////////////////////////////////////////
     public static boolean controlarvalores(){
         int valor=0;
+        
         int existencia = Integer.parseInt(vista_produ.getExistencia().getValue().toString());
         int e_minima = Integer.parseInt(vista_produ.getExi_min().getValue().toString());
         int e_maxima = Integer.parseInt(vista_produ.getExi_max().getValue().toString());
  
         
-        if (e_minima>e_maxima||existencia>e_maxima||existencia<e_minima){
+        if(e_minima>e_maxima||existencia>e_maxima||existencia<e_minima){
             return false;
         }else{
             return true;

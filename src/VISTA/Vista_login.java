@@ -4,6 +4,7 @@ package VISTA;
 import LIB.FSPasswordFieldMD;
 import LIB.FSTexFieldMD;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -18,6 +19,7 @@ public class Vista_login extends javax.swing.JFrame {
     public Vista_login() {
         initComponents();
         Vista_login.this.setBackground(new Color(0,0,0,0));
+setIconImage(new ImageIcon(getClass().getResource("/ICONOS/iconocolibrie.jpg")).getImage());
     }
 
     /**

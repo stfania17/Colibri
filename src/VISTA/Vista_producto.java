@@ -2,6 +2,7 @@
 package VISTA;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -11,7 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
+ 
 
 public class Vista_producto extends javax.swing.JFrame {
 
@@ -20,6 +21,7 @@ public class Vista_producto extends javax.swing.JFrame {
         initComponents();
         Dlg_Productos.setLocationRelativeTo(null);
         Vista_producto.this.setBackground(new Color(0, 0, 0, 0));
+setIconImage(new ImageIcon(getClass().getResource("/ICONOS/iconocolibrie.jpg")).getImage());
     }
 
     /**
@@ -73,7 +75,6 @@ public class Vista_producto extends javax.swing.JFrame {
         but_modificar = new javax.swing.JButton();
         but_refrescar = new javax.swing.JButton();
         txt_consulta = new LIB.FSTexFieldMD();
-        categoria = new javax.swing.JLabel();
         buscarpor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jEImagePanel1 = new LIB.JEImagePanel();
@@ -213,8 +214,9 @@ public class Vista_producto extends javax.swing.JFrame {
         Dlg_Productos.getContentPane().add(jPanelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 550));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1350, 700));
+        setMinimumSize(new java.awt.Dimension(1300, 615));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1500, 610));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelRound1.setOpaque(true);
@@ -234,7 +236,7 @@ public class Vista_producto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbl_rep_producto);
 
         jEImagePanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(60, 280, 850, 300);
+        jScrollPane1.setBounds(20, 200, 840, 400);
 
         but_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_atras.setBorder(null);
@@ -247,7 +249,7 @@ public class Vista_producto extends javax.swing.JFrame {
             }
         });
         jEImagePanel2.add(but_atras);
-        but_atras.setBounds(770, 630, 180, 60);
+        but_atras.setBounds(640, 130, 180, 60);
 
         but_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/LIMPIAR ICO.png"))); // NOI18N
         but_limpiar.setBorder(null);
@@ -255,7 +257,7 @@ public class Vista_producto extends javax.swing.JFrame {
         but_limpiar.setContentAreaFilled(false);
         but_limpiar.setFocusPainted(false);
         jEImagePanel2.add(but_limpiar);
-        but_limpiar.setBounds(700, 140, 170, 50);
+        but_limpiar.setBounds(400, 130, 170, 50);
 
         but_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/CREAR ICO 2.png"))); // NOI18N
         but_crear.setBorder(null);
@@ -268,7 +270,7 @@ public class Vista_producto extends javax.swing.JFrame {
             }
         });
         jEImagePanel2.add(but_crear);
-        but_crear.setBounds(510, 140, 170, 50);
+        but_crear.setBounds(30, 130, 170, 50);
 
         but_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/MODIFICAR ICO.png"))); // NOI18N
         but_modificar.setBorder(null);
@@ -277,14 +279,14 @@ public class Vista_producto extends javax.swing.JFrame {
         but_modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         but_modificar.setFocusPainted(false);
         jEImagePanel2.add(but_modificar);
-        but_modificar.setBounds(510, 210, 170, 50);
+        but_modificar.setBounds(220, 130, 170, 50);
 
         but_refrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACTUALIZAR ICO.png"))); // NOI18N
         but_refrescar.setBorderPainted(false);
         but_refrescar.setContentAreaFilled(false);
         but_refrescar.setFocusPainted(false);
         jEImagePanel2.add(but_refrescar);
-        but_refrescar.setBounds(430, 140, 50, 50);
+        but_refrescar.setBounds(580, 130, 50, 50);
 
         txt_consulta.setForeground(new java.awt.Color(0, 0, 0));
         txt_consulta.setBordeColorFocus(new java.awt.Color(0, 102, 0));
@@ -296,29 +298,25 @@ public class Vista_producto extends javax.swing.JFrame {
             }
         });
         jEImagePanel2.add(txt_consulta);
-        txt_consulta.setBounds(80, 170, 200, 42);
-
-        categoria.setText("CATEGORIA");
-        jEImagePanel2.add(categoria);
-        categoria.setBounds(550, 60, 110, 16);
+        txt_consulta.setBounds(400, 50, 200, 42);
 
         buscarpor.setBackground(new java.awt.Color(255, 255, 102));
         buscarpor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/search.png"))); // NOI18N
         jEImagePanel2.add(buscarpor);
-        buscarpor.setBounds(320, 180, 49, 30);
+        buscarpor.setBounds(620, 60, 49, 30);
 
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscador:"));
         jEImagePanel2.add(jLabel1);
-        jLabel1.setBounds(60, 140, 330, 90);
+        jLabel1.setBounds(380, 20, 330, 90);
 
         jPanelRound1.add(jEImagePanel2);
-        jEImagePanel2.setBounds(510, 0, 1000, 760);
+        jEImagePanel2.setBounds(470, 0, 870, 610);
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/PRODUCTOS 2.png"))); // NOI18N
         jPanelRound1.add(jEImagePanel1);
-        jEImagePanel1.setBounds(0, 0, 510, 770);
+        jEImagePanel1.setBounds(0, 0, 470, 610);
 
-        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 750));
+        getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 615));
 
         pack();
         setLocationRelativeTo(null);
@@ -385,15 +383,7 @@ public class Vista_producto extends javax.swing.JFrame {
     public void setApellidoaqui(JLabel apellidoaqui) {
         this.apellidoaqui = apellidoaqui;
     }
-
-    public JLabel getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(JLabel categoria) {
-        this.categoria = categoria;
-    }
-
+ 
     public JLabel getNombreaqui() {
         return nombreaqui;
     }
@@ -690,7 +680,6 @@ public class Vista_producto extends javax.swing.JFrame {
     private javax.swing.JButton but_limpiar;
     private javax.swing.JButton but_modificar;
     private javax.swing.JButton but_refrescar;
-    private javax.swing.JLabel categoria;
     private javax.swing.JComboBox<String> cbx_codProvee;
     private javax.swing.JButton crearproducto;
     private javax.swing.JButton examinarfoto;

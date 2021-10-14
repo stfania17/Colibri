@@ -283,6 +283,17 @@ public class ControlMenu{
             mateo.get(posicion2).setCantidad(canta);
             mateo.get(posicion2).setPrecio_final(pf);
             JOptionPane.showMessageDialog(menu,"PRODUCTO AGREGADO."); 
+            
+            limpiartabla();
+            
+            cargaGranos();
+            cargaHierbas();
+            cargaOtros();
+            cargaLacteos();
+            cargaVerduras();
+            cargaFrutas();
+            
+            
             //// AGREGADO A LO QUE YA HABIA, AHORA VEREMOS UNO NUEVO  //////
             }else if(buscarsiexiste(cedu)==false){ 
             /////para los recien llegados
@@ -323,6 +334,7 @@ public class ControlMenu{
     }}  
     ///////////////////   DEJAR  UN PRODUCTO ///////////////////////////////////
     public static void dejarproducto(){
+        
         int seleciona = menu.tablacarrito.getSelectedRow();
         int canta=Integer.parseInt(menu.getContador().getValue().toString());
  
@@ -344,6 +356,9 @@ public class ControlMenu{
             mateo.get(i).setCantidad(a);
             JOptionPane.showMessageDialog(null,"PRODUCTO RETIRADO.");  
             
+            if(mateo.get(i).getCantidad()==0){
+                mateo.remove(i);
+            }
             
                 for (int j = 0; j < provicionali.size(); j++) {
                     if(provicionali.get(j).getCodigo().equalsIgnoreCase(cedu)){
@@ -352,7 +367,9 @@ public class ControlMenu{
                     }
                 }
             
-            
+            modelo_tabla.getDataVector().removeAllElements();
+            menu.tablacarrito.updateUI();
+            cargartablacarrito();
             
             }else{
             JOptionPane.showMessageDialog(null,"EXISTENCIAS INSUFICIENTES.");  
@@ -387,10 +404,8 @@ public class ControlMenu{
      }}
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
     ////////////  MOTRAR  TABLA POR MEDIO DE  INICIAL  /////////////////////////
     ////////////////////////////////////////////////////////////////////////////    
-    ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     ////////////////    BUSCAMOS   POSICION DE PRODUCTO  ///////////////////////
     public static int buscarposicionenprovicional(String codigo){
@@ -738,9 +753,11 @@ public class ControlMenu{
         modelo_tabla.getDataVector().removeAllElements();
         menu.getjTable1().updateUI();
     }
+    
     ////////////////////////////////////////////////////////////////////////////
     /////////////////   VAMOS    A   LA   FACTURA///////////////////////////////
     public static void realizarfactura(){
+        menu.getCARRITO().setVisible(false);
         ControladorCreadorFactura ccf = new ControladorCreadorFactura(ff);
     }
     

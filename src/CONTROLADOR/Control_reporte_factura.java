@@ -129,11 +129,9 @@ public class Control_reporte_factura {
     public static void mostrar() {
         vista_fac.setVisible(true);
     }
-
     public static void cerrar() {
         vista_fac.setVisible(false);
     }
-
     public static void salir() {
         cerrar();
         ControladorCajero cc = new ControladorCajero(caje);
@@ -150,7 +148,6 @@ public class Control_reporte_factura {
             modalotabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.
         }
     }
-
     ////////////////////////////////////////////////////////////////////////////       
     public static void llenartabladetallefactura() {
         modalotabla = (DefaultTableModel) vista_fac.getTabladetalles().getModel();
@@ -162,7 +159,6 @@ public class Control_reporte_factura {
             modalotabla.addRow(fila); //AGREGAR LAS FILAS A LA TABLA DE LA INTERFAZ.
         }
     }
-
     ////////////////////////////////////////////////////////////////////////////   
     ////////////////////////////////////////////////////////////////////////////
     /////////////////7//  TABLA   POR  CODIGO  /////////////////////////////////
@@ -209,6 +205,7 @@ public class Control_reporte_factura {
     //////////////////////////////////////////////////////////////////////////// 
     public static void limpiartabla() {
         modalotabla.getDataVector().removeAllElements();
+        
         vista_fac.getCabezafactura().updateUI();
         vista_fac.getTabladetalles().updateUI();
     }
@@ -237,7 +234,7 @@ public class Control_reporte_factura {
     }
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-        public void cargaratosparamodificar(){
+    public void cargaratosparamodificar(){
         int fila = vista_fac.getCabezafactura().getSelectedRow();
         if (fila == -1) {
         JOptionPane.showMessageDialog(vista_fac, "PRIMERO SELECCIONE UN PROVEEDOR", " ", 2);

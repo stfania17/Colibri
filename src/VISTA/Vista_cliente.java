@@ -4,6 +4,7 @@ package VISTA;
 import LIB.FSTexFieldMD;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -21,6 +22,8 @@ public class Vista_cliente extends javax.swing.JFrame {
         Vista_cliente.this.setBackground(new Color(0,0,0,0));
         txt_id.addKeyListener(new VALIDACIONES.Numeros());
         txt_telefono.addKeyListener(new VALIDACIONES.Numeros());
+        //new ImageIcon(getClass().getResource("src\\ICONOS\\iconocolibrie.jpg"));
+setIconImage(new ImageIcon(getClass().getResource("/ICONOS/iconocolibrie.jpg")).getImage());
     }
 
     /**

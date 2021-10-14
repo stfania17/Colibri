@@ -1,28 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// ESPINOZA ALFONSO DAVID, FABIAN GUTAMA, JUAN MATUTE, ESTEFANIA MUÑOZ//
 package VISTA;
 
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Usuario
- */
+ 
 public class Vista_ingreso_cliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Ingresocliente
-     */
+
     public Vista_ingreso_cliente() {
         initComponents();
         Vista_ingreso_cliente.this.setBackground(new Color(0, 0, 0, 0));
+setIconImage(new ImageIcon(getClass().getResource("/ICONOS/iconocolibrie.jpg")).getImage());
 
     }
 

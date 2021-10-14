@@ -90,7 +90,7 @@ public class ControlProveedor_REPORTE {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////     CREAR UN NUEVO   PROVEEDOR    /////////////////////
     public static void abrirngreso(){
-        Vista_proveedor.getDlg_Proveedor().setSize(500 , 500);
+        Vista_proveedor.getDlg_Proveedor().setSize(950 , 550);
         
         prove.getDLG_GENERARCODIGO().setEnabled(true);
         prove.getDlg_Proveedor().setVisible(true);

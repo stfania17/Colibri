@@ -2,6 +2,7 @@
 package VISTA;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -11,6 +12,7 @@ public class Vista_ingreso extends javax.swing.JFrame {
     public Vista_ingreso() {
         initComponents();
         Vista_ingreso.this.setBackground(new Color(0, 0, 0, 0));
+setIconImage(new ImageIcon(getClass().getResource("/ICONOS/iconocolibrie.jpg")).getImage());
     }
 
     /**

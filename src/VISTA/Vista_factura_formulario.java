@@ -4,9 +4,11 @@ package VISTA;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -21,6 +23,10 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
     public Vista_factura_formulario() {
         initComponents();
         Vista_factura_formulario.this.setBackground(new Color(0,0,0,0));
+        
+        jtbuscacliente.addKeyListener(new VALIDACIONES.Numeros());
+        
+setIconImage(new ImageIcon(getClass().getResource("/ICONOS/iconocolibrie.jpg")).getImage());
     }
 
     /** This method is called from within the constructor to
@@ -81,12 +87,12 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         codigofactura = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         subtitulo1 = new javax.swing.JLabel();
-        bcfinal = new javax.swing.JRadioButton();
-        bccondatos = new javax.swing.JRadioButton();
         jtbuscacliente = new javax.swing.JTextField();
         buscarcliente = new javax.swing.JButton();
         ingresarcliente = new javax.swing.JButton();
         codigodelcliente = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablacarrito = new javax.swing.JTable();
@@ -187,13 +193,13 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         lb_nombres.setText("Nombres:");
         jPanelRound1.add(lb_nombres);
-        lb_nombres.setBounds(520, 120, 56, 16);
+        lb_nombres.setBounds(520, 120, 46, 14);
         jPanelRound1.add(txt_correo);
-        txt_correo.setBounds(620, 280, 193, 22);
+        txt_correo.setBounds(620, 280, 193, 20);
 
         lb_apellido.setText("Apellidos:");
         jPanelRound1.add(lb_apellido);
-        lb_apellido.setBounds(520, 160, 56, 16);
+        lb_apellido.setBounds(520, 160, 46, 14);
 
         but_aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/ACEPTAR ICO.png"))); // NOI18N
         but_aceptar.setBorder(null);
@@ -205,7 +211,7 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         lb_direccion.setText("Dirección:");
         jPanelRound1.add(lb_direccion);
-        lb_direccion.setBounds(520, 210, 57, 16);
+        lb_direccion.setBounds(520, 210, 47, 14);
 
         but_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS/REGRESAR ICO.png"))); // NOI18N
         but_cancelar.setBorder(null);
@@ -217,31 +223,31 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         lb_telefono.setText("Teléfono:");
         jPanelRound1.add(lb_telefono);
-        lb_telefono.setBounds(520, 250, 55, 16);
+        lb_telefono.setBounds(520, 250, 46, 14);
         jPanelRound1.add(dtcFechaNacimiento1);
         dtcFechaNacimiento1.setBounds(620, 330, 200, 20);
 
         lb_fecha.setText("F. Nacimiento:");
         jPanelRound1.add(lb_fecha);
-        lb_fecha.setBounds(520, 330, 83, 16);
+        lb_fecha.setBounds(520, 330, 69, 14);
 
         lb_correo.setText("Correo:");
         jPanelRound1.add(lb_correo);
-        lb_correo.setBounds(520, 290, 44, 16);
+        lb_correo.setBounds(520, 290, 37, 14);
         jPanelRound1.add(txt_id);
-        txt_id.setBounds(620, 70, 190, 22);
+        txt_id.setBounds(620, 70, 190, 20);
         jPanelRound1.add(txt_nombres);
-        txt_nombres.setBounds(620, 120, 190, 22);
+        txt_nombres.setBounds(620, 120, 190, 20);
         jPanelRound1.add(txt_apellidos);
-        txt_apellidos.setBounds(620, 160, 190, 22);
+        txt_apellidos.setBounds(620, 160, 190, 20);
         jPanelRound1.add(txt_direccion);
-        txt_direccion.setBounds(620, 200, 190, 22);
+        txt_direccion.setBounds(620, 200, 190, 20);
 
         lb_id.setText("Id:");
         jPanelRound1.add(lb_id);
-        lb_id.setBounds(520, 80, 16, 16);
+        lb_id.setBounds(520, 80, 14, 14);
         jPanelRound1.add(txt_telefono);
-        txt_telefono.setBounds(620, 240, 190, 22);
+        txt_telefono.setBounds(620, 240, 190, 20);
 
         ingresocliente.getContentPane().add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -290,15 +296,11 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         subtitulo1.setText("EL COIGO DE LA FACTURA SE GENERARÁ  DE MANERA AUTOMATICA.");
         jPanel2.add(subtitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        grupobotones.add(bcfinal);
-        bcfinal.setText("CONSUMIDOR FINAL");
-        bcfinal.setContentAreaFilled(false);
-        jPanel2.add(bcfinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 130, -1));
-
-        grupobotones.add(bccondatos);
-        bccondatos.setText("DATOS");
-        bccondatos.setContentAreaFilled(false);
-        jPanel2.add(bccondatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, -1));
+        jtbuscacliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtbuscaclienteKeyTyped(evt);
+            }
+        });
         jPanel2.add(jtbuscacliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 120, -1));
 
         buscarcliente.setText("BUSCAR");
@@ -309,6 +311,12 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
         codigodelcliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(codigodelcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 120, 20));
+
+        jLabel2.setText("CON  DATOS  CLIENTE");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 160, 20));
+
+        jLabel3.setText("CODIGO  CONSUMIDOR  FINAL:: 0000000000");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 360, 20));
 
         jPanelRound2.add(jPanel2);
         jPanel2.setBounds(390, 50, 620, 150);
@@ -357,6 +365,13 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtbuscaclienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtbuscaclienteKeyTyped
+        if(jtbuscacliente.getText().length()>=10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SOLO HASTA 10 DIGITOS");
+        }
+    }//GEN-LAST:event_jtbuscaclienteKeyTyped
 
     public JButton getJasparin() {
         return jasparin;
@@ -555,21 +570,21 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
         this.fechafactura = fechafactura;
     }
  
-    public JRadioButton getBccondatos() {
-        return bccondatos;
-    }
-
-    public void setBccondatos(JRadioButton bccondatos) {
-        this.bccondatos = bccondatos;
-    }
-
-    public JRadioButton getBcfinal() {
-        return bcfinal;
-    }
-
-    public void setBcfinal(JRadioButton bcfinal) {
-        this.bcfinal = bcfinal;
-    }
+//    public JRadioButton getBccondatos() {
+//        return bccondatos;
+//    }
+//
+//    public void setBccondatos(JRadioButton bccondatos) {
+//        this.bccondatos = bccondatos;
+//    }
+//
+//    public JRadioButton getBcfinal() {
+//        return bcfinal;
+//    }
+//
+//    public void setBcfinal(JRadioButton bcfinal) {
+//        this.bcfinal = bcfinal;
+//    }
 
     public ButtonGroup getBotonesdepago() {
         return botonesdepago;
@@ -697,8 +712,6 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;
-    private javax.swing.JRadioButton bccondatos;
-    private javax.swing.JRadioButton bcfinal;
     private javax.swing.ButtonGroup botonesdepago;
     private javax.swing.JButton buscarcliente;
     private javax.swing.JButton but_aceptar;
@@ -725,6 +738,8 @@ public class Vista_factura_formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

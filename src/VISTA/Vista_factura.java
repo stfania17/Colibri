@@ -5,6 +5,7 @@ import LIB.FSTexFieldMD;
 import LIB.JEImagePanel;
 import LIB.JPanelRound;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -22,6 +23,7 @@ public class Vista_factura extends javax.swing.JFrame {
         Vista_factura.this.setBackground(new Color(0, 0, 0, 0));
         buscadetalle.addKeyListener(new VALIDACIONES.Numeros());
         buscacabeza.addKeyListener(new VALIDACIONES.Numeros());
+setIconImage(new ImageIcon(getClass().getResource("/ICONOS/iconocolibrie.jpg")).getImage());
     }
 
     /**
